@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/camera/index",
+    "pages/my/index",
+    "pages/index/more/index",
+    "pages/my/personal/index",
+    "pages/market/index",
+    "pages/knowledge/index",
+    "pages/market/myservice/index",
+    "pages/market/shop/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#0670bc",
+    "borderStyle": "black",
+    "list": [
+      {
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-selected.png",
+        "pagePath": "pages/index/index",
+        "text": "社区"
+      },
+      {
+        "iconPath": "icons/market.png",
+        "selectedIconPath": "icons/market-selected.png",
+        "pagePath": "pages/market/index",
+        "text": "商城"
+      },
+      {
+        "iconPath": "icons/camera.png",
+        "selectedIconPath": "icons/camera-selected.png",
+        "pagePath": "pages/camera/index",
+        "text": "拍照"
+      },
+      {
+        "iconPath": "icons/library.png",
+        "selectedIconPath": "icons/library-selected.png",
+        "pagePath": "pages/knowledge/index",
+        "text": "知识"
+      },
+      {
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my-selected.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

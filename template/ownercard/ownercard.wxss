@@ -1,0 +1,7 @@
+.ownertop{
+  width: 5rpx;
+  height: 30rpx;
+  background-color: #449BFB;
+  margin-top: 7rpx;
+  margin-bottom: 30rpx;
+}

@@ -1,0 +1,29 @@
+/* template/animalcard/animalcard.wxss */
+.detail{
+  background-color: #EFEEEE;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.top{
+  width: 5rpx;
+  height: 30rpx;
+  background-color: #9889FF;
+  margin-top: 7rpx;
+  margin-bottom: 30rpx;
+}
+.information{
+  background-color: white;
+  width: 700rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}
+.text{
+  margin: 20rpx;
+}

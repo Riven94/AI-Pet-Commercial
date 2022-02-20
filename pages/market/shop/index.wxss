@@ -1,0 +1,54 @@
+/* pages/market/shop/index.wxss */
+.top{
+  display: flex;
+  width: 100%;
+  height: 150rpx;
+  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+}
+.back{
+  width: 30rpx;
+  height: 30rpx;
+  rotate: 180deg;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.cart{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.wrap{
+  width: 100%;
+  margin-top: 90rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.stars{
+  display: flex;
+  margin-bottom: 45rpx;
+}
+.shop{
+  display: flex;
+}
+.shopicon{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin: 20rpx 30rpx 20rpx 30rpx;
+}
+.star{
+  width: 30rpx;
+  height: 30rpx;
+}
+.otherwrap{
+  display: flex;
+}
+.shopgeneral{
+  margin: 20rpx;
+}
+.shopname{
+  margin-bottom: 10rpx;
+}
+.type{
+  margin-right: 20rpx;
+}

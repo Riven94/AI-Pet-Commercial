@@ -1,0 +1,55 @@
+/* pages/my/index.wxss */
+@import "../../template/publishitem/publishitem.wxss";
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.top{
+  width: 100%;
+  display: flex;
+  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+  flex-direction: column;
+  align-items: center;
+}
+.message{
+  width: 680rpx;
+  color:white;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.newmessage{
+  font-size: 28rpx;
+  float: left;
+}
+.moremessage{
+  font-size: 28rpx;
+  float: right;
+}
+.triangle{
+  margin-top: 9rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  float: right;
+  width: 0rpx;
+  height: 0rpx;
+  border-left: 12rpx solid white;
+  border-top: 12rpx solid transparent;
+  border-bottom: 12rpx solid transparent;
+}
+.search{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  height: 40rpx;
+  width: 680rpx;
+}
+.searchicon{
+  margin-left: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}

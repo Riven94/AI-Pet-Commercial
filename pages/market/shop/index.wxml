@@ -1,0 +1,24 @@
+<!--pages/market/shop/index.wxml-->
+<view class="container">
+<view class="top">
+<view class="wrap">
+<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+<image class="cart" src="../../../icons/cart.png"></image>
+</view>
+</view>
+<view class="shop">
+<image class="shopicon" src="{{icon}}"></image>
+<view class="shopgeneral">
+<view class="shopname">{{shopname}}</view>
+<view class="stars">
+<image class="star" src="../../../icons/star.png" wx:if="{{stars}}" wx:for="{{stars - 1}}"></image>
+</view>
+<view class="otherwrap">
+<view class="type">{{type}}</view>
+<view class="strict">{{strict}}</view>
+</view>
+</view>
+</view>
+<view class="detail"></view>
+<view class="address"></view>
+</view>

@@ -1,0 +1,29 @@
+<view class="container">
+<view class="top">
+<view class="searchwrap">
+<view class="search">
+<icon type="search" class="searchIcon" size="18"></icon>
+<input type="text" class="input" placeholder="猫玩具"/>
+</view>
+</view>
+<view class="tabs">
+<view class="tab" wx:for="{{tabs}}" wx:for-index="index">
+<view class="tabname" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
+<view class="line {{currentIndex==index ? '' : 'off'}}"></view>
+</view>
+</view>
+</view>
+<view class="foot">
+<view class="articles">
+<view class="article" wx:for="{{articles}}" wx:for-index="index">
+<view class="title">{{item.title}}</view>
+<view class="articlefoot">
+<view class="generalwarp">
+<view class="general">{{tempgeneral[index]}}</view>
+</view>
+<image class="articleimg" src="{{item.img}}"></image>
+</view>
+</view>
+</view>
+</view>
+</view>

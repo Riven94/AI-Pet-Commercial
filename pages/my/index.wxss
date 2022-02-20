@@ -1,0 +1,122 @@
+/* pages/my/index.wxss */
+@import "../../template/publishitem/publishitem.wxss";
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.top{
+  width: 100%;
+  display: flex;
+  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+}
+.functions{
+  display: flex;
+}
+.publish{
+  left: 3%;
+  right: 3%;
+  margin-top: 20rpx;
+}
+.icon{
+  width: 130rpx;
+  height: 130rpx;
+  margin: 20rpx 40rpx;
+}
+.detail{
+  width: 470rpx;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+.name{
+  font-size: 35rpx;
+}
+.introduction{
+  margin-top: 20rpx;
+  font-size: 20rpx;
+}
+.setting{
+  margin-top: 30rpx;
+  width: 35rpx;
+  height: 35rpx;
+  align-items: flex-end;
+}
+.functions{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.function{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.functionIcon{
+  width: 85rpx;
+  height: 85rpx;
+}
+.functionName{
+  margin-top: 10rpx;
+  font-size: 27rpx;
+}
+.label{
+  color: blue;
+  font-weight: 20rpx;
+  margin-right: 15rpx;
+}
+.publishtop{
+  width: 100%;
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.more{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 500rpx;
+}
+.orderlabel{
+  color: #FF9959;
+}
+.order{
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+  background-color: #FFFFFF;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(229,229,229,1);
+  margin: 30rpx auto;
+  width: 680rpx;
+  display: flex;
+  flex-direction: column;
+}
+.orderfoot{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.ordername{
+  margin: 10rpx 0 0 15rpx;
+}
+.orderimg{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 10%;
+  margin-left: 15rpx;
+}
+.ordermiddle{
+  margin: 5rpx 60rpx 10rpx 30rpx;
+}
+.orderright{
+  margin: 5rpx 0 10rpx 50rpx;
+}
+.status{
+  margin: 10rpx 0 40rpx 0;
+}
+.servicename{
+  margin: 10rpx 0 40rpx 0;
+}

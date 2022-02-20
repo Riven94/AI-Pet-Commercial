@@ -1,0 +1,44 @@
+/* pages/index/more/index.wxss */
+@import "../../../template/animalcard/animalcard.wxss";
+@import "../../../template/ownercard/ownercard.wxss";
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bluetop{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.triangle{
+  margin-top: 9rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  float: left;
+  width: 0rpx;
+  height: 0rpx;
+  border-right: 12rpx solid white;
+  border-top: 12rpx solid transparent;
+  border-bottom: 12rpx solid transparent;
+}
+.moremessage{
+  color: white;
+  float: left;
+}
+.message{
+  width: 100%;
+  display: block;
+}
+.left{
+  background-color: #EFEEEE;
+  height: 800rpx;
+}
+.info{
+  background-color: #EFEEEE;
+}

@@ -1,0 +1,16 @@
+<!--template/card/card.wxml-->
+<template name="animalcard">
+<view class="detail">
+<view class="title">
+<view class="top"></view>
+<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;小动物信息</text></view>
+<view class="information">
+<view class="text">属性： {{animalitem.attribute}}</view>
+<view class="text">姓名： {{animalitem.name}}</view>
+<view class="text">品种： {{animalitem.type}}</view>
+<view class="text">颜色： {{animalitem.color}}</view>
+<view class="text">照片：</view>
+<view class="img" wx:for="{{animalitem.img}}" wx:for-item="imganimalitem" >{{imganimalitem}}</view>
+</view>
+</view>
+</template>

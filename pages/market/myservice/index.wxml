@@ -1,0 +1,24 @@
+<view class="container">
+<view class="top">
+<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+<view class="search">
+<icon type="search" class="searchIcon" size="18"></icon>
+<input type="text" class="input" placeholder="猫玩具"/></view>
+</view>
+<view class="orders">
+  <view class="order" wx:for="{{orders}}">
+  <view class="ordername">{{item.shopname}}</view>
+  <view class="orderfoot">
+  <image class="orderimg" src="{{item.orderimg}}"></image>
+  <view class="ordermiddle">
+  <view class="servicename">{{item.service}}</view>
+  <view class="ordertime">{{item.time}}</view>
+  </view>
+  <view class="orderright">
+  <view class="status">{{item.status}}</view>
+  <view class="price"><text style="color: gray;">合计</text>￥{{item.price}}</view>
+  </view>
+  </view>
+  </view>
+  </view>
+</view>

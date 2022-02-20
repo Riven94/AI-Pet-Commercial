@@ -1,0 +1,28 @@
+<!--pages/index/more/index.wxml-->
+<import src="../../../template/animalcard/animalcard.wxml"></import>
+<import src="../../../template/ownercard/ownercard.wxml"></import>
+<view class="container">
+  <view class="bluetop">
+  <view class="message">
+  <view class="triangle" bindtap="back"></view>
+  <text class="moremessage">我的消息</text>
+  </view>
+  </view>
+  <view class="left">
+  <view class="messageitem">
+<view class="mymessage">
+<view class="messages" wx:for="{{messages}}">
+<view class="messagedetail">
+<image class="icon" src="{{item.icon}}"></image>
+<view class="middle">
+<view class="from">{{item.from}}</view>
+<view class="detail">{{item.detail}}</view>
+</view>
+<view class="time">{{item.time}}</view>
+</view>
+<view class="line"></view>
+</view>
+</view>
+</view>
+</view>
+</view>

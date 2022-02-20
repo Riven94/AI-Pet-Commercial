@@ -1,0 +1,86 @@
+/* pages/index/more/index.wxss */
+@import "../../../template/animalcard/animalcard.wxss";
+@import "../../../template/ownercard/ownercard.wxss";
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bluetop{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.triangle{
+  margin-top: 9rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  float: left;
+  width: 0rpx;
+  height: 0rpx;
+  border-right: 12rpx solid white;
+  border-top: 12rpx solid transparent;
+  border-bottom: 12rpx solid transparent;
+}
+.moremessage{
+  color: white;
+  float: left;
+}
+.message{
+  width: 100%;
+  display: block;
+}
+.left{
+  background-color: #EFEEEE;
+  height: 1000rpx;
+  display: flex;
+}
+.messageitem{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mymessage{
+  display: flex;
+  flex-direction: column;
+  width: 600rpx;
+  height: 80%;
+  background-color: white;
+  border-radius: 10rpx;
+}
+.messages{
+  display: flex;
+  flex-direction: column;
+}
+.messagedetail{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.detail{
+  color: #999999;
+  background-color: white;
+  font-size: 25rpx;
+}
+.time{
+  margin-left: 190rpx;
+  color: #999999;
+}
+.line{
+  background-color: #979797;
+  width: 600rpx;
+  height: 1rpx;
+}
