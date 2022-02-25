@@ -85,5 +85,11 @@ Page({
     wx.navigateTo({
       url: './myservice/index',
     })
+  },
+
+  toShop: function(e){
+    wx.navigateTo({
+      url: './serviceshop/index',
+    })
   }
 })

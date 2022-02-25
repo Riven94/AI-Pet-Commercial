@@ -1,0 +1,40 @@
+.addresswrap{
+  background-color: white;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  height: 200rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10rpx;
+  margin: 0 auto;
+}
+.location{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 auto;
+}
+.iconwrap{
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.middle{
+  flex: 20;
+  display: flex;
+  flex-direction: column;
+}
+.user{
+  margin-top: 10rpx;
+  display: flex;
+}
+.more{
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.username{
+  margin-right: 30rpx;
+}

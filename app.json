@@ -9,7 +9,9 @@
     "pages/market/index",
     "pages/knowledge/index",
     "pages/market/myservice/index",
-    "pages/market/shop/index"
+    "pages/market/serviceshop/index",
+    "pages/market/servicedetail/index",
+    "pages/market/placeorder/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

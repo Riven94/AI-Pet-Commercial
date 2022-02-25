@@ -1,0 +1,45 @@
+.orderwrap{
+  background-color: white;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  height: 230rpx;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+}
+.order-summary{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.orderimg{
+  border-radius: 10rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+.ordername{
+  width: 55%;
+  font-weight: 530;
+  font-size: 33rpx;
+  margin-left: 20rpx;
+}
+.order-price-quantity{
+  margin-left: 20rpx;
+}
+.order-price{
+  margin-left: 40rpx;
+  font-size: 31rpx;
+}
+.order-quantity{
+  margin-top: 20rpx;
+  color: gray;
+  font-size: 31rpx;
+}
+.order-express{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.expressdetail{
+  margin-right: 20rpx;
+}

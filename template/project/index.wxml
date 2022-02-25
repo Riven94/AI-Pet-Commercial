@@ -1,0 +1,9 @@
+<template name="project">
+<view class="projectwrap">
+<view class="projecttype">{{project.type}}</view>
+<view class="projectdetail" wx:for="{{project.detail}}" wx:for-item="projectitem">
+<view class="name">{{projectitem.name}}</view>
+<view class="times">{{projectitem.times}}次|{{projectitem.price}}元</view>
+</view>
+</view>
+</template>

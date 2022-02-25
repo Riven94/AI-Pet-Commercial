@@ -1,0 +1,39 @@
+/* pages/market/placeorder/index.wxss */
+@import "../../../template/address/index.wxss";
+@import "../../../template/orderdetail/index.wxss";
+page{
+  background-color: rgb(248,249,249);
+}
+.top{
+  height: 100rpx;
+  display: flex;
+  background: linear-gradient(-180deg, rgba(2,187,255,1) 100%,rgba(1,134,255,1) 0%);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.confirm{
+  color: white;
+  margin: 20rpx;
+}
+.back{
+  width: 40rpx;
+  height: 40rpx;
+  rotate: 180deg;
+  margin: 20rpx;
+}
+.cart{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx;
+}
+.radio-group{
+  background-color: white;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+.radio{
+  width: 95%;
+  display: block;
+  padding: 5px;
+}
