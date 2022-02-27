@@ -32,7 +32,7 @@
 <view class="stars">
 <image class="star" wx:for="{{stars - 1}}" wx:if="{{stars}}" src="../../../icons/star.png"></image>
 </view>
-<view class="more">共{{total}}个消费评价 ></view>
+<view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
 </view>
 <view class="coupon">
 <view class="label">￥</view>

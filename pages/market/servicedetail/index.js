@@ -106,5 +106,11 @@ Page({
     wx.navigateTo({
       url: '../myservice/index',
     })
+  },
+
+  toComment: function(e){
+    wx.navigateTo({
+      url: '../comment/index',
+    })
   }
 })

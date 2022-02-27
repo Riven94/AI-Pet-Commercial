@@ -11,7 +11,9 @@
     "pages/market/myservice/index",
     "pages/market/serviceshop/index",
     "pages/market/servicedetail/index",
-    "pages/market/placeorder/index"
+    "pages/market/placeorder/index",
+    "pages/market/comment/index",
+    "pages/market/commoditydetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

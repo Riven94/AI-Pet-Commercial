@@ -1,0 +1,45 @@
+<view class="container">
+<view class="top">
+<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+<view class="title">商品详情</view>
+<image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
+</view>
+<view class="images">
+<image class="img" src="../../../icons/cat.jpg"></image>
+</view>
+<view class="price-general">
+<view class="price">￥{{price}}</view>
+<view class="bottom-wrap">
+<view class="text">秒杀价</view>
+<view class="nums">仅剩{{left}}件</view>
+</view>
+</view>
+<view class="describe">
+<view class="describe-wrap">
+<view class="commodityname">{{commodityname}}</view>
+<text class="return">{{return}}</text>
+<view class="methods">{{methods}}</view>
+</view>
+</view>
+<view class="freight">
+<view class="left">运费</view>
+<view class="right">
+<view class="freight-middle">{{freight}}</view>
+<view class="freight-right">已下单{{ordered}}</view>
+</view>
+</view>
+<view class="service">
+<view class="left">服务</view>
+<view class="right">{{express}}</view>
+</view>
+<view class="comment">
+<text class="comment-text">商品评价</text>
+<image class="more" src="../../../icons/arrow-right.png"></image>
+</view>
+<view class="bottom">
+<view class="wrap">
+<view class="add">加入购物车</view>
+<view class="buy">立即购买</view>
+</view>
+</view>
+</view>

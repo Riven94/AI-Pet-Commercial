@@ -13,8 +13,8 @@ Page({
         {icon:"../../icons/diamond.png", path:"./message/index", text:"我的消息"}
       ],
       myPublish:[
-        {img:"../../icons/diamond.png", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"},
-        {img:"../../icons/diamond.png", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"}
+        {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"},
+        {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"}
       ],
       orders:[
         {shopname:"爱宠一家人宠物美容店",orderimg:"../../icons/cat.jpg",service:"洗澡美容套餐服务",time:"2022-01-01",
