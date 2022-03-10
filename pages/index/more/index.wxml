@@ -4,8 +4,10 @@
 <view class="container">
   <view class="bluetop">
   <view class="message">
-  <view class="triangle"></view>
-  <text class="moremessage">更多消息</text>
+  <view class="back" bindtap="back">
+    <view class="triangle"></view>
+    <text class="moremessage">更多消息</text>
+  </view> 
   </view>
   </view>
 <template is="animalcard" data="{{animalitem}}"></template>

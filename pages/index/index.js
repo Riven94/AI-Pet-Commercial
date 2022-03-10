@@ -24,4 +24,10 @@ Page({
       })
     }
   },
+
+  toMore(){
+    wx.navigateTo({
+      url: './more/index',
+    })
+  }
 })

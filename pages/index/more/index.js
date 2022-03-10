@@ -1,4 +1,6 @@
 // pages/index/more/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -10,7 +12,9 @@ Page({
       name: "旺旺",
       type: "萨摩耶",
       color: "白色",
-      img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"]
+      img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"],
+      ownerId: 4,
+      time: ''
     },
     owneritem:{
       nickname: "王先生",
@@ -24,16 +28,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getAnimal(1);
+    //const {ownerId} = this.data.animalitem;
+    // console.log(this.data.animalitem.ownerId);
+    // setTimeout(()=>{
+    //   this.getOwner(this.data.animalitem.ownerId);}
+    //   , 0);
+  },
+
+  getAnimal(id){
+    const that = this;
     wx.request({
-      url: 'http://101.42.227.112:8000/user/getUserDetail',
+      url: domain + '/animals/getDetail',
       data:{
-        userId:1
+        "animalId": id
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success (res) {
-        console.log(res.data)
+        const resData = res.data.data;
+        const {ownerId, createdAt} = resData;
+        console.log(resData.ownerId);
+        const temp = { ...that.data.animalitem,
+                        type: resData.detail,
+                        name: resData.name,
+                        color: resData.color,
+                        ownerId: resData.ownerId,
+                        time: resData.createdAt}
+        that.setData({animalitem: temp});
+        that.getOwner(ownerId, createdAt);
+      }
+    })
+  },
+
+  getOwner(id, time){
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data: {'userId':id},
+      success(res){
+        const resData = res.data.data;
+        const temp = {
+          nickname: resData.nickName,
+          email: resData.email,
+          phone: resData.phone,
+          time: time
+        }
+        that.setData({owneritem: temp});
+      },
+      fail(error){
+        console.log(error);
       }
     })
   },
@@ -85,5 +130,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  back: function(){
+    wx.navigateBack({
+    })
   }
 })

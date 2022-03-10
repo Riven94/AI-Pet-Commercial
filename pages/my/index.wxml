@@ -2,10 +2,12 @@
 <import src="../../template/publishitem/publishitem.wxml"></import>
 <view class="container">
   <view class="top">
-  <image class="icon" src="../../icons/boy.png"></image>
-  <view class="detail">
-  <view class="name">{{name}}</view>
-  <view class="introduction">{{introduction}}</view>
+  <image class="icon" src="{{userIcon}}" bindtap="getUser"></image>
+  <view class="user" bindtap="getUser">
+    <view class="detail">
+    <view class="name">{{name}}</view>
+    <view class="introduction">{{introduction}}</view>
+  </view> 
   </view> 
   <image class="setting" src="../../icons/setting.png"></image>
   </view>

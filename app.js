@@ -14,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    domainName: "http://101.42.227.112:8000",
   }
 })

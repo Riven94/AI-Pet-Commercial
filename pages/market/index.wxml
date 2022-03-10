@@ -12,7 +12,7 @@
         <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
         <image class="activityImg" src="{{activityImg[index]}}"></image>
         </swiper-item>
-      </swiper>
+</swiper>
       
 </view>
 <view class="bottom">

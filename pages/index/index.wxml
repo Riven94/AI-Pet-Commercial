@@ -13,5 +13,7 @@
   <image class="searchicon" src="../../icons/search.png"></image>
   </view>
   </view>
-  <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
+  <view bindtap="toMore">
+    <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
+  </view>
 </view>

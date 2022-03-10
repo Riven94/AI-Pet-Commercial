@@ -12,7 +12,7 @@ page{
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 150rpx;
+  height: 100rpx;
   background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
 }
 .searchwrap{
@@ -36,56 +36,65 @@ page{
   background-color: white;
   border-radius: 20rpx;
 }
-.tabs{
+.middle{
   width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0  0 20rpx 20rpx;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(229,229,229,1);
+}
+.activities{
+  margin: 20rpx auto;
+  width: 95%;
+}
+.activityImg{
+  width: 100%;
+  height: 100%;
+}
+.classes{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: -7rpx auto;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
 }
-.tabname{
-  color: white;
+.icon{
+  width: 120rpx;
+  height: 120rpx;
 }
-.tab{
+.articles{
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-.line{
-  width: 80rpx;
-  height: 5rpx;
-  background-color: white;
-}
-.off{
-  display: none;
-}
-.foot{
-  height: 100%;
-  background-color: rgb(253, 245, 245);
+.title{
+  height: 50rpx;
 }
 .article{
-  width: 90%;
-  margin: 50rpx auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 10rpx;
-}
-.articlefoot{
-  display: flex;
-  flex-direction: row;
-}
-.articleimg{
-  width: 180rpx;
-  height: 180rpx;
-}
-.generalwarp{
-  width: 700rpx;
-  height: 180rpx;
-  margin: 20rpx 5rpx 0 20rpx;
-}
-.general{
+  margin: 20rpx 0 30rpx 0;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(229,229,229,1);
 }
 .title{
-  margin: 20rpx;
+  margin-top: 20rpx;
 }
+.articleimg{
+  margin: 0 auto;
+  width: 90%;
+  height: 250rpx;
+}
+.desc{
+  color: gray;
+  font-size: 27rpx;
+  margin: 10rpx 0;
+}
+.atc{
+  margin-left: 32rpx;
+}
+
+

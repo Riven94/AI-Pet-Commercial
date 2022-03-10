@@ -23,6 +23,10 @@
   width: 130rpx;
   height: 130rpx;
   margin: 20rpx 40rpx;
+  border-radius: 50%;
+}
+.user{
+  margin-top: 38rpx;
 }
 .detail{
   width: 470rpx;
@@ -56,11 +60,10 @@
   align-items: center;
 }
 .functionIcon{
-  width: 85rpx;
-  height: 85rpx;
+  width: 110rpx;
+  height: 110rpx;
 }
 .functionName{
-  margin-top: 10rpx;
   font-size: 27rpx;
 }
 .label{

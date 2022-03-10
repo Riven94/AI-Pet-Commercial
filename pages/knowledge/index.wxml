@@ -3,27 +3,28 @@
 <view class="searchwrap">
 <view class="search">
 <icon type="search" class="searchIcon" size="18"></icon>
-<input type="text" class="input" placeholder="猫玩具"/>
-</view>
-</view>
-<view class="tabs">
-<view class="tab" wx:for="{{tabs}}" wx:for-index="index">
-<view class="tabname" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
-<view class="line {{currentIndex==index ? '' : 'off'}}"></view>
+<input type="text" class="input" placeholder="搜索宠物相关知识"/>
 </view>
 </view>
 </view>
-<view class="foot">
+<view class="middle">
+  <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
+        <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
+        <image class="activityImg" src="{{activityImg[index]}}" mode="aspectFill"></image>
+        </swiper-item>
+  </swiper>
+  <view class="classes">
+    <view class="class" wx:for="{{classes}}">
+      <image class="icon" src="{{item.icon}}"></image>
+      <view class="name">{{item.text}}</view>
+    </view>
+  </view>
+</view>
 <view class="articles">
-<view class="article" wx:for="{{articles}}" wx:for-index="index">
-<view class="title">{{item.title}}</view>
-<view class="articlefoot">
-<view class="generalwarp">
-<view class="general">{{tempgeneral[index]}}</view>
-</view>
-<image class="articleimg" src="{{item.img}}"></image>
-</view>
-</view>
-</view>
+  <view class="article" wx:for="{{articles}}" wx:for-item="atc">
+    <view class="title atc">{{atc.title}}</view>
+    <image class="articleimg" src="{{atc.img}}" mode="aspectFill"></image>
+    <view class="desc atc">{{atc.desc}}</view>
+  </view>
 </view>
 </view>
