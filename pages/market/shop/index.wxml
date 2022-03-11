@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="top">
+    <view class="searchwrap">
+    <view class="search">
+      <icon type="search" class="searchIcon" size="18"></icon>
+      <input type="text" class="input" placeholder=" 搜索店内商品" bindconfirm="Search"/>
+    </view>
+  </view>
+  <image class="cart" src="../../../icons/cart.png"></image>
+  </view>
+  <view class="shop-detail">
+    <view class="shop-general">
+      <image class="shop-icon" src='{{shop.shopIcon}}'></image>
+      <view class="shop-name-stars">
+        <view class="shop-name">{{shop.shopName}}</view>
+        <view class="stars">
+          <image class="star" wx:for="{{shop.stars - 0}}" src="../../../icons/star.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="desc">{{shop.desc}}</view>
+  </view>
+  <view class="servicesItems">
+    <view class="items" >
+      <view class="wrap" wx:for="{{services}}" wx:for-index="index">
+        <view class="item" data-index="{{index}}" bindtap="change">{{item}}
+        </view>
+        <view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
+      </view>
+    </view>
+  </view>
+  <view class="serviceDetail" >
+    <view class="detailwrap" wx:for="{{comodities}}" bindtap="toShop">
+      <image class="detailImg" src="{{item.img}}"></image>
+      <view class="name">{{item.name}}</view>
+      <view class="footwrap">
+        <view class="price">￥{{item.price}}</view>
+        <view class="quantity">{{item.quantity}}人付款了</view>
+      </view>
+  </view>
+  </view>
+</view>

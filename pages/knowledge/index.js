@@ -18,9 +18,9 @@ Page({
     activityNums: 3,
     activityImg: ["../../icons/cat.jpg","../../icons/cat.jpg","../../icons/cat.jpg"],
     classes: [
-      {icon: "../../icons/book.png", text: "养宠知识"},
-      {icon: "../../icons/notice.png", text: "户外运动"},
-      {icon: "../../icons/new.png", text: "新手攻略"},
+      {icon: "../../icons/book.png", text: "养宠知识",tag:'book'},
+      {icon: "../../icons/notice.png", text: "户外运动", tag:'notice'},
+      {icon: "../../icons/new.png", text: "新手攻略", tag:'new'},
     ],
   },
 
@@ -49,17 +49,53 @@ Page({
       url: domain + '/knowledge/getAll',
       method: "GET",
       data: {
-        "userId": 2
+        "creatorId": 1
       },
       success: (res) => {
+        const resData = res.data.data;
+        console.log(resData)
+        var articleData = [];
+        resData.forEach(element => {
+          let temp = {
+            title: element.articleTitle,
+            general: element.article,
+            img: element.img,
+            desc: '你想知道的都在这里！',
+            id: element.id
+          };
+          articleData.push(temp);
+        });
         that.setData({
-          articles: res.data.data
+          articles: articleData
         })
-        console.log(res);
+        console.log(that.data.articles);
       },
       fail: (res) => {
         console.log(res);
       }
+    })
+  },
+
+  toDetail: function(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: './article/index?id='+id,
+    })
+  },
+
+  Search: function(e){
+    console.log(e);
+    const key = e.detail.value;
+    wx.navigateTo({
+      url: './searchResult/index?data=' + key,
+    })
+  },
+
+  toType: function(e){
+    const tag = e.currentTarget.dataset.tag;
+    console.log(tag);
+    wx.navigateTo({
+      url: './articleWithType/index?tag=' + tag ,
     })
   },
   /**

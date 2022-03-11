@@ -6,8 +6,8 @@
 <view class="confirm">确认订单</view>
 <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
 </view>
-<view class="address">
-<template is="address" data="{{address}}"></template>
+<view class="address" bindtap="toAddress">
+<template is="address" data="{{address}}" ></template>
 </view>
 <template is="orderdetail" data="{{order}}"></template>
 <view class="page__bd">

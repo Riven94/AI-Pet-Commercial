@@ -54,7 +54,7 @@
 </view>
 <view class="payment">
 <view class="buyprice">￥{{price}}</view>
-<view class="buy">立即抢购</view>
+<view class="buy" bindtap="toOrder">立即抢购</view>
 </view>
 </view>
 

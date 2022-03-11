@@ -10,7 +10,7 @@
 </view>
 <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
         <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
-        <image class="activityImg" src="{{activityImg[index]}}"></image>
+        <image class="activityImg" mode="aspectFill" src="{{activityImg[index]}}"></image>
         </swiper-item>
 </swiper>
       

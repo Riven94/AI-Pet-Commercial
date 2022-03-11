@@ -1,0 +1,95 @@
+page{
+  background-color: rgb(248,249,249);
+}
+.top{
+  height: 100rpx;
+  display: flex;
+  background: linear-gradient(-180deg, rgba(2,187,255,1) 100%,rgba(1,134,255,1) 0%);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.title{
+  color: white;
+  width: 50%;
+  margin: 20rpx;
+}
+.back{
+  width: 40rpx;
+  height: 40rpx;
+  rotate: 180deg;
+  margin: 20rpx;
+}
+.cart{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx;
+}
+.bottom{
+  bottom: 0;
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  background-color: white;
+}
+.wrap{
+  float: right;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.pay{
+  background-color: #EA5352;
+  color: white;
+  border-radius: 50rpx;
+}
+.label{
+  margin-top: 30rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 6px 0px rgba(229,229,229,1);
+  overflow: auto;
+  align-items: space-between;
+  border:1px solid transparent;
+}
+.comodityWrap{
+  display: flex;
+  border-radius: 10rpx;
+  margin: 20rpx 0;
+}
+.img{
+  border-radius: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+checkbox .wx-checkbox-input{
+  margin-left: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}
+.quantity{
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid black;
+  border-radius: 10rpx;
+  align-self: flex-end;
+  margin-left: 230rpx;
+}
+.middle{
+  width: 200rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.name{
+  display: flex;
+  overflow: hidden;
+  height: 35rpx;
+}
+.price{
+  color: #EA5352;
+}

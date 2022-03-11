@@ -13,7 +13,13 @@
     "pages/market/servicedetail/index",
     "pages/market/placeorder/index",
     "pages/market/comment/index",
-    "pages/market/commoditydetail/index"
+    "pages/market/commoditydetail/index",
+    "pages/market/cart/index",
+    "pages/knowledge/article/index",
+    "pages/knowledge/searchResult/index",
+    "pages/market/shop/index",
+    "pages/market/receive/index",
+    "pages/knowledge/articleWithType/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

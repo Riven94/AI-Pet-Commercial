@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="top">
+  <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+  <view class="title">购物车</view>
+  </view>
+  <checkbox-group class="comodities" bindchange="checkboxChange">
+    <label class="label" wx:for="{{comodities}}">
+      <view class="weui-cell__hd">
+        <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+      </view>
+      <view class="comodityWrap">
+        <image class="img" src="{{item.img}}"></image>
+        <view class="middle">
+          <view class="name">{{item.name}}</view>
+          <view class="express">{{item.express}}</view>
+          <view class="price">￥{{item.price}}</view>
+        </view>
+        <view class="quantity">×{{item.quantity}}</view>
+      </view>
+    </label>
+
+  </checkbox-group>
+  <view class="bottom">
+    <view class="wrap">
+      <view class="total">合计￥{{totalPrice}}</view>
+      <button class="pay" style="width: 200rpx;">结算</button>
+    </view>
+  </view>
+</view>

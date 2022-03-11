@@ -5,21 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    icon: "../../../icons/cat.jpg",
-    shopname: "爱宠一家人萌宠生活馆",
-    stars: 6,
-    type: "宠物店",
-    strict: "洪山区",
-    services:["洗澡","美容","接送服务"],
-    status:"营业中",
-    time:"周一至周日 09：30-19：00",
-    address: "雄楚大道100号",
-    distance: "7.2",
-    drivetime: "20",
-    currentIndex: 0,
-    items: ["全部","洗澡","美容","寄卖","撸宠"]
-  },
+    shop: {
+      shopName: '爱宠一家人猫咪专营',
+      shopIcon: '../../../icons/cat.jpg',
+      stars: 5,
+      desc: '本店专营各种猫咪零食'
+    },
+    services:['综合', '销量', '新品'],
+    currentIndex: 1,
+    comodities: [
+      {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862},
+      {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862}
+    ]  },
 
+  change: function(e){
+    const index = e.currentTarget.dataset.index;
+    const that = this;
+    that.setData({
+        currentIndex: index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,29 +79,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  back: function(){
-    wx.navigateBack({
-    })
-  },
-
-  change: function(e){
-    const index = e.currentTarget.dataset.index;
-    this.setData({
-        currentIndex: index
-    })
-  },
-
-  toDetail: function(e){
-    wx.navigateTo({
-      url: '../servicedetail/index',
-    })
-  },
-
-  toMyService: function(e){
-    wx.navigateTo({
-      url: '../myservice/index',
-    })
   }
 })

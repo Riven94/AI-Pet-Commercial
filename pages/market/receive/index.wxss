@@ -1,0 +1,39 @@
+.top{
+  height: 100rpx;
+  display: flex;
+  background: linear-gradient(-180deg, rgba(2,187,255,1) 100%,rgba(1,134,255,1) 0%);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.confirm{
+  color: white;
+  margin: 20rpx 0;
+  width: 60%;
+}
+.back{
+  width: 40rpx;
+  height: 40rpx;
+  rotate: 180deg;
+  margin: 20rpx;
+}
+.cart{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx;
+}
+.section{
+  display: flex;
+  width: 90%;
+  margin: 30rpx auto 10rpx;
+}
+.left{
+  width: 150rpx;
+}
+.input{
+  background-color: rgb(232,232,232);
+  width: 500rpx;
+  border-radius: 10rpx;
+}
+.save{
+  background-color: rgb(1,134,255);
+}

@@ -112,5 +112,11 @@ Page({
     wx.navigateTo({
       url: '../comment/index',
     })
+  },
+
+  toOrder(){
+    wx.navigateTo({
+      url: '../placeorder/index',
+    })
   }
 })

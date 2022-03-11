@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="top">
+    <view style="color: white;">搜索结果</view>
+  </view>
+  <view class="articles" wx:if="{{articles.length >0}}">
+    <view class="article" wx:for="{{articles}}" wx:for-item="atc" data-id="{{atc.id}}" bindtap="toDetail">
+      <view class="title atc">{{atc.title}}</view>
+      <image class="articleimg" src="{{atc.img}}" mode="aspectFill"></image>
+      <view class="desc atc">{{atc.desc}}</view>
+    </view>
+  </view>
+  <view wx:else>
+    暂未找到相关文章
+  </view>
+</view>

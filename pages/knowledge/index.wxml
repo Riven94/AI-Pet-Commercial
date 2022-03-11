@@ -1,11 +1,11 @@
 <view class="container">
 <view class="top">
-<view class="searchwrap">
-<view class="search">
-<icon type="search" class="searchIcon" size="18"></icon>
-<input type="text" class="input" placeholder="搜索宠物相关知识"/>
-</view>
-</view>
+  <view class="searchwrap">
+    <view class="search">
+      <icon type="search" class="searchIcon" size="18"></icon>
+      <input type="text" class="input" placeholder="搜索宠物相关知识" bindconfirm="Search"/>
+    </view>
+  </view>
 </view>
 <view class="middle">
   <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
@@ -15,13 +15,13 @@
   </swiper>
   <view class="classes">
     <view class="class" wx:for="{{classes}}">
-      <image class="icon" src="{{item.icon}}"></image>
+      <image class="icon" src="{{item.icon}}" data-tag='{{item.tag}}' bindtap="toType"></image>
       <view class="name">{{item.text}}</view>
     </view>
   </view>
 </view>
 <view class="articles">
-  <view class="article" wx:for="{{articles}}" wx:for-item="atc">
+  <view class="article" wx:for="{{articles}}" wx:for-item="atc" data-id="{{atc.id}}" bindtap="toDetail">
     <view class="title atc">{{atc.title}}</view>
     <image class="articleimg" src="{{atc.img}}" mode="aspectFill"></image>
     <view class="desc atc">{{atc.desc}}</view>

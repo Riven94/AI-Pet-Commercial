@@ -18,7 +18,7 @@
 <view class="time">{{item.time}}</view>
 </view>
 <view class="stars">
-<image class="star" wx:for="{{item.stars - 0}}" src="../../../icons/star.png"></image>
+  <image class="star" wx:for="{{item.stars - 0}}" src="../../../icons/star.png"></image>
 </view>
 </view>
 </view>

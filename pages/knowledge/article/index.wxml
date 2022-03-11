@@ -1,0 +1,2 @@
+<!--pages/knowledge/article/index.wxml-->
+<rich-text>{{article}}</rich-text>

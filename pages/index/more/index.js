@@ -29,11 +29,29 @@ Page({
    */
   onLoad: function (options) {
     this.getAnimal(1);
-    //const {ownerId} = this.data.animalitem;
-    // console.log(this.data.animalitem.ownerId);
-    // setTimeout(()=>{
-    //   this.getOwner(this.data.animalitem.ownerId);}
-    //   , 0);
+    wx.request({
+      url: domain + '/animals/upload',
+      method: 'POST',
+      data: {
+        'animalName': 'nihao',
+        'varieties': 'yes',
+        'type':1,
+        'pictureId':111,
+        'datail':'cat',
+        'finderId': 12,
+        'finderName': '1213',
+        'spot': 'wuhan',
+        'ownerId': 12,
+        'ownerName': 'dd',
+        'isLost': 1
+    },
+    success(res){
+      console.log(res);
+    },
+    fail(error){
+      console.log(error);
+    }
+    })
   },
 
   getAnimal(id){

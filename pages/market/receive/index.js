@@ -1,23 +1,13 @@
-// pages/market/shop/index.js
+// pages/market/receive/index.js
+const domain = getApp().globalData.domainName;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    icon: "../../../icons/cat.jpg",
-    shopname: "爱宠一家人萌宠生活馆",
-    stars: 6,
-    type: "宠物店",
-    strict: "洪山区",
-    services:["洗澡","美容","接送服务"],
-    status:"营业中",
-    time:"周一至周日 09：30-19：00",
-    address: "雄楚大道100号",
-    distance: "7.2",
-    drivetime: "20",
-    currentIndex: 0,
-    items: ["全部","洗澡","美容","寄卖","撸宠"]
+    info: ['收货人','手机号码','所在地区','详细地址']
   },
 
   /**
@@ -76,27 +66,38 @@ Page({
 
   },
 
-  back: function(){
+  back: function(e){
     wx.navigateBack({
     })
   },
 
-  change: function(e){
-    const index = e.currentTarget.dataset.index;
-    this.setData({
-        currentIndex: index
+  formSubmit(e) {
+    const data = e.detail.value;
+    console.log('form发生了submit事件，携带数据为：', data['input0']);
+   const temp = {
+      creatorId: 1,
+      consignee:data['input0'],
+      phone: data['input1'],
+      area: data['input2'],
+      addressDetail: data['input3']
+    }
+    console.log(temp);
+    wx.request({
+      url: domain + '/address/add',
+      data:{
+        creatorId: 1,
+        consignee:data['input0'],
+        phone: data['input1'],
+        area: data['input2'],
+        addressDetail: data['input3']
+      },
+      method: "POST",
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
     })
   },
-
-  toDetail: function(e){
-    wx.navigateTo({
-      url: '../servicedetail/index',
-    })
-  },
-
-  toMyService: function(e){
-    wx.navigateTo({
-      url: '../myservice/index',
-    })
-  }
 })

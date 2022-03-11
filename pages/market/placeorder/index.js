@@ -96,5 +96,11 @@ Page({
     for (let i = 0, len = items.length; i < len; ++i) {
       items[i].checked = items[i].value === e.detail.value
     }
+  },
+
+  toAddress(){
+    wx.navigateTo({
+      url: '../receive/index',
+    })
   }
 })
