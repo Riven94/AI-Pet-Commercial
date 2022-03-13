@@ -30,21 +30,22 @@ Page({
 
   test(){
     var temp = {
-      animalName: 't',
-      varieties: 't',
-      color: 't',
-      type: 0,
-      imgUrl: 'test',
-      ownerId: 13,
-      ownerName: 'dd',
-      isLost: 0,
-      state: 1
+      'animalName': 'test',
+      'varieties': 't',
+      'color': 'white',
+      'type': '0',
+      'imgUrl': 'http://101.42.227.112:8000/media/product/372967a2480129cb.jpg',
+      'ownerId': 14,
+      'ownerName': 'dd',
+      'isLost': '0',
+      'state': '1',
+      'creatorId': 1
     };
     console.log(temp);
     wx.request({
       url: 'http://101.42.227.112:8000/animals/ownerUpload',
       method: 'POST',
-      header: {'content-type': 'application/x-www-form-urlencoded'},
+      header: {'content-type': 'application/json'},
       data: temp,
       success: function(res) {
         console.log(res)
@@ -54,6 +55,12 @@ Page({
           title: '提示',
         })
       }})
+  },
+
+  toSearch(){
+    wx.navigateTo({
+      url: './searchinput/index',
+    })
   },
 
   toMore(){

@@ -4,7 +4,7 @@ page{
 .top{
   height: 100rpx;
   display: flex;
-  background: linear-gradient(-180deg, rgba(2,187,255,1) 100%,rgba(1,134,255,1) 0%);
+  background: #F3BE67;
   align-items: flex-end;
   justify-content: space-between;
 }

@@ -1,9 +1,9 @@
 // pages/my/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
-const appid = wx.getAccountInfoSync().miniProgram.appId;
-const secret = "8967de4bc48b2e1631c4b6ad49ea3f53";
-const openid = wx.getStorageSync('openid');
+const appid = "wxf8f65f19051961fd";
+const secret = "4dfa211aee19f4e1da5ebbb621c77eee";
+var openid = wx.getStorageSync('openid');
 Page({
 
   /**
@@ -74,9 +74,51 @@ Page({
             userIcon: res.userInfo.avatarUrl,
             name: res.userInfo.nickName
           });
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              if (res.code) {
+                //发起网络请求
+                console.log(res);
+                console.log(that.data.name);
+                let temp = {
+                  code: res.code,
+                  appid: appid,
+                  appSecret: secret,
+                  name: that.data.name,
+                  nickName: that.data.name,
+                  privilege: 0,
+                  type: 0,
+                  gender: 0,
+                  role: 0,
+                  avatar_url: 'http://101.42.227.112:8000/media/product/372967a2480129cb.jpg'
+                };
+                console.log(temp);
+                const temp2 = {
+                  appid: appid,
+                  appSecret: secret,
+                  code: res.code
+                };
+                wx.request({
+                  url: domain+'/user/getUserId',
+                  method:'POST',
+                  header:{'content-type': 'application/json'},
+                  data: temp2,
+                  success(res){
+                    openid=res.data.openid;
+                    wx.setStorageSync('openid', res.data.openid);
+                    console.log(res);
+                  }
+                })
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
+            }
+          })
         },
       })
     }
+    
   },
 
   toUploadFreight: function(){
@@ -85,6 +127,12 @@ Page({
     })
   },
 
+  toShop: function(e){
+    wx.navigeteTo({
+      url:'../market/',
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

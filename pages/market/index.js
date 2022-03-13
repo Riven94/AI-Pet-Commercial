@@ -80,22 +80,43 @@ Page({
     that.setData({
         currentIndex: index
     });
-    wx.request({
-      url: domain + '/product/specificProduct',
-      data: {
-        type: that.data.services[index]
-      },
-      success(res){
-        console.log(res);
-        const resData = res.data.data;
-        that.setData({
-          freights: resData
-        })
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
+    console.log(index);
+    if(index == 3){
+      wx.request({
+        url: domain + '/service/storeAll',
+        data: {
+          all: ' '
+        },
+        success(res){
+          console.log(res);
+          const resData = res.data.error;
+          that.setData({
+            freights: resData
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
+    else{
+      wx.request({
+        url: domain + '/product/specificProduct',
+        data: {
+          type: that.data.services[index]
+        },
+        success(res){
+          console.log(res);
+          const resData = res.data.data;
+          that.setData({
+            freights: resData
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   toMyService: function(e){
@@ -108,5 +129,13 @@ Page({
     wx.navigateTo({
       url: './serviceshop/index',
     })
-  }
+  },
+
+  
+  searchShops(e){
+    const key = e.detail.value;
+    wx.navigateTo({
+      url: './searchshop/index?data=' + key,
+    })
+  },
 })

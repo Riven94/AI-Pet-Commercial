@@ -1,4 +1,4 @@
-// pages/market/myservice/index.js
+// pages/market/serachshop/index.js
 const domain = getApp().globalData.domainName;
 Page({
 
@@ -6,28 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orders:[
-      {shopname:"爱宠一家人宠物美容店",orderimg:"../../../icons/cat.jpg",service:"洗澡美容套餐服务",time:"2022-01-01",
-    status:"进行中",price:"1.00"}
-    ]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const id = 1;
-    this.getServices(id);
+    console.log(options);
+    this.getShops(options.data);
   },
 
-  getServices(id){
+  getShops(data){
     const that = this;
     wx.request({
-      url: domain + '/service/orderMine',
-      data:{creatorId: id},
+      url: domain + '/service/storeSearch',
+      data:{
+        data:data
+      },
       success(res){
         console.log(res);
-        console.log(res.data.error)
       },
       fail(error){
         console.log(error);
@@ -82,10 +80,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  back: function(){
-    wx.navigateBack({
-    })
   }
 })

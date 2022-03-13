@@ -9,7 +9,7 @@
 .top{
   width: 100%;
   display: flex;
-  background: linear-gradient(0deg, #358BD9 0%, #CB8BAE 100%);
+  background: #F3BE67;
   /* background-color: rgb(235, 108, 127); */
   flex-direction: column;
   align-items: center;

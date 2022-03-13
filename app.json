@@ -24,7 +24,8 @@
     "pages/market/shop/index",
     "pages/market/receive/index",
     "pages/knowledge/articleWithType/index",
-    "pages/market/uploadFreight/index"
+    "pages/market/uploadFreight/index",
+    "pages/market/searchshop/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,7 +37,7 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
-    "selectedColor": "#0670bc",
+    "selectedColor": "#000000",
     "borderStyle": "black",
     "list": [
       {

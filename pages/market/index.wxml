@@ -4,7 +4,7 @@
 <view class="topitem">
 <view class="search">
 <icon type="search" class="searchIcon" size="18"></icon>
-<input type="text" class="input" placeholder="猫玩具"/>
+<input type="text" class="input" placeholder="猫玩具" bindconfirm="searchShops"/>
 </view>
 <image class="cart" src="../../icons/cart.png" bindtap="toMyService"></image>
 </view>
@@ -25,7 +25,7 @@
 </view>
 </view>
 </view>
-<view class="serviceDetail" >
+<view class="serviceDetail">
 <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop">
     <image class="detailImg" src="{{item.imgUrl}}"></image>
     <view class="name">{{item.name}}</view>

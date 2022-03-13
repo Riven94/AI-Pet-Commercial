@@ -27,18 +27,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {/*
-    var that = this;
-    var temp = this.__data__.articles;
-    var arraytemp = [];
-    for(let i = 0;i < temp.length;i++){
-      var temp1 = temp[i].general.slice(0,50);
-      arraytemp.push(temp1);
-    }
-    console.log(arraytemp);
-    that.setData({
-      tempgeneral: arraytemp
-    })*/
+  onLoad: function (options) {
     console.log(this.articles);
     this.getArticles();
   },
@@ -145,14 +134,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  changeTab: function(e){
-    const index = e.currentTarget.dataset.index;
-    const that = this;
-    that.setData({
-        currentIndex: index
-    })
   },
 
   getGeneral: function(){
