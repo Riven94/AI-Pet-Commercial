@@ -1,6 +1,5 @@
-/* pages/camera/index.wxss */
-/* @import "/template/animalcard/animalcard.wxss";
-
+/* pages/camera/pop/index.wxss */
+@import "/template/animalcard/animalcard.wxss";
 @import "/template/ownercard/ownercard.wxss";
    
    .showView{
@@ -46,22 +45,4 @@
     bottom: 20rpx;
     margin: 0;
   }
-   */
-
-   page{
-    height:100%;
-    background-color: rgb(255, 255, 255);
-   }
-   .image_{
-    display:flex;
-    height: 100%;                      
-    justify-content: center;
-    align-items:center;
-      flex-direction: column;
-   }
-   .img{ 
-     width:400rpx;
-     height:400rpx;
-     border-radius: 50%;
-   }
-   
+  

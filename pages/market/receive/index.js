@@ -73,8 +73,9 @@ Page({
 
   formSubmit(e) {
     const data = e.detail.value;
-    console.log('form发生了submit事件，携带数据为：', data['input0']);
-   const temp = {
+    console.log(data)
+    //console.log('form发生了submit事件，携带数据为：', data['input0']);
+    const temp = {
       creatorId: 1,
       consignee:data['input0'],
       phone: data['input1'],

@@ -1,5 +1,6 @@
 // index.js
 // 获取应用实例
+const domain = getApp().globalData.domainName;
 Page({
   data: {
     myPublish:[
@@ -17,12 +18,42 @@ Page({
       url: './more/index'
     })
   },
-  onLoad() {
+
+  onLoad(options) {
+    this.test();  
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
+  },
+
+  test(){
+    var temp = {
+      animalName: 't',
+      varieties: 't',
+      color: 't',
+      type: 0,
+      imgUrl: 'test',
+      ownerId: 13,
+      ownerName: 'dd',
+      isLost: 0,
+      state: 1
+    };
+    console.log(temp);
+    wx.request({
+      url: 'http://101.42.227.112:8000/animals/ownerUpload',
+      method: 'POST',
+      header: {'content-type': 'application/x-www-form-urlencoded'},
+      data: temp,
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {
+        wx.showModal({
+          title: '提示',
+        })
+      }})
   },
 
   toMore(){

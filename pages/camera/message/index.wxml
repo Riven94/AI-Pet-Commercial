@@ -1,0 +1,111 @@
+<!--pages/camera/message/index.wxml-->
+<view class="detail">  
+<view class="title">
+<view class="top"></view>
+<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;小动物信息</text>
+</view>
+<view class="information">
+<view class="line1"></view>
+<!-- <view class="horizon  firstrow">
+<text>手机号：</text>
+    <input placeholder="请输入手机号" type="numeber" value="hello world">
+	<input bindinput="getinput"></input>
+</input>
+</view> -->
+
+<view class="horizon firstrow"> 
+    <text class="title1">属性：</text>  
+      <radio-group bindchange="radioChange" style="font-size: small;">
+        <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+    </label>
+        <!--  <label  wx:for="{{items}}" wx:key="{{item.value}}">
+            <radio value="{{item.value}}" checked="true"/>
+          <text class="choice">{{item.name}}</text>
+        </label> -->
+      </radio-group>
+</view>
+
+<view class="line2"></view>
+
+<view class="horizon firstrow"> 
+    <text class="title1">选择：</text>  
+<radio-group bindchange="formSubmit" name="radio">
+          <label><radio value="0"/>猫</label>
+          <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+          <label><radio value="1"/>狗</label>
+        </radio-group>
+</view>
+
+<view class="line2"></view>
+
+<view class=" horizon firstrow">
+    <text>姓名：</text>
+    <input class ="input" placeholder="如果未发现填无" type="string" value="" bindinput="animalname">
+	<!-- <input bindinput="getinput"></input> -->
+    </input>
+</view>
+<view class="line"></view>
+
+<view class=" horizon firstrow">
+    <text>品种：</text>
+    <input class ="input" placeholder="" type="string" value=""
+    bindinput="variety">
+	
+    </input>
+</view>
+<view class="line"></view>
+
+<view class=" horizon firstrow">
+    <text>颜色：</text>
+    <input class ="input" placeholder="" type="string" value=""
+    bindinput="yanSe">
+	<input bindinput="getinput"></input>
+    </input>
+</view>
+<view class="line"></view>
+
+<view class=" horizon firstrow">
+    <view>照片：</view>
+   <view bindtap="uploadImage">
+   <image class="picture" src="/icons/添加图片.png"></image>
+   </view>
+</view>
+
+<view wx:for="{{imageList}}">
+        <image class="normal"  src="{{item}}"></image>
+   </view>
+</view>
+</view>
+
+<view class="detail" style="min-height: 350rpx;">
+    <view class="title">
+<view class="top"></view>
+<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;主人/非主人信息</text>
+</view>
+<view class="information">
+    <view class="line1"></view>
+    <view class="horizon  firstrow">
+<text>昵称：</text>
+    <input placeholder="" type="text" value="">
+	<input bindinput="getinput"></input>
+</input>
+</view>
+<view class="line"></view>
+<view class="horizon  firstrow">
+<text>邮箱：</text>
+    <input placeholder="请填写邮箱" type="string" value="">
+	<input bindinput="getinput"></input>
+</input>
+</view>
+<view class="line"></view>
+<view class="horizon  firstrow">
+<text>手机号：</text>
+    <input placeholder="请输入手机号" type="numeber" value="">
+	<input bindinput="getinput"></input>
+</input>
+</view>
+</view>
+</view>
+
+<button bindtap="bindSubmit">完成</button>

@@ -1,4 +1,5 @@
 // pages/market/inde.js
+const domain = getApp().globalData.domainName;
 Page({
 
   /**
@@ -7,14 +8,14 @@ Page({
   data: {
     activityNums: 3,
     services:["热卖","主食","零食","洗护","家居","出行"],
-    activityImg: ["../../icons/cat.jpg","../../icons/cat.jpg","../../icons/cat.jpg"],
+    activityImg: ["../../icons/banner.jpeg","../../icons/banner.jpeg","../../icons/banner.jpeg"],
     currentIndex: 0,
-    shops: [
-      {img:"../../icons/cat.jpg", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {img:"../../icons/cat.jpg", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {img:"../../icons/cat.jpg", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {img:"../../icons/cat.jpg", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-    ]
+    freights: [
+      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+    ],
   },
 
   /**
@@ -78,6 +79,22 @@ Page({
     const that = this;
     that.setData({
         currentIndex: index
+    });
+    wx.request({
+      url: domain + '/product/specificProduct',
+      data: {
+        type: that.data.services[index]
+      },
+      success(res){
+        console.log(res);
+        const resData = res.data.data;
+        that.setData({
+          freights: resData
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
     })
   },
 

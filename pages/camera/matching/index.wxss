@@ -1,0 +1,21 @@
+/* pages/camera/matching/index.wxss */
+@import "/template/matchcard/matchcard.wxss";
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .topone{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+    flex-direction: column;
+    align-items: center;
+  }
+  .container1{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }

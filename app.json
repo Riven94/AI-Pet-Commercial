@@ -3,6 +3,10 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/camera/index",
+    "pages/camera/pop/index",
+    "pages/camera/message/index",
+    "pages/camera/result/index",
+    "pages/camera/matching/index",
     "pages/my/index",
     "pages/index/more/index",
     "pages/my/personal/index",
@@ -19,7 +23,8 @@
     "pages/knowledge/searchResult/index",
     "pages/market/shop/index",
     "pages/market/receive/index",
-    "pages/knowledge/articleWithType/index"
+    "pages/knowledge/articleWithType/index",
+    "pages/market/uploadFreight/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

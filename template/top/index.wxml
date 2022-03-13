@@ -1,0 +1,5 @@
+<template name='top'>
+  <view class="top">
+    
+  </view>
+</template>

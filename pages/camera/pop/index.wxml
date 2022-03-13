@@ -1,0 +1,7 @@
+ <!--pages/camera/pop/index.wxml-->
+<camera device-position="back" flash="off" binderror="error" style="width:750rpx; height:100vh; " mode="normal">
+
+<image src="/icons/拍照.png" class="photograph" bindtap="takePhoto"></image>
+<image src="/icons/手绘文件夹.png" class="message" bindtap="message"></image>
+<image src="/icons/图文详情.png" class="result" bindtap="result"></image>
+</camera>

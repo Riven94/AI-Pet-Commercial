@@ -1,2 +1,9 @@
 <!--pages/camera/index.wxml-->
-<text>pages/camera/index.wxml</text>
+<view class='image_'>
+	<image src="../../icons/cart.png" class='img'  bindtap="buttonclick">
+   
+	</image>
+ <view style="font-weight: 800;font-size: x-large;">图像识别</view>
+    <view>入库登记/寻找宠物</view>
+</view>
+

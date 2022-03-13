@@ -79,6 +79,12 @@ Page({
     }
   },
 
+  toUploadFreight: function(){
+    wx.navigateTo({
+      url: '../market/uploadFreight/index',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

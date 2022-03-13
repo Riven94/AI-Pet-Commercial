@@ -6,8 +6,9 @@
 .top{
   width: 100%;
   height: 260rpx;
-  background: linear-gradient(-180deg, rgba(2,187,255,1) 100%,rgb(126, 192, 253) 0%);
+  background: linear-gradient(0deg, #358BD9 0%, #CB8BAE 100%);
   border-radius: 0% 0% 50% 50%;
+  /* background-color: rgba(233, 105, 124, 0.801); */
 }
 .topitem{
   display: flex;

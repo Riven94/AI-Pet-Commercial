@@ -1,0 +1,92 @@
+/* pages/camera/message/index.wxss */
+page{
+    background-color: rgb(235, 232, 232);
+  }
+  
+  .detail{
+      background: white;
+      width: 700rpx;
+      display: block;
+      border: 2px solid white;
+      border-radius: 5px;
+      margin: 25rpx;
+      flex-direction: column;
+      min-height: 800rpx;
+  }
+  .title{
+      margin-top: 20rpx;
+      margin-left: 30rpx;
+      display: flex;
+      flex-direction: row;
+    }
+    .top{
+      width: 5rpx;
+      height: 30rpx;
+      background-color: #9889FF;
+      margin-top: 7rpx;
+      margin-bottom: 30rpx;
+    }
+    .information{
+      background-color: rgb(255, 255, 255);
+      width: 700rpx;
+      margin: 0 auto;
+      border-radius: 10rpx;
+      margin-bottom: 10rpx;
+    }
+    .text{
+      margin: 20rpx;
+    }
+    .horizon{
+      display: flex;
+      flex-direction: row;
+    }
+    .vertical{
+      display: flex;
+      flex-direction: column;
+    }
+    .firstrow{
+      width: 100%;
+      height: 100rpx;
+      align-items: center;
+    }
+    .line1{
+      width: 100%;
+      height: 3rpx;
+      background-color: #229ce2;
+      margin-bottom: 30rpx;
+    }
+    .line{
+      width: 100%;
+      height: 3rpx;
+      background-color: #f3f3eb;
+      margin-top: 0rpx;
+    }
+    .line2{
+      width: 100%;
+      height: 3rpx;
+      background-color: #f3f3eb;
+      margin-top: 30rpx;
+    }
+    .title1{
+  
+      min-width: 120rpx;
+    }
+    .choice{
+        font-size: 35rpx;
+        margin-top: 50rpx;
+        margin-bottom: 50rpx;
+    }
+    .input{
+      margin-left: 30rpx;
+      font-size: 32rpx;
+      color: gray;
+      flex-grow: 1;
+    }
+    .picture{
+        width: 90rpx;
+        height: 90rpx;
+    }
+    .normal{
+      max-height: 200rpx;
+      max-width: 200rpx;
+    }

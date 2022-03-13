@@ -9,7 +9,8 @@
 .top{
   width: 100%;
   display: flex;
-  background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%);
+  /* background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%); */
+  background-color: rgba(233, 105, 124, 0.801);
 }
 .functions{
   display: flex;

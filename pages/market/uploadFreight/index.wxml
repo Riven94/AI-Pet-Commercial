@@ -1,0 +1,11 @@
+<!--pages/market/uploadFreight/index.wxml-->
+<import src="../../../template/top/index.wxml" ></import>
+<template is='top'></template>
+<form catchsubmit="formSubmit">
+    <view class="section" wx:for="{{info}}">
+      <view class="left">{{item}}</view>
+      <input class="input" name='{{"input"+index}}' />
+    </view>
+    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+  </form>
+
