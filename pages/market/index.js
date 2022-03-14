@@ -83,6 +83,7 @@ Page({
     console.log(index);
     if(index == 3){
       wx.request({
+        // 服务商城的所有店铺
         url: domain + '/service/storeAll',
         data: {
           all: ' '
@@ -101,6 +102,7 @@ Page({
     }
     else{
       wx.request({
+        // 获取商城中指定类别的所有商品列表
         url: domain + '/product/specificProduct',
         data: {
           type: that.data.services[index]
@@ -126,6 +128,7 @@ Page({
   },
 
   toShop: function(e){
+    console.log(e)
     wx.navigateTo({
       url: './serviceshop/index',
     })
