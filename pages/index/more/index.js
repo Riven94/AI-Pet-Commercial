@@ -51,7 +51,8 @@ Page({
                         color: resData.color,
                         ownerId: resData.ownerId,
                         time: resData.createdAt,
-                        imgUrl: resData.imgUrl}
+                        imgUrl: resData.imgUrl,
+                        attribute: resData.varieties}
         that.setData({animalitem: temp});
         that.getOwner(ownerId, createdAt);
       }

@@ -18,24 +18,29 @@ page{
 }
 .searchwrap{
   margin: 35rpx auto;
+  display: flex;
+  height: 50rpx;
+  align-items: center;
 }
 .search{
   display: flex;
   flex-direction: row;
   border-radius: 20rpx;
   background-color: white;
-  width: 700rpx;
+  width: 600rpx;
   align-items: center;
+  height: 40rpx;
 }
 .searchIcon{
   position: absolute;
-  left: 38rpx;
+  left: 58rpx;
 }
 .input{
-  width: 700rpx;
-  margin-left: 60rpx;
+  margin-left: 40rpx;
   background-color: white;
   border-radius: 20rpx;
+  width: 600rpx;
+  height: 30rpx;
 }
 .middle{
   width: 90%;

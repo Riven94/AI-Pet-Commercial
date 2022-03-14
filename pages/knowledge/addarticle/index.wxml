@@ -1,0 +1,44 @@
+<!--pages/knowledge/addarticle/index.wxml-->
+<!-- <import src="../../../template/top/index.wxml" ></import>
+<template is='top'>
+
+</template> -->
+<view class="top">
+    <button class="cancel" style="background-color: rgb(240, 145, 90);font-weight: 100;" type="primary"   form-type="submit" size="mini" bindtap="bindSumbit" >提交</button>
+</view>
+    <view  style="margin-left: 10rpx;font-size: large;">文章标题：</view>
+            <view  style="margin: 15rpx 0" >
+                <view class="line"></view>
+              <input  placeholder="取个好听的标题把！！！" bindinput="title"/>
+              <view class="line"></view>
+        </view>
+
+ <view style="margin-left: 10rpx;">文章内容：</view>  
+       <view style="margin: 15rpx 0" >
+           <view class="line"></view>
+           <view></view>
+         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="10000" bindinput="content"></textarea>
+         <view class="line"></view>
+   </view>
+
+<view class="image">
+<view bindtap="uploadImage">
+<image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
+ </view> 
+</view> 
+<view wx:for="{{imageList}}">
+        <image class="normal"  src="{{item}}"></image>
+   </view>
+
+<view class='fenlei'>
+  <text>类型:</text>
+  <!-- 下拉框 -->
+    <view class='select_box'>
+      <view class='select' catchtap='selectTaps'>
+        <text class='select_text'>{{selectDatas[indexs]}}</text>
+      </view>
+      <view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.length*60):0}}rpx;'>
+        <text class='option' style='{{indexs==selectDatas.length-1&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
