@@ -61,7 +61,7 @@ Page({
         url: domain+'/iamges/uploadFile/product',
         method: 'POST',
         data: {
-          "img": that.data.imageList,
+          "img": that.data.imageList[0],
           "creatorId": 1
         },
        // header:{ 'content-type': 'multipart/form-data'},
@@ -92,7 +92,7 @@ Page({
       method: 'POST',
       data: {
        "name":Name,
-       "imgUrl":that.data.imageList,
+       "imgUrl":that.data.imageList[0],
        "detail":Detail,
        "type":that.data.Type,
        "state":State,

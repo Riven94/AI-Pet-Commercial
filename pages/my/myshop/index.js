@@ -38,7 +38,11 @@ Page({
   },
 
   toShop(e){
-    const id = e.currentTarget.detaset.id;
+    console.log(e)
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../market/shop/index?id=' + id,
+    })
   },
 
   toAddShop(){

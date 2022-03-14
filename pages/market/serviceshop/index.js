@@ -1,4 +1,6 @@
 // pages/market/shop/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -24,9 +26,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const Id=options.id
+    this.getproduct(Id);
   },
-
+ getproduct:function(Id){
+   wx.request({
+     url:domain + '/service/getDetail', 
+     data: {
+     "id":Id
+     },
+     header: {
+       'content-type': 'application/json' // 默认值 
+     },
+     success (res) {
+       console.log(res.data)
+     }
+   })
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

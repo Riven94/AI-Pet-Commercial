@@ -59,6 +59,30 @@
                     "pathName": "pages/market/myservice/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/placeorder/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/searchshop/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/uploadFreight/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/shop/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

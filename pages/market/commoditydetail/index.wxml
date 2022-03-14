@@ -5,7 +5,7 @@
 <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
 </view>
 <view class="images">
-<image class="img" src="../../../icons/service.jpeg"></image>
+<image class="img" src="{{img}}"></image>
 </view>
 <view class="price-general">
 <view class="price">￥{{price}}</view>

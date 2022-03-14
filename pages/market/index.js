@@ -129,9 +129,17 @@ Page({
 
   toShop: function(e){
     console.log(e)
-    wx.navigateTo({
-      url: './serviceshop/index',
-    })
+    const id = e.currentTarget.dataset.id
+    if(this.data.currentIndex == 3){
+      wx.navigateTo({
+        url: './serviceshop/index?id=' + id,
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './commoditydetail/index?id=' + id,
+      })
+    }
   },
 
   
