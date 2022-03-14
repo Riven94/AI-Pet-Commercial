@@ -93,22 +93,25 @@ Page({
   },
 
   bindSumbit:function(params){
-    var that=this;
+    var that = this;
+    const temp = {
+      creatorId: 1,
+      articleTitle: that.data.articletitle,
+      article: that.data.Content,
+      imgUrl: that.data.imageList[0],
+      type: that.data.Type
+    };
+    console.log(temp);
     wx.request({
-        url:domain+ '/knowledge/upload ', 
-        method:"POST",
-        data: {
-          "creatorId":1,
-          "articleTitle":that.data.articletitle,
-          "article":that.data.Content,
-          "imgUrl":that.data.imageList,
-          "type":that.data.Type
-        },
-        header: {
-            "content-type": "media-type"
-        },
+        url: domain + '/knowledge/upload', 
+        method: "POST",
+        data: temp,
+        header:{'content-type':'application/json'},
         success (res) {
-          console.log(res.data)
+          console.log(res.data);
+        },
+        fail(error){
+          console.log(error);
         }
       })
   },
