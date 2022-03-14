@@ -11,7 +11,7 @@
   height: 100rpx;
   width: 100%;
   display: flex;
-  background: #F3BE67;
+  background: white;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -23,12 +23,12 @@
   float: left;
   width: 0rpx;
   height: 0rpx;
-  border-right: 12rpx solid white;
+  border-right: 12rpx solid black;
   border-top: 12rpx solid transparent;
   border-bottom: 12rpx solid transparent;
 }
 .moremessage{
-  color: white;
+  color: black;
   float: left;
 }
 .message{
@@ -36,6 +36,16 @@
   display: block;
 }
 .left{
-  background-color: #EFEEEE;
+  background-color: white;
   height: 400rpx;
+}
+.animalImg{
+  margin: 0 auto;
+}
+.detail{
+  width: 90%;
+  background-color: white;
+  border-radius: 20rpx;
+  box-shadow: 0px 2px 4px 0px rgba(204,204,204,1);
+  margin: 30rpx auto;
 }

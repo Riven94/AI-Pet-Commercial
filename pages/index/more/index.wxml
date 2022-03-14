@@ -10,6 +10,7 @@
   </view> 
   </view>
   </view>
+<image src="{{animalitem.imgUrl}}" class="animalImg"></image>
 <template is="animalcard" data="{{animalitem}}"></template>
 <template is="ownercard" data="{{owneritem}}"></template>
 <view class="left"></view>

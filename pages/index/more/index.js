@@ -13,7 +13,7 @@ Page({
       type: "萨摩耶",
       color: "白色",
       img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"],
-      ownerId: 4,
+      ownerId: 1,
       time: ''
     },
     owneritem:{
@@ -28,30 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAnimal(1);
-    wx.request({
-      url: domain + '/animals/upload',
-      method: 'POST',
-      data: {
-        'animalName': 'nihao',
-        'varieties': 'yes',
-        'type':1,
-        'pictureId':111,
-        'datail':'cat',
-        'finderId': 12,
-        'finderName': '1213',
-        'spot': 'wuhan',
-        'ownerId': 12,
-        'ownerName': 'dd',
-        'isLost': 1
-    },
-    success(res){
-      console.log(res);
-    },
-    fail(error){
-      console.log(error);
-    }
-    })
+    this.getAnimal(options.id);
   },
 
   getAnimal(id){
@@ -67,13 +44,14 @@ Page({
       success (res) {
         const resData = res.data.data;
         const {ownerId, createdAt} = resData;
-        console.log(resData.ownerId);
+        console.log(resData);
         const temp = { ...that.data.animalitem,
                         type: resData.detail,
                         name: resData.name,
                         color: resData.color,
                         ownerId: resData.ownerId,
-                        time: resData.createdAt}
+                        time: resData.createdAt,
+                        imgUrl: resData.imgUrl}
         that.setData({animalitem: temp});
         that.getOwner(ownerId, createdAt);
       }
