@@ -1,0 +1,34 @@
+@import '../../../template/top/index.wxss';
+.title{
+  position: absolute;
+  left: 42%;
+  color: white;
+  top: 35rpx;
+}
+.image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rpx auto;
+  border-radius: 50%;
+  background-color: rgb(218, 197, 177);
+  width: 180rpx;
+  height: 180rpx;
+}
+.tip{
+  margin-left: -40rpx;
+  width: 100%;
+}
+.section{
+  display: flex;
+  width: 90%;
+  margin: 30rpx auto 10rpx;
+}
+.left{
+  width: 150rpx;
+}
+.input{
+  background-color: rgb(232,232,232);
+  width: 500rpx;
+  border-radius: 10rpx;
+}

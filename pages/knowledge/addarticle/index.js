@@ -60,9 +60,7 @@ Page({
             imageList:res.tempFilePaths
         })
         console.log("aaaaaaaaa",that.data.imageList)
-        that.upload({
-          path: tempFilePaths
-      })
+        that.upload(tempFilePaths)
       }
     })
   },
@@ -78,10 +76,9 @@ Page({
         url: domain+'/iamges/uploadFile/article ',
         method: 'POST',
         data: {
-          "img": that.data.imageList,
+          "img": data,
           "creatorId": 1
         },
-        header:{ 'content-type': 'multipart/form-data'},
         success(res) {
           console.log("上传图片成功")
         },
@@ -108,7 +105,7 @@ Page({
           "type":that.data.Type
         },
         header: {
-            "content-type": "application/x-www-form-urlencoded"
+            "content-type": "media-type"
         },
         success (res) {
           console.log(res.data)

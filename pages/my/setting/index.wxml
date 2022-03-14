@@ -1,0 +1,21 @@
+<import src="../../../template/top/index.wxml"></import>
+<view class="container">
+  <template is="top"></template>
+  <view class="title">修改信息</view>
+  <view class="image" wx:if="{{icon}}" bindtap="uploadImage">
+    <image class="image" src="{{icon}}" mode="aspectFill"></image>
+  </view>
+  <image class="image" wx:else bindtap="uploadImage">
+      <view class="tip">点击上传头像</view>
+  </image>
+  <form catchsubmit="formSubmit">
+    <view class="section" wx:for="{{info}}">
+      <view class="left">{{item}}</view>
+      <input class="input" name='{{"input"+index}}' />
+    </view>
+      <view wx:for="{{imageList}}">
+        <image class="normal" name="img" src="{{item}}"></image>
+      </view>
+    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+  </form>
+</view>

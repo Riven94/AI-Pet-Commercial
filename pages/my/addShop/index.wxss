@@ -1,0 +1,14 @@
+@import '../../../template//top/index.wxss';
+.section{
+  display: flex;
+  width: 90%;
+  margin: 30rpx auto 10rpx;
+}
+.left{
+  width: 150rpx;
+}
+.input{
+  background-color: rgb(232,232,232);
+  width: 500rpx;
+  border-radius: 10rpx;
+}

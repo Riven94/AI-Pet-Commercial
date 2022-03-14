@@ -9,7 +9,7 @@
       <view class="introduction">{{introduction}}</view>
     </view> 
   </view> 
-    <image class="setting" src="../../icons/setting.png" bindtap="toUploadFreight"></image>
+    <image class="setting" src="../../icons/setting.png" bindtap="toSetting"></image>
   </view>
   <view class="functions">
     <view class="function" wx:for="{{functions}}" bindtap="handleFunction" data-path="{{item.path}}">

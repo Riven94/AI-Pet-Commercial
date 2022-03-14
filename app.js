@@ -26,8 +26,9 @@ App({
               "secret":secret,
             },
             success(res){
-             openid=res.data.openid;
+              openid=res.data.openid;
               wx.setStorageSync('openid', res.data.openid)
+              console.log(res);
             }
           })
         } else {

@@ -32,35 +32,6 @@ Page({
       userIcon: "../../icons/boy.png"
   },
 
-  login(){
-    const that=this;
-    wx.login({
-      success (res) {
-        if (res.code) {
-          //发起网络请求
-          console.log(res)
-          /*wx.request({
-            url: domainName+'/user/login',
-            method:'POST',
-            data: {
-              "appid": appid,
-              "appsecret": secret,
-              "code": res.code,
-            },
-            success(res){
-              if(res.data.openid){
-                that.setData({openid:res.data.openid})
-                wx.setStorageSync('openid', res.data.openid)
-              }
-            }
-          })*/
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
-
   getUser(e){
     const that = this;
     if(!this.data.login){
@@ -78,22 +49,11 @@ Page({
             success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
               if (res.code) {
+                var res_code = res.code;
                 //发起网络请求
                 console.log(res);
-                console.log(that.data.name);
-                let temp = {
-                  code: res.code,
-                  appid: appid,
-                  appSecret: secret,
-                  name: that.data.name,
-                  nickName: that.data.name,
-                  privilege: 0,
-                  type: 0,
-                  gender: 0,
-                  role: 0,
-                  avatar_url: 'http://101.42.227.112:8000/media/product/372967a2480129cb.jpg'
-                };
-                console.log(temp);
+                //console.log(that.data.name);
+                //console.log(temp);
                 const temp2 = {
                   appid: appid,
                   appSecret: secret,
@@ -108,6 +68,7 @@ Page({
                     openid=res.data.openid;
                     wx.setStorageSync('openid', res.data.openid);
                     console.log(res);
+                    that.login(res.data.openid);
                   }
                 })
               } else {
@@ -118,7 +79,40 @@ Page({
         },
       })
     }
-    
+  },
+
+  login(openId){
+    const that = this;
+    let data = {
+      openid: openId,
+      name: that.data.name,
+      nickName: that.data.name,
+      password: '1234567573',
+      imgUrl: 'http://101.42.227.112:8000/media/product/372967a2480129cb.jpg',
+      gender: 0,
+      phone: '152',
+      email: 'eae@123.com',
+      address: 'wuhan',
+      privilege: 0,
+      type: 0,
+      detail: 'detail',
+      role: 0
+    };
+    console.log(data);
+    wx.request({
+      url: domain + '/user/login',
+      data: data,
+      method:'POST',
+      header:{'content-type':'application/json'},
+      success(res){
+        console.log(res.data);
+        app.globalData.userId = res.data.userId;
+        console.log(app.globalData);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   toUploadFreight: function(){
@@ -127,9 +121,15 @@ Page({
     })
   },
 
+  toSetting: function(e){
+    wx.navigateTo({
+      url: './setting/index',
+    })
+  },
+
   toShop: function(e){
-    wx.navigeteTo({
-      url:'../market/',
+    wx.navigateTo({
+      url: './myshop/index',
     })
   },
   
@@ -137,6 +137,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{
+        userId: 9
+      },
+      method: 'GET',
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**

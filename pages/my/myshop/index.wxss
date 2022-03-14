@@ -1,0 +1,27 @@
+@import '../../../template//top/index.wxss';
+.title{
+  color: white;
+  position: absolute;
+  left: 40%;
+  top: 35rpx;
+}
+.shop{
+  width: 90%;
+  margin: 20rpx auto;
+  display: flex;
+}
+.shopIcon{
+  width: 250rpx;
+  height: 250rpx;
+}
+.addShop{
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}

@@ -7,11 +7,11 @@
     <button class="cancel" style="background-color: rgb(240, 145, 90);font-weight: 100;" type="primary"   form-type="submit" size="mini" bindtap="bindSumbit" >提交</button>
 </view>
     <view  style="margin-left: 10rpx;font-size: large;">文章标题：</view>
-            <view  style="margin: 15rpx 0" >
-                <view class="line"></view>
-              <input  placeholder="取个好听的标题把！！！" bindinput="title"/>
-              <view class="line"></view>
-        </view>
+      <view  style="margin: 15rpx 0" >
+          <view class="line"></view>
+        <input  placeholder="取个好听的标题把！！！" bindinput="title"/>
+        <view class="line"></view>
+  </view>
 
  <view style="margin-left: 10rpx;">文章内容：</view>  
        <view style="margin: 15rpx 0" >
@@ -22,13 +22,13 @@
    </view>
 
 <view class="image">
-<view bindtap="uploadImage">
-<image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
- </view> 
+  <view bindtap="uploadImage">
+    <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
+  </view> 
 </view> 
-<view wx:for="{{imageList}}">
-        <image class="normal"  src="{{item}}"></image>
-   </view>
+  <view wx:for="{{imageList}}">
+    <image class="normal"  src="{{item}}"></image>
+</view>
 
 <view class='fenlei'>
   <text>类型:</text>
