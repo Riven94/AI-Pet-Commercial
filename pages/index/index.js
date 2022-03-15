@@ -1,5 +1,6 @@
 // index.js
 // 获取应用实例
+const app = getApp();
 const domain = getApp().globalData.domainName;
 Page({
   data: {
@@ -55,6 +56,21 @@ Page({
     wx.navigateTo({
       url: './searchinput/index',
     })
+  },
+
+  toPublish(){
+    const userId = app.globalData.userId;
+    if(userId == undefined){
+      wx.showModal({
+        content: '请先登录！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './pulish/index?id=' + userId,
+      })
+    }
   },
 
   toMore(e){

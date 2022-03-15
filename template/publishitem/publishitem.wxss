@@ -19,6 +19,7 @@
 .title{
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+  overflow: hidden;
 }
 .type{
   margin-bottom: 20rpx;
@@ -27,12 +28,15 @@
 .colordetail{
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 .color{
   font-size: 25rpx;
+  width: 350rpx;
 }
 .morelabel{
   width: 20rpx;
   height: 20rpx;
-  margin-left: 310rpx;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
 }

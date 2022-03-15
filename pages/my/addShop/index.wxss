@@ -12,3 +12,12 @@
   width: 500rpx;
   border-radius: 10rpx;
 }
+.imgs{
+  display: flex;
+  flex-wrap: wrap;
+}
+.img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 30rpx;
+}

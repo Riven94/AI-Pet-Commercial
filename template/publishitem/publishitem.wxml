@@ -1,12 +1,12 @@
 <template name="publishitem">
 <view class="itemdetail">
-<image class="item-left" src="{{item.img}}"></image>
+<image class="item-left" src="{{item.imgUrl}}"></image>
 <view class="item-right">
-<view class="title">{{item.title}}</view>
+<view class="title">{{item.comment}}</view>
 <view class="type">品种<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.type}}</view>
 <view class="colordetail">
-<view class="color">颜色<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.color}}</view>
-<image class="morelabel" src="../../icons/arrow.png"></image>
+<view class="color">发布时间<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>{{item.createdAt}}</view>
+<image class="morelabel" src="../../icons/arrow-right.png"></image>
 </view>
 </view>
 </view>

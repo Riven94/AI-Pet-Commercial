@@ -1,0 +1,34 @@
+<import src="../../../template/top/index.wxml"></import>
+<view class="container">
+  <template is="top"></template>
+  <view class="title">发布动态</view>
+  <view class="submit" bindtap="submit">提交</view>
+  <view style="margin-left: 10rpx;">动态详情：</view>  
+       <view style="margin: 15rpx 0" >
+           <view class="line"></view>
+           <view></view>
+         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="1000" bindinput="content"></textarea>
+         <view class="line"></view>
+   </view>
+
+  <view class="image">
+  <view bindtap="uploadImage">
+    <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
+  </view> 
+  </view> 
+  <view wx:for="{{imageList}}">
+    <image class="normal"  src="{{item}}"></image>
+  </view>
+
+  <view class='fenlei'>
+    <text>类型:</text>
+      <view class='select_box'>
+        <view class='select' catchtap='selectTaps'>
+          <text class='select_text'>{{selectDatas[indexs]}}</text>
+        </view>
+        <view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.length*60):0}}rpx;'>
+          <text class='option' style='{{indexs==selectDatas.length-1&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+        </view>
+      </view>
+  </view>
+</view>

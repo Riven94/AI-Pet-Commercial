@@ -1,27 +1,27 @@
-// pages/knowledge/addarticle/index.js
+// pages/index/pulish/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
 Page({
 
-    /**
-     * 页面的初始数据
-     */
+  /**
+   * 页面的初始数据
+   */
   data: {
-      shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-      selectDatas: ['养宠知识', '户外运动', '新手攻略'], //下拉列表的数据
-      indexs: 0, //选择的下拉列 表下标,
-      Content:"",
-      articletitle:"",
-      Type: '养宠知识',
-      imageList:[],
-      userId: ''
+    shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
+    selectDatas: ['流浪猫狗','寻找宠物', '爱宠配对', '萌宠动态'],
+    indexs: 0,
+    imageList: [],
+    Content: '',
+    Type: '流浪猫狗',
+    id: ''
   },
-    // 点击下拉显示框
+
   selectTaps() {
     this.setData({
       shows: !this.data.shows,
     });
   },
+
   optionTaps(e) {
     console.log(e);
     const that = this;
@@ -35,12 +35,6 @@ Page({
     console.log(that.data.Type)
   },
 
-  title:function(e){
-    this.setData({
-        articletitle:e.detail.value
-      })   
-  },
-
   content:function(e){
     this.setData({
         Content:e.detail.value
@@ -50,35 +44,36 @@ Page({
   uploadImage:function(){
     var that=this;
     wx.chooseImage({
-      count: 1,
       sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
+      sourceType: ['album'],
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths 
-        console.log(res)
+        const tempFilePaths = res.tempFilePaths;
         that.setData({
             imageList:res.tempFilePaths
         })
         console.log("aaaaaaaaa",that.data.imageList)
-        that.upload(tempFilePaths)
+        that.upload({path: tempFilePaths})
+      },
+      fail(error){
       }
     })
   },
 
   upload(data) { // 上传图片
     var that = this;
+    console.log(data);
     wx.showToast({
         icon: "loading",
         title: "正在上传"
     }),
     wx.request({
         //上传图片协议接口
-        url: domain+'/iamges/uploadFile/article ',
+        url: domain + '/iamges/uploadFile/comment',
         method: 'POST',
         data: {
-          "img": data,
-          "creatorId": 1
+          img: data,
+          creatorId: 9
         },
         success(res) {
           console.log("上传图片成功");
@@ -94,44 +89,28 @@ Page({
     })
   },
 
-  bindSumbit:function(params){
-    var that = this;
-    const temp = {
-      creatorId: that.data.userId,
-      articleTitle: that.data.articletitle,
-      article: that.data.Content,
-      imgUrl: that.data.imageList[0],
-      type: that.data.Type
-    };
-    console.log(temp);
+  submit(){
+    const id = this.data.id;
+    const that= this;
     wx.request({
-        url: domain + '/knowledge/upload', 
-        method: "POST",
-        data: temp,
-        header:{'content-type':'application/json'},
-        success (res) {
-          console.log(res.data);
-        },
-        fail(error){
-          console.log(error);
-          const id = app.globalData.userId;
-          if(id == undefined){
-            wx.showModal({
-              title: '上传失败！',
-              content:'请检查内容是否填写完整',
-              showCancel: false
-            })
-          }
-        }
-      })
+      url: domain + '/comment/upload',
+      method: 'POST',
+      header:{'content-type':'multipart/form-data'},
+      data:{
+        creatorId: id,
+        imgUrl: that.data.imageList[0],
+        comment: that.data.Content,
+        type: that.data.Type
+      },
+    })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userId: options.id
-    })
+    this.setData(
+      {id: options.id * 1});
   },
 
   /**

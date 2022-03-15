@@ -9,7 +9,8 @@ Page({
    */
   data: {
     info: ['姓名','昵称','性别','手机号','密码','确认密码','邮箱','地址','用户描述'],
-    icon: ""
+    icon: "",
+    userId: ''
   },
 
   uploadImage:function(){
@@ -34,7 +35,7 @@ Page({
     const form = e.detail.value;
     const that = this;
     const data = {
-      userId: 1,
+      userId: that.data.userId,
       name: form.input0,
       nickName: form.input1,
       imgUrl: that.data.icon[0],
@@ -83,7 +84,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    this.setData({
+      userId: options.id
+    })
   },
 
   /**

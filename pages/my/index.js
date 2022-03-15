@@ -17,10 +17,7 @@ Page({
         {icon:"../../icons/mypet.png", path:"./pet/index", text:"我的宠物"},
         {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"}
       ],
-      myPublish:[
-        {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"},
-        {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园10舍", type:"博美",color:"白色"}
-      ],
+      myPublish:[],
       orders:[
         {shopname:"爱宠一家人宠物美容店",orderimg:"../../icons/cat.jpg",service:"洗澡美容套餐服务",time:"2022-01-01",
       status:"进行中",price:"1.00"}
@@ -29,7 +26,8 @@ Page({
       openid: "",
       login: false,
       register: false,
-      userIcon: "../../icons/boy.png"
+      userIcon: "../../icons/boy.png",
+      gender: ''
   },
 
   getUser(e){
@@ -43,7 +41,8 @@ Page({
             userInfo: res.userInfo,
             login:true,
             userIcon: res.userInfo.avatarUrl,
-            name: res.userInfo.nickName
+            name: res.userInfo.nickName,
+            gender: res.userInfo.gender
           });
           wx.login({
             success: res => {
@@ -87,15 +86,15 @@ Page({
       openid: openId,
       name: that.data.name,
       nickName: that.data.name,
-      password: '1234567573',
-      imgUrl: 'http://101.42.227.112:8000/media/product/372967a2480129cb.jpg',
-      gender: 0,
-      phone: '152',
-      email: 'eae@123.com',
-      address: 'wuhan',
+      password: 'default',
+      imgUrl: that.data.userIcon,
+      gender: that.data.gender,
+      phone: 'default',
+      email: 'default',
+      address: 'default',
       privilege: 0,
       type: 0,
-      detail: 'detail',
+      detail: '用一句话来介绍自己吧~',
       role: 0
     };
     console.log(data);
@@ -108,6 +107,7 @@ Page({
         console.log(res.data);
         app.globalData.userId = res.data.userId;
         console.log(app.globalData);
+        that.getUserDetail(res.data.userId);
       },
       fail(error){
         console.log(error);
@@ -122,29 +122,106 @@ Page({
   },
 
   toSetting: function(e){
-    wx.navigateTo({
-      url: './setting/index',
-    })
+    const id = app.globalData.userId;
+    if(id == undefined){
+      wx.showModal({
+        content:'请先登录！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './setting/index?id=' + app.globalData.userId,
+      })
+    }
   },
 
   toShop: function(e){
-    wx.navigateTo({
-      url: './myshop/index',
-    })
+    const id = app.globalData.userId;
+    if(id == undefined){
+      wx.showModal({
+        content:'请先登录！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './myshop/index?id=' + id,
+      })
+    }
   },
   
+  getUserDetail(id){
+    const that = this;
+    this.setData({login: true});
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{
+        userId: id
+      },
+      method: 'GET',
+      success(res){
+        const resData = res.data.data;
+        console.log(res);
+        that.setData({
+          userIcon: resData.imgUrl,
+          name: resData.name,
+          introduction: resData.detail
+        }),
+        that.getMyPublish();
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //this.getMyOrder();
+    console.log(app.globalData)
+    if(app.globalData.login){
+      this.getUserDetail(app.globalData.userId);
+      console.log(1);
+    }
+  },
+
+  getMyPublish: function(){
+    const that = this;
     wx.request({
-      url: domain + '/user/getUserDetail',
+      url: domain + '/comment/getAll',
       data:{
-        userId: 9
+        creatorId: 1
       },
       method: 'GET',
+      header:{'content-type': 'application/json'},
       success(res){
         console.log(res);
+        const resData = res.data.data;
+        that.setData({
+          myPublish: resData
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
+
+  getMyOrder: function(){
+    const that = this;
+    wx.request({
+      url: domain + '/product/orderMine',
+      method: 'GET',
+      header: {'content-type': 'application/json'},
+      data:{
+        creatorId: 9
+      },
+      success(res){
+        const resData = res.data.data;
+        console.log(resData);
       },
       fail(error){
         console.log(error);
@@ -156,14 +233,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -203,15 +278,28 @@ Page({
 
   handleFunction: function(e){
     const path = e.currentTarget.dataset.path
-    console.log(e)
+    console.log(e);
+    const id = app.globalData.userId;
     if(path){
-      wx.navigateTo({
-        url: path,
-      }).catch((error) => {
-        wx.switchTab({
-          url: path,
+      if(id === undefined){
+        wx.showModal({
+          content: '请先登录！',
+          showCancel: false
         })
-      })
+      }
+      else{
+        if(path == './message/index'){
+          wx.showModal({
+            content: '功能暂未开放，敬请期待！',
+            showCancel: false
+          })
+        }
+        else{
+          wx.navigateTo({
+            url: path + '?id=' + id,
+          })
+        }
+      }
     }
   },
 })

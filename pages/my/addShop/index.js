@@ -20,48 +20,45 @@ Page({
   uploadImage:function(){
     var that=this;
     wx.chooseImage({
-      count: 1,
       sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
+      sourceType: ['album'],
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths 
+        const tempFilePaths = res.tempFilePaths;
         console.log(res)
         that.setData({
             imageList:res.tempFilePaths
         })
         console.log("aaaaaaaaa",that.data.imageList)
-        that.upload({
-          path: tempFilePaths
-      })
+        that.upload()
+      },
+      fail(error){
       }
     })
   },
 
-  upload(data) { // 上传图片
-    var that = this;
-    wx.showToast({
-        icon: "loading",
-        title: "正在上传"
-    }),
+  upload() { // 上传图片
+    const that = this;
+    var temp = {
+      img: '../../../icons/cat.jpg',
+      creatorId: 9
+    }
+    console.log(temp);
+    var temp = {
+      creatorId: 9,
+      img: '../../../icons/cat.jpg'
+    };
+    console.log(JSON.stringify(temp));
     wx.request({
-        //上传图片协议接口
-        url: domain+'/iamges/uploadFile/store ',
-        method: 'POST',
-        data: {
-          img: data,
-          creatorId: 1
-        },
-        success(res) {
-          console.log("上传图片成功");
-        },
-        fail(e) {
-          wx.showModal({
-              title: '提示',
-              content: '上传失败',
-              showCancel: false
-          })
-        },
+      url: domain + '/iamges/uploadFile/store',
+      data: JSON.stringify(temp),
+      method: "POST",
+      success(res){
+        console.log(res.data);
+      },
+      fail(error){
+        console.log(error);
+      }
     })
   },
 

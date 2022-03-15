@@ -19,6 +19,8 @@
   left: 3%;
   right: 3%;
   margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
 }
 .icon{
   width: 130rpx;
@@ -123,4 +125,7 @@
 }
 .servicename{
   margin: 10rpx 0 40rpx 0;
+}
+.else{
+  margin: 30rpx auto;
 }

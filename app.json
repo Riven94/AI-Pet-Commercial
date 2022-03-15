@@ -28,7 +28,9 @@
     "pages/market/searchshop/index",
     "pages/my/myshop/index",
     "pages/my/addShop/index",
-    "pages/my/setting/index"
+    "pages/my/setting/index",
+    "pages/index/pulish/index",
+    "pages/knowledge/addarticle/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
