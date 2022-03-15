@@ -152,3 +152,14 @@ page{
 .name{
   margin: 10rpx 0rpx 0rpx 10rpx;
 }
+.addcommoditydetail{
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}

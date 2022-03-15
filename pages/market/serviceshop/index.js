@@ -9,11 +9,11 @@ Page({
   data: {
     icon: "../../../icons/cat.jpg",
     shopname: "爱宠一家人萌宠生活馆",
-    stars: 6,
+    stars: 5,
     type: "宠物店",
     strict: "洪山区",
     services:["洗澡","美容","接送服务"],
-    status:"营业中",
+    status:1,
     time:"周一至周日 09：30-19：00",
     address: "雄楚大道100号",
     distance: "7.2",
@@ -30,8 +30,9 @@ Page({
     this.getproduct(Id);
   },
  getproduct:function(Id){
+   const that=this;
    wx.request({
-     url:domain + '/service/getDetail', 
+     url:domain + '/service/storeGetDetail', 
      data: {
      "id":Id
      },
@@ -39,7 +40,20 @@ Page({
        'content-type': 'application/json' // 默认值 
      },
      success (res) {
+       const that = this;
        console.log(res.data)
+       const resData=res.data.data;
+    
+       that.setData({
+         icon:resData.imgUrl,
+         shopname:resData.name,
+         stars:resData.level,
+         services:resData.serviceField,
+         time:resData.businessHours,
+         address:resData.place,
+         status:resData.isBusiness
+       })
+    
      }
    })
  },

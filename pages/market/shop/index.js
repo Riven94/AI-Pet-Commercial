@@ -1,4 +1,6 @@
 // pages/market/shop/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -9,7 +11,7 @@ Page({
       shopName: '爱宠一家人猫咪专营',
       shopIcon: '../../../icons/cat.jpg',
       stars: 5,
-      desc: '本店专营各种猫咪零食'
+      desc: '本店专营各种猫咪零食',
     },
     services:['综合', '销量', '新品'],
     currentIndex: 1,
@@ -29,9 +31,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const Id=options.id;
+    console.log(Id);
+    this.getshopdetail(Id)
   },
-
+  getshopdetail:function(Id){
+    const that = this;
+    wx.request({
+      url:domain+'/product/storeGetDetail', 
+      data: {
+        "id":Id
+      },
+      success (res) {
+        console.log(res.data)
+      /*   shopName: '爱宠一家人猫咪专营',
+        shopIcon: '../../../icons/cat.jpg',
+        stars: 5,
+        desc: '本店专营各种猫咪零食' */
+        const resData=res.data.data;
+        that.setData({
+          shopName:resData.name,
+          shopIcon:resData.imgUrl,
+          stars:resData.level,
+          desc:resData.detail
+        })
+      }
+    })
+  },
+  toshop:function(e){
+    console.log(e)
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url:'./commoditydetail/index?id=' + id,
+    })
+  },
+  toAddcommditydetail(){
+    wx.navigateTo({
+      url: '/pages/market/uploadFreight/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
