@@ -1,7 +1,7 @@
 // pages/market/placeorder/index.js
 const app=getApp();
 const userId = app.globalData.userId;
-const domain = app.globalData.domain
+const domain = app.globalData.domainName
 Page({
 
   /**
@@ -29,15 +29,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   console.log(options)
-   this.getaddress(userId)
+    console.log(options)
+    this.getaddress(userId)
   },
+
   getaddress:function(userId){
   const that = this;
+  console.log(userId);
   wx.request({
-    url: domain+'/address/getDetail',
+    url: domain+'/address/getDefault',
     data: {
-      id:userId
+      creatorId:userId
     },
     method:'GET',
     header: {
@@ -48,8 +50,11 @@ Page({
       const resData = res.data.data
       console.log(resData)
       that.setData({
-        address:resData
+        address:resData[0]
       })
+    },
+    fail(error){
+      console.log(error);
     }
   })
   },
@@ -124,7 +129,7 @@ Page({
 
   toAddress(){
     wx.navigateTo({
-      url: '../receive/index',
+      url: '../addaddress/index',
     })
   }
 })

@@ -1,7 +1,7 @@
 <template name="address">
 <view class="addresswrap">
 <view class="iconwrap">
-<image class="location" src="{{address.icon}}"></image>
+<image class="location" src="../../../icons/location.png"></image>
 </view>
 <view class="middle">
 <view class="useraddress">{{address.addressDetail}}</view>

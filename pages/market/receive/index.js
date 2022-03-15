@@ -1,6 +1,7 @@
 // pages/market/receive/index.js
-const domain = getApp().globalData.domainName;
-
+const app=getApp();
+const userId = app.globalData.userId;
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -9,7 +10,30 @@ Page({
   data: {
     info: ['收货人','手机号码','所在地区','详细地址']
   },
-
+  formSubmit(e){
+    const value = e.detail.value;
+    console.log(userId);
+    const that = this;
+    wx.request({
+      url:domain+'/address/add',
+      method: 'POST',
+      data:{
+        creatorId: userId,
+        consignee: value.input0,
+        phone: value.input1,
+        area: value.input2,
+        addressDetail : value.input3,
+        type:1
+      },
+      header: { 'content-type': 'application/json'},
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -71,34 +95,30 @@ Page({
     })
   },
 
-  formSubmit(e) {
-    const data = e.detail.value;
-    console.log(data)
-    //console.log('form发生了submit事件，携带数据为：', data['input0']);
-    const temp = {
-      creatorId: 1,
-      consignee:data['input0'],
-      phone: data['input1'],
-      area: data['input2'],
-      addressDetail: data['input3']
-    }
-    console.log(temp);
-    wx.request({
-      url: domain + '/address/add',
-      data:{
-        creatorId: 1,
-        consignee:data['input0'],
-        phone: data['input1'],
-        area: data['input2'],
-        addressDetail: data['input3']
-      },
-      method: "POST",
-      success(res){
-        console.log(res);
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
-  },
+  // formSubmit(e) {
+  //   const data = e.detail.value;
+  //   console.log(data)
+  //   //console.log('form发生了submit事件，携带数据为：', data['input0']);
+  //   const temp = {
+  //     creatorId: 9,
+  //     consignee:data['input0'],
+  //     phone: data['input1'],
+  //     area: data['input2'],
+  //     addressDetail: data['input3'],
+  //     type: 0
+  //   }
+  //   console.log(temp);
+  //   wx.request({
+  //     url: domain + '/address/add',
+  //     data:temp,
+  //     method: "POST",
+  //     header: {'content-type': 'application/json'},
+  //     success(res){
+  //       console.log(res);
+  //     },
+  //     fail(error){
+  //       console.log(error);
+  //     }
+  //   })
+  // },
 })
