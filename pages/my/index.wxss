@@ -74,6 +74,7 @@
   font-weight: 20rpx;
   margin-right: 15rpx;
 }
+
 .publishtop{
   width: 100%;
   margin-left: 10rpx;
@@ -90,6 +91,8 @@
 }
 .orderlabel{
   color: #FF9959;
+  margin-right: 15rpx;
+  font-weight: 20rpx;
 }
 .order{
   border-radius: 12rpx 12rpx 12rpx 12rpx;

@@ -18,10 +18,7 @@ Page({
         {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"}
       ],
       myPublish:[],
-      orders:[
-        {shopname:"爱宠一家人宠物美容店",orderimg:"../../icons/cat.jpg",service:"洗澡美容套餐服务",time:"2022-01-01",
-      status:"进行中",price:"1.00"}
-      ],
+      orders:[],
       userInfo: {},
       openid: "",
       login: false,
@@ -180,12 +177,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //this.getMyOrder();
     console.log(app.globalData)
     if(app.globalData.login){
       this.getUserDetail(app.globalData.userId);
       console.log(1);
     }
+    this.getMyOrder();
   },
 
   getMyPublish: function(){
@@ -193,7 +190,7 @@ Page({
     wx.request({
       url: domain + '/comment/getAll',
       data:{
-        creatorId: 1
+        creatorId: app.globalData.userId
       },
       method: 'GET',
       header:{'content-type': 'application/json'},
@@ -217,7 +214,7 @@ Page({
       method: 'GET',
       header: {'content-type': 'application/json'},
       data:{
-        creatorId: 9
+        creatorId: app.globalData.userId
       },
       success(res){
         const resData = res.data.data;

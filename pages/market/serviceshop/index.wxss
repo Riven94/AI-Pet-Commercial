@@ -115,3 +115,28 @@ page{
 .off{
   display: none;
 }
+.serviceDetail{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.detailwrap{
+  display: flex;
+  flex-direction: column;
+  width: 320rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: white;
+}
+.detailImg{
+  width: 320rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+}
+.name{
+  margin: 10rpx 0rpx 0rpx 10rpx;
+}

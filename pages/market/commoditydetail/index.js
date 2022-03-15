@@ -22,30 +22,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const Id= options.id;
+    const Id= options.id * 1; //将Id转化为int型
+    console.log(options)
     this.getcommpdity(Id)
   },
-  getcommpdity:function(Id){
+  getcommpdity: function(Id){
     const that = this;
+    console.log(Id);
     wx.request({
       url:domain + '/product/getDetail', 
       data: {
-        "id":Id
+        id: Id
       },
-      header: {
-        'content-type': 'application/json' // 默认值 
-      },
+      header:{ 'content-type':'x-www-form-urlencoded'},
+      method: 'GET',
       success (res) {
-        console.log(res.data);
+        console.log(res);
         const resData = res.data.data;
-        // price: 15.90,
-        // left: 9,
-        // commodityname: "美味小鱼干 喵喵小鱼干",
-        // return: "七天无理由退货",
-        // methods: "低温烘焙 美味四溢",
-        // freight: "待下单时确认",
-        // ordered: 16,
-        // express: "快递发货 收货后结算"
         that.setData({
           commodityname:resData.name,
           img:resData.imgUrl,
