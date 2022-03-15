@@ -107,6 +107,12 @@
           "pathName": "pages/knowledge/addarticle/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/market/serviceshop/index",
+          "pathName": "pages/market/serviceshop/index",
+          "query": "id=3",
+          "scene": null
         }
       ]
     }

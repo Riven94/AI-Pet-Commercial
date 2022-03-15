@@ -1,45 +1,51 @@
 <!--pages/market/shop/index.wxml-->
 <view class="container">
-<view class="top">
-<view class="wrap">
-<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
-<image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
-</view>
-</view>
-<view class="general">
-<view class="shop">
-<image class="shopicon" src="{{icon}}" bindtap="toDetail"></image>
-<view class="shopgeneral">
-<view class="shopname">{{shopname}}</view>
-<view class="stars">
-<image class="star" src="../../../icons/star.png" wx:if="{{stars}}" wx:for="{{stars - 0}}"></image>
-</view>
-<view class="otherwrap">
-<view class="type">{{type}}</view>
-<view class="strict">{{strict}}</view>
-</view>
-</view>
-</view>
-<view class="detail">
-<view class="detailwrap">
-<view class="line"></view>
-<view class="status">{{status == 1? "营业中" : "停止营业"}}</view>
-<view class="time">{{time}}</view>
-</view>
-<view class="services">
-<view class="service" wx:for="{{services}}">{{item}}</view>
-</view>
-</view>
-<view class="address">
-<view class="accurate">{{address}}</view>
-<view class="distance">驾车{{distance}}km，大约需要{{drivetime}}分钟</view>
-</view>
-</view>
-<view class="items" >
-<view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
-<view class="item" data-index="{{index}}" bindtap="change">{{item}}
-</view>
-<view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
-</view>
-</view>
+  <view class="top">
+    <view class="wrap">
+      <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+      <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
+    </view>
+  </view>
+  <view class="general">
+    <view class="shop">
+      <image class="shopicon" src="{{icon}}" bindtap="toDetail"></image>
+      <view class="shopgeneral">
+        <view class="shopname">{{shopname}}</view>
+        <view class="stars">
+          <image class="star" src="../../../icons/star.png" wx:if="{{stars}}" wx:for="{{stars - 0}}"></image>
+        </view>
+        <view class="otherwrap">
+          <view class="type">{{type}}</view>
+          <view class="strict">{{strict}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="detail">
+      <view class="detailwrap">
+        <view class="line"></view>
+        <view class="status">{{status == 1? "营业中" : "停止营业"}}</view>
+        <view class="time">{{time}}</view>
+        </view>
+      <view class="services">
+        <view class="service" wx:for="{{services}}">{{item}}</view>
+      </view>
+    </view>
+    <view class="address">
+      <view class="accurate">{{address}}</view>
+      <view class="distance">驾车{{distance}}km，大约需要{{drivetime}}分钟</view>
+    </view>
+  </view>
+  <view class="items" >
+    <view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
+      <view class="item" data-index="{{index}}" bindtap="change">{{item}}
+      </view>
+      <view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
+    </view>
+  </view>
+  <view class="serviceDetail">
+        <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
+            <image class="detailImg" src="{{item.imgUrl}}"></image>
+            <view class="name">{{item.name}}</view>
+        </view>
+    </view>
 </view>

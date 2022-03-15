@@ -16,37 +16,39 @@ App({
     const open_id = wx.getStorageSync('openid');
     openid = open_id;
     console.log(open_id);
-    let data = {
-      openid: open_id,
-      name: 'default',
-      nickName: 'default',
-      password: 'default',
-      imgUrl: 'default',
-      gender: 0,
-      phone: 'default',
-      email: 'default',
-      address: 'default',
-      privilege: 0,
-      type: 0,
-      detail: '用一句话来介绍自己吧~',
-      role: 0
-    };
-    console.log(data);
-    wx.request({
-      url: domainName + '/user/login',
-      data: data,
-      method:'POST',
-      header:{'content-type':'application/json'},
-      success(res){
-        console.log(res.data);
-        that.globalData.login = true;
-        that.globalData.userId = res.data.userId;
-        console.log(true);
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
+    if(open_id != ''){
+      let data = {
+        openid: open_id,
+        name: 'default',
+        nickName: 'default',
+        password: 'default',
+        imgUrl: 'default',
+        gender: 0,
+        phone: 'default',
+        email: 'default',
+        address: 'default',
+        privilege: 0,
+        type: 0,
+        detail: '用一句话来介绍自己吧~',
+        role: 0
+      };
+      console.log(data);
+      wx.request({
+        url: domainName + '/user/login',
+        data: data,
+        method:'POST',
+        header:{'content-type':'application/json'},
+        success(res){
+          console.log(res.data);
+          that.globalData.login = true;
+          that.globalData.userId = res.data.userId;
+          console.log(true);
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
     // 登录
   },
   globalData: {

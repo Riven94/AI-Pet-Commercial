@@ -18,7 +18,9 @@ Page({
     comodities: [
       {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862},
       {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862}
-    ]  },
+    ]  ,
+    isOwner: false
+  },
 
   change: function(e){
     const index = e.currentTarget.dataset.index;
@@ -34,7 +36,24 @@ Page({
     const Id=options.id;
     console.log(Id);
     this.getshopdetail(Id)
+    this.judgeOwner(app.globalData.userId);
   },
+
+  judgeOwner(id){
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{userId: id},
+      method:'GET',
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(res);
+      }
+    })
+  },
+
   getshopdetail:function(Id){
     const that = this;
     wx.request({

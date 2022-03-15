@@ -35,20 +35,23 @@
       <image class="more" src="../../icons/arrow.png"></image>
     </view>
     <view class="orders">
-      <view class="order" wx:for="{{orders}}">
-        <view class="ordername">{{item.shopname}}</view>
-        <view class="orderfoot">
-          <image class="orderimg" src="{{item.orderimg}}"></image>
-          <view class="ordermiddle">
-            <view class="servicename">{{item.service}}</view>
-            <view class="ordertime">{{item.time}}</view>
-          </view>
-          <view class="orderright">
-              <view class="status">{{item.status}}</view>
-              <view class="price"><text style="color: gray;">合计</text>￥{{item.price}}</view>
+      <view wx:if="{{orders.length > 0}}">
+        <view class="order" wx:for="{{orders}}" >
+          <view class="ordername">{{item.shopname}}</view>
+          <view class="orderfoot">
+            <image class="orderimg" src="{{item.orderimg}}"></image>
+            <view class="ordermiddle">
+              <view class="servicename">{{item.service}}</view>
+              <view class="ordertime">{{item.time}}</view>
+            </view>
+            <view class="orderright">
+                <view class="status">{{item.status}}</view>
+                <view class="price"><text style="color: gray;">合计</text>￥{{item.price}}</view>
+            </view>
           </view>
         </view>
       </view>
+      <view class="else" wx:else>快去商城购买小零食吧！</view>
     </view>
   </view>
   <button bindtap="toShop">我的商铺</button>
