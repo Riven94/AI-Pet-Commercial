@@ -79,6 +79,7 @@
 .smallImg{
   height: 200rpx;
 }
+
 .more{
   float: right;
   width: 40rpx;
