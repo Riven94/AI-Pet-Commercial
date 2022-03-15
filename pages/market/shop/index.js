@@ -50,10 +50,7 @@ Page({
         desc: '本店专营各种猫咪零食' */
         const resData=res.data.data;
         that.setData({
-          shopName:resData.name,
-          shopIcon:resData.imgUrl,
-          stars:resData.level,
-          desc:resData.detail
+          shop:resData
         })
       }
     })

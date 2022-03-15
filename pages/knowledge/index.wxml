@@ -16,7 +16,7 @@
   </swiper>
   <view class="classes">
     <view class="class" wx:for="{{classes}}">
-      <image class="icon" src="{{item.icon}}" data-tag='{{item.tag}}' bindtap="toType"></image>
+      <image class="icon" src="{{item.icon}}" data-tag='{{item.tag}}'      data-text="{{item.text}}" bindtap="toType"></image>
       <view class="name">{{item.text}}</view>
     </view>
   </view>

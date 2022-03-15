@@ -1,4 +1,6 @@
 // pages/knowledge/articleWithType/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -18,9 +20,31 @@ Page({
    */
   onLoad: function (options) {
     var tag = options.tag;
-    this.setData({title: this.data.titles[tag]})
+    const type=options.type;
+    const that = this;
+    console.log(type)
+    this.setData({title: this.data.titles[tag]});
+    wx.request({
+      url: domain + '/knowledge/specificArticle',
+      data:{
+        type: that.data.title
+      },
+      method: 'GET',
+      success(res){
+        console.log(res.data)    
+        const resData=res.data.data
+        that.setData({
+          articles: resData
+        })
+      }
+    })
   },
-
+ toarticle:function(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+     url: '../article/index?id='+id,
+   })
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

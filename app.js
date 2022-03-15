@@ -16,6 +16,7 @@ App({
     const open_id = wx.getStorageSync('openid');
     openid = open_id;
     console.log(open_id);
+    if(open_id!=''){
     let data = {
       openid: open_id,
       name: 'default',
@@ -47,6 +48,7 @@ App({
         console.log(error);
       }
     })
+  }
     // 登录
   },
   globalData: {

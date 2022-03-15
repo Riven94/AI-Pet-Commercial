@@ -47,9 +47,9 @@ Page({
         // ordered: 16,
         // express: "快递发货 收货后结算"
         that.setData({
-          commodityname: resData.name,
-          img: resData.imgUrl,
-          price: resData.price,
+          commodityname:resData.name,
+          img:resData.imgUrl,
+          price:resData.price,
           freight:resData.freight,
           express:resData.security,
           methods:resData.detail

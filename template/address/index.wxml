@@ -4,10 +4,10 @@
 <image class="location" src="{{address.icon}}"></image>
 </view>
 <view class="middle">
-<view class="useraddress">{{address.useraddress}}</view>
+<view class="useraddress">{{address.addressDetail}}</view>
 <view class="user">
-<view class="username">{{address.username}}</view>
-<view class="userphone">{{address.userphone}}</view>
+<view class="username">{{address.consignee}}</view>
+<view class="userphone">{{address.phone}}</view>
 </view>
 </view>
 <view class="more"><view style="font-size:50rpx;color: #535353;">></view></view>

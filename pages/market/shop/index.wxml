@@ -10,16 +10,16 @@
   </view>
   <view class="shop-detail">
     <view class="shop-general">
-      <image class="shop-icon" src='{{shop.shopIcon}}'></image>
+      <image class="shop-icon" src='{{shop.imgUrl}}'></image>
       <view class="shop-name-stars">
-        <view class="shop-name">{{shop.shopName}}</view>
+        <view class="shop-name">{{shop.name}}</view>
         <view class="stars">
-          <image class="star" wx:for="{{shop.stars - 0}}" src="../../../icons/star.png"></image>
+          <image class="star" wx:for="{{shop.level - 0}}" src="../../../icons/star.png"></image>
         </view>
       </view>
     </view>
     <view style="display: flex;justify-content: space-between;">
-    <view class="desc" style="margin:0 15rpx">{{shop.desc}}</view>
+    <view class="desc" style="margin:0 15rpx">{{shop.detail}}</view>
     <text class="addcommoditydetail" bindtap="toAddcommditydetail" style="margin:15rpx">添加商品</text>
     </view>
   </view>

@@ -1,4 +1,7 @@
 // pages/market/placeorder/index.js
+const app=getApp();
+const userId = app.globalData.userId;
+const domain = app.globalData.domain
 Page({
 
   /**
@@ -27,8 +30,29 @@ Page({
    */
   onLoad: function (options) {
    console.log(options)
+   this.getaddress(userId)
   },
-
+  getaddress:function(userId){
+  const that = this;
+  wx.request({
+    url: domain+'/address/getDetail',
+    data: {
+      id:userId
+    },
+    method:'GET',
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success (res) {
+      console.log(res.data)
+      const resData = res.data.data
+      console.log(resData)
+      that.setData({
+        address:resData
+      })
+    }
+  })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -93,9 +93,8 @@ Page({
 
   toType: function(e){
     const tag = e.currentTarget.dataset.tag;
-    console.log(tag);
     wx.navigateTo({
-      url: './articleWithType/index?tag=' + tag ,
+      url: './articleWithType/index?tag=' + tag,
     })
   },
   addArticle(){

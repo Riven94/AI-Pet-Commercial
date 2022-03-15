@@ -3,11 +3,11 @@
     <view style="color: white;">{{title}}</view>
   </view>
   <view class="artcles">
-    <view class="article" wx:for="{{articles}}">
-      <view class="article-title">{{item.title}}</view>
+    <view class="article" wx:for="{{articles}}"  bindtap="toarticle" data-id="{{item.id}}">
+      <view class="article-title">{{item.articleTitle}}</view>
       <view class="wrap">
-        <view class="article-content">{{item.content}}</view>
-        <image class="article-img" src="{{item.img}}"></image>
+        <view class="article-content">{{item.article}}</view>
+        <image class="article-img" src="{{item.imgUrl}}"></image>
       </view>
     </view>
   </view>
