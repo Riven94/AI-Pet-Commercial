@@ -22,7 +22,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(1);
+    const that = this;
+    wx.request({
+      // 获取商城中指定类别的所有商品列表
+      url: domain + '/product/specificProduct',
+      data: {
+        type: that.data.services[0]
+      },
+      success(res){
+        console.log(res);
+        const resData = res.data.data;
+        that.setData({
+          freights: resData
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**
