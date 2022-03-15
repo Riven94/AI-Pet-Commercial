@@ -11,19 +11,23 @@
   display: flex;
   background: white;
   /* background-color: rgb(235, 108, 127); */
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 .search{
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin: 30rpx 40rpx;
   background-color: rgb(235,235,235);
   border-radius: 20rpx 20rpx 20rpx 20rpx;
   height: 40rpx;
-  width: 680rpx;
+  width: 580rpx;
+  float: left；
 }
 .searchicon{
   margin-left: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.add{
   width: 40rpx;
   height: 40rpx;
 }
@@ -51,12 +55,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20rpx;
-}
-.big{
-
-}
-.small{
-
 }
 .left{
   width: 45%;

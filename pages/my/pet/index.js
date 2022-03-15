@@ -1,4 +1,6 @@
 // pages/index/more/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -18,6 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getMyPet();
+  },
+
+  getMyPet(id=1){
+
   },
 
   /**

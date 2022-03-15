@@ -3,8 +3,9 @@
 <view class="container">
   <view class="top">
   <view class="search">
-  <image class="searchicon" src="../../icons/search.png"></image>
+    <image class="searchicon" src="../../icons/search.png"></image>
   </view>
+  <image class="add" src="../../icons/加号.png" bindtap="toPublish"></image>
   </view>
   <view class="tabs">
     <view class="tab {{currentIndex==index ? 'clicked': ''}}" wx:for="{{tabs}}" bindtap="changeTab" data-index="{{index}}">{{item}}</view>

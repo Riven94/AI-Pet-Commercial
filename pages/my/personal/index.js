@@ -1,4 +1,6 @@
 // pages/index/more/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -6,10 +8,9 @@ Page({
    */
   data: {
     information:{
-      nickname: "喵喵喵",
+      nickName: "喵喵喵",
       gender: "男",
       phone: "15555555555",
-      wechat: "15555555555",
       email: "1111@163.com"
     }
   },
@@ -18,7 +19,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+   console.log(options);
+   this.getPersonalInfo(options.id);
+  },
+
+  getPersonalInfo: function(id){
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      method: 'GET',
+      header: {'content-type': 'application/json'},
+      data:{
+        userId: id
+      },
+      success(res){
+        console.log(res);
+        const resData = res.data.data;
+        const temp = {
+          nickName: resData.nickName,
+          gender: resData == 0? '女' : '男',
+          phone: resData.phone,
+          email: resData.email
+        };
+        that.setData({information: temp});
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**

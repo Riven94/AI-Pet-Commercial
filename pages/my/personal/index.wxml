@@ -3,19 +3,18 @@
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
   <view class="bluetop">
-  <view class="message">
-  <view class="triangle" bindtap="back"></view>
-  <text class="moremessage">个人消息</text>
-  </view>
+    <view class="message">
+      <view class="triangle" bindtap="back"></view>
+      <text class="moremessage">个人消息</text>
+    </view>
   </view>
 <view class="info">
-<view class="information">
-<view class="text">昵称： {{information.nickname}}</view>
-<view class="text">性别： {{information.gender}}</view>
-<view class="text">微信： {{information.wechat}}</view>
-<view class="text">电话号码： {{information.phone}}</view>
-<view class="text">邮箱： {{information.email}}</view>
-</view>
+  <view class="information">
+    <view class="text">昵称： {{information.nickName}}</view>
+    <view class="text">性别： {{information.gender}}</view>
+    <view class="text">电话号码： {{information.phone}}</view>
+    <view class="text">邮箱： {{information.email}}</view>
+  </view>
 </view>
 <view class="left"></view>
 </view>

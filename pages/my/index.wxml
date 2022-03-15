@@ -2,7 +2,7 @@
 <import src="../../template/publishitem/publishitem.wxml"></import>
 <view class="container">
   <view class="top">
-  <image class="icon" src="{{userIcon}}" bindtap="getUser"></image>
+  <image class="icon" src="{{userIcon}}" bindtap="getUser" mode="aspectFill"></image>
   <view class="user" bindtap="getUser">
     <view class="detail">
       <view class="name">{{name}}</view>
@@ -23,7 +23,10 @@
       <view class="text">我的发布</view>
       <image class="more" src="../../icons/arrow.png"></image>
     </view>
-  <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
+    <view wx:if="{{myPublish.length > 0}}">
+      <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
+    </view>
+    <view class="else" wx:else>快去发布你的第一个动态吧！</view>
   </view>
   <view class="myorder">
     <view class="publishtop">
@@ -31,22 +34,22 @@
       <view class="text">我的订单</view>
       <image class="more" src="../../icons/arrow.png"></image>
     </view>
-  <view class="orders">
-    <view class="order" wx:for="{{orders}}">
-      <view class="ordername">{{item.shopname}}</view>
-      <view class="orderfoot">
-        <image class="orderimg" src="{{item.orderimg}}"></image>
-        <view class="ordermiddle">
-        <view class="servicename">{{item.service}}</view>
-        <view class="ordertime">{{item.time}}</view>
+    <view class="orders">
+      <view class="order" wx:for="{{orders}}">
+        <view class="ordername">{{item.shopname}}</view>
+        <view class="orderfoot">
+          <image class="orderimg" src="{{item.orderimg}}"></image>
+          <view class="ordermiddle">
+            <view class="servicename">{{item.service}}</view>
+            <view class="ordertime">{{item.time}}</view>
+          </view>
+          <view class="orderright">
+              <view class="status">{{item.status}}</view>
+              <view class="price"><text style="color: gray;">合计</text>￥{{item.price}}</view>
+          </view>
         </view>
-      <view class="orderright">
-          <view class="status">{{item.status}}</view>
-          <view class="price"><text style="color: gray;">合计</text>￥{{item.price}}</view>
       </view>
     </view>
-  </view>
-  </view>
   </view>
   <button bindtap="toShop">我的商铺</button>
 </view>

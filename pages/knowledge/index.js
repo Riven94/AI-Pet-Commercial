@@ -99,10 +99,18 @@ Page({
     })
   },
   addArticle(){
-    wx.navigateTo({
-      url: './addarticle/index',
-    })
-
+    const id = app.globalData.userId;
+    if(id == undefined){
+      wx.showModal({
+        content:'请先登录！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './addarticle/index?id=' + id,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
