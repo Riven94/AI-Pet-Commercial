@@ -125,6 +125,24 @@
                     "pathName": "pages/market/servicedetail/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/addaddress/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/receive/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/my/addShop/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
