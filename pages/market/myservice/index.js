@@ -6,10 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orders:[
-      {shopname:"爱宠一家人宠物美容店",orderimg:"../../../icons/cat.jpg",service:"洗澡美容套餐服务",time:"2022-01-01",
-    status:"进行中",price:"1.00"}
-    ]
+    orders:[]
   },
 
   /**

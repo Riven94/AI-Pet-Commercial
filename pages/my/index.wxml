@@ -51,7 +51,9 @@
           </view>
         </view>
       </view>
-      <view class="else" wx:else>快去商城购买小零食吧！</view>
+      <view class="else" wx:else>
+        <view>快去商城购买小零食吧！</view>
+      </view>
     </view>
   </view>
   <button bindtap="toShop">我的商铺</button>

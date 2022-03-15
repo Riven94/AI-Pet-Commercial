@@ -67,3 +67,9 @@ page{
 .servicename{
   margin: 10rpx 0 40rpx 0;
 }
+.else{
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+  align-items: center;
+}
