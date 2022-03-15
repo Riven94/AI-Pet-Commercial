@@ -130,5 +130,9 @@
   margin: 10rpx 0 40rpx 0;
 }
 .else{
-  margin: 30rpx auto;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
