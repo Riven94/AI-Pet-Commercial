@@ -12,7 +12,7 @@
 <view class="shopgeneral">
 <view class="shopname">{{shopname}}</view>
 <view class="stars">
-<image class="star" src="../../../icons/star.png" wx:if="{{stars}}" wx:for="{{stars - 1}}"></image>
+<image class="star" src="../../../icons/star.png" wx:if="{{stars}}" wx:for="{{stars - 0}}"></image>
 </view>
 <view class="otherwrap">
 <view class="type">{{type}}</view>
@@ -23,7 +23,7 @@
 <view class="detail">
 <view class="detailwrap">
 <view class="line"></view>
-<view class="status">{{status}}</view>
+<view class="status">{{status == 1? "营业中" : "停止营业"}}</view>
 <view class="time">{{time}}</view>
 </view>
 <view class="services">
