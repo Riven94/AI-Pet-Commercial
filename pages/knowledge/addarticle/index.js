@@ -132,7 +132,7 @@ Page({
       creatorId: that.data.userId * 1,
       articleTitle: that.data.articletitle,
       article: that.data.Content,
-      imgUrl: that.data.imageList[0],
+      imgUrl: that.data.imageList,
       type: that.data.Type
     };
     console.log(temp);
@@ -143,17 +143,22 @@ Page({
         header:{'content-type':'application/json'},
         success (res) {
           console.log(res.data);
+          wx.showModal({
+            title: '上传成功！',
+            showCancel: false,
+            success(){
+              wx.navigateBack({
+              })
+            }
+          })
         },
         fail(error){
           console.log(error);
-          const id = app.globalData.userId;
-          if(id == undefined){
-            wx.showModal({
-              title: '上传失败！',
-              content:'请检查内容是否填写完整',
-              showCancel: false
-            })
-          }
+          wx.showModal({
+            title: '上传失败！',
+            content:'请检查内容是否填写完整',
+            showCancel: false
+          })
         }
       })
   },

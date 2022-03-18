@@ -1,4 +1,0 @@
-<!--pages/market/serachshop/index.wxml-->
-<import src="../../../template/top/index.wxml"></import>
-<template is='top'></template>
-<text>pages/market/serachshop/index.wxml</text>

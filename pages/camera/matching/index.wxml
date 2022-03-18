@@ -1,10 +1,9 @@
 <!--pages/camera/matching/index.wxml-->
 <import src="/template/matchcard/matchcard.wxml"></import>
 <view class="container">
-    <view class="topone">
-</view> 
-<view class="container1">
-    <template is="matchcard" data="{{animalitem}}"></template>
-    <template is="matchcard" data="{{animalitem}}"></template>
-</view>
+    <view class="topone"></view>
+    <view class="container1">
+        <template is="matchcard" data="{{animalitem}}"></template>
+        <template is="matchcard" data="{{animalitem}}"></template>
+    </view>
 </view>

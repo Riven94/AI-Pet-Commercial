@@ -4,7 +4,7 @@
         <view class="topitem">
             <view class="search">
                 <icon type="search" class="searchIcon" size="18"></icon>
-                <input type="text" class="input" placeholder="猫玩具" bindconfirm="searchShops"/>
+                <input type="text" class="input" placeholder="猫玩具" bindconfirm="searchProduct"/>
             </view>
             <image class="cart" src="../../icons/cart.png" bindtap="toCart"></image>
         </view>

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    freights: []
   },
 
   /**
@@ -20,16 +20,27 @@ Page({
   getShops(data){
     const that = this;
     wx.request({
-      url: domain + '/service/storeSearch',
+      url: domain + '/product/search',
+      method: 'GET',
       data:{
         data:data
       },
       success(res){
         console.log(res);
+        that.setData({
+          freights: res.data.data
+        })
       },
       fail(error){
         console.log(error);
       }
+    })
+  },
+
+  toProduct(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../commoditydetail/index?id=' + id,
     })
   },
 

@@ -118,10 +118,10 @@ Page({
     })
   },
   
-  searchShops(e){
+  searchProduct(e){
     const key = e.detail.value;
     wx.navigateTo({
-      url: './searchshop/index?data=' + key,
+      url: './searchProduct/index?data=' + key,
     })
   },
   /**

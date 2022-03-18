@@ -25,7 +25,7 @@
     "pages/market/receive/index",
     "pages/knowledge/articleWithType/index",
     "pages/market/uploadFreight/index",
-    "pages/market/searchshop/index",
+    "pages/market/searchProduct/index",
     "pages/my/myshop/index",
     "pages/my/addShop/index",
     "pages/my/setting/index",

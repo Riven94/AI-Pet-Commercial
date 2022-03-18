@@ -1,0 +1,50 @@
+/* pages/market/serachshop/index.wxss */
+@import '../../../template//top//index.wxss';
+.title{
+  position: absolute;
+  left: 43%;
+  top: 30rpx;
+  color: white;
+}
+.serviceDetail{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.detailwrap{
+  display: flex;
+  flex-direction: column;
+  width: 320rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: white;
+}
+.detailImg{
+  width: 320rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+}
+.distance{
+  float: left;
+  font-size: 25rpx;
+  margin-left: 5rpx;
+}
+.quantity{
+  margin-right: 10rpx;
+  font-size: 25rpx;
+  color: gray;
+  float: right;
+}
+.footwrap{
+  margin: 18rpx 0rpx 20rpx 10rpx;
+}
+.name{
+  margin: 10rpx 0rpx 0rpx 10rpx;
+}
+.else{
+  margin: 50rpx 200rpx;
+}

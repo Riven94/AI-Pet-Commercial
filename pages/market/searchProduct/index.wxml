@@ -1,0 +1,17 @@
+<!--pages/market/serachshop/index.wxml-->
+<import src="../../../template/top/index.wxml"></import>
+<view class="container">
+  <template is='top'></template>
+  <view class="title">搜索结果</view>
+  <view class="serviceDetail" wx:if="{{freights.length > 0}}">
+    <view class="detailwrap" wx:for="{{freights}}" bindtap="toProduct" data-id="{{item.id}}">
+      <image class="detailImg" src="{{item.imgUrl}}"></image>
+      <view class="name">{{item.name}}</view>
+      <view class="footwrap">
+          <!-- <view class="distance">距您{{item.distance}}</view> -->
+          <text class="quantity">{{item.quantity}}人付款了</text>
+      </view>
+    </view>
+  </view>
+  <view class="else">暂时没有找到您要的商品~</view>
+</view>
