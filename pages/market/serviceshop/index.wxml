@@ -25,7 +25,7 @@
         <view class="line"></view>
         <view class="status">{{status == 1? "营业中" : "停止营业"}}</view>
         <view class="time">{{time}}</view>
-        </view>
+      </view>
       <view class="services">
         <view class="service" wx:for="{{services}}">{{item}}</view>
       </view>
@@ -43,9 +43,9 @@
     </view>
   </view>
   <view class="serviceDetail">
-        <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
-            <image class="detailImg" src="{{item.imgUrl}}"></image>
-            <view class="name">{{item.name}}</view>
-        </view>
+    <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
+        <image class="detailImg" src="{{item.imgUrl}}"></image>
+        <view class="name">{{item.name}}</view>
     </view>
+  </view>
 </view>

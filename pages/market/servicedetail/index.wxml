@@ -24,37 +24,37 @@
           <view class="help">?</view>
           </view>
         <view class="consumptions">半年消费{{consumptions}}</view>
-        </view>
+      </view>
     </view>
   </view>
   <view class="comment">
-  <view style="margin-right: 20rpx;">评价</view>
-  <view class="stars">
-  <image class="star" wx:for="{{stars - 1}}" wx:if="{{stars}}" src="../../../icons/star.png"></image>
-  </view>
-  <view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
+    <view style="margin-right: 20rpx;">评价</view>
+    <view class="stars">
+      <image class="star" wx:for="{{stars - 1}}" wx:if="{{stars}}" src="../../../icons/star.png"></image>
+    </view>
+    <view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
   </view>
   <view class="coupon">
-  <view class="label">￥</view>
-  <view class="price">{{coupon}}</view>
-  <view class="coupon-middle">
-  <view class="type">{{type}}</view>
-  <view class="usage">{{usage}}</view>
-  </view>
-  <view class="receive">点击领取</view>
+    <view class="label">￥</view>
+    <view class="price">{{coupon}}</view>
+    <view class="coupon-middle">
+      <view class="type">{{type}}</view>
+      <view class="usage">{{usage}}</view>
+    </view>
+    <view class="receive">点击领取</view>
   </view>
   <view class="groupbuy">
-  <view class="items">
-  <view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
-  <view class="item {{currentIndex == index ? 'selected' : ''}}"  data-index="{{index}}" bindtap="change">{{item}}</view>
-  </view>
-  </view>
-  <view class="temp">{{items[currentIndex]}}</view>
-  <template is="project" wx:for="{{projects}}" wx:for-item="project" data="{{project}}"></template>
+    <view class="items">
+    <view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
+      <view class="item {{currentIndex == index ? 'selected' : ''}}"  data-index="{{index}}" bindtap="change">{{item}}</view>
+    </view>
+    </view>
+    <view class="temp">{{items[currentIndex]}}</view>
+    <template is="project" wx:for="{{projects}}" wx:for-item="project" data="{{project}}"></template>
   </view>
   <view class="payment">
-  <view class="buyprice">￥{{price}}</view>
-  <view class="buy" bindtap="toOrder">立即抢购</view>
+    <view class="buyprice">￥{{price}}</view>
+    <view class="buy" bindtap="toOrder">立即抢购</view>
   </view>
 </view>
 

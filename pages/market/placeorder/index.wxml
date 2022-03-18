@@ -1,16 +1,16 @@
 <import src="../../../template/address/index.wxml"></import>
 <import src="../../../template/orderdetail/index.wxml"></import>
 <view class="container">
-<view class="top">
-<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
-<view class="confirm">确认订单</view>
-<image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
-</view>
-<view class="address" bindtap="toAddress">
-<template is="address" data="{{address}}"></template>
-</view>
-<template is="orderdetail" data="{{order}}"></template>
-<view class="page__bd">
+    <view class="top">
+        <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+        <view class="confirm">确认订单</view>
+        <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
+    </view>
+    <view class="address" bindtap="toAddress">
+        <template is="address" data="{{address}}"></template>
+    </view>
+    <template is="orderdetail" data="{{order}}"></template>
+    <view class="page__bd">
         <view class="section section_gap">
             <radio-group class="radio-group" bindchange="radioChange">
                 <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">

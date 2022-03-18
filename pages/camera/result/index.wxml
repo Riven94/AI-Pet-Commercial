@@ -11,24 +11,23 @@
   <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent' style="font-size: 30rpx;">结果三</view>
   <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}' data-current="3" bindtap='checkCurrent' style="font-size: 30rpx;">结果四</view>
 </view>
-
 </view>
 <swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
 <swiper-item>
   <template is="animalcard" data="{{animalitem}}"></template>
-<template is="ownercard" data="{{owneritem}}"></template>
+  <template is="ownercard" data="{{owneritem}}"></template>
 </swiper-item>
 <swiper-item>
   <template is="animalcard" data="{{animalitem}}"></template>
-<template is="ownercard" data="{{owneritem}}"></template>
+  <template is="ownercard" data="{{owneritem}}"></template>
 </swiper-item>
 <swiper-item>
   <template is="animalcard" data="{{animalitem}}"></template>
-<template is="ownercard" data="{{owneritem}}"></template>
+  <template is="ownercard" data="{{owneritem}}"></template>
 </swiper-item>
 <swiper-item>
   <template is="animalcard" data="{{animalitem}}"></template>
-<template is="ownercard" data="{{owneritem}}"></template>
+  <template is="ownercard" data="{{owneritem}}"></template>
 </swiper-item>
 </swiper>
 </view>

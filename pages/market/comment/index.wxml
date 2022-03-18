@@ -1,26 +1,26 @@
 <view class="container">
-<view class="top">
-<image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
-<view class="title">商品评价</view>
-<image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
-</view>
-<view class="comment-general">
-<view class="text">商品评价（{{nums}}）</view>
-<view class="tabs">
-<view wx:for="{{commenttypes}}" wx:for-index="index" class="tab {{currentIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="change">{{item.type}}（{{item.nums}}）</view>
-</view>
-</view>
-<view class="comment-detail">
-<view class="comment" wx:for="{{commentdetail}}">
-<image class="icon" src="{{item.icon}}"></image>
-<view class="middle">
-<view class="username">{{item.username}}</view>
-<view class="time">{{item.time}}</view>
-</view>
-<view class="stars">
-  <image class="star" wx:for="{{item.stars - 0}}" src="../../../icons/star.png"></image>
-</view>
-</view>
-</view>
+  <view class="top">
+    <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
+    <view class="title">商品评价</view>
+    <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
+  </view>
+  <view class="comment-general">
+    <view class="text">商品评价（{{nums}}）</view>
+    <view class="tabs">
+      <view wx:for="{{commenttypes}}" wx:for-index="index" class="tab {{currentIndex == index ? 'on' : ''}}" data-index="{{index}}" bindtap="change">{{item.type}}（{{item.nums}}）</view>
+    </view>
+  </view>
+  <view class="comment-detail">
+    <view class="comment" wx:for="{{commentdetail}}">
+      <image class="icon" src="{{item.icon}}"></image>
+      <view class="middle">
+        <view class="username">{{item.username}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+      <view class="stars">
+        <image class="star" wx:for="{{item.stars - 0}}" src="../../../icons/star.png"></image>
+      </view>
+    </view>
+  </view>
 </view>
 

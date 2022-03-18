@@ -25,6 +25,4 @@
     <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
   </swiper-item>
 </swiper>
-
-
 </view>
