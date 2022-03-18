@@ -1,1 +1,7 @@
-/* pages/knowledge/article/index.wxss */
+@import '../../../template/top/index.wxss';
+.title{
+  position: absolute;
+  left: 43%;
+  top: 30rpx;
+  color: white;
+}
