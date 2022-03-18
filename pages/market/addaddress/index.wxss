@@ -4,7 +4,7 @@
     color: white;
     height: 60rpx;
     width: 140rpx;
-    margin: 0 auto;
+    margin: 5rpx auto;
     display: flex;
     align-items: center;
     justify-content: center;

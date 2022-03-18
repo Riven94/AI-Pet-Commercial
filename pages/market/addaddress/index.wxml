@@ -1,6 +1,7 @@
 <!--pages/market/addaddress/index.wxml-->
 <import src="../../../template/address/index.wxml"></import>
-<view bindtap="showaddress">
-<template is="address" wx:for="{{addres}}" wx:for-item="address" data="{{address}}"></template>
+<view bindtap="defaultaddress" data-address="{{address}}" >
+<template is="address" wx:for="{{addres}}" wx:for-item="address" data="{{address}}">
+</template>
 </view>
 <view class="addArrdess" bindtap="toAddaddress">添加地址</view>

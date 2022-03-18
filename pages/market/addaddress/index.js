@@ -53,6 +53,34 @@ Page({
         url: '../receive/index',
       })
     },
+    defaultaddress:function(e){
+      const that=this;
+      console.log(e)
+      var Item = e.currentTarget.dataset.address
+   /*  wx.request({
+      url: domain+'/address/update',
+      data: {
+        creatorId:userId,
+        consignee:Item.consignee,
+        phone:Item.phone,
+        area:Item.area,
+        addressDetail:Item.addressDetail,
+        type:1,
+      },
+      method:'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+      wx.navigateBack({
+        delta: 1,
+      })
+      },
+      fail(res){
+        console.log("失败")
+      }
+    }) */
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

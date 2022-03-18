@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    icon: "../../../icons/cat.jpg",
+    icon: "../../../icons/cat.png",
     shopname: "爱宠一家人萌宠生活馆",
     stars: 5,
     type: "宠物店",

@@ -7,7 +7,7 @@
 <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
 </view>
 <view class="address" bindtap="toAddress">
-<template is="address" data="{{address}}" ></template>
+<template is="address" data="{{address}}"></template>
 </view>
 <template is="orderdetail" data="{{order}}"></template>
 <view class="page__bd">

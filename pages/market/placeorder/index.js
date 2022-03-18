@@ -29,8 +29,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    console.log("找到id:",options.id)
+    //const Id=options,id
     this.getaddress(userId)
+    //this.getshop(Id)
+   
   },
 
   getaddress:function(userId){
@@ -58,6 +61,31 @@ Page({
     }
   })
   },
+  /*  getshop:function(Id){
+    wx.request({
+      url:domain+'/product/getDetail',
+      data:{
+        id=Id
+      },
+      method:'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+        const resData = res.data.data
+        console.log(resData)
+        that.setData({
+          order:resData[0]
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+
+  },*/
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -15,7 +15,8 @@ Page({
     freight: "待下单时确认",
     ordered: 16,
     express: "快递发货 收货后结算",
-    img: ''
+    img: '',
+    id: ''
   },
 
   /**
@@ -23,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     const Id= options.id * 1; //将Id转化为int型
+    this.setData({id: Id});//将上个页面传入的ID保留在本页面，方便后续调用
     console.log(options)
     this.getcommpdity(Id)
   },
@@ -55,6 +57,12 @@ Page({
   wx.navigateBack({
   })
  },
+ toOrder:function(){
+  const that = this;
+  wx.navigateTo({
+    url: '../placeorder/index?id='+that.data.id,//传入ID
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

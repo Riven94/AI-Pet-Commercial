@@ -38,8 +38,8 @@
   </view>
   <view class="bottom">
     <view class="wrap">
-      <view class="add">加入购物车</view>
-      <view class="buy">立即购买</view>
+      <view class="add" bindtap="toadd">加入购物车</view>
+      <view class="buy" bindtap="toOrder">立即购买</view>
    </view>
   </view>
 </view>

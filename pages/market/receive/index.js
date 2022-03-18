@@ -28,6 +28,9 @@ Page({
       header: { 'content-type': 'application/json'},
       success(res){
         console.log(res);
+        wx.navigateBack({
+          delta: 1,
+        })
       },
       fail(error){
         console.log(error);
