@@ -9,13 +9,13 @@
   </view>
   </view>
 <view class="info">
-<view class="information">
-<view class="text">属性： {{information.attribute}}</view>
-<view class="text">姓名： {{information.name}}</view>
-<view class="text">品种： {{information.type}}</view>
-<view class="text">颜色： {{information.color}}</view>
+<view class="information" wx:for="{{information}}">
+<view class="text">属性： {{item.varieties}}</view>
+<view class="text">姓名： {{item.name}}</view>
+<view class="text">品种： {{item.detail}}</view>
+<view class="text">颜色： {{item.color}}</view>
 <view class="text">照片： </view>
-<image class="img" wx:for="{{information.img}}" wx:for-item="imgitem" src="{{imgitem}}"></image>
+<image class="img" src="{{item.imgUrl}}"></image>
 </view>
 </view>
 <view class="left"></view>

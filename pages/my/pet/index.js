@@ -23,8 +23,34 @@ Page({
     this.getMyPet();
   },
 
-  getMyPet(id=1){
-
+  getMyPet(){
+    const userId = app.globalData.userId;
+    const that = this;
+    wx.request({
+      url: domain + '/animals/Mine',
+      method: 'GET',
+      data:{
+        creatorId: userId
+      },
+      success(res){
+        const resData = res.data.data;
+        console.log(res);
+        const temp = {
+          attribute: resData.varieties,
+          name: resData.name,
+          type: resData.detail,
+          color: resData.color,
+          img: resData.imgUrl
+        }
+        that.setData({
+          information: resData
+        });
+        console.log(that.data.information)
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**

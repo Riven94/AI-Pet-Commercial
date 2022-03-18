@@ -87,7 +87,7 @@ Page({
           type: resData.type,
           strict: resData.place,
           services: [resData.serviceField],
-          status:1,
+          status: resData.isBusiness,
           address: "雄楚大道100号",
           distance: "7.2",
           drivetime: "20",
