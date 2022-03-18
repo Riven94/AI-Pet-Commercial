@@ -49,7 +49,7 @@ Page({
         console.log(res);
       },
       fail(error){
-        console.log(res);
+        console.log(error);
       }
     })
   },
@@ -59,14 +59,10 @@ Page({
     wx.request({
       url:domain+'/product/storeGetDetail', 
       data: {
-        "id":Id
+        "id": Id
       },
       success (res) {
-        console.log(res.data)
-      /*   shopName: '爱宠一家人猫咪专营',
-        shopIcon: '../../../icons/cat.jpg',
-        stars: 5,
-        desc: '本店专营各种猫咪零食' */
+        console.log(res.data);
         const resData=res.data.data;
         that.setData({
           shop:resData
@@ -84,6 +80,12 @@ Page({
   toAddcommditydetail(){
     wx.navigateTo({
       url: '/pages/market/uploadFreight/index',
+    })
+  },
+
+  toCart(){
+    wx.navigateTo({
+      url: '../cart/index',
     })
   },
   /**

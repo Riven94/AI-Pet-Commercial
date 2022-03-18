@@ -16,18 +16,19 @@ Page({
     ordered: 16,
     express: "快递发货 收货后结算",
     img: '',
-    id: ''
+    productId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const Id= options.id * 1; //将Id转化为int型
-    this.setData({id: Id});//将上个页面传入的ID保留在本页面，方便后续调用
+    const productId = options.id * 1; //将Id转化为int型
+    this.setData({productId: productId});//将上个页面传入的ID保留在本页面，方便后续调用
     console.log(options)
-    this.getcommpdity(Id)
+    this.getcommpdity(productId)
   },
+
   getcommpdity: function(Id){
     const that = this;
     console.log(Id);
@@ -53,16 +54,44 @@ Page({
     })
  },
 
- back(){
-  wx.navigateBack({
-  })
- },
- toOrder:function(){
-  const that = this;
-  wx.navigateTo({
-    url: '../placeorder/index?id='+that.data.id,//传入ID
-  })
-},
+  back(){
+    wx.navigateBack({
+    })
+  },
+  
+  toOrder:function(){
+    const that = this;
+    wx.navigateTo({
+      url: '../placeorder/index?id=' + that.data.productId,//传入ID
+    })
+  },
+
+  toAdd:function(){
+    const that = this;
+    wx.request({
+      url: domain + '/product/shoppingCartAdd',
+      method: 'POST',
+      data: {
+        creatorId: app.globalData.userId,
+        productId: that.data.productId,
+        count: 1
+      },
+      header:{ 'content-type': 'application/json'},
+      success(res){
+        console.log(res);
+        console.log('加入购物车成功');
+      },
+      fail(error){
+        console.log('加入失败');
+      }
+    })
+  },
+
+  toCart(){
+    wx.navigateTo({
+      url: '../cart/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -85,5 +85,9 @@ Page({
     const index = e.currentTarget.dataset.index;
     this.setData({currentIndex: index});
     this.getMain();
+  },
+
+  search(e){
+    console.log(e);
   }
 })

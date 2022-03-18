@@ -1,6 +1,5 @@
 // pages/market/placeorder/index.js
-const app=getApp();
-const userId = app.globalData.userId;
+const app = getApp();
 const domain = app.globalData.domainName
 Page({
 
@@ -29,43 +28,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("找到id:",options.id)
+    const userId = app.globalData.userId;
+    const productId = options.id;
+    console.log("找到id:",options.id);
     //const Id=options,id
-    this.getaddress(userId)
+    this.getaddress(userId);
+    this.getItem(productId);
     //this.getshop(Id)
    
   },
 
   getaddress:function(userId){
-  const that = this;
-  console.log(userId);
-  wx.request({
-    url: domain+'/address/getDefault',
-    data: {
-      creatorId:userId
-    },
-    method:'GET',
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    success (res) {
-      console.log(res.data)
-      const resData = res.data.data
-      console.log(resData)
-      that.setData({
-        address:resData[0]
-      })
-    },
-    fail(error){
-      console.log(error);
-    }
-  })
-  },
-  /*  getshop:function(Id){
+    const that = this;
+    console.log(userId);
     wx.request({
-      url:domain+'/product/getDetail',
-      data:{
-        id=Id
+      url: domain+'/address/getDefault',
+      data: {
+        creatorId: userId
       },
       method:'GET',
       header: {
@@ -76,15 +55,43 @@ Page({
         const resData = res.data.data
         console.log(resData)
         that.setData({
-          order:resData[0]
+          address:resData[0]
         })
       },
       fail(error){
         console.log(error);
       }
     })
+  },
 
-  },*/
+  getItem(productId){
+    const that = this;
+    wx.request({
+      url: domain + '/product/getDetail',
+      method: 'GET',
+      header: {'content-type': 'application/json'},
+      data:{
+        id: productId * 1
+      },
+      success(res){
+        // order: {
+        //   img: "../../../icons/cat.jpg",
+        //   name: "猫猫洗护套餐",
+        //   price: 80,
+        //   quantity: 1,
+        //   express: "免邮"
+        // },
+        console.log(res);
+        const resData = res.data.data;
+        that.setData({
+          order: resData
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
   
   /**
    * 生命周期函数--监听页面初次渲染完成

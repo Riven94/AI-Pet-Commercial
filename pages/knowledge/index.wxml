@@ -16,7 +16,7 @@
   </swiper>
   <view class="classes">
     <view class="class" wx:for="{{classes}}">
-      <image class="icon" src="{{item.icon}}" data-tag='{{item.tag}}'      data-text="{{item.text}}" bindtap="toType"></image>
+      <image class="icon" src="{{item.icon}}" data-tag='{{item.tag}}' data-text="{{item.text}}" bindtap="toType"></image>
       <view class="name">{{item.text}}</view>
     </view>
   </view>
@@ -24,7 +24,7 @@
 <view class="articles">
   <view class="article" wx:for="{{articles}}" wx:for-item="atc" data-id="{{atc.id}}" bindtap="toDetail">
     <view class="title atc">{{atc.title}}</view>
-    <image class="articleimg" src="{{atc.img}}" mode="aspectFill"></image>
+    <image class="articleimg" src="{{atc.imgUrl}}" mode="aspectFill"></image>
     <view class="desc atc">{{atc.desc}}</view>
   </view>
 </view>

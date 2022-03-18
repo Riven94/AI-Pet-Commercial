@@ -1,60 +1,60 @@
 <import src="../../../template/project/index.wxml"></import>
 <view class="container">
-<view class="top">
-<view class="wrap">
-<view class="backwrap" bindtap="back">
-<image class="back" src="../../../icons/arrow.png" ></image>
-<view class="text">详情</view>
-</view>
-<image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
-</view>
-</view>
-<view class="middle">
-<view class="general">
-<image class="img" src="../../../icons/cat.jpg"></image>
-<view class="right">
-<view class="servicename">{{servicename}}</view>
-<view class="rightmiddle">
-<view class="returnwrap" >
-<view class="return" wx:for="{{returnselections}}">{{item}}
-<view class="line">|</view>
-</view>
-</view>
-<view class="appointment">{{appointment}}</view>
-<view class="help">?</view>
-</view>
-<view class="consumptions">半年消费{{consumptions}}</view>
-</view>
-</view>
-</view>
-<view class="comment">
-<view style="margin-right: 20rpx;">评价</view>
-<view class="stars">
-<image class="star" wx:for="{{stars - 1}}" wx:if="{{stars}}" src="../../../icons/star.png"></image>
-</view>
-<view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
-</view>
-<view class="coupon">
-<view class="label">￥</view>
-<view class="price">{{coupon}}</view>
-<view class="coupon-middle">
-<view class="type">{{type}}</view>
-<view class="usage">{{usage}}</view>
-</view>
-<view class="receive">点击领取</view>
-</view>
-<view class="groupbuy">
-<view class="items">
-<view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
-<view class="item {{currentIndex == index ? 'selected' : ''}}"  data-index="{{index}}" bindtap="change">{{item}}</view>
-</view>
-</view>
-<view class="temp">{{items[currentIndex]}}</view>
-<template is="project" wx:for="{{projects}}" wx:for-item="project" data="{{project}}"></template>
-</view>
-<view class="payment">
-<view class="buyprice">￥{{price}}</view>
-<view class="buy" bindtap="toOrder">立即抢购</view>
-</view>
+  <view class="top">
+    <view class="wrap">
+      <view class="backwrap" bindtap="back">
+        <image class="back" src="../../../icons/arrow.png" ></image>
+        <view class="text">详情</view>
+      </view>
+      <image class="cart" src="../../../icons/cart.png" bindtap="toCart"></image>
+    </view>
+  </view>
+  <view class="middle">
+    <view class="general">
+      <image class="img" src="../../../icons/cat.png" mode="aspectFill"></image>
+      <view class="right">
+        <view class="servicename">{{servicename}}</view>
+          <view class="rightmiddle">
+            <view class="returnwrap" >
+              <view class="return" wx:for="{{returnselections}}">{{item}}
+                <view class="line">|</view>
+              </view>
+            </view>
+          <view class="appointment">{{appointment}}</view>
+          <view class="help">?</view>
+          </view>
+        <view class="consumptions">半年消费{{consumptions}}</view>
+        </view>
+    </view>
+  </view>
+  <view class="comment">
+  <view style="margin-right: 20rpx;">评价</view>
+  <view class="stars">
+  <image class="star" wx:for="{{stars - 1}}" wx:if="{{stars}}" src="../../../icons/star.png"></image>
+  </view>
+  <view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
+  </view>
+  <view class="coupon">
+  <view class="label">￥</view>
+  <view class="price">{{coupon}}</view>
+  <view class="coupon-middle">
+  <view class="type">{{type}}</view>
+  <view class="usage">{{usage}}</view>
+  </view>
+  <view class="receive">点击领取</view>
+  </view>
+  <view class="groupbuy">
+  <view class="items">
+  <view class="itemwrap" wx:for="{{items}}" wx:for-index="index">
+  <view class="item {{currentIndex == index ? 'selected' : ''}}"  data-index="{{index}}" bindtap="change">{{item}}</view>
+  </view>
+  </view>
+  <view class="temp">{{items[currentIndex]}}</view>
+  <template is="project" wx:for="{{projects}}" wx:for-item="project" data="{{project}}"></template>
+  </view>
+  <view class="payment">
+  <view class="buyprice">￥{{price}}</view>
+  <view class="buy" bindtap="toOrder">立即抢购</view>
+  </view>
 </view>
 

@@ -29,7 +29,7 @@ page{
   background-color: white;
   width: 600rpx;
   align-items: center;
-  height: 40rpx;
+  height: 45rpx;
 }
 .searchIcon{
   position: absolute;
@@ -39,8 +39,9 @@ page{
   margin-left: 40rpx;
   background-color: white;
   border-radius: 20rpx;
+  padding-left: 10rpx;
   width: 600rpx;
-  height: 30rpx;
+  height: 40rpx;
 }
 .middle{
   width: 90%;

@@ -1,6 +1,5 @@
 // pages/market/receive/index.js
 const app=getApp();
-const userId = app.globalData.userId;
 const domain = app.globalData.domainName;
 Page({
 
@@ -11,6 +10,7 @@ Page({
     info: ['收货人','手机号码','所在地区','详细地址']
   },
   formSubmit(e){
+    const userId = app.globalData.userId;
     const value = e.detail.value;
     console.log(userId);
     const that = this;

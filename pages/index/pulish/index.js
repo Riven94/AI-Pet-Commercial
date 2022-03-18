@@ -8,7 +8,7 @@ Page({
    */
   data: {
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectDatas: ['流浪猫狗','寻找宠物', '爱宠配对', '萌宠动态'],
+    selectDatas: ['流浪猫狗','寻找宠物', '萌宠动态'],
     indexs: 0,
     imageList: [],
     Content: '',
@@ -43,41 +43,52 @@ Page({
 
   uploadImage:function(){
     var that=this;
+    var imageList = that.data.imageList;
     wx.chooseImage({
+      count: 5,
       sizeType: ['original', 'compressed'],
-      sourceType: ['album'],
+      sourceType: ['album', 'camera'],
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths;
+        const tempFilePaths = res.tempFilePaths 
+        //console.log(res)
+        imageList.push(tempFilePaths[0])
         that.setData({
-            imageList:res.tempFilePaths
+            imageList,
+            // imageList:res.tempFilePaths
         })
-        console.log("aaaaaaaaa",that.data.imageList)
-        that.upload({path: tempFilePaths})
-      },
-      fail(error){
+        //console.log("aaaaaaaaa",tempFilePaths)
+        that.upload(tempFilePaths)
       }
     })
   },
 
   upload(data) { // 上传图片
+    const userId = app.globalData.userId;
     var that = this;
+    var imgUrls = [];
     console.log(data);
     wx.showToast({
         icon: "loading",
         title: "正在上传"
     }),
-    wx.request({
+    data.forEach((item)=>{
+      wx.uploadFile({
+        filePath: item,
         //上传图片协议接口
-        url: domain + '/iamges/uploadFile/comment',
-        method: 'POST',
-        data: {
-          img: data,
-          creatorId: 9
+        url: domain+'/images/uploadFile/article ',
+        name:'img',
+        formData: {
+          creatorId: userId
         },
         success(res) {
-          console.log("上传图片成功");
           console.log(res);
+          let imgUrl = JSON.parse(res.data).imgUrl;
+          imgUrl.forEach((item)=>{
+            imgUrls.push(item);
+          })
+          //console.log(imgUrls);
+          that.setData({imageList: imgUrls});
         },
         fail(e) {
           wx.showModal({
@@ -86,22 +97,42 @@ Page({
               showCancel: false
           })
         },
+      })
     })
   },
 
   submit(){
-    const id = this.data.id;
+    const userId = app.globalData.userId;
     const that= this;
+    const temp = {
+      creatorId: userId,
+      imgUrl: that.data.imageList,
+      comment: that.data.Content,
+      type: that.data.Type
+    };
+    console.log(temp);
     wx.request({
       url: domain + '/comment/upload',
       method: 'POST',
-      header:{'content-type':'multipart/form-data'},
-      data:{
-        creatorId: id,
-        imgUrl: that.data.imageList[0],
-        comment: that.data.Content,
-        type: that.data.Type
+      data: temp,
+      success(res){
+        console.log(res);
+        wx.showModal({
+          content:'上传成功！',
+          showCancel: false,
+          success(){
+            wx.navigateBack({
+            })
+          }
+        })
       },
+      fail(error){
+        console.log(error);
+        wx.showModal({
+          content:'上传失败！',
+          showCancel: false,
+        })
+      }
     })
   },
 

@@ -16,8 +16,8 @@
     <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
   </view> 
   </view> 
-  <view wx:for="{{imageList}}">
-    <image class="normal"  src="{{item}}"></image>
+  <view class="imageList" >
+    <image class="normal" wx:for="{{imageList}}" src="{{item}}" mode="aspectFill"></image>
   </view>
 
   <view class='fenlei'>

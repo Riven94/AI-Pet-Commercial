@@ -22,6 +22,7 @@ Page({
       shows: !this.data.shows,
     });
   },
+
   optionTaps(e) {
     console.log(e);
     const that = this;
@@ -66,23 +67,53 @@ Page({
     })
   },
 
+
+  uploadImage:function(){
+    var that=this;
+    var imageList = that.data.imageList;
+    wx.chooseImage({
+      count: 5,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths 
+        //console.log(res)
+        imageList.push(tempFilePaths[0])
+        that.setData({
+            imageList,
+            // imageList:res.tempFilePaths
+        })
+        //console.log("aaaaaaaaa",tempFilePaths)
+        that.upload(tempFilePaths)
+      }
+    })
+  },
+
   upload(data) { // 上传图片
+    const userId = app.globalData.userId;
     var that = this;
+    var imgUrls = [];
     wx.showToast({
         icon: "loading",
         title: "正在上传"
     }),
-    wx.request({
+    data.forEach((item)=>{
+      wx.uploadFile({
+        filePath: item,
         //上传图片协议接口
-        url: domain+'/iamges/uploadFile/article ',
-        method: 'POST',
-        data: {
-          "img": data,
-          "creatorId": 1
+        url: domain+'/images/uploadFile/store',
+        name:'img',
+        formData: {
+          creatorId: userId
         },
         success(res) {
-          console.log("上传图片成功");
-          console.log(res);
+          let imgUrl = JSON.parse(res.data).imgUrl;
+          imgUrl.forEach((item)=>{
+            imgUrls.push(item);
+          })
+          //console.log(imgUrls);
+          that.setData({imageList: imgUrls});
         },
         fail(e) {
           wx.showModal({
@@ -91,13 +122,14 @@ Page({
               showCancel: false
           })
         },
+      })
     })
   },
 
   bindSumbit:function(params){
     var that = this;
     const temp = {
-      creatorId: that.data.userId,
+      creatorId: that.data.userId * 1,
       articleTitle: that.data.articletitle,
       article: that.data.Content,
       imgUrl: that.data.imageList[0],

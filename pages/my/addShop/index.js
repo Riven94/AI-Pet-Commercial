@@ -1,4 +1,5 @@
 // pages/my/addShop/index.js
+const app = getApp();
 const domain = getApp().globalData.domainName;
 Page({
 
@@ -19,50 +20,64 @@ Page({
 
   uploadImage:function(){
     var that=this;
+    var imageList = that.data.imageList;
     wx.chooseImage({
+      count: 5,
       sizeType: ['original', 'compressed'],
-      sourceType: ['album'],
+      sourceType: ['album', 'camera'],
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths;
-        console.log(res)
+        const tempFilePaths = res.tempFilePaths 
+        //console.log(res)
+        imageList.push(tempFilePaths[0])
         that.setData({
-            imageList:res.tempFilePaths
+            imageList,
+            // imageList:res.tempFilePaths
         })
-        console.log("aaaaaaaaa",that.data.imageList)
-        that.upload()
-      },
-      fail(error){
+        //console.log("aaaaaaaaa",tempFilePaths)
+        that.upload(tempFilePaths)
       }
     })
   },
 
-  upload() { // 上传图片
-    const that = this;
-    var temp = {
-      img: '../../../icons/cat.jpg',
-      creatorId: 9
-    }
-    console.log(temp);
-    var temp = {
-      creatorId: 9,
-      img: '../../../icons/cat.jpg'
-    };
-    console.log(JSON.stringify(temp));
-    wx.request({
-      url: domain + '/iamges/uploadFile/store',
-      data: JSON.stringify(temp),
-      method: "POST",
-      success(res){
-        console.log(res.data);
-      },
-      fail(error){
-        console.log(error);
-      }
+  upload(data) { // 上传图片
+    const userId = app.globalData.userId;
+    var that = this;
+    var imgUrls = [];
+    wx.showToast({
+        icon: "loading",
+        title: "正在上传"
+    }),
+    data.forEach((item)=>{
+      wx.uploadFile({
+        filePath: item,
+        //上传图片协议接口
+        url: domain+'/images/uploadFile/store',
+        name:'img',
+        formData: {
+          "creatorId": userId
+        },
+        success(res) {
+          let imgUrl = JSON.parse(res.data).imgUrl;
+          imgUrl.forEach((item)=>{
+            imgUrls.push(item);
+          })
+          //console.log(imgUrls);
+          that.setData({imageList: imgUrls});
+        },
+        fail(e) {
+          wx.showModal({
+              title: '提示',
+              content: '上传失败',
+              showCancel: false
+          })
+        },
+      })
     })
   },
 
   formSubmit(e){
+    const userId = app.globalData.userId;
     const value = e.detail.value;
     console.log(value);
     console.log(this.data.imageList);
@@ -74,8 +89,8 @@ Page({
         name: value.input0,
         detail: value.input1,
         level: value.input2,
-        imgUrl: that.data.imageList[0],
-        creatorId: 1,
+        imgUrl: that.data.imageList,
+        creatorId: userId,
         type: value.input3,
         place: value.input4
       },

@@ -1,6 +1,6 @@
 <template name="publishitem">
 <view class="itemdetail">
-<image class="item-left" src="{{item.imgUrl}}"></image>
+<image class="item-left" src="{{item.imgUrl}}" mode="aspectFill"></image>
 <view class="item-right">
 <view class="title">{{item.comment}}</view>
 <view class="type">品种<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.type}}</view>

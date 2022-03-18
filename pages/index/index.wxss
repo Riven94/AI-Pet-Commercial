@@ -13,26 +13,35 @@
   /* background-color: rgb(235, 108, 127); */
   flex-direction: row;
   align-items: center;
+  margin-top: 15rpx;
 }
 .search{
-  margin: 30rpx 40rpx;
-  background-color: rgb(235,235,235);
-  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20rpx;
+  background-color: white;
+  width: 670rpx;
+  align-items: center;
   height: 40rpx;
-  width: 580rpx;
-  float: left；
 }
-.searchicon{
-  margin-left: 10rpx;
-  width: 40rpx;
-  height: 40rpx;
+.searchIcon{
+  position: absolute;
+  left: 58rpx;
+}
+.input{
+  margin-left: 110rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  padding-left: 10rpx;
+  width: 670rpx;
+  height: 30rpx;
 }
 .add{
   width: 40rpx;
   height: 40rpx;
 }
 .tabs{
-  margin: 0  auto;
+  margin: 15rpx  auto;
   width: 90%;
   display: flex;
   justify-content: space-between;

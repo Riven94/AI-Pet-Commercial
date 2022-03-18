@@ -27,7 +27,7 @@
   </view> 
 </view> 
   <view wx:for="{{imageList}}">
-    <image class="normal"  src="{{item}}"></image>
+    <image class="normal" mode="aspectFill" src="{{item}}"></image>
 </view>
 
 <view class='fenlei'>

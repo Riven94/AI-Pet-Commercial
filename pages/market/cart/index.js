@@ -1,4 +1,6 @@
 // pages/market/cart/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -7,20 +9,24 @@ Page({
   data: {
     totalPrice: 0,
     comodities: [
-      {'img': '../../../icons/cat.jpg', 'name':'猫猫小鱼干','express': '包邮', 'price': 82, 'quantity':1},
-      {'img': '../../../icons/cat.jpg', 'name':'猫猫小鱼干1','express': '包邮', 'price': 80, 'quantity':1},
+      {'img': '../../../icons/cat.jpg', 'name':'猫猫小鱼干','express': '包邮', 'price': 82, 'count':1},
+      {'img': '../../../icons/cat.jpg', 'name':'猫猫小鱼干1','express': '包邮', 'price': 80, 'count':1},
     ]
+  },
+
+  back: function(){
+    wx.navigateBack({
+    })
   },
 
   checkboxChange: function(e){
     console.log('checkbox发生change事件，携带value值为：', e.detail)
-
     const items = this.data.comodities;
     const values = e.detail.value
     for (let i = 0, lenI = items.length; i < lenI; ++i) {
       items[i].checked = false
       for (let j = 0, lenJ = e.detail.value.length; j < lenJ; ++j) {
-        if (items[i].name === values[j]) {
+        if (items[i].id == values[j]) {
           items[i].checked = true;
         }
       }
@@ -28,17 +34,38 @@ Page({
     var pay = 0;
     items.forEach((item)=>{
       if(item.checked){
-        pay += item.price * item.quantity;
+        pay += item.price * parseInt(item.count);
       }
     })
-    this.setData({items});
     this.setData({totalPrice: pay});
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getOrders();
+  },
 
+  getOrders: function(){
+    const userId = app.globalData.userId;
+    const that = this;
+    wx.request({
+      url: domain + '/product/shoppingCartGet',
+      method: 'GET',
+      data: {
+        creatorId: userId
+      },
+      success(res){
+        const resData = res.data.data;
+        that.setData({
+          comodities: resData
+        })
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**

@@ -1,4 +1,5 @@
 // pages/market/myservice/index.js
+const app = getApp();
 const domain = getApp().globalData.domainName;
 Page({
 

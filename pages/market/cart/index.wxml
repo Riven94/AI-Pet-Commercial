@@ -6,16 +6,16 @@
   <checkbox-group class="comodities" bindchange="checkboxChange">
     <label class="label" wx:for="{{comodities}}">
       <view class="weui-cell__hd">
-        <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" />
       </view>
       <view class="comodityWrap">
-        <image class="img" src="{{item.img}}"></image>
+        <image class="img" src="{{item.imgUrl}}"></image>
         <view class="middle">
           <view class="name">{{item.name}}</view>
-          <view class="express">{{item.express}}</view>
+          <view class="express">{{item.service}}</view>
           <view class="price">￥{{item.price}}</view>
         </view>
-        <view class="quantity">×{{item.quantity}}</view>
+        <view class="quantity">×{{item.count}}</view>
       </view>
     </label>
 

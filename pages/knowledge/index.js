@@ -59,7 +59,7 @@ Page({
           let temp = {
             title: element.articleTitle,
             general: element.article,
-            img: element.img,
+            imgUrl: element.imgUrl,
             desc: '你想知道的都在这里！',
             id: element.id
           };

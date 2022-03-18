@@ -42,6 +42,7 @@
   width: 500rpx;
   margin-left: 60rpx;
   background-color: white;
+  padding-left: 10rpx;
   border-radius: 20rpx;
 }
 .cart{
@@ -113,13 +114,13 @@
   margin-left: 5rpx;
 }
 .quantity{
-  margin-left: 40rpx;
+  margin-right: 10rpx;
   font-size: 25rpx;
   color: gray;
+  float: right;
 }
 .footwrap{
-  margin: 40rpx 0rpx 20rpx 10rpx;
-  display: flex;
+  margin: 18rpx 0rpx 20rpx 10rpx;
 }
 .name{
   margin: 10rpx 0rpx 0rpx 10rpx;

@@ -41,6 +41,42 @@ Page({
   onLoad: function (options) {
   },
 
+  back: function(e){
+    wx.navigateBack({
+    })
+  },
+
+  change: function(e){
+    const that = this;
+    var index = e.currentTarget.dataset.index;
+    that.setData({
+      currentIndex: index
+    })
+  },
+
+  toMyService: function(e){
+    wx.navigateTo({
+      url: '../myservice/index',
+    })
+  },
+
+  toComment: function(e){
+    wx.navigateTo({
+      url: '../comment/index',
+    })
+  },
+
+  toOrder(){
+    wx.navigateTo({
+      url: '../placeorder/index',
+    })
+  },
+
+  toCart(){
+    wx.navigateTo({
+      url: '../cart/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -88,36 +124,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  
-  back: function(e){
-    wx.navigateBack({
-    })
-  },
-
-  change: function(e){
-    const that = this;
-    var index = e.currentTarget.dataset.index;
-    that.setData({
-      currentIndex: index
-    })
-  },
-
-  toMyService: function(e){
-    wx.navigateTo({
-      url: '../myservice/index',
-    })
-  },
-
-  toComment: function(e){
-    wx.navigateTo({
-      url: '../comment/index',
-    })
-  },
-
-  toOrder(){
-    wx.navigateTo({
-      url: '../placeorder/index',
-    })
   }
 })

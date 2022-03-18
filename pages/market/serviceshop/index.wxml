@@ -3,7 +3,7 @@
   <view class="top">
     <view class="wrap">
       <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
-      <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
+      <image class="cart" src="../../../icons/cart.png" bindtap="toCart"></image>
     </view>
   </view>
   <view class="general">

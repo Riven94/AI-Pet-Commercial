@@ -1,6 +1,5 @@
 // pages/market/addaddress/index.js
-const app=getApp();
-const userId = app.globalData.userId;
+const app = getApp();
 const domain = app.globalData.domainName
 Page({
 
@@ -27,10 +26,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      const userId = app.globalData.userId;
       this.getAlladdress(userId)
     },
+
     getAlladdress:function(userId){
-      const that=this;
+      const that = this;
       wx.request({
         url:domain+'/address/getAll',
         data: {

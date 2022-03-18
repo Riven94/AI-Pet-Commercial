@@ -2,9 +2,10 @@
 <import src="../../template/publishitem/publishitem.wxml"></import>
 <view class="container">
   <view class="top">
-  <view class="search">
-    <image class="searchicon" src="../../icons/search.png"></image>
-  </view>
+    <view class="search">
+      <icon type="search" class="searchIcon" size="18"></icon>
+      <input type="text" class="input" placeholder="搜索宠物相关知识" bindconfirm="Search"/>
+    </view>
   <image class="add" src="../../icons/加号.png" bindtap="toPublish"></image>
   </view>
   <view class="tabs">

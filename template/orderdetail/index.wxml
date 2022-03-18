@@ -1,7 +1,7 @@
 <template name="orderdetail">
 <view class="orderwrap">
 <view class="order-summary">
-<image class="orderimg" src="{{order.img}}"></image>
+<image class="orderimg" src="{{order.imgUrl}}"></image>
 <view class="ordername">{{order.name}}</view>
 <view class="order-price-quantity">
 <view class="order-price">￥{{order.price}}</view>

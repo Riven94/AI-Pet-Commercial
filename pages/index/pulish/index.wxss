@@ -85,3 +85,11 @@
   right: 5%;
   top: 33rpx;
 }
+.imageList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.normal{
+  width: 130rpx;
+  height: 130rpx;
+}
