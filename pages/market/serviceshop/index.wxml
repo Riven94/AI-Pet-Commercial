@@ -8,7 +8,7 @@
   </view>
   <view class="general">
     <view class="shop">
-      <image class="shopicon" src="{{icon}}" bindtap="toDetail"></image>
+      <image class="shopicon" src="{{icon}}" bindtap="toShop"></image>
       <view class="shopgeneral">
         <view class="shopname">{{shopname}}</view>
         <view class="stars">
@@ -43,7 +43,7 @@
     </view>
   </view>
   <view class="serviceDetail">
-    <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
+    <view class="detailwrap" wx:for="{{freights}}" bindtap="toServiceDetail" data-id="{{item.id}}">
         <image class="detailImg" src="{{item.imgUrl}}"></image>
         <view class="name">{{item.name}}</view>
     </view>

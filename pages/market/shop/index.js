@@ -70,7 +70,7 @@ Page({
       }
     })
   },
-  toshop:function(e){
+  toProduct:function(e){
     console.log(e)
     const id = e.currentTarget.dataset.id
     wx.navigateTo({

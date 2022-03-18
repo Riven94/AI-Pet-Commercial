@@ -33,7 +33,7 @@
     </view>
   </view>
   <view class="serviceDetail" >
-    <view class="detailwrap" wx:for="{{comodities}}" bindtap="toShop" data-id="item.id">
+    <view class="detailwrap" wx:for="{{comodities}}" bindtap="toProduct" data-id="item.id">
       <image class="detailImg" src="{{item.img}}"></image>
       <view class="name">{{item.name}}</view>
       <view class="footwrap">

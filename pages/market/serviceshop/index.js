@@ -28,7 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const Id=options.id;
+    const Id = options.id;
     this.setData({id: options.id})
     this.getDetail(Id);
     this.getServices(Id);
@@ -91,6 +91,7 @@ Page({
           address: "雄楚大道100号",
           distance: "7.2",
           drivetime: "20",
+          id: resData.id
         })
       }
     })
@@ -183,15 +184,16 @@ Page({
     }
   },
 
-  toDetail: function(e){
+  toShop: function(e){
     wx.navigateTo({
-      url: '../servicedetail/index',
+      url: '../shop/index?id=' + this.data.id,
     })
   },
 
-  toMyService: function(e){
+  toServiceDetail: function(e){
+    const productId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../myservice/index',
+      url: '../servicedetail/index?id=' + productId
     })
-  }
+  },
 })
