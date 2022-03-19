@@ -24,7 +24,8 @@ Page({
       login: false,
       register: false,
       userIcon: "../../icons/boy.png",
-      gender: ''
+      gender: '',
+      articles: []
   },
 
   getUser(e){
@@ -173,6 +174,25 @@ Page({
     })
   },
 
+  getArticles(){
+    const that = this;
+    wx.request({
+      url: domain + '/knowledge/getAll',
+      data:{
+        creatorId: app.globalData.userId
+      },
+      method: 'GET',
+      success(res){
+        const resData = res.data.data;
+        console.log(res);
+        that.setData({ articles: resData});
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -183,7 +203,6 @@ Page({
       this.getUserDetail(app.globalData.userId);
       console.log(1);
     }
-    this.getMyOrder();
   },
 
   getMyPublish: function(){
@@ -227,6 +246,13 @@ Page({
     })
   },
 
+  toArticle(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../knowledge/article/index?id=' + id + "&from=my",
+    })
+  },
+  
   toMyPublish(e){
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -244,6 +270,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getMyOrder();
+    this.getArticles();
   },
 
   /**

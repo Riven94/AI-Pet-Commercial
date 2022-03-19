@@ -58,5 +58,18 @@
       </view>
     </view>
   </view>
+  <view class="myArticle">
+    <view class="publishtop">
+      <view class="orderlabel">|</view>
+      <view class="text">我的文章</view>
+      <image class="more" src="../../icons/arrow.png"></image>
+    </view>
+    <view >
+      <view class="article" wx:for="{{articles}}" data-id="{{item.id}}" bindtap="toArticle">
+        <image class="articleImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        <view class="title">{{item.articleTitle}}</view>
+      </view>
+    </view>
+  </view>
   <button bindtap="toShop">我的商铺</button>
 </view>

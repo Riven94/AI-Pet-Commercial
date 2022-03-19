@@ -7,14 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'article': ""
+    article: "",
+    delete: false,
+    articleId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getArticle(options.id)
+    this.getArticle(options.id);
+    this.setData({articleId: options.id * 1});
+    if(options.from){
+      this.setData({delete: true});
+    }
   },
 
   getArticle: function(id){
@@ -31,6 +37,44 @@ Page({
       },
       fail(error){
         console.log(error);
+      }
+    })
+  },
+
+  delete(){
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: "确认删除此文章？",
+      success(res){
+        if(res.confirm){
+          that.onRealDelete();
+        }
+      }
+    })
+  },
+
+  onRealDelete(){
+    const that = this;
+    wx.request({
+      url: domain + '/knowledge/delete',
+      header: { 'content-type': 'application/json'},
+      data:{
+        id: that.data.articleId,
+        creatorId: app.globalData.userId
+      },
+      method: 'POST',
+      success(res){
+        console.log(res);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '删除成功！',
+          showCancel: false,
+          success(res){
+            wx.navigateBack({
+            })
+          }
+        })
       }
     })
   },

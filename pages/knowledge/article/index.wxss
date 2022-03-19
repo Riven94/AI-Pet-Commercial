@@ -5,3 +5,10 @@
   top: 30rpx;
   color: white;
 }
+.delete{
+  position: absolute;
+  right: 20rpx;
+  top: 30rpx;
+  background-color: rgb(236, 222, 22);
+  padding: 7rpx;
+}
