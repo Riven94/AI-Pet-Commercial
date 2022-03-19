@@ -20,7 +20,7 @@
     </view>
     <view style="display: flex;justify-content: space-between;">
     <view class="desc" style="margin:0 15rpx">{{shop.detail}}</view>
-    <text class="addcommoditydetail" bindtap="toAddcommditydetail" style="margin:15rpx">添加商品</text>
+    <text class="addcommoditydetail" bindtap="toAddcommditydetail" style="margin:15rpx">添加商品</text>  <!-- 这里可以删除 -->
     </view>
   </view>
   <view class="servicesItems">
@@ -33,7 +33,8 @@
     </view>
   </view>
   <view class="serviceDetail" >
-    <view class="detailwrap" wx:for="{{comodities}}" bindtap="toProduct" data-id="item.id">
+    <view class="detailwrap" wx:for="{{comodities}}" bindtap="toProduct" 
+    data-id="{{item.id}}">
       <image class="detailImg" src="{{item.img}}"></image>
       <view class="name">{{item.name}}</view>
       <view class="footwrap">

@@ -1,5 +1,5 @@
 // app.js
-const domainName = "http://101.42.227.112:8000";
+const domainName = "http://gtlcoder.cn:8000";
 const appid = wx.getAccountInfoSync().miniProgram.appId;
 const secret = "4dfa211aee19f4e1da5ebbb621c77eee";
 let openid;

@@ -93,11 +93,11 @@ Page({
       method: 'POST',
       data: {
        "name":Name,
-       "imgUrl":that.data.imageList[0],
+       "imgUrl":that.data.imageList,
        "detail":Detail,
        "type":that.data.Type,
        "state":State,
-       "creatorId":1,
+       "creatorId":userId,
        "storeId":22,
       "price":Price,
       "freight":Freight,

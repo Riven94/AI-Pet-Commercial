@@ -15,7 +15,14 @@ Page({
       functions:[
         {icon:"../../icons/selfmessage.png", path:"./personal/index", text:"个人信息"},
         {icon:"../../icons/mypet.png", path:"./pet/index", text:"我的宠物"},
-        {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"}
+        {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"},
+        
+      ],
+      marketfunctions:[
+        {icon:"../../icons/待发货.png",text:"待收货"},
+        {icon:"../../icons/待收货.png",text:"待发货"},
+        {icon:"../../icons/待评价.png",text:"待评价"},
+        {icon:"../../icons/退款管理.png",text:"退款/售后"}
       ],
       myPublish:[],
       orders:[],

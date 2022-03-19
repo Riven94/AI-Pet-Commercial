@@ -29,7 +29,6 @@ Page({
     })
     console.log(options);
     const productId = options.id;
-    console.log("找到id:",options.id);
     //const Id=options,id
     this.getaddress();
     //this.getItem();

@@ -197,6 +197,20 @@
                     "name": "",
                     "pathName": "pages/market/addaddress/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/receive/index",
+                    "query": "id=undefined",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/placeorder/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

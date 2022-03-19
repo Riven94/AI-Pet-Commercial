@@ -28,7 +28,7 @@
       </view>
       <view class="services" style="display:flex;justify-content: space-between;">
         <view class="service" wx:for="{{services}}">{{item}}</view> 
-         <text class="addservice" bindtap="addService" >添加服务</text>
+         <text class="addservice" bindtap="addService" data-id="{{item.id}}">添加服务</text>
       </view>
     
     </view>
@@ -45,7 +45,8 @@
     </view>
   </view>
   <view class="serviceDetail">
-    <view class="detailwrap" wx:for="{{freights}}" bindtap="toServiceDetail" data-id="{{item.id}}">
+    <view class="detailwrap" wx:for="{{freights}}" bindtap="toServiceDetail" 
+    data-id="{{item.id}}">
         <image class="detailImg" src="{{item.imgUrl}}"></image>
         <view class="name">{{item.name}}</view>
     </view>
