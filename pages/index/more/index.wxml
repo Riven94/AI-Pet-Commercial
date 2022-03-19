@@ -10,8 +10,9 @@
       </view> 
     </view>
   </view>
-  <image src="{{animalitem.imgUrl}}" class="animalImg" mode="aspectFill"></image>
-  <template is="animalcard" data="{{animalitem}}"></template>
-  <template is="ownercard" data="{{owneritem}}"></template>
+  <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill"></image>
+  <view class="content">{{detail.comment}}</view>
+  <!-- <template is="animalcard" data="{{animalitem}}"></template>
+  <template is="ownercard" data="{{owneritem}}"></template> -->
   <view class="left"></view>
 </view>

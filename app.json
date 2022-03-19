@@ -29,6 +29,7 @@
     "pages/my/myshop/index",
     "pages/my/addShop/index",
     "pages/my/setting/index",
+    "pages/my/addPet/index",
     "pages/index/pulish/index",
     "pages/knowledge/addarticle/index",
     "pages/market/addaddress/index"

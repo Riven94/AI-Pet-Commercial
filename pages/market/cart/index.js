@@ -68,6 +68,98 @@ Page({
     })
   },
 
+  delete(){
+    console.log(this.data.comodities);
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      showCancel: true,
+      content: '确定删除指定商品？',
+      success(res){ 
+        if(res.confirm){
+          that.onRealDelete();
+        }
+      },
+    })
+    console.log(1)
+  },
+
+  onRealDelete(){
+    var temp = this.data.comodities;
+    var idStack = [];
+    var afterDelete = temp.filter(item=> {
+      if(item.checked == true){
+        idStack.push(item.id);
+      }
+      return item.checked == false}
+    );
+    console.log(idStack);
+    idStack.forEach((item) => {
+      wx.request({
+        url: domain + '/product/shoppingCartDelete',
+        data: {
+          id: item
+        },
+        method: 'POST',
+        success(res){
+          console.log(res);
+          console.log('删除成功！');
+        },
+        fail(error){
+          console.log('删除失败');
+        }
+      })
+    });
+    this.setData({
+      comodities: afterDelete
+    });
+  },
+
+  minus(e){
+    console.log(e);
+    const targetId = e.currentTarget.dataset.id;
+    const temp = this.data.comodities;
+    let count = 0;
+    temp.forEach((item)=>{
+      if(item.id == targetId){
+        count = item.count - 1;
+      }
+    });
+    this.changeCount(targetId,count);
+  },
+
+  add(e){
+    console.log(e);
+    const targetId = e.currentTarget.dataset.id;
+    const temp = this.data.comodities;
+    let count = 0;
+    temp.forEach((item)=>{
+      if(item.id == targetId){
+        count = item.count + 1;
+      }
+    });
+    this.changeCount(targetId,count);
+  },
+
+  changeCount(targetId,count){
+    console.log(count)
+    wx.request({
+      url: domain + '/product/shoppingCartChangeCount',
+      method: "POST",
+      data:{
+        id: targetId,
+        count: count
+      },
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+    this.getOrders();
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

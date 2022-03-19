@@ -13,8 +13,7 @@ Page({
     freights: [
       {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
       {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"}
     ],
   },
 

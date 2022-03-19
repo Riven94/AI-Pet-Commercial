@@ -32,6 +32,10 @@ Page({
     }
   },
 
+  onShow(){
+    this.getMain();
+  },
+
   getMain(){
     const that = this;
     wx.request({

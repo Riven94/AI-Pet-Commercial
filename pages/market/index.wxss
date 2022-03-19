@@ -90,14 +90,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  width: 95%;
+  margin: 0 auto;
 }
 .detailwrap{
   display: flex;
-  flex-direction: column;
-  width: 320rpx;
-  margin-left: 20rpx;
+  flex-direction: row;
+  width: 300rpx;
+  flex-wrap: wrap;
+  margin-left: 30rpx;
   margin-right: 20rpx;
   margin-top: 20rpx;
   border-radius: 10rpx;
@@ -124,4 +125,9 @@
 }
 .name{
   margin: 10rpx 0rpx 0rpx 10rpx;
+}
+.detailWrapFoot{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }

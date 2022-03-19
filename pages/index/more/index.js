@@ -21,14 +21,36 @@ Page({
       email: "1111@163.com",
       phone: "15311111111",
       time: "2022/1/25"
-    }
+    },
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAnimal(options.id);
+    //this.getAnimal(options.id);
+    this.getDetail(options.id);
+  },
+
+  getDetail(id){
+    const that = this;
+    wx.request({
+      url: domain + '/comment/getDetail',
+      method: "GET",
+      data:{
+        id: id
+      },
+      success(res){
+        console.log(res);
+        that.setData({
+          detail: res.data.data
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   getAnimal(id){
@@ -66,6 +88,7 @@ Page({
       data: {'userId':id},
       success(res){
         const resData = res.data.data;
+        console.log(resData);
         const temp = {
           nickname: resData.nickName,
           email: resData.email,

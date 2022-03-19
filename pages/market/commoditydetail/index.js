@@ -80,6 +80,11 @@ Page({
       success(res){
         console.log(res);
         console.log('加入购物车成功');
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: "加入购物车成功！",
+          showCancel: false
+        })
       },
       fail(error){
         console.log('加入失败');

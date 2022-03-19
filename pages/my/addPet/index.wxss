@@ -1,6 +1,6 @@
 @import '../../../template/top/index.wxss';
 .title{
-  color: black;
+  color: white;
   top: 33rpx;
   left: 43%;
   position: absolute;
@@ -80,8 +80,8 @@
   align-items: center;
   border-radius: 20rpx;
   position: absolute;
-  color: black;
-  background-color: rgb(255, 166, 0);
+  color: white;
+  background-color: orange;
   right: 5%;
   top: 33rpx;
 }

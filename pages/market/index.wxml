@@ -27,12 +27,15 @@
     <view class="serviceDetail">
         <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
             <image class="detailImg" src="{{item.imgUrl}}"></image>
-            <view class="name">{{item.name}}</view>
-            <view class="footwrap">
-                <!-- <view class="distance">距您{{item.distance}}</view> -->
-                <text class="quantity">{{item.quantity}}人付款了</text>
+            <view class="detailWrapFoot">
+                <view class="name">{{item.name}}</view>
+                <view class="footwrap">
+                    <!-- <view class="distance">距您{{item.distance}}</view> -->
+                    <text class="quantity">{{item.quantity}}人付款了</text>
+                </view>
             </view>
         </view>
+        <view class="detailWrap" wx:if="{{freights.length % 2 == 1}}"></view>
     </view>
     </view>
 </view>

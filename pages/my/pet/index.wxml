@@ -18,5 +18,6 @@
       <image class="img" src="{{item.imgUrl}}"></image>
     </view>
   </view>
+  <button bindtap="addPet">添加宠物</button>
   <view class="left"></view>
 </view>

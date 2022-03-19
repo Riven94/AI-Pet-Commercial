@@ -45,15 +45,16 @@ Page({
 
   getArticles: function(){
     const that = this;
+    const userId = app.globalData.userId;
     wx.request({
       url: domain + '/knowledge/getAll',
       method: "GET",
       data: {
-        "creatorId": 1
+        creatorId: userId
       },
       success: (res) => {
         const resData = res.data.data;
-        console.log(resData)
+        console.log(resData);
         var articleData = [];
         resData.forEach(element => {
           let temp = {
@@ -122,7 +123,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getArticles();
   },
 
   /**

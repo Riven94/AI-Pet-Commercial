@@ -33,7 +33,7 @@ page{
 }
 .wrap{
   float: right;
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -75,8 +75,6 @@ checkbox .wx-checkbox-input{
   height: 40rpx;
   border: 2rpx solid black;
   border-radius: 10rpx;
-  align-self: flex-end;
-  margin-left: 230rpx;
 }
 .middle{
   width: 200rpx;
@@ -92,4 +90,25 @@ checkbox .wx-checkbox-input{
 }
 .price{
   color: #EA5352;
+}
+.delete{
+  color: white;
+  margin-right: 250rpx;
+  margin-left: 40rpx;
+  background-color: #EA5352;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+.count{
+  margin-top: 80rpx;
+  margin-left: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rpx !important;
 }
