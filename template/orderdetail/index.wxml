@@ -5,7 +5,7 @@
 <view class="ordername">{{order.name}}</view>
 <view class="order-price-quantity">
 <view class="order-price">￥{{order.price}}</view>
-<view class="order-quantity">数量：{{order.quantity}}</view>
+<view class="order-quantity">数量：{{order.count}}</view>
 </view>
 </view>
 <view class="order-express">

@@ -2,12 +2,22 @@
 <view class="container">
   <template is="top">
   </template>
+  <view class="delete" bindtap="delete">删除</view>
+  <view class="addShop" bindtap="toAddShop">添加商铺</view>
     <view class="title">我的商铺</view>
-  <view class="shops">
+    <checkbox-group class="myShops" bindchange="checkboxChange">
+    <label class="label" wx:for="{{shopData}}">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+        <view class="shops">
+          <image class="shopIcon" src="{{item.imgUrl}}"></image>
+          <view class="shopName">{{item.name}}</view>
+        </view>
+    </label>
+    </checkbox-group>
+  <!-- <view class="shops">
     <view class="shop" wx:for="{{shopData}}" data-id="{{item.id}}" bindtap="toShop">
       <image class="shopIcon" src="{{item.imgUrl}}"></image>
       <view class="shopName">{{item.name}}</view>
     </view>
-  </view>
-  <view class="addShop" bindtap="toAddShop">添加商铺</view>
+  </view> -->
 </view>

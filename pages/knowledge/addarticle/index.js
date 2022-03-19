@@ -50,26 +50,6 @@ Page({
 
   uploadImage:function(){
     var that=this;
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success (res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths 
-        console.log(res)
-        that.setData({
-            imageList:res.tempFilePaths
-        })
-        console.log("aaaaaaaaa",that.data.imageList)
-        that.upload(tempFilePaths)
-      }
-    })
-  },
-
-
-  uploadImage:function(){
-    var that=this;
     var imageList = that.data.imageList;
     wx.chooseImage({
       count: 5,

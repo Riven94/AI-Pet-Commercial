@@ -9,7 +9,9 @@
     <view class="address" bindtap="toAddress">
         <template is="address" data="{{address}}"></template>
     </view>
-    <template is="orderdetail" data="{{order}}"></template>
+    <view class="orders" wx:for="{{orders}}" wx:for-item="order">
+        <template is="orderdetail" data="{{order}}"></template>
+    </view>
     <view class="page__bd">
         <view class="section section_gap">
             <radio-group class="radio-group" bindchange="radioChange">

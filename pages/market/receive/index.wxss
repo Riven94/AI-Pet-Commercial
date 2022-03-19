@@ -37,3 +37,11 @@
 .save{
   background: #F3BE67;
 }
+.delete{
+  position: absolute;
+  top: 38rpx;
+  right: 20rpx;
+  color: white;
+  background-color: orange;
+  padding: 7rpx;
+}

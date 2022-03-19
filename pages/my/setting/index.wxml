@@ -3,7 +3,7 @@
   <template is="top"></template>
   <view class="title">修改信息</view>
   <view class="image" wx:if="{{icon}}" bindtap="uploadImage">
-    <image class="image" src="{{icon}}" mode="aspectFill"></image>
+    <image class="image" src="{{icon}}" mode="aspectFill" bindtap="uploadImage"></image>
   </view>
   <image class="image" wx:else bindtap="uploadImage">
       <view class="tip">点击上传头像</view>
@@ -11,7 +11,7 @@
   <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" value="{{default[index]}}" name='{{"input"+index}}' />
     </view>
       <view wx:for="{{imageList}}">
         <image class="normal" name="img" src="{{item}}"></image>

@@ -1,5 +1,6 @@
 // pages/my/myshop/index.js
-const domain = getApp().globalData.domainName
+const app = getApp()
+const domain = app.globalData.domainName
 Page({
 
   /**
@@ -13,7 +14,68 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getShops(1);
+    const userId = app.globalData.userId;
+    this.getShops(userId);
+  },
+
+  checkboxChange: function(e){
+    console.log('checkbox发生change事件，携带value值为：', e.detail)
+    const items = this.data.shopData;
+    const values = e.detail.value
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      items[i].checked = false
+      for (let j = 0, lenJ = e.detail.value.length; j < lenJ; ++j) {
+        if (items[i].id == values[j]) {
+          items[i].checked = true;
+        }
+      }
+    }
+  },
+
+  delete(){
+    console.log(this.data.shopData);
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      showCancel: true,
+      content: '确定删除指定商铺？',
+      success(res){ 
+        if(res.confirm){
+          that.onRealDelete();
+        }
+      },
+    })
+  },
+
+  onRealDelete(){
+    var temp = this.data.shopData;
+    var idStack = [];
+    var afterDelete = temp.filter(item=> {
+      if(item.checked == true){
+        idStack.push(item.id);
+      }
+      return item.checked == false}
+    );
+    console.log(idStack);
+    idStack.forEach((item) => {
+      wx.request({
+        url: domain + '/product/storeDelete',
+        data: {
+          id: item
+        },
+        method: 'POST',
+        success(res){
+          console.log(res);
+          console.log('删除成功！');
+        },
+        fail(error){
+          console.log('删除失败');
+        }
+      })
+    });
+    this.setData({
+      shopData: afterDelete
+    });
   },
 
   getShops(id){

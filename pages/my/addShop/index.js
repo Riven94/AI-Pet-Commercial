@@ -96,6 +96,15 @@ Page({
       },
       success(res){
         console.log(res);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content:'创建成功！',
+          showCancel: false,
+          success(res){
+            wx.navigateBack({
+            })
+          }
+        })
       },
       fail(error){
         console.log(error);

@@ -47,8 +47,8 @@
 }
 .setting{
   margin-top: 30rpx;
-  width: 35rpx;
-  height: 35rpx;
+  width: 45rpx;
+  height: 45rpx;
   align-items: flex-end;
 }
 .functions{

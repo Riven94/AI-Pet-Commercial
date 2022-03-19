@@ -24,7 +24,9 @@
       <image class="more" src="../../icons/arrow.png"></image>
     </view>
     <view wx:if="{{myPublish.length > 0}}">
-      <template wx:for="{{myPublish}}" is="publishitem" data="{{item}}"></template>
+      <view wx:for="{{myPublish}}" bindtap="toMyPublish" data-id="{{item.id}}">
+        <template  is="publishitem" data="{{item}}"></template>
+      </view>
     </view>
     <view class="else" wx:else>快去发布你的第一个动态吧！</view>
   </view>

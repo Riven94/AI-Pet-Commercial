@@ -26,8 +26,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      const userId = app.globalData.userId;
-      this.getAlladdress(userId)
     },
 
     getAlladdress:function(userId){
@@ -49,39 +47,26 @@ Page({
           }
       })
     },
+    
     toAddaddress(){
       wx.navigateTo({
         url: '../receive/index',
       })
     },
+
     defaultaddress:function(e){
       const that=this;
       console.log(e)
       var Item = e.currentTarget.dataset.address
-   /*  wx.request({
-      url: domain+'/address/update',
-      data: {
-        creatorId:userId,
-        consignee:Item.consignee,
-        phone:Item.phone,
-        area:Item.area,
-        addressDetail:Item.addressDetail,
-        type:1,
-      },
-      method:'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-      wx.navigateBack({
-        delta: 1,
-      })
-      },
-      fail(res){
-        console.log("失败")
-      }
-    }) */
     },
+
+    edit(e){
+      console.log(e);
+      wx.navigateTo({
+        url: '../receive/index?id=' + e.currentTarget.dataset.id,
+      })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -93,7 +78,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      const userId = app.globalData.userId;
+      this.getAlladdress(userId);
     },
 
     /**

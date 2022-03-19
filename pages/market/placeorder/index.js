@@ -13,32 +13,31 @@ Page({
         username: "李华",
         userphone: "8208208820"
       },
-      order: {
-        img: "../../../icons/cat.jpg",
-        name: "猫猫洗护套餐",
-        price: 80,
-        quantity: 1,
-        express: "免邮"
-      },
-      items: [{value:"支付宝支付"},
-              {value:"微信支付"}]
+      orders: [],
+      items: [{value:"微信支付"}]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const userId = app.globalData.userId;
+    const eventChannel = this.getOpenerEventChannel();
+    const that = this;
+    eventChannel.on('sendData', function(data){
+      console.log(data);
+      that.setData({orders: data.data});
+    })
+    console.log(options);
     const productId = options.id;
     console.log("找到id:",options.id);
     //const Id=options,id
-    this.getaddress(userId);
-    this.getItem(productId);
+    this.getaddress();
+    //this.getItem();
     //this.getshop(Id)
-   
   },
 
-  getaddress:function(userId){
+  getaddress:function(){
+    const userId = app.globalData.userId;
     const that = this;
     console.log(userId);
     wx.request({
@@ -51,9 +50,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success (res) {
-        console.log(res.data)
         const resData = res.data.data
-        console.log(resData)
         that.setData({
           address:resData[0]
         })
@@ -64,32 +61,29 @@ Page({
     })
   },
 
-  getItem(productId){
+  getItem(){
     const that = this;
-    wx.request({
-      url: domain + '/product/getDetail',
-      method: 'GET',
-      header: {'content-type': 'application/json'},
-      data:{
-        id: productId * 1
-      },
-      success(res){
-        // order: {
-        //   img: "../../../icons/cat.jpg",
-        //   name: "猫猫洗护套餐",
-        //   price: 80,
-        //   quantity: 1,
-        //   express: "免邮"
-        // },
-        console.log(res);
-        const resData = res.data.data;
-        that.setData({
-          order: resData
-        })
-      },
-      fail(error){
-        console.log(error);
-      }
+    var temp = [];
+    this.data.orders.forEach((item)=>{
+      console.log(item.id);
+      wx.request({
+        url: domain + '/product/getDetail',
+        method: 'GET',
+        header: {'content-type': 'application/json'},
+        data:{
+          id: item.productId * 1
+        },
+        success(res){
+          console.log(res.data.data);
+          const resData = res.data.data;
+          temp.push(resData);
+          that.setData({orders: temp});
+          console.log(that.data.orders)
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
     })
   },
   

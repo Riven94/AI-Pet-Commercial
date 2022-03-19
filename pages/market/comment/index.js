@@ -1,4 +1,6 @@
 // pages/market/comment/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -15,19 +17,37 @@ Page({
         {icon: "../../../icons/cat.jpg", username: "用户",time: "2022-01-01", stars: 5},
         {icon: "../../../icons/cat.jpg", username: "用户",time: "2022-01-01", stars: 5},
         {icon: "../../../icons/cat.jpg", username: "用户",time: "2022-01-01", stars: 4},
-      ]
+      ],
+      productId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const id = options.id * 1
+    this.setData({ productId: id});
     this.getComment();
   },
 
   getComment: function(){
     const that = this;
-    
+    console.log(this.data.productId);
+    wx.request({
+      url: domain + '/product/evaluateGetAll',
+      data:{
+        productId: that.data.productId
+      },
+      method:'GET',
+      success(res){
+        console.log(res);
+        const resData = res.data.data;
+        that.setData({ commentdetail: resData })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   /**

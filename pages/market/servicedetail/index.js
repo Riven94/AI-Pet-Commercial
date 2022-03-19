@@ -1,11 +1,13 @@
 // pages/market/servicedetail/index.js
-
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    serviceDetal: {},
     servicename: "喵星人精致洗护",
     returnselections: ["随时退","过期退"],
     appointment: "需预约",
@@ -32,13 +34,34 @@ Page({
     ]
   }
     ],
-    price: 39.9
+    price: 39.9,
+    serviceId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const serviceId = options.id * 1;
+    this.getService(serviceId);
+  },
+
+  getService(id){
+    const that = this;
+    wx.request({
+      url: domain + '/service/getDetail',
+      method: 'GET',
+      data:{
+        id: id
+      },
+      success(res){
+        console.log(res);
+        that.setData({ serviceDetail: res.data.data });
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   back: function(e){

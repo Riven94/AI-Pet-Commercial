@@ -3,21 +3,21 @@
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
   <view class="bluetop">
-    <view class="message">
+    <!-- <view class="message">
       <view class="triangle" bindtap="back"></view>
       <text class="moremessage">我的宠物消息</text>
-    </view>
+    </view> -->
+    <view class="addButton" bindtap="addPet" style="width: 140rpx;padding: 0;float: right;">添加宠物</view>
   </view>
   <view class="info">
     <view class="information" wx:for="{{information}}">
       <view class="text">属性： {{item.varieties}}</view>
       <view class="text">姓名： {{item.name}}</view>
-      <view class="text">品种： {{item.detail}}</view>
+      <!-- <view class="text">品种： {{item.detail}}</view> -->
       <view class="text">颜色： {{item.color}}</view>
       <view class="text">照片： </view>
       <image class="img" src="{{item.imgUrl}}"></image>
     </view>
   </view>
-  <button bindtap="addPet">添加宠物</button>
   <view class="left"></view>
 </view>

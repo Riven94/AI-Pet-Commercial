@@ -172,3 +172,12 @@ page{
   margin: 0 30rpx;
   font-size: 38rpx;
 }
+.groupbuy{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.descImg{
+  width: 95%;
+  margin: 0 auto;
+}

@@ -5,34 +5,34 @@
     <image class="cart" src="../../../icons/cart.png" bindtap="toCart"></image>
   </view>
   <view class="images">
-    <image class="img" src="{{img}}"></image>
+    <image class="img" src="{{info.imgUrl}}"></image>
   </view>
   <view class="price-general">
-    <view class="price">￥{{price}}</view>
+    <view class="price">￥{{info.price}}</view>
     <view class="bottom-wrap">
       <view class="text">秒杀价</view>
-      <view class="nums">仅剩{{left}}件</view>
+      <view class="nums">仅剩{{info.quantity}}件</view>
     </view>
   </view>
   <view class="describe">
     <view class="describe-wrap">
-      <view class="commodityname">{{commodityname}}</view>
-      <text class="return">{{return}}</text>
-      <view class="methods">{{methods}}</view>
+      <view class="commodityname">{{info.name}}</view>
+      <text class="return">{{info.security}}</text>
+      <view class="methods">{{info.detail}}</view>
     </view>
   </view>
   <view class="freight">
-    <view class="left">运费</view>
+    <view class="left">运费：<text>{{info.service}}</text></view>
     <view class="right">
-      <view class="freight-middle">{{freight}}</view>
-      <view class="freight-right">已下单{{ordered}}</view>
+      <view class="freight-middle">{{}}</view>
+      <view class="freight-right">已下单{{info.freight}}</view>
     </view>
   </view>
   <view class="service">
     <view class="left">服务</view>
-    <view class="right">{{express}}</view>
+    <view class="right">{{}}</view>
   </view>
-  <view class="comment">
+  <view class="comment" bindtap="toComment">
     <text class="comment-text">商品评价</text>
     <image class="more" src="../../../icons/arrow-right.png"></image>
   </view>

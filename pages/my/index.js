@@ -227,6 +227,13 @@ Page({
     })
   },
 
+  toMyPublish(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../index/more/index?id=' + id,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -9,6 +9,7 @@ Page({
    */
   data: {
     info: ['姓名','昵称','性别','手机号','密码','确认密码','邮箱','地址','用户描述'],
+    default: ['','','','','','','','',''],
     icon: "",
     userId: ''
   },
@@ -87,6 +88,30 @@ Page({
     console.log(options);
     this.setData({
       userId: options.id
+    });
+    this.getInfo();
+  },
+
+  getInfo(){
+    const userId = app.globalData.userId;
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{
+        userId: userId
+      },
+      method: 'GET',
+      success(res){
+        const resData = res.data.data;
+        console.log(res);
+        const temp = [resData.name,resData.nickName,resData.gender, resData.phone, resData.password, resData.password,
+        resData.email, resData.address, resData.detail];
+        that.setData({ default: temp });
+        that.setData({ icon: resData.imgUrl})
+      },
+      fail(error){
+        console.log(error);
+      }
     })
   },
 

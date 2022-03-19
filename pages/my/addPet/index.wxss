@@ -1,10 +1,34 @@
-@import '../../../template/top/index.wxss';
-.title{
-  color: white;
-  top: 33rpx;
-  left: 43%;
-  position: absolute;
+@import '../../../template//top/index.wxss';
+.section{
+  display: flex;
+  width: 90%;
+  margin: 30rpx auto 10rpx;
 }
+.left{
+  width: 150rpx;
+}
+.input{
+  background-color: rgb(232,232,232);
+  width: 500rpx;
+  border-radius: 10rpx;
+}
+.imgs{
+  display: flex;
+  flex-wrap: wrap;
+}
+.img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 30rpx;
+}
+.weui-input{
+  height: 350rpx;
+  width: 100%;
+  position: relative;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+/* fenlei */
 .fenlei{
   margin: 0 25rpx;
   height: 90rpx;
@@ -65,31 +89,4 @@
   border-bottom: 1px solid #efefef;
   padding: 10rpx;
   color: rgb(102, 102, 102);
-}
-.image{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100rpx;
-  align-items: center;
-}
-.submit{
-  width: 80rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20rpx;
-  position: absolute;
-  color: white;
-  background-color: orange;
-  right: 5%;
-  top: 33rpx;
-}
-.imageList{
-  display: flex;
-  flex-wrap: wrap;
-}
-.normal{
-  width: 130rpx;
-  height: 130rpx;
 }

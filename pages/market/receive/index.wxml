@@ -2,12 +2,16 @@
   <view class="top">
     <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
     <view class="confirm">编辑收货地址</view>
+    <view class="delete" bindtap="delete" wx:if="{{!new}}">删除</view>
   </view>
   <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" value="{{default[index]}}" name='{{"input"+index}}' />
     </view>
+    <radio-group name="isDefault">
+      <radio value="true">是否为默认地址</radio>
+    </radio-group>
     <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
   </form>
 </view>

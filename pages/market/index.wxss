@@ -96,10 +96,9 @@
 .detailwrap{
   display: flex;
   flex-direction: row;
-  width: 300rpx;
+  width: 320rpx;
   flex-wrap: wrap;
-  margin-left: 30rpx;
-  margin-right: 20rpx;
+  margin-left: 20rpx;
   margin-top: 20rpx;
   border-radius: 10rpx;
   background-color: white;

@@ -79,6 +79,7 @@ page{
   align-items: center;
 }
 .left{
+  width: 200rpx;
   margin: 0 50rpx 0 20rpx;
 }
 .right{

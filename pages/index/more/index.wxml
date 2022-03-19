@@ -4,10 +4,10 @@
 <view class="container">
   <view class="bluetop">
     <view class="message">
-      <view class="back" bindtap="back">
+      <!-- <view class="back" bindtap="back">
         <view class="triangle"></view>
         <text class="moremessage">更多消息</text>
-      </view> 
+      </view>  -->
     </view>
   </view>
   <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill"></image>

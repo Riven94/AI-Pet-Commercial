@@ -7,16 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    price: 15.90,
-    left: 9,
-    commodityname: "美味小鱼干 喵喵小鱼干",
-    return: "七天无理由退货",
-    methods: "低温烘焙 美味四溢",
-    freight: "待下单时确认",
-    ordered: 16,
-    express: "快递发货 收货后结算",
-    img: '',
-    productId: ''
+    info: {}
   },
 
   /**
@@ -40,15 +31,11 @@ Page({
       header:{ 'content-type':'x-www-form-urlencoded'},
       method: 'GET',
       success (res) {
-        console.log(res);
         const resData = res.data.data;
+        console.log(resData);
+        resData.count = 1;
         that.setData({
-          commodityname:resData.name,
-          img:resData.imgUrl,
-          price:resData.price,
-          freight:resData.freight,
-          express:resData.security,
-          methods:resData.detail
+          info: resData
         })
       }
     })
@@ -62,7 +49,14 @@ Page({
   toOrder:function(){
     const that = this;
     wx.navigateTo({
-      url: '../placeorder/index?id=' + that.data.productId,//传入ID
+      url: '../placeorder/index',
+      events:{
+        sendData: function(data){
+        }
+      },
+      success(res){
+        res.eventChannel.emit('sendData', {data: [that.data.info]});
+      }
     })
   },
 
@@ -95,6 +89,12 @@ Page({
   toCart(){
     wx.navigateTo({
       url: '../cart/index',
+    })
+  },
+
+  toComment(e){
+    wx.navigateTo({
+      url: '../comment/index?id=' + this.data.productId,
     })
   },
   /**

@@ -10,10 +10,14 @@
 .bluetop{
   height: 100rpx;
   width: 100%;
-  display: flex;
   background: #F3BE67;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+}
+.addButton{
+  margin: 30rpx;
+  background-color: rgba(226, 137, 21, 0.932);
+  display: flex;
   justify-content: center;
 }
 .triangle{

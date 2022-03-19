@@ -27,7 +27,7 @@
     <view class="wrap">
       <view class="delete" bindtap="delete">删除</view>
       <view class="total">合计￥{{totalPrice}}</view>
-      <button class="pay" style="width: 200rpx;">结算</button>
+      <button class="pay" style="width: 200rpx;" bindtap="pay">结算</button>
     </view>
   </view>
 </view>

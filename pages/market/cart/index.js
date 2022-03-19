@@ -34,10 +34,11 @@ Page({
     var pay = 0;
     items.forEach((item)=>{
       if(item.checked){
-        pay += item.price * parseInt(item.count);
+        pay += parseFloat(item.price) * parseInt(item.count);
+        console.log(pay);
       }
     })
-    this.setData({totalPrice: pay});
+    this.setData({totalPrice: pay.toFixed(2)});
   },
   /**
    * 生命周期函数--监听页面加载
@@ -158,6 +159,28 @@ Page({
       }
     })
     this.getOrders();
+  },
+
+  pay(){
+    var temp = this.data.comodities;
+    var idStack = [];
+    var afterDelete = temp.filter(item=> {
+      if(item.checked == true){
+        idStack.push(item);
+      }
+      return item.checked == false
+    });
+    console.log(idStack);
+    wx.navigateTo({
+      url: '../placeorder/index',
+      events:{
+        sendData: function(data){
+        }
+      },
+      success(res){
+        res.eventChannel.emit('sendData', {data: idStack});
+      }
+    })
   },
 
   /**

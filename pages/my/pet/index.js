@@ -23,6 +23,12 @@ Page({
     this.getMyPet();
   },
 
+  addPet(){
+    wx.navigateTo({
+      url: '../addPet/index',
+    })
+  },
+
   getMyPet(){
     const userId = app.globalData.userId;
     const that = this;

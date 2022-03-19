@@ -1,46 +1,22 @@
-// pages/index/pulish/index.js
+// pages/my/addShop/index.js
 const app = getApp();
-const domain = app.globalData.domainName;
+const domain = getApp().globalData.domainName;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectDatas: ['猫','狗'],
-    indexs: 0,
-    imageList: [],
-    Content: '',
-    Type: '流浪猫狗',
-    id: ''
+    info: ['宠物名字','宠物品种','颜色','猫/狗','你的名字','是否流浪','是否丢失'],
+    imageList:[],
   },
 
-  selectTaps() {
-    this.setData({
-      shows: !this.data.shows,
-    });
-  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
 
-  optionTaps(e) {
-    console.log(e);
-    const that = this;
-    let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    console.log(Indexs)
-    this.setData({
-      indexs: Indexs,
-      shows: !this.data.shows,
-      Type: that.data.selectDatas[Indexs]
-    });
-    console.log(that.data.Type)
   },
-
-  content:function(e){
-    this.setData({
-        Content:e.detail.value
-      })   
-  },
-
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
@@ -67,7 +43,6 @@ Page({
     const userId = app.globalData.userId;
     var that = this;
     var imgUrls = [];
-    console.log(data);
     wx.showToast({
         icon: "loading",
         title: "正在上传"
@@ -76,13 +51,12 @@ Page({
       wx.uploadFile({
         filePath: item,
         //上传图片协议接口
-        url: domain+'/images/uploadFile/article ',
+        url: domain+'/images/uploadFile/store',
         name:'img',
         formData: {
           creatorId: userId
         },
         success(res) {
-          console.log(res);
           let imgUrl = JSON.parse(res.data).imgUrl;
           imgUrl.forEach((item)=>{
             imgUrls.push(item);
@@ -101,47 +75,35 @@ Page({
     })
   },
 
-  submit(){
+  formSubmit(e){
     const userId = app.globalData.userId;
-    const that= this;
-    const temp = {
-      creatorId: userId,
-      imgUrl: that.data.imageList,
-      comment: that.data.Content,
-      type: that.data.Type
-    };
-    console.log(temp);
+    const value = e.detail.value;
+    console.log(value);
+    console.log(this.data.imageList);
+    const that = this;
     wx.request({
-      url: domain + '/comment/upload',
+      url: domain + '/animals/ownerUpload',
       method: 'POST',
-      data: temp,
+      header:{ 'content-type': 'application/json'},
+      data:{
+        animalName: value.input0,
+        varieties: value.input1,
+        color: value.input2,
+        type: value.input3,
+        creatorId: userId,
+        ownerId: userId,
+        ownerName: value.input4,
+        isLost: value.input5,
+        state: value.input6,
+        imgUrl: that.data.imageList
+      },
       success(res){
         console.log(res);
-        wx.showModal({
-          content:'上传成功！',
-          showCancel: false,
-          success(){
-            wx.navigateBack({
-            })
-          }
-        })
       },
       fail(error){
         console.log(error);
-        wx.showModal({
-          content:'上传失败！',
-          showCancel: false,
-        })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData(
-      {id: options.id * 1});
   },
 
   /**
