@@ -140,3 +140,15 @@ page{
 .name{
   margin: 10rpx 0rpx 0rpx 10rpx;
 }
+.addservice{
+  top: 15rpx;
+  right: 20rpx;
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}

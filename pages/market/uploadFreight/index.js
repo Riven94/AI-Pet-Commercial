@@ -1,6 +1,7 @@
 // pages/market/uploadFreight/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
+const userId = app.globalData.userId;
 Page({
 
   /**
@@ -58,11 +59,11 @@ Page({
     var that = this;
     wx.request({
         //上传图片协议接口
-        url: domain+'/iamges/uploadFile/product',
+        url: domain+'/images/uploadFile/product',
         method: 'POST',
         data: {
-          "img": that.data.imageList[0],
-          "creatorId": 1
+          "img": that.data.imageList,
+          "creatorId": userId
         },
        // header:{ 'content-type': 'multipart/form-data'},
         success(res) {

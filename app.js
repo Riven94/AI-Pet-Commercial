@@ -139,7 +139,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domainName: "http://101.42.227.112:8000",
+    domainName: "http://gtlcoder.cn:8000",
     login: login,
     userId: userId
   }
