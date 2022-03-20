@@ -94,11 +94,22 @@ Page({
         ownerId: userId,
         ownerName: value.input4,
         isLost: value.input5,
-        state: value.input6,
+        state: value.input6 * 1,
         imgUrl: that.data.imageList
       },
       success(res){
         console.log(res);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '上传成功！',
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.navigateBack({
+              })
+            }
+          }
+        })
       },
       fail(error){
         console.log(error);
