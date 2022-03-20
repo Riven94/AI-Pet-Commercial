@@ -1,8 +1,23 @@
 <!--pages/market/addaddress/index.wxml-->
 <import src="../../../template/address/index.wxml"></import>
 <view bindtap="defaultaddress" data-address="{{address}}" >
-<view bindtap="edit" wx:for="{{addres}}" wx:for-item="address" data-id="{{address.id}}">
-  <template is="address" data="{{address}}"></template>
-</view>
+  <view wx:for="{{addres}}" wx:for-item="address" >
+    <view class="addresswrap">
+      <view class="iconwrap">
+      <image class="location" src="../../../icons/location.png"></image>
+      </view>
+      <view class="middle" bindtap="clickMiddle" data-addressId="{{address.id}}">
+        <view class="useraddress">
+          <text>{{address.area}}</text>
+          <text>{{address.addressDetail}}</text>
+        </view>
+        <view class="user">
+          <view class="username">{{address.consignee}}</view>
+          <view class="userphone">{{address.phone}}</view>
+        </view>
+      </view>
+      <view class="more" bindtap="edit" data-id="{{address.id}}"><view style="font-size:50rpx;color: #535353;">></view></view>
+    </view>
+  </view>
 </view>
 <view class="addArrdess" bindtap="toAddaddress">添加地址</view>

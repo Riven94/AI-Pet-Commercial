@@ -113,6 +113,14 @@ Page({
     })
   },
 
+  toShop(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../market/shop/index?id=' + id,
+    })
+    console.log(e);
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -124,7 +132,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const userId = app.globalData.userId;
+    this.getShops(userId);
   },
 
   /**

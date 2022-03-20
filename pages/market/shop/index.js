@@ -18,8 +18,9 @@ Page({
     comodities: [
       {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862},
       {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862}
-    ]  ,
-    isOwner: false
+    ],
+    isOwner: false,
+    storeId: ''
   },
 
   change: function(e){
@@ -33,8 +34,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const Id=options.id;
+    const Id=options.id * 1;
     console.log(Id);
+    this.setData({storeId: Id})
     this.getshopdetail(Id)
     this.judgeOwner(app.globalData.userId);
   },
@@ -63,7 +65,10 @@ Page({
       },
       success (res) {
         console.log(res.data);
-        const resData=res.data.data;
+        const resData = res.data.data;
+        if(resData.creatorId == app.globalData.userId){
+          that.setData({isOwner: true})
+        }
         that.setData({
           shop:resData
         })
@@ -74,12 +79,21 @@ Page({
     console.log(e)
     const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url:'./commoditydetail/index?id=' + id,
+      url:'../commoditydetail/index?id=' + id,
     })
   },
   toAddcommditydetail(){
+    const that = this;
     wx.navigateTo({
-      url: '/pages/market/uploadFreight/index',
+      url: '/pages/market/uploadFreight/index?storeId=' + that.data.storeId,
+    })
+  },
+
+  Search(e){
+    console.log(e);
+    const that = this;
+    wx.navigateTo({
+      url: '../searchProduct/index?data=' + e.detail.value + '&storeId=' + that.data.storeId,
     })
   },
 
@@ -99,8 +113,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getProduct();
   },
+
+  getProduct(){
+    const that = this;
+    wx.request({
+      url: domain + '/product/storeProduct',
+      data:{
+        storeId: that.data.storeId
+      },
+      method: 'GET',
+      success(res){
+        console.log(res);
+        that.setData({comodities: res.data.data})
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏

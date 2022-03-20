@@ -44,6 +44,7 @@ page{
   left: 38rpx;
 }
 .input{
+  padding-left: 10rpx;
   width: 500rpx;
   margin-left: 60rpx;
   background-color: white;

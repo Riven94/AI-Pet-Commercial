@@ -14,7 +14,32 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    this.getShops(options.data);
+    if(options.storeId != undefined){
+      this.getStoreProduct(options.storeId, options.data);
+    }
+    else{
+      this.getShops(options.data);
+    }
+  },
+
+  getStoreProduct(storeId, data){
+    wx.request({
+      url: domain + '/product/searchNow',
+      method: 'GET',
+      data:{
+        storeId: storeId,
+        data:data
+      },
+      success(res){
+        console.log(res);
+        that.setData({
+          freights: res.data.data
+        })
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
   },
 
   getShops(data){

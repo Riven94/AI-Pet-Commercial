@@ -13,26 +13,27 @@ Page({
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     selectDatas: ['主食', '零食', '家居','出行','热卖'], //下拉列表的数据
     indexs: 0, //选择的下拉列 表下标,
-    Type:'主食'
+    Type:'主食',
+    storeId: ''
   },
     // 点击下拉显示框
-    selectTaps() {
-      this.setData({
-        shows: !this.data.shows,
-      });
-    },
-    optionTaps(e) {
-      console.log(e);
-      const that = this;
-      let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-      console.log(Indexs)
-      this.setData({
-        indexs: Indexs,
-        shows: !this.data.shows,
-        Type: that.data.selectDatas[Indexs]
-      });
-      console.log(that.data.Type)
-    },
+  selectTaps() {
+    this.setData({
+      shows: !this.data.shows,
+    });
+  },
+  optionTaps(e) {
+    console.log(e);
+    const that = this;
+    let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    console.log(Indexs)
+    this.setData({
+      indexs: Indexs,
+      shows: !this.data.shows,
+      Type: that.data.selectDatas[Indexs]
+    });
+    console.log(that.data.Type)
+  },
   
   uploadImage:function(){
     var that=this;
@@ -81,34 +82,45 @@ Page({
   formSubmit(e) {
     var that=this
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-   const Name=e.detail.value.input0
-   const Detail=e.detail.value.input1
-   const State=e.detail.value.input2
-   const Price=e.detail.value.input3
-   const Freight=e.detail.value.input4
-   const Security=e.detail.value.input5
-   const Service=e.detail.value.input6
+    const Name=e.detail.value.input0
+    const Detail=e.detail.value.input1
+    const State=e.detail.value.input2
+    const Price=e.detail.value.input3
+    const Freight=e.detail.value.input4
+    const Security=e.detail.value.input5
+    const Service=e.detail.value.input6
     wx.request({
       url: domain+'/product/add', 
       method: 'POST',
       data: {
-       "name":Name,
-       "imgUrl":that.data.imageList,
-       "detail":Detail,
-       "type":that.data.Type,
-       "state":State,
-       "creatorId":userId,
-       "storeId":22,
-      "price":Price,
-      "freight":Freight,
-      "security":Security,
-      "service":Service
+        "name":Name,
+        "imgUrl":that.data.imageList,
+        "detail":Detail,
+        "type":that.data.Type,
+        "state":State,
+        "creatorId":userId,
+        "storeId": that.data.storeId,
+        "price":Price,
+        "freight":Freight,
+        "security":Security,
+        "service":Service
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success (res) {
-        console.log(res.data)
+        console.log(res.data);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '上传成功！',
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.navigateBack({
+              })
+            }
+          }
+        })
       }
     })
   },
@@ -116,7 +128,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({storeId: options.storeId * 1});
   },
 
   /**

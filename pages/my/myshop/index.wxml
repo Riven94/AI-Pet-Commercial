@@ -7,8 +7,8 @@
     <view class="title">我的商铺</view>
     <checkbox-group class="myShops" bindchange="checkboxChange">
     <label class="label" wx:for="{{shopData}}">
-        <checkbox value="{{item.id}}" checked="{{item.checked}}" />
-        <view class="shops">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+        <view class="shops" catchtap="toShop" data-id="{{item.id}}">
           <image class="shopIcon" src="{{item.imgUrl}}"></image>
           <view class="shopName">{{item.name}}</view>
         </view>

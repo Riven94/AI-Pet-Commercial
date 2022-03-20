@@ -28,6 +28,36 @@ Page({
     onLoad: function (options) {
     },
 
+    clickMiddle(e){
+      const addressId = e.currentTarget.dataset.addressid;
+      const that = this;
+      console.log(e)
+      wx.request({
+        url: domain + '/address/getDetail',
+        method: "GET",
+        data:{
+          id: addressId
+        },
+        success(res){
+          console.log(res);
+          const resData = res.data.data;
+          var pages = getCurrentPages();
+          var prev = pages[pages.length - 2];
+          prev.setData({
+            address: resData
+          });
+          console.log(prev.data);
+          wx.navigateBack({
+            delta: 0,
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      });
+      console.log(e);
+    },
+
     getAlladdress:function(userId){
       const that = this;
       wx.request({

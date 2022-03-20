@@ -52,7 +52,9 @@ Page({
         const resData = res.data.data
         that.setData({
           address:resData[0]
-        })
+        });
+        app.globalData.address = resData[0];
+        console.log(app.globalData.address)
       },
       fail(error){
         console.log(error);
@@ -97,7 +99,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(this.data)
   },
 
   /**

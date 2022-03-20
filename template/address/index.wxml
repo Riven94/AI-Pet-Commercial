@@ -1,18 +1,18 @@
 <template name="address">
-<view class="addresswrap">
-<view class="iconwrap">
-<image class="location" src="../../../icons/location.png"></image>
-</view>
-<view class="middle">
-<view class="useraddress">
-<text>{{address.area}}</text>
-<text>{{address.addressDetail}}</text>
-</view>
-<view class="user">
-<view class="username">{{address.consignee}}</view>
-<view class="userphone">{{address.phone}}</view>
-</view>
-</view>
-<view class="more"><view style="font-size:50rpx;color: #535353;">></view></view>
-</view>
+  <view class="addresswrap">
+    <view class="iconwrap">
+     <image class="location" src="../../../icons/location.png"></image>
+    </view>
+    <view class="middle" data-addressId="{{address.id}}">
+      <view class="useraddress">
+        <text>{{address.area}}</text>
+        <text>{{address.addressDetail}}</text>
+      </view>
+      <view class="user">
+        <view class="username">{{address.consignee}}</view>
+        <view class="userphone">{{address.phone}}</view>
+      </view>
+    </view>
+    <view class="more"><view style="font-size:50rpx;color: #535353;">></view></view>
+  </view>
 </template>

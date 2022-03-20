@@ -20,7 +20,7 @@
     </view>
     <view style="display: flex;justify-content: space-between;">
     <view class="desc" style="margin:0 15rpx">{{shop.detail}}</view>
-    <text class="addcommoditydetail" bindtap="toAddcommditydetail" style="margin:15rpx">添加商品</text>  <!-- 这里可以删除 -->
+    <text class="addcommoditydetail" bindtap="toAddcommditydetail" style="margin:15rpx" wx:if="{{isOwner}}">添加商品</text>  <!-- 这里可以删除 -->
     </view>
   </view>
   <view class="servicesItems">
