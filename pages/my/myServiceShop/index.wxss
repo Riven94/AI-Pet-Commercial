@@ -1,0 +1,91 @@
+/* pages/my/myServiceShop/index.wxss */
+@import '../../../template//top/index.wxss';
+.title{
+  color: white;
+  position: absolute;
+  left: 40%;
+  top: 35rpx;
+}
+.shop{
+  width: 90%;
+  margin: 20rpx auto;
+  display: flex;
+}
+.shopIcon{
+  width: 250rpx;
+  height: 250rpx;
+}
+.addShop{
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}
+.delete{
+  position: absolute;
+  top: 15rpx;
+  left: 20rpx;
+  color: black;
+  height: 60rpx;
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}
+.label{
+  margin-top: 30rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 6px 0px rgba(229,229,229,1);
+  overflow: auto;
+  align-items: space-between;
+  border:1px solid transparent;
+}
+.comodityWrap{
+  display: flex;
+  border-radius: 10rpx;
+  margin: 20rpx 0;
+}
+.img{
+  border-radius: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+checkbox .wx-checkbox-input{
+  margin-left: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}
+.quantity{
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid black;
+  border-radius: 10rpx;
+}
+.middle{
+  width: 200rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.shopName{
+  display: flex;
+  overflow: hidden;
+  height: 35rpx;
+  margin-left: 20rpx;
+}
+.shops{
+  display: flex;
+}

@@ -1,0 +1,18 @@
+<!--pages/my/myServiceShop/index.wxml-->
+<import src="../../../template/top/index.wxml"></import>
+<view class="container">
+  <template is="top">
+  </template>
+  <view class="delete" bindtap="delete">删除</view>
+  <view class="addShop" bindtap="toAddShop">添加店铺</view>
+    <view class="title">我的服务店铺</view>
+    <checkbox-group class="myShops" bindchange="checkboxChange">
+    <label class="label" wx:for="{{serviceshopData}}">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+        <view class="shops" catchtap="toServiceShop" data-id="{{item.id}}">
+          <image class="shopIcon" src="{{item.imgUrl}}"></image>
+          <view class="shopName">{{item.name}}</view>
+        </view>
+    </label>
+    </checkbox-group>
+</view>

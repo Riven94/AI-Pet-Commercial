@@ -78,5 +78,7 @@
       </view>
     </view>
   </view>
-  <button bindtap="toShop">我的商铺</button>
+  <view style="display:flex;justify-content: space-around;margin:20rpx 0">
+  <button class="button" bindtap="toShop">我的商铺</button>
+  <button class="button" bindtap="toServiceShop">我的服务店铺</button></view>
 </view>

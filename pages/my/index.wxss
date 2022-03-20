@@ -148,3 +148,9 @@
   margin-left: 15rpx;
   margin-right: 20rpx;
 }
+.button{
+  height: 60rpx;
+  width: 100rpx;
+  background-color: #FF9959;
+  border-radius: 20rpx;
+}

@@ -1,0 +1,18 @@
+<!--pages/my/addServiceShop/index.wxml-->
+<import src="../../../template/top/index.wxml"></import>
+<template is="top"></template>
+<form catchsubmit="formSubmit">
+    <view class="section" wx:for="{{info}}">
+      <view class="left">{{item}}</view>
+      <input class="input" name='{{"input"+index}}' />
+    </view>
+    <view class="image">
+      <view bindtap="uploadImage">
+        <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
+      </view>
+    </view> 
+      <view class="imgs">
+        <image wx:for="{{imageList}}" class="img" name="img" src="{{item}}" mode="aspectFill"></image>
+      </view>
+    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+  </form>
