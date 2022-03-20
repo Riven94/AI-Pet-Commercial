@@ -63,8 +63,8 @@
   align-items: center;
 }
 .functionIcon{
-  width: 110rpx;
-  height: 110rpx;
+  width: 65rpx;
+  height: 65rpx;
 }
 .functionName{
   font-size: 27rpx;

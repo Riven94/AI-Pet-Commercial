@@ -7,7 +7,8 @@
     <input class="input" name='{{"input"+index}}' />
   </view>
   <view style="margin:20rpx 34rpx">请上传1~2张照片吧
-  <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadImage"></image></view>
+  <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadImage"></image>
+  </view>
   <view  style="margin-left: 34rpx;" wx:for="{{imageList}}">
       <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
   </view>

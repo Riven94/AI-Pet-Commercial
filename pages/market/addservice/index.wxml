@@ -1,0 +1,40 @@
+<!--pages/market/addservice/index.wxml-->
+<import src="../../../template/top/index.wxml"></import>
+<template is="top"></template>
+<form catchsubmit="formSubmit">
+<view class="type" wx:for="{{info}}">
+    <view style="width: 150rpx;">{{item}}</view>
+    <input class="input" name='{{"input"+index}}' />
+</view>
+<view class="style">请上传服务详情的照片
+    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadservice"></image>
+  </view>
+  <view  style="margin-left: 34rpx;" wx:for="{{imageList1}}">
+      <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
+  </view>
+<view class="style">请上传团购详情的图片
+    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadbulk"></image>
+    </view>
+    <view  style="margin-left: 34rpx;" wx:for="{{imageList2}}">
+      <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
+  </view>
+<view class="style">请上传购买通知的图片
+    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadpurInfor"></image>
+    </view>
+    <view  style="margin-left: 34rpx;" wx:for="{{imageList3}}">
+      <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
+  </view>
+  <view class='fenlei'>
+  <text >类型:</text>
+  <!-- 下拉框 -->
+  <view class='select_box'>
+    <view class='select' catchtap='selectTaps'>
+      <text class='select_text'>{{selectDatas[indexs]}}</text>
+    </view>
+    <view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.length*60):0}}rpx;'>
+      <text class='option' style='{{indexs==selectDatas.length-1&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+    </view>
+    </view>
+  </view>
+  <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+</form>

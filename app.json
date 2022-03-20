@@ -32,7 +32,8 @@
     "pages/my/addPet/index",
     "pages/index/pulish/index",
     "pages/knowledge/addarticle/index",
-    "pages/market/addaddress/index"
+    "pages/market/addaddress/index",
+    "pages/market/addservice/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
