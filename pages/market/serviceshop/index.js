@@ -164,6 +164,7 @@ Page({
     const that = this;
     if(index == 0){
       this.getDetail(that.data.id);
+      this.getServices(that.data.id);
     }
     else{
         wx.request({
