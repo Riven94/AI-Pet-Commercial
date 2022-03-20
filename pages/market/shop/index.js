@@ -2,10 +2,6 @@
 const app = getApp();
 const domain = app.globalData.domainName;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     shop: {
       shopName: '爱宠一家人猫咪专营',
@@ -86,6 +82,12 @@ Page({
     const that = this;
     wx.navigateTo({
       url: '/pages/market/uploadFreight/index?storeId=' + that.data.storeId,
+    })
+  },
+  toAddservice(){
+    const that = this;
+    wx.navigateTo({
+      url: '/pages/market/addservice/index?storeId' + that.data.storeId,
     })
   },
 

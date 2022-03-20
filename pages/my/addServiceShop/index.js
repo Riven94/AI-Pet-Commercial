@@ -1,4 +1,4 @@
-// pages/my/addShop/index.js
+// pages/my/addServiceShop/index.js
 const app = getApp();
 const domain = getApp().globalData.domainName;
 Page({
@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: ['店铺名称','店铺描述','星级','店铺类型','地址'],
+    info: ['店铺名称','店铺描述','星级','是否营业（0/1）','营业时间','服务标签','店铺类型','地址'],
     imageList:[],
   },
 
@@ -83,16 +83,19 @@ Page({
     console.log(this.data.imageList);
     const that = this;
     wx.request({
-      url: domain + '/product/storeAdd',
+      url: domain + '/service/storeAdd',
       method: 'POST',
       data:{
         name: value.input0,
         detail: value.input1,
         level: value.input2,
         imgUrl: that.data.imageList,
+        isBusiness:value.input3,
+        businessHours:value.input4,
+        serviceField:value.input5,
         creatorId: userId,
-        type: value.input3,
-        place: value.input4
+        type: value.input6,
+        place: value.input7
       },
       success(res){
         console.log(res);

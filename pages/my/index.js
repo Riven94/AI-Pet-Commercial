@@ -155,6 +155,20 @@ Page({
       })
     }
   },
+  toServiceShop:function(e){
+    const id = app.globalData.userId;
+    if(id == undefined){
+      wx.showModal({
+        content:'请先登录！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: './myServiceShop/index?id=' + id,
+      })
+    }
+  },
   
   getUserDetail(id){
     const that = this;

@@ -33,7 +33,23 @@ Page({
     this.setData({id: options.id})
     this.getDetail(Id);
     this.getServices(Id);
+    this.judgeOwner(app.globalData.userId);
   },
+  judgeOwner(id){
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{userId: id},
+      method:'GET',
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
+
 
   getServices: function(Id){
     const that = this;

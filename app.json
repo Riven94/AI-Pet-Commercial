@@ -33,7 +33,9 @@
     "pages/index/pulish/index",
     "pages/knowledge/addarticle/index",
     "pages/market/addaddress/index",
-    "pages/market/addservice/index"
+    "pages/market/addservice/index",
+    "pages/my/myServiceShop/index",
+    "pages/my/addServiceShop/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
