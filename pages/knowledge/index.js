@@ -27,18 +27,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {/*
-    var that = this;
-    var temp = this.__data__.articles;
-    var arraytemp = [];
-    for(let i = 0;i < temp.length;i++){
-      var temp1 = temp[i].general.slice(0,50);
-      arraytemp.push(temp1);
-    }
-    console.log(arraytemp);
-    that.setData({
-      tempgeneral: arraytemp
-    })*/
+  onLoad: function (options) {
     console.log(this.articles);
     this.getArticles();
   },
@@ -100,7 +89,7 @@ Page({
   },
   addArticle(){
     const id = app.globalData.userId;
-    if(id == undefined){
+    if(id == undefined || !wx.getStorageSync('login')){
       wx.showModal({
         content:'请先登录！',
         showCancel: false
@@ -123,7 +112,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getArticles();
+    if(wx.getStorageSync('login')){
+      this.getArticles();
+    }
+    else{
+      this.setData({articles: []});
+    }
   },
 
   /**

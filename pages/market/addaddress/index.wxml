@@ -1,5 +1,13 @@
 <!--pages/market/addaddress/index.wxml-->
 <import src="../../../template/address/index.wxml"></import>
+<wxs module="m1">
+  var split = function(str){
+    str = str == undefined ? '' : str;
+    return str.split(',').join('');
+  }
+  module.exports.split = split;
+</wxs>
+<!-- 调用 wxs 里面的 getMax 函数，参数为 page.js 里面的 array -->
 <view bindtap="defaultaddress" data-address="{{address}}" >
   <view wx:for="{{addres}}" wx:for-item="address" >
     <view class="addresswrap">
@@ -8,7 +16,7 @@
       </view>
       <view class="middle" bindtap="clickMiddle" data-addressId="{{address.id}}">
         <view class="useraddress">
-          <text>{{address.area}}</text>
+          <text>{{m1.split(address.area)}}</text>
           <text>{{address.addressDetail}}</text>
         </view>
         <view class="user">

@@ -215,6 +215,12 @@
           "pathName": "pages/my/pet/index",
           "query": "id=9",
           "scene": null
+        },
+        {
+          "name": "pages/market/addaddress/index",
+          "pathName": "pages/market/addaddress/index",
+          "query": "id=9",
+          "scene": null
         }
       ]
     }

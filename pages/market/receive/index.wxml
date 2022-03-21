@@ -5,13 +5,18 @@
     <view class="delete" bindtap="delete" wx:if="{{!new}}">删除</view>
   </view>
   <form catchsubmit="formSubmit">
-    <view class="section" wx:for="{{info}}">
+    <view  class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>
-      <input class="input" value="{{default[index]}}" name='{{"input"+index}}' />
+      <input wx:if="{{index != 2}}" class="input" value="{{default[index]}}" name='{{"input"+index}}' />   
+    <picker wx:else mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view> 
+    </picker>
     </view>
-    <radio-group name="isDefault">
-      <radio value="true">是否为默认地址</radio>
-    </radio-group>
+    <check-group name="isDefault" bindchange="changeDefault">
+      <checkbox checked="{{isDefault}}">是否为默认地址</checkbox>
+    </check-group>
     <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
   </form>
 </view>

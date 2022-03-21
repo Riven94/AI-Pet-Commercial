@@ -5,7 +5,18 @@
       <view class="left">{{item}}</view>
       <input class="input" name='{{"input"+index}}' />
     </view>
+    <picker class="picker" bindchange="bindAnimalChange" value="{{animalIndex}}" range="{{animalType}}">
+        <view >宠物类型:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{animalType[animalIndex]}}</text></view>
+    </picker>
    
+    <picker class="picker" bindchange="bindLostChange" value="{{lostIndex}}" range="{{lostType}}">
+        <view >是否流浪:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{lostType[lostIndex]}}</text></view>
+    </picker>
+   
+    <picker class="picker" bindchange="bindStateChange" value="{{state[stateIndex]}}" range="{{state}}">
+        <view >是否丢失:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{state[stateIndex]}}</text></view>
+    </picker>
+
     <view class="image">
       <view bindtap="uploadImage">
         <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>

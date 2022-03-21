@@ -10,8 +10,12 @@ Page({
     info: ['收货人','手机号码','所在地区','详细地址'],
     default: ['','','',''],
     new: true,
-    addressId:''
+    addressId:'',
+    customItem: '全部',
+    region: ['广东省', '广州市', '海珠区'],
+    isDefault: false
   },
+
   formSubmit(e){
     console.log(e);
     const userId = app.globalData.userId;
@@ -48,9 +52,9 @@ Page({
         creatorId: userId,
         consignee: value.input0,
         phone: value.input1,
-        area: value.input2,
+        area: that.data.region.join(','),
         addressDetail : value.input3,
-        type: 0
+        type: that.data.isDefault
       };
       console.log(data2);
       wx.request({
@@ -66,7 +70,6 @@ Page({
             showCancel: false,
             success(){
               wx.navigateBack({
-                delta:2
               })
             }
           })
@@ -97,7 +100,11 @@ Page({
         console.log(res);
         const resData = res.data.data;
         const temp = [resData.consignee,resData.phone,resData.area, resData.addressDetail];
-        that.setData({ default: temp})
+        that.setData({ default: temp});
+        that.setData({region: resData.area.split(',')})
+        if(resData.type == 0){
+          that.setData({isDefault: true})
+        }
       },
       fail(error){
         console.log(error);
@@ -142,6 +149,18 @@ Page({
         },
         )
       }
+    })
+  },
+
+  changeDefault(e){
+    console.log(e);
+    that.setData({isDefault: !isDefault});
+  },
+
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
     })
   },
 

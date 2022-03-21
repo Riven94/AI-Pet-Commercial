@@ -71,6 +71,7 @@ Page({
                   success(res){
                     openid=res.data.openid;
                     wx.setStorageSync('openid', res.data.openid);
+                    wx.setStorageSync('login', true);
                     console.log(res);
                     that.login(res.data.openid);
                   }
@@ -128,7 +129,9 @@ Page({
 
   toSetting: function(e){
     const id = app.globalData.userId;
-    if(id == undefined){
+    const isLogin = wx.getStorageSync('login');
+    console.log(isLogin);
+    if(id == undefined || !isLogin){
       wx.showModal({
         content:'请先登录！',
         showCancel: false
@@ -291,8 +294,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getMyOrder();
-    this.getArticles();
+    const isLogin = wx.getStorageSync('login');
+    if(isLogin){
+      this.getMyOrder();
+      this.getArticles();
+      this.getUserDetail(app.globalData.userId);
+    }
+    else{
+      this.setData({
+        myPublish:[],
+        orders:[],
+        userInfo: {},
+        openid: "",
+        login: false,
+        register: false,
+        userIcon: "../../icons/boy.png",
+        gender: '',
+        articles: []})
+    }
   },
 
   /**

@@ -10,12 +10,16 @@
   </image>
   <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
-      <view class="left">{{item}}</view>
-      <input class="input" value="{{default[index]}}" name='{{"input"+index}}' />
+      <view wx:if="{{index != 2}}" class="left">{{item}}</view>
+      <input class="input" value="{{default[index]}}" wx:if="{{index != 2}}" name='{{"input"+index}}' />
+      <picker wx:else bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">性别:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{array[arrayIndex]}}</text></view>
+      </picker>
     </view>
       <view wx:for="{{imageList}}">
         <image class="normal" name="img" src="{{item}}"></image>
       </view>
     <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+    <button class="logout" style="background-color:rgba(214, 88, 71, 0.918); position: relative; left: 1rpx; top: 58rpx;color: black;" type="warn" bindtap="logout">退出</button>
   </form>
 </view>
