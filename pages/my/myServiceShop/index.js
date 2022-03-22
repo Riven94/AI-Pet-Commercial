@@ -84,10 +84,8 @@ Page({
       },
       success(res){
         console.log(res);
-        console.log("显示keai商铺")
-        const resData = res.data.data;
         that.setData({
-          serviceshopData: resData
+          serviceshopData: res.data.error
         })
       },
       fail(error){
