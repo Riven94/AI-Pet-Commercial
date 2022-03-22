@@ -1,11 +1,17 @@
 <template name="address">
+<wxs module="m1">
+  var split = function(str){
+    return str.split(',').join('');
+  }
+  module.exports.split = split;
+</wxs>
   <view class="addresswrap">
     <view class="iconwrap">
      <image class="location" src="../../../icons/location.png"></image>
     </view>
     <view class="middle" data-addressId="{{address.id}}">
       <view class="useraddress">
-        <text>{{address.area}}</text>
+        <text>{{m1.split(address.area)}}</text>
         <text>{{address.addressDetail}}</text>
       </view>
       <view class="user">

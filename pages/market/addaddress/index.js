@@ -48,7 +48,6 @@ Page({
           });
           console.log(prev.data);
           wx.navigateBack({
-            delta: 0,
           })
         },
         fail(error){
@@ -69,11 +68,10 @@ Page({
             'content-type': 'application/json' // 默认值
           },
           success (res) {
-            console.log(res.data)
-            const resData=res.data.data
-            that.setData({
-                addres: resData
-            })
+            console.log(res.data);
+            const resData = res.data.data;
+            that.setData({addres: resData});
+            console.log(that.data);
           }
       })
     },

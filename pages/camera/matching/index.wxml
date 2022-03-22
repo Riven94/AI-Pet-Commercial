@@ -1,9 +1,12 @@
 <!--pages/camera/matching/index.wxml-->
 <import src="/template/matchcard/matchcard.wxml"></import>
 <view class="container">
-    <view class="topone"></view>
-    <view class="container1">
-        <template is="matchcard" data="{{animalitem}}"></template>
-        <template is="matchcard" data="{{animalitem}}"></template>
+    <view class="topone">
+        匹配结果
+    </view>
+    <view class="result">
+        <view class="container1" wx:for="{{animals}}" wx:for-item="animalitem" data-id="{{animalitem.id}}" data-owner="{{animalitem.ownerId}}" bindtap="toDetail">
+            <template is="matchcard" data="{{animalitem}}"></template>
+        </view>
     </view>
 </view>

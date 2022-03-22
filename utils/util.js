@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+var toArray = function(value){
+  return (value || '').split(',').join('');
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  toArray
 }

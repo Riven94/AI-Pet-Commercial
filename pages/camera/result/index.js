@@ -1,4 +1,6 @@
 // pages/camera/result/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
     /**
@@ -21,39 +23,66 @@ Page({
       currentData: 0, 
       selectPerson: true,
     },
+
     bindchange: function(e) {
         const that = this;
         that.setData({
           currentData: e.detail.current
         })
       },
+
       //点击切换，滑块index赋值
-      checkCurrent: function(e) {
-        const that = this;
-    
-        if (that.data.currentData === e.target.dataset.current) {
-          return false;
-        } else {
-    
-          that.setData({
-            currentData: e.target.dataset.current
-          })
-        }
+    checkCurrent: function(e) {
+      const that = this;
+      if (that.data.currentData === e.currentTarget.dataset.current) {
+        return false;
+      } else {
+        that.setData({
+          currentData: e.currentTarget.dataset.current
+        })
+      }
       },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      console.log(options);
+      const animalId = options.id;
+      const ownerId = options.ownerId;
+      this.getAnimal(animalId);
+      this.getOwner(ownerId);
+    },
+
+    getAnimal(id){
+      const that = this;
       wx.request({
-        url: 'http://101.42.227.112:8000/user/getUserDetail',
+        url: domain + '/animals/getDetail',
         data:{
-          userId:1
+          animalId: id
         },
-        header: {
-          'content-type': 'application/json' // 默认值
+        method: 'GET',
+        success(res){
+          const resData = res.data.data;
+          console.log(res);
+          that.setData({animalitem: res.data.data});
+        }
+      })
+    },
+
+    getOwner(id){
+      const that = this;
+      wx.request({
+        url: domain + '/user/getUserDetail',
+        data:{
+          userId: id
         },
-        success (res) {
-          console.log(res.data)
+        method: 'GET',
+        success(res){
+          console.log(res);
+          that.setData({owneritem: res.data.data});
+        },
+        fail(error){
+          console.log(error);
         }
       })
     },

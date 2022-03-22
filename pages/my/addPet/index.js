@@ -7,8 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: ['宠物名字','宠物品种','颜色','猫/狗','你的名字','是否流浪','是否丢失'],
+    info: ['宠物名字','宠物品种','颜色','你的名字',],
     imageList:[],
+    animalType: ['猫','狗'],
+    animalIndex: 0,
+    lostType: ['宠物','流浪猫狗'],
+    lostIndex: 0,
+    state: ['未丢失','丢失','流浪猫狗'],
+    stateIndex: 0
   },
 
   /**
@@ -17,6 +23,25 @@ Page({
   onLoad: function (options) {
 
   },
+
+  bindAnimalChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({animalIndex: index});
+  },
+
+  bindLostChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({lostIndex: index});
+  },
+
+  bindStateChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({stateIndex: index});
+  },
+
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
@@ -89,16 +114,27 @@ Page({
         animalName: value.input0,
         varieties: value.input1,
         color: value.input2,
-        type: value.input3,
+        type: that.data.animalType[that.data.animalIndex],
         creatorId: userId,
         ownerId: userId,
-        ownerName: value.input4,
-        isLost: value.input5,
-        state: value.input6,
+        ownerName: value.input3,
+        isLost: that.data.lostType[that.data.lostIndex],
+        state: that.data.stateIndex,
         imgUrl: that.data.imageList
       },
       success(res){
         console.log(res);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '上传成功！',
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.navigateBack({
+              })
+            }
+          }
+        })
       },
       fail(error){
         console.log(error);

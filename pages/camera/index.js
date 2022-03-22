@@ -1,3 +1,5 @@
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
   data: {
     tempFilePaths:'',
@@ -32,6 +34,7 @@ Page({
       complete: function (res) { },
     })
   },
+
   chooseImage(tapIndex) {
     const checkeddata = true
     const that = this
@@ -48,15 +51,27 @@ Page({
         //将选择到的图片缓存到本地storage中
         wx.setStorageSync('tempFilePaths', tempFilePaths)
         wx.uploadFile({
-          url: 'http://101.42.227.112:8000/images/upload', //仅为示例，非真实的接口地址
+          url: domain + '/images/uploadFile/petIdentify', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'img',
           formData: {
-          'userId': 'test'
+            creatorId: app.globalData.userId
           },
           success (res){
-          const data = res.data
-         console.log('上传成功')
+            const data = JSON.parse(res.data);
+            console.log(JSON.parse(res.data));
+            console.log(res);
+            console.log('上传成功');
+            wx.navigateTo({
+              url: './matching/index',
+              events:{
+                sendData: function(data){
+                }
+              },
+              success(res){
+                res.eventChannel.emit('sendData', {data: data});
+              }
+            })
           }
           })
       }

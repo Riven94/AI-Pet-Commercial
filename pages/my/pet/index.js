@@ -59,6 +59,43 @@ Page({
     })
   },
 
+  delete(e){
+    const id = e.currentTarget.dataset.id;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '是否删除该宠物信息',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(id);
+        }
+      }
+    })
+  },
+
+  onRealDelete(id){
+    wx.request({
+      url: domain + '/animals/delete',
+      data:{
+        animalId: id
+      },
+      method: 'POST',
+      success(res){
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '删除成功！',
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.navigateBack({
+              })
+            }
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -70,7 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMyPet();
   },
 
   /**

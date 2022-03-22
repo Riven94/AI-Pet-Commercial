@@ -54,10 +54,11 @@ Page({
 
   getshopdetail:function(Id){
     const that = this;
+    console.log(Id);
     wx.request({
       url:domain+'/product/storeGetDetail', 
       data: {
-        "id": Id
+        id: Id
       },
       success (res) {
         console.log(res.data);
