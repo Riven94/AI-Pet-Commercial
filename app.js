@@ -1,5 +1,5 @@
 // app.js
-const domainName = "http://gtlcoder.cn:8000";
+const domainName = "https://gtlcoder.cn";
 const appid = wx.getAccountInfoSync().miniProgram.appId;
 const secret = "4dfa211aee19f4e1da5ebbb621c77eee";
 let openid;
@@ -142,7 +142,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domainName: "http://gtlcoder.cn:8000",
+    domainName: "https://gtlcoder.cn",
     login: login,
     userId: userId
   }

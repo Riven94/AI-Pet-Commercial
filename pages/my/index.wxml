@@ -18,11 +18,11 @@
     </view>
    
   </view>
-  <view class="functions"> <view class="function" wx:for="{{marketfunctions}}">
+  <!-- <view class="functions"> <view class="function" wx:for="{{marketfunctions}}">
       <image class="functionIcon" src="{{item.icon}}"></image>
       <view class="functionName">{{item.text}}</view>
-    </view>
-    </view>
+  </view>
+  </view> -->
 
   <view class="publish">
     <view class="publishtop">
