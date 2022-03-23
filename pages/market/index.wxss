@@ -98,7 +98,7 @@
   flex-direction: row;
   width: 320rpx;
   flex-wrap: wrap;
-  margin-left: 20rpx;
+  margin-left: 40rpx;
   margin-top: 20rpx;
   border-radius: 10rpx;
   background-color: white;
