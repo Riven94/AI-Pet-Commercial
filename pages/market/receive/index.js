@@ -26,10 +26,11 @@ Page({
       creatorId: userId,
       consignee: value.input0,
       phone: value.input1,
-      area: value.input2,
+      area: that.data.region.join(','),
       addressDetail : value.input3,
-      type:1
+      type: that.data.isDefault
     };
+    console.log(data);
     if(that.data.new){
       wx.request({
         url:domain+'/address/add',

@@ -162,8 +162,4 @@ Page({
         currentIndex: index
     })
   },
-
-  getGeneral: function(){
-    
-  }
 })
