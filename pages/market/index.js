@@ -100,7 +100,7 @@ Page({
     const id = e.currentTarget.dataset.id
     if(this.data.currentIndex == 3){
       wx.navigateTo({
-        url: './serviceshop/index?id=' + id,
+        url: './serviceshop/index?id=' + id + '&from=market',
       })
     }
     else{

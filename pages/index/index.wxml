@@ -6,7 +6,7 @@
       <!-- <icon type="search" class="searchIcon" size="18"></icon>
       <input type="text" class="input" placeholder="搜索宠物相关知识" bindconfirm="Search"/> -->
     </view>
-  <image class="add" src="../../icons/加号.png" bindtap="toPublish"></image>
+  <image class="add" src="../../icons/add.png" bindtap="toPublish"></image>
   </view>
   <view class="tabs">
     <view class="tab {{currentIndex==index ? 'clicked': ''}}" wx:for="{{tabs}}" bindtap="changeTab" data-index="{{index}}">{{item}}</view>

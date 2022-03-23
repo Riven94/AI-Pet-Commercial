@@ -8,9 +8,14 @@ page{
 }
 .top{
   height: 100rpx;
-  display: flex;
   background: #F3BE67;
-  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+.topwrap{
+  display: flex;
+  width: 58%;
+  align-self: flex-end;
   justify-content: space-between;
 }
 .title{

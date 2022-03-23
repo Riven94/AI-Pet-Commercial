@@ -153,6 +153,9 @@
   width: 100rpx;
   background-color: #FF9959;
   border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .line{
   width: 100%;

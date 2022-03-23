@@ -13,18 +13,7 @@ page{
 }
 .confirm{
   color: white;
-  margin: 20rpx;
-}
-.back{
-  width: 40rpx;
-  height: 40rpx;
-  rotate: 180deg;
-  margin: 20rpx;
-}
-.cart{
-  width: 40rpx;
-  height: 40rpx;
-  margin: 20rpx;
+  margin: 30rpx auto;
 }
 .radio-group{
   background-color: white;

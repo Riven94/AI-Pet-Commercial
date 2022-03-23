@@ -3,10 +3,6 @@
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
   <view class="bluetop">
-    <view class="message">
-      <view class="triangle" bindtap="back"></view>
-      <text class="moremessage">个人消息</text>
-    </view>
   </view>
 <view class="info">
   <view class="information">
