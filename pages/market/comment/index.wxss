@@ -10,7 +10,7 @@ page{
 }
 .title{
   color: white;
-  margin: 20rpx;
+  margin: 30rpx auto;
 }
 .back{
   width: 40rpx;

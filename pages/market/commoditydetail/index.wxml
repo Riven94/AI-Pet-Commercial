@@ -1,9 +1,7 @@
 <view class="container">
   <view class="top">
-    <view class="topwrap">
       <view class="title">商品详情</view>
       <image class="cart" src="../../../icons/cart.png" bindtap="toCart"></image>
-    </view>
   </view>
   <view class="images">
     <image class="img" src="{{info.imgUrl}}"></image>

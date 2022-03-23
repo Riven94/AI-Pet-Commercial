@@ -12,26 +12,15 @@ page{
   display: flex;
   justify-content: flex-end;
 }
-.topwrap{
-  display: flex;
-  width: 58%;
-  align-self: flex-end;
-  justify-content: space-between;
-}
 .title{
   color: white;
-  margin: 20rpx;
-}
-.back{
-  width: 40rpx;
-  height: 40rpx;
-  rotate: 180deg;
-  margin: 20rpx;
+  margin: 30rpx auto;
 }
 .cart{
   width: 40rpx;
   height: 40rpx;
-  margin: 20rpx;
+  margin: 30rpx;
+  position: absolute;
 }
 .images{
   width: 100%;
