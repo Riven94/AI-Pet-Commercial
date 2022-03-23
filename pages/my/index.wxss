@@ -154,3 +154,9 @@
   background-color: #FF9959;
   border-radius: 20rpx;
 }
+.line{
+  width: 100%;
+  height: 5rpx;
+  background-color: #f3f3eb;
+  margin-top: 0rpx;
+}

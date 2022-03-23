@@ -11,7 +11,8 @@ Page({
         shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
         selectDatas: ['洗澡', '美容', '寄卖','撸宠'], //下拉列表的数据
         indexs: 0, //选择的下拉列 表下标,
-        Type:'洗澡'
+        Type:'洗澡',
+        storeId:''
     },
      // 点击下拉显示框
      selectTaps() {
@@ -50,7 +51,7 @@ Page({
            "type":that.data.Type,
            "state":State,
            "creatorId":userId,
-           "storeId":22,
+           "storeId":that.data.storeId,
           "price":Price,
           "security":Security,
           "level":5,
@@ -210,7 +211,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.setData({storeId: options.storeId * 1});
     },
 
     /**

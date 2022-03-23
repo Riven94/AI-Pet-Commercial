@@ -24,6 +24,7 @@
     </view>
     </view>
   </view>
+  <view class="tip">注：商品状态为默认为0：未售完；1：已售完或暂停售</view>
   <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
 </form>
 
