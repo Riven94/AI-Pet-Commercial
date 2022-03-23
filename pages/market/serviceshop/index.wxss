@@ -25,7 +25,7 @@ page{
   width: 100%;
   margin-top: 90rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .stars{
   display: flex;
@@ -116,11 +116,11 @@ page{
   display: none;
 }
 .serviceDetail{
-  display: flex;
+  display: flex; 
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
+  justify-content: inherit;
 }
 .detailwrap{
   display: flex;

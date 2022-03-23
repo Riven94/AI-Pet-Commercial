@@ -22,7 +22,8 @@ Page({
     items: ["全部","洗澡","美容","寄卖","撸宠"],
     freights: [],
     id: '',
-    isOwner: false
+    isOwner: false,
+    storeId:''
   },
 
   /**
@@ -34,6 +35,8 @@ Page({
     this.getDetail(Id);
     this.getServices(Id);
     this.judgeOwner(app.globalData.userId);
+    this.setData({storeId:Id})
+    
   },
   judgeOwner(id){
     const that = this;
@@ -111,8 +114,9 @@ Page({
     })
   },
   addService(){
+    const that=this;
     wx.navigateTo({
-      url: '../addservice/index',
+      url: '../addservice/index?storeId='+that.data.storeId,
     })
 
   },
@@ -137,7 +141,7 @@ Page({
         url: domain + '/service/specificService',
         method: "GET",
         data: {
-          storeId: that.data.Id,
+          storeId: that.data.storeId,
           type: that.data.items[index]
         },
         success(res){
@@ -151,11 +155,11 @@ Page({
     }
   },
 
-  toShop: function(e){
+ /*  toShop: function(e){
     wx.navigateTo({
       url: '../shop/index?id=' + this.data.id,
     })
-  },
+  }, */
 
   toServiceDetail: function(e){
     const productId = e.currentTarget.dataset.id;
