@@ -51,7 +51,7 @@ Page({
         //将选择到的图片缓存到本地storage中
         wx.setStorageSync('tempFilePaths', tempFilePaths)
         wx.uploadFile({
-          url: domain + '/images/uploadFile/petIdentify', //仅为示例，非真实的接口地址
+          url: domain + '/images/uploadFile/petIdentify', 
           filePath: tempFilePaths[0],
           name: 'img',
           formData: {

@@ -16,7 +16,6 @@ Page({
         {icon:"../../icons/selfmessage.png", path:"./personal/index", text:"个人信息"},
         {icon:"../../icons/mypet.png", path:"./pet/index", text:"我的宠物"},
         {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"},
-        
       ],
       marketfunctions:[
         {icon:"../../icons/待发货.png",text:"待收货"},
@@ -350,7 +349,8 @@ Page({
   },
 
   handleFunction: function(e){
-    const path = e.currentTarget.dataset.path
+    const path = e.currentTarget.dataset.path;
+    console.log(path);
     console.log(e);
     const id = app.globalData.userId;
     if(path){
