@@ -16,8 +16,8 @@ Page({
       },
       owneritem:{
         nickname: "王先生",
-        email: "1111@163.com",
-        phone: "15311111111",
+        email: "2281122323@163.com",
+        phone:"18720336579",
         time: "2022/1/25"
       },
       currentData: 0, 
