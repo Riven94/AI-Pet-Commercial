@@ -1,7 +1,7 @@
 // pages/my/setting/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
-
+var emailReg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,5}$/;
 Page({
 
   /**
@@ -76,7 +76,23 @@ Page({
         showCancel: false
       })
     }
-    this.updateUser(data);
+    else if(!emailReg.test(data.email)){
+      wx.showModal({
+        title: '邮箱格式不正确！',
+        content: '上传失败',
+        showCancel: false
+      })
+    }
+    else if(!(/^1[3456789]\d{9}$/.test(data.phone))){ 
+      wx.showModal({
+        title: '手机号格式不正确！',
+        content: '上传失败',
+        showCancel: false
+      })
+    } 
+    else{
+      this.updateUser(data);
+    }
   },
 
   updateUser(data){

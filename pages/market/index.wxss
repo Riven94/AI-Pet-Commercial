@@ -1,7 +1,9 @@
 /* pages/market/inde.wxss */
+page{
+  background-color: rgb(248,249,249);
+}
 .container{
   height: auto;
-  background-color: rgb(248,249,249);
 }
 .top{
   width: 100%;

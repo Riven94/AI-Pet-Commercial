@@ -3,7 +3,7 @@
 <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" name='{{"input"+index}}' value="{{default[index]}}"/>
     </view>
     <picker class="picker" bindchange="bindAnimalChange" value="{{animalIndex}}" range="{{animalType}}">
         <view >宠物类型:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{animalType[animalIndex]}}</text></view>

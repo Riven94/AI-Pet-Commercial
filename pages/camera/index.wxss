@@ -65,6 +65,5 @@
      border-radius: 50%;
    }
    .tab{
-   
     background-color: rgb(245, 191, 122);
    }

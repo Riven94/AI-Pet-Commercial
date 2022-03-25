@@ -35,16 +35,33 @@ Page({
   delete(){
     console.log(this.data.shopData);
     const that = this;
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      showCancel: true,
-      content: '确定删除指定商铺？',
-      success(res){ 
-        if(res.confirm){
-          that.onRealDelete();
-        }
-      },
-    })
+    const items = this.data.shopData;
+    let count = 0;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      console.log(items[i]);
+      if(items[i].checked == true){
+        count++;
+      }
+    }
+    if(count == 0){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请选择要删除的商品',
+        showCancel: false,
+      })
+    }
+    else{
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        showCancel: true,
+        content: '确定删除指定商铺？',
+        success(res){ 
+          if(res.confirm){
+            that.onRealDelete();
+          }
+        },
+      })
+    }
   },
 
   onRealDelete(){
@@ -89,6 +106,10 @@ Page({
       success(res){
         console.log(res);
         const resData = res.data.data;
+        for(let i = 0;i < resData.length;i++){
+          resData[i].checked = false;
+        }
+        console.log(resData);
         that.setData({
           shopData: resData
         })

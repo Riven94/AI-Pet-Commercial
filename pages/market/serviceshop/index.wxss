@@ -6,7 +6,7 @@ page{
 .top{
   display: flex;
   width: 100%;
-  height: 150rpx;
+  height: 100rpx;
   background: #F3BE67;
 }
 .back{
@@ -23,7 +23,7 @@ page{
 }
 .wrap{
   width: 100%;
-  margin-top: 90rpx;
+  margin-top: 40rpx;
   display: flex;
   justify-content: flex-end;
 }

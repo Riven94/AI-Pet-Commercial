@@ -8,20 +8,41 @@ Page({
    */
   data: {
     info: ['宠物名字','宠物品种','颜色','你的名字',],
+    default: ['','','',''],
     imageList:[],
     animalType: ['猫','狗'],
     animalIndex: 0,
     lostType: ['宠物','流浪猫狗'],
     lostIndex: 0,
     state: ['未丢失','丢失','流浪猫狗'],
-    stateIndex: 0
+    stateIndex: 0,
+    upload: '/animals/ownerUpload',
+    modify: '/animals/update',
+    interface: '',
+    animalId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(options.info != null){
+      const info = JSON.parse(options.info);
+      console.log(info);
+      this.setData({  interface: this.data.modify,
+                      animalId: info.id,
+                      default: [info.name, info.varieties, info.color, info.ownerName],
+                      animalIndex: info.type == '猫' ? 0 : 1,
+                      lostIndex: info.isLost == '宠物' ? 0 : 1,
+                      stateIndex: info.state,
+                      imageList: Array.isArray(info.imgUrl) ? info.imgUrl : [info.imgUrl]
+                    });
+      console.log(this.data);
+    }
+    else{
+      this.setData({ interface: this.data.upload});
+    }
+    console.log(domain + this.data.interface)
   },
 
   bindAnimalChange(e){
@@ -103,25 +124,28 @@ Page({
   formSubmit(e){
     const userId = app.globalData.userId;
     const value = e.detail.value;
-    console.log(value);
-    console.log(this.data.imageList);
     const that = this;
+    const data = {
+      animalId: that.data.animalId,
+      animalName: value.input0,
+      varieties: value.input1,
+      color: value.input2,
+      type: that.data.animalType[that.data.animalIndex],
+      creatorId: userId,
+      ownerId: userId,
+      ownerName: value.input3,
+      isLost: that.data.lostType[that.data.lostIndex],
+      state: that.data.stateIndex,
+      imgUrl: that.data.imageList,
+      finderId: -1,
+      finderName: ''
+    };
+    console.log(data);
     wx.request({
-      url: domain + '/animals/ownerUpload',
+      url: domain + that.data.interface,
       method: 'POST',
       header:{ 'content-type': 'application/json'},
-      data:{
-        animalName: value.input0,
-        varieties: value.input1,
-        color: value.input2,
-        type: that.data.animalType[that.data.animalIndex],
-        creatorId: userId,
-        ownerId: userId,
-        ownerName: value.input3,
-        isLost: that.data.lostType[that.data.lostIndex],
-        state: that.data.stateIndex,
-        imgUrl: that.data.imageList
-      },
+      data: data,
       success(res){
         console.log(res);
         wx.showModal({

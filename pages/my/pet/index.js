@@ -74,6 +74,7 @@ Page({
   },
 
   onRealDelete(id){
+    const that = this;
     wx.request({
       url: domain + '/animals/delete',
       data:{
@@ -87,12 +88,18 @@ Page({
           showCancel: false,
           success(res){
             if(res.confirm){
-              wx.navigateBack({
-              })
+              that.getMyPet();
             }
           }
         })
       }
+    })
+  },
+
+  toEdit(e){
+    const info = JSON.stringify(e.currentTarget.dataset.detail);
+    wx.navigateTo({
+      url: '../addPet/index?info='+ info,
     })
   },
 
