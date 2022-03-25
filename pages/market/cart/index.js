@@ -72,17 +72,32 @@ Page({
   delete(){
     console.log(this.data.comodities);
     const that = this;
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      showCancel: true,
-      content: '确定删除指定商品？',
-      success(res){ 
-        if(res.confirm){
-          that.onRealDelete();
-        }
-      },
+    const temp = this.data.comodities;
+    let count = 0;
+    temp.forEach((item) => {
+      console.log(item.checked);
+      item.checked == undefined || false? count += 1 : count += 0;
     })
-    console.log(1)
+    console.log(count);
+    if(count == temp.length){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请选择需要删除的商品',
+        showCancel: false
+      })
+    }
+    else{
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        showCancel: true,
+        content: '确定删除指定商品？',
+        success(res){ 
+          if(res.confirm){
+            that.onRealDelete();
+          }
+        },
+      })
+    }
   },
 
   onRealDelete(){
@@ -170,17 +185,25 @@ Page({
       }
       return item.checked == false
     });
-    console.log(idStack);
-    wx.navigateTo({
-      url: '../placeorder/index',
-      events:{
-        sendData: function(data){
+    if(idStack.length != 0){
+      wx.navigateTo({
+        url: '../placeorder/index',
+        events:{
+          sendData: function(data){
+          }
+        },
+        success(res){
+          res.eventChannel.emit('sendData', {data: idStack});
         }
-      },
-      success(res){
-        res.eventChannel.emit('sendData', {data: idStack});
-      }
-    })
+      })
+    }
+    else{
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请选择需要购买的商品！',
+        showCancel: false
+      })
+    }
   },
 
   /**

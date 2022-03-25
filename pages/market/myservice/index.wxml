@@ -1,6 +1,5 @@
 <view class="container">
   <view class="top">
-    <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
     <view class="search">
       <icon type="search" class="searchIcon" size="18"></icon>
       <input type="text" class="input" placeholder="猫玩具"/>

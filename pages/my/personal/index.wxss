@@ -40,5 +40,9 @@
   height: 800rpx;
 }
 .info{
+  padding-top: 20rpx;
   background-color: #EFEEEE;
+}
+.information{
+  padding: 15rpx 0;
 }

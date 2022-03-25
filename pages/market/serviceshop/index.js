@@ -23,6 +23,7 @@ Page({
     freights: [],
     id: '',
     isOwner: false,
+    market: false,
     storeId:''
   },
 
@@ -31,6 +32,9 @@ Page({
    */
   onLoad: function (options) {
     const Id = options.id;
+    if(options.from === undefined){
+      this.setData({ market: true})
+    }
     this.setData({id: options.id})
     this.getDetail(Id);
     this.getServices(Id);

@@ -1,8 +1,6 @@
 <view class="container">
   <view class="top">
-    <image class="back" src="../../../icons/arrow.png" bindtap="back"></image>
     <view class="title">商品评价</view>
-    <image class="cart" src="../../../icons/cart.png" bindtap="toMyService"></image>
   </view>
   <view class="comment-general">
     <view class="text">商品评价（{{commentdetail.length}}）</view>
