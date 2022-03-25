@@ -34,7 +34,13 @@ page{
   overflow: hidden;
 }
 .article-img{
-  
   width: 190rpx;
   height: 190rpx;
+}
+.else{
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

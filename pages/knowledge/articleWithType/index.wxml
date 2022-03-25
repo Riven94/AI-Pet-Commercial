@@ -2,7 +2,7 @@
   <view class="top">
     <view style="color: white;">{{title}}</view>
   </view>
-  <view class="artcles">
+  <view class="artcles" wx:if="{{articles.length > 0}}">
     <view class="article" wx:for="{{articles}}"  bindtap="toarticle" data-id="{{item.id}}">
       <view class="article-title">{{item.articleTitle}}</view>
       <view class="wrap">
@@ -11,4 +11,5 @@
       </view>
     </view>
   </view>
+  <view wx:else class="else">暂时还没有文章~</view>
 </view>
