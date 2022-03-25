@@ -14,13 +14,52 @@ Page({
       articletitle:"",
       Type: '养宠知识',
       imageList:[],
-      userId: ''
+      userId: '',
+      articleId: '',
   },
     // 点击下拉显示框
   selectTaps() {
     this.setData({
       shows: !this.data.shows,
     });
+  },
+
+  delete(){
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: "确认删除此文章？",
+      success(res){
+        if(res.confirm){
+          that.onRealDelete();
+        }
+      }
+    })
+  },
+
+  onRealDelete(){
+    const that = this;
+    wx.request({
+      url: domain + '/knowledge/delete',
+      header: { 'content-type': 'application/json'},
+      data:{
+        id: that.data.articleId,
+        creatorId: app.globalData.userId
+      },
+      method: 'POST',
+      success(res){
+        console.log(res);
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '删除成功！',
+          showCancel: false,
+          success(res){
+            wx.navigateBack({
+            })
+          }
+        })
+      }
+    })
   },
 
   optionTaps(e) {
@@ -115,9 +154,17 @@ Page({
       imgUrl: that.data.imageList,
       type: that.data.Type
     };
+    var path = "";
+    if(this.data.articleId == ''){
+      path = "/knowledge/upload";
+    }
+    else{
+      path = "/knowledge/update";
+      temp.id = this.data.articleId * 1;
+    }
     console.log(temp);
     wx.request({
-        url: domain + '/knowledge/upload', 
+        url: domain + path, 
         method: "POST",
         data: temp,
         header:{'content-type':'application/json'},
@@ -147,7 +194,37 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userId: options.id
+      userId: options.id,
+    });
+    console.log(options);
+    if(options.articleId != undefined){
+      this.setData({ articleId: options.articleId * 1});
+      this.getArticle( this.data.articleId);
+    }
+  },
+
+  getArticle: function(id){
+    console.log(1);
+    const that = this;
+    wx.request({
+      url: domain + '/knowledge/getDetail',
+      method: "GET",
+      data: {
+        id: id
+      },
+      success: (res) => {
+        const resData = res.data.data;
+        console.log(resData);
+        that.setData({
+          Content: resData.article,
+          articletitle: resData.articleTitle,
+          type: resData.type,
+          imageList: Array.isArray(resData.imgUrl) ? resData.imgUrl : [resData.imgUrl]
+        })
+      },
+      fail: (res) => {
+        console.log(res);
+      }
     })
   },
 

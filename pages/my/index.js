@@ -270,9 +270,9 @@ Page({
   },
 
   toArticle(e){
-    const id = e.currentTarget.dataset.id;
+    const articleId = e.currentTarget.dataset.id;//文章id
     wx.navigateTo({
-      url: '../knowledge/article/index?id=' + id + "&from=my",
+      url: '../knowledge/addarticle/index?id=' + app.globalData.userId + "&articleId=" + articleId,
     })
   },
   

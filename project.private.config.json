@@ -20,6 +20,13 @@
           "pathName": "pages/market/serviceshop/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/knowledge/addarticle/index",
+          "query": "id=9&articleId=48",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

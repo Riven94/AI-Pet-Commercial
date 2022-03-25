@@ -1,15 +1,11 @@
-<!--pages/knowledge/addarticle/index.wxml-->
-<!-- <import src="../../../template/top/index.wxml" ></import>
-<template is='top'>
-
-</template> -->
 <view class="top">
-    <button class="cancel" style="background-color: rgb(240, 145, 90);font-weight: 100;" type="primary"   form-type="submit" size="mini" bindtap="bindSumbit" >提交</button>
+    <view class="delete" bindtap="delete" wx:if="{{articleId}}">删除</view>
+    <view class="submit" bindtap="bindSumbit" >提交</view>
 </view>
-    <view  style="margin-left: 10rpx;font-size: large;">文章标题：</view>
-      <view  style="margin: 15rpx 0" >
+    <view style="margin-left: 10rpx;font-size: large;">文章标题：</view>
+      <view style="margin: 15rpx 0" >
           <view class="line"></view>
-        <input  placeholder="取个好听的标题把！！！" bindinput="title"/>
+        <input placeholder="取个好听的标题把！！！" bindinput="title" value="{{articletitle}}"/>
         <view class="line"></view>
   </view>
 
@@ -17,7 +13,7 @@
        <view style="margin: 15rpx 0" >
            <view class="line"></view>
            <view></view>
-         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="10000" bindinput="content"></textarea>
+         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="10000" bindinput="content" value="{{Content}}"></textarea>
          <view class="line"></view>
    </view>
 

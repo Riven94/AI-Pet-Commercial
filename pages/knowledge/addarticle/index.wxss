@@ -2,17 +2,31 @@
 @import '../../../template/top/index.wxss';
 .top{
     width: 100%;
-    display: flex;
     background: #F3BE67;
-    flex-direction:column;
-    align-items: center;
-    
 }
-.cancel{
-  margin: 20rpx 0rpx;
-  margin-left: 600rpx;
-  width: 50rpx;
-  height: 50rpx;
+.delete{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 30rpx;
+  top: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  background-color: rgb(240, 145, 90);
+  font-weight: 100;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  background-color: rgb(240, 145, 90);
+  font-weight: 100;
 }
 .line{
   width: 100%;

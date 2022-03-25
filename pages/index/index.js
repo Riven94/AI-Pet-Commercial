@@ -25,11 +25,6 @@ Page({
   onLoad(options) {
     //this.test();  
     this.getMain();
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
   },
 
   onShow(){
