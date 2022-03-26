@@ -16,9 +16,11 @@
 }
 .addButton{
   margin: 30rpx;
-  background-color: rgba(226, 137, 21, 0.932);
+  background-color: rgba(240, 169, 56);
   display: flex;
   justify-content: center;
+  border-radius: 20rpx;
+  color: #EFEEEE;
 }
 .triangle{
   margin-top: 9rpx;
@@ -57,8 +59,10 @@
 .delete{
   position: absolute;
   right: 40rpx;
-  background-color: rgba(226, 137, 21, 0.932);
+  background-color: rgba(240, 169, 56);
   margin-top: 15rpx;
   display: flex;
   justify-content: center;
+  border-radius: 10rpx;
+  width: 80rpx;
 }

@@ -9,6 +9,15 @@
   position: absolute;
   right: 20rpx;
   top: 30rpx;
-  background-color: rgb(236, 222, 22);
+  background-color: rgb(240, 169, 56);
   padding: 7rpx;
+  border-radius: 20rpx;
+}
+.change{
+  position: absolute;
+  left: 20rpx;
+  top: 30rpx;
+  background-color: rgb(240, 169, 56);
+  padding: 7rpx;
+  border-radius: 20rpx;
 }
