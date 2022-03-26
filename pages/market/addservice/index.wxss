@@ -88,3 +88,13 @@
       font-size: smaller;
       color: gray;
     }
+.text::after{
+    position: absolute;
+    content: '';
+    margin: 16rpx 0 0 20rpx;
+    width: 0rpx;
+    height: 0rpx;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid gray;
+  }
