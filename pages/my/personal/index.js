@@ -20,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
    console.log(options);
+   console.log(1);
    this.getPersonalInfo(options.id);
   },
 
@@ -37,10 +38,11 @@ Page({
         const resData = res.data.data;
         const temp = {
           nickName: resData.nickName,
-          gender: resData == 0? '女' : '男',
+          gender: resData.gender == 0? '男' : '女',
           phone: resData.phone,
           email: resData.email
         };
+        console.log(temp);
         that.setData({information: temp});
       },
       fail(error){

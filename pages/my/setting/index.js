@@ -20,7 +20,6 @@ Page({
     ],
     array: ['男','女'],
     arrayIndex: 0,
-    selected: ''
   },
 
   uploadImage:function(){
@@ -42,13 +41,10 @@ Page({
   },
 
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
-      arrayIndex: e.detail.value,
+      arrayIndex: e.detail.value * 1,
     })
     var gender = this.data.array[this.data.arrayIndex];
-    let sel = gender == '男' ? 0 : 1;
-    this.setData({selected: sel});
   },
 
   formSubmit: function(e){
@@ -60,7 +56,7 @@ Page({
       name: form.input0,
       nickName: form.input1,
       imgUrl: [that.data.icon[0]],
-      gender: that.data.selected,// * 1 转化为int类型
+      gender: that.data.arrayIndex * 1,// * 1 转化为int类型
       phone: form.input3,
       password: form.input4,
       email: form.input6,
@@ -148,11 +144,7 @@ Page({
         console.log(res);
         const temp = [resData.name,resData.nickName,resData.gender, resData.phone, resData.password, resData.password,
         resData.email, resData.address, resData.detail];
-        var temp_array = ['男', '女'];
-        if(resData.gender == 1){
-          temp_array = temp_array.reverse();
-        }
-        that.setData({ default: temp, selected: resData.gender,array: temp_array });
+        that.setData({ default: temp, selected: resData.gender });
         that.setData({ icon: [resData.imgUrl]});
       },
       fail(error){
