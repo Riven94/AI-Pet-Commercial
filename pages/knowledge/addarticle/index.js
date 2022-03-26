@@ -8,21 +8,29 @@ Page({
      */
   data: {
       shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-      selectDatas: ['养宠知识', '户外运动', '新手攻略'], //下拉列表的数据
-      indexs: 0, //选择的下拉列 表下标,
+      /* selectDatas: ['养宠知识', '户外运动', '新手攻略'], //下拉列表的数据 */
+      artType: ['养宠知识', '户外运动', '新手攻略'],
+      typeIndex:0,
+     /*  indexs: 0, //选择的下拉列 表下标, */
       Content:"",
       articletitle:"",
-      Type: '养宠知识',
+/*    Type: '养宠知识', */
       imageList:[],
       userId: '',
       articleId: '',
   },
-    // 点击下拉显示框
+  bindTypeChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({typeIndex: index});
+
+  },
+    /* // 点击下拉显示框
   selectTaps() {
     this.setData({
       shows: !this.data.shows,
     });
-  },
+  }, */
 
   delete(){
     const that = this;
@@ -62,7 +70,7 @@ Page({
     })
   },
 
-  optionTaps(e) {
+  /* optionTaps(e) {
     console.log(e);
     const that = this;
     let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
@@ -73,7 +81,7 @@ Page({
       Type: that.data.selectDatas[Indexs]
     });
     console.log(that.data.Type)
-  },
+  }, */
 
   title:function(e){
     this.setData({
@@ -152,7 +160,7 @@ Page({
       articleTitle: that.data.articletitle,
       article: that.data.Content,
       imgUrl: that.data.imageList,
-      type: that.data.Type
+      type: that.data.artType[that.data.typeIndex],
     };
     var path = "";
     if(this.data.articleId == ''){

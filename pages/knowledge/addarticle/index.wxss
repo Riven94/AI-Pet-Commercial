@@ -25,7 +25,9 @@
   top: 20rpx;
   width: 100rpx;
   height: 60rpx;
-  background-color: rgb(240, 145, 90);
+  color: #e6e6e6;
+  border-radius: 20rpx;
+  background-color: rgb(240, 169, 56);
   font-weight: 100;
 }
 .line{

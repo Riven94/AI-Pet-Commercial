@@ -2,7 +2,8 @@
 <import src="../../../template/top/index.wxml"></import>
 <view class="container">
   <template is="top"></template>
-  <view class="delete" bindtap="delete">删除</view>
+  <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
+  <view class="change" bindtap="changearticle"  wx:if="{{isOwner}}">修改</view>
   <view class="title">文章内容</view>
   <rich-text>{{article}}</rich-text>
 </view>

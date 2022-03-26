@@ -13,7 +13,8 @@
   border-radius: 10rpx;
 }
 .save{
-  background-color: rgb(1,134,255);
+   background-color: rgb(1,134,255); 
+
 }
 /* fenlei */
 .fenlei{

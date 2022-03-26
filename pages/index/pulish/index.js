@@ -8,37 +8,17 @@ Page({
    */
   data: {
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectDatas: ['流浪猫狗','寻找宠物', '爱宠配对','萌宠动态'],
-    indexs: 0,
+    pulishType: ['流浪猫狗','寻找宠物', '爱宠配对','萌宠动态'],
+    typeIndexs: 0,
     imageList: [],
     Content: '',
-    Type: '流浪猫狗',
     id: ''
   },
-
-  selectTaps() {
+  bindTypeChange(e){
+    console.log(e.detail.value)
     this.setData({
-      shows: !this.data.shows,
-    });
-  },
-
-  optionTaps(e) {
-    console.log(e);
-    const that = this;
-    let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    console.log(Indexs)
-    this.setData({
-      indexs: Indexs,
-      shows: !this.data.shows,
-      Type: that.data.selectDatas[Indexs]
-    });
-    console.log(that.data.Type)
-  },
-
-  content:function(e){
-    this.setData({
-        Content:e.detail.value
-      })   
+      typeIndexs: e.detail.value
+    })
   },
 
   uploadImage:function(){
@@ -108,7 +88,7 @@ Page({
       creatorId: userId,
       imgUrl: that.data.imageList,
       comment: that.data.Content,
-      type: that.data.Type
+      type: that.data.pulishType[that.data.typeIndexs]
     };
     console.log(temp);
     wx.request({
@@ -143,7 +123,11 @@ Page({
     this.setData(
       {id: options.id * 1});
   },
-
+  content:function(e){
+    this.setData({
+        Content:e.detail.value
+      })   
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

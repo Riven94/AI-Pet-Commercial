@@ -1,6 +1,7 @@
 // pages/knowledge/article/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
+const userId=app.globalData.userId;
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
   data: {
     article: "",
     delete: false,
-    articleId: ''
+    articleId: '',
+    isOwner: false,
   },
 
   /**
@@ -21,8 +23,22 @@ Page({
     if(options.from){
       this.setData({delete: true});
     }
+    this.judgeOwner(userId);
   },
-
+  judgeOwner(id){
+    const that = this;
+    wx.request({
+      url: domain + '/user/getUserDetail',
+      data:{userId: id},
+      method:'GET',
+      success(res){
+        console.log(res);
+      },
+      fail(error){
+        console.log(error);
+      }
+    })
+  },
   getArticle: function(id){
     const that = this;
     wx.request({
@@ -34,6 +50,9 @@ Page({
         const resData = res.data.data;
         that.setData({article: resData.article})
         console.log(that.data.article)
+        if(resData.creatorId == userId){
+          that.setData({isOwner: true})
+        }
       },
       fail(error){
         console.log(error);
@@ -43,13 +62,27 @@ Page({
 
   delete(){
     const that = this;
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      content: "确认删除此文章？",
-      success(res){
-        if(res.confirm){
-          that.onRealDelete();
-        }
+      wx.request({
+      url: domain+'/knowledge/delete',
+      method:'POST',
+      data: {
+        id: that.data.articleId,
+        creatorId: userId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: "确认删除此文章？",
+          success(res){
+            if(res.confirm){
+              that.onRealDelete();
+            }
+          }
+        })
       }
     })
   },
@@ -78,7 +111,13 @@ Page({
       }
     })
   },
-
+  changearticle(){
+    
+   /*  const that=this,
+    wx.request({
+      url: 'url',
+    }) */
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

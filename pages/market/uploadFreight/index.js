@@ -11,13 +11,21 @@ Page({
     info:['商品名字', '商品描述', '商品状态(填写0/1)','价格','运费','保障','服务'],
     imageList:[],
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectDatas: ['主食', '零食', '家居','出行','热卖'], //下拉列表的数据
+/*     selectDatas: ['主食', '零食', '家居','出行','热卖'], //下拉列表的数据
     indexs: 0, //选择的下拉列 表下标,
-    Type:'主食',
+    Type:'主食', */
+    freightType: ['主食', '零食', '家居','出行','热卖'],
+    typeIndex:0,
     storeId: ''
   },
+  bindTypeChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({typeIndex: index});
+
+  },
     // 点击下拉显示框
-  selectTaps() {
+ /*  selectTaps() {
     this.setData({
       shows: !this.data.shows,
     });
@@ -34,7 +42,7 @@ Page({
     });
     console.log(that.data.Type)
   },
-  
+ */  
   uploadImage:function(){
     var that=this;
     wx.chooseImage({
@@ -96,7 +104,7 @@ Page({
         "name":Name,
         "imgUrl":that.data.imageList,
         "detail":Detail,
-        "type":that.data.Type,
+        "type":that.data.freightType[that.data.typeIndex],
         "state":State,
         "creatorId":userId,
         "storeId": that.data.storeId,
