@@ -1,5 +1,8 @@
 /* pages/camera/matching/index.wxss */
 @import "/template/matchcard/matchcard.wxss";
+page{
+  background-color: rgb(243, 237, 237);
+}
 .container{
     height: 100%;
     width: 100%;

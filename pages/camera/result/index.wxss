@@ -1,6 +1,9 @@
 /* pages/camera/result/index.wxss */
 @import "../../../template/animalcard/animalcard.wxss";
 @import "../../../template/ownercard/ownercard.wxss";
+page{
+  background-color: rgb(243, 237, 237);
+}
 .container{
     height: 100%;
     width: 100%;

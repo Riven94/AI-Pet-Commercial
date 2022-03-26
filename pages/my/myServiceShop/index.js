@@ -31,16 +31,34 @@ Page({
   delete(){
     console.log(this.data.serviceshopData);
     const that = this;
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      showCancel: true,
-      content: '确定删除指定店铺？',
-      success(res){ 
-        if(res.confirm){
-          that.onRealDelete();
-        }
-      },
-    })
+    const items = this.data.serviceshopData;
+    var count = 0;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      if(items[i].checked){
+        count++;
+      }
+    }
+    if(count > 0){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        showCancel: true,
+        content: '确定删除指定店铺？',
+        success(res){ 
+          if(res.confirm){
+            that.onRealDelete();
+          }
+        },
+      })
+    }
+    else{
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        showCancel: false,
+        content: '请选择需要删除的店铺',
+        success(res){ 
+        },
+      })
+    }
   },
 
   onRealDelete(){
@@ -115,6 +133,13 @@ Page({
     })
     console.log(e);
   }, 
+
+  toEdit(e){
+    const detail = JSON.stringify(e.currentTarget.dataset.detail);
+    wx.navigateTo({
+      url: '../addServiceShop/index?detail=' + detail,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

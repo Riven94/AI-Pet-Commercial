@@ -13,6 +13,7 @@
           <image class="shopIcon" src="{{item.imgUrl}}"></image>
           <view class="shopName">{{item.name}}</view>
         </view>
+        <view class="edit" catchtap="toEdit" data-detail="{{item}}">修改</view>
     </label>
     </checkbox-group>
 </view>
