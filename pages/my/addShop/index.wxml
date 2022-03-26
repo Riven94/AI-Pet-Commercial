@@ -1,9 +1,17 @@
 <import src="../../../template/top/index.wxml"></import>
 <template is="top"></template>
 <form catchsubmit="formSubmit">
-    <view class="section" wx:for="{{info}}">
+    <view wx:for="{{info}}">
+    <view class="section" wx:if="{{index != 2}}">
       <view class="left">{{item}}</view>
       <input class="input" name='{{"input"+index}}' />
+    </view>
+    <view class="section" wx:else>
+      <view class="left">星级</view>
+      <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}" style="margin-left: 15rpx;">
+        <text class="text" space='true' decode="true">{{levels[levelIndex]}}</text>
+      </picker>
+    </view>
     </view>
     <view class="image">
       <view bindtap="uploadImage">

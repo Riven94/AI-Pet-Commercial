@@ -3,12 +3,7 @@
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
   <view class="bluetop">
-    <view class="message">
-      <!-- <view class="back" bindtap="back">
-        <view class="triangle"></view>
-        <text class="moremessage">更多消息</text>
-      </view>  -->
-    </view>
+    <view class="edit" bindtap="toEdit" wx:if="{{isOwner}}">修改</view>
   </view>
   <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill"></image>
   <view class="content">{{detail.comment}}</view>

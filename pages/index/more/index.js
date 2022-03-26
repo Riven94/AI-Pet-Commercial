@@ -14,7 +14,8 @@ Page({
       color: "白色",
       img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"],
       ownerId: 1,
-      time: ''
+      time: '',
+      isOwner: false
     },
     owneritem:{
       nickname: "王先生",
@@ -42,10 +43,14 @@ Page({
         id: id
       },
       success(res){
+        const resData = res.data.data;
         console.log(res);
         that.setData({
-          detail: res.data.data
+          detail: resData
         })
+        if(resData.creatorId == app.globalData.userId){
+          that.setData({isOwner: true})
+        }
       },
       fail(error){
         console.log(error);
@@ -100,6 +105,13 @@ Page({
       fail(error){
         console.log(error);
       }
+    })
+  },
+
+  toEdit(){
+    console.log(this.data.detail);
+    wx.navigateTo({
+      url: '../pulish/index?info=' + JSON.stringify(this.data.detail) + '&id=' + this.data.detail.id,
     })
   },
 

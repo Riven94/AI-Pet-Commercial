@@ -9,6 +9,8 @@ Page({
   data: {
     info: ['店铺名称','店铺描述','星级','店铺类型','地址'],
     imageList:[],
+    levels: ['一星级','二星级','三星级','四星级','五星级'],
+    levelIndex: 0
   },
 
   /**
@@ -16,6 +18,11 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  bindLevelChange(e){
+    console.log(e)
+    this.setData({ levelIndex: e.detail.value * 1});
   },
 
   uploadImage:function(){
@@ -88,7 +95,7 @@ Page({
       data:{
         name: value.input0,
         detail: value.input1,
-        level: value.input2,
+        level: that.data.levelIndex * 1 + 1,
         imgUrl: that.data.imageList,
         creatorId: userId,
         type: value.input3,

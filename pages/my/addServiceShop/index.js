@@ -7,8 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: ['店铺名称','店铺描述','星级','是否营业（0/1）','营业时间','服务标签','店铺类型','地址'],
+    info: ['店铺名称','店铺描述','星级','是否营业','营业时间','服务标签','店铺类型','地址'],
     imageList:[],
+    levels: ['一星级','二星级','三星级','四星级','五星级'],
+    levelIndex: 0,
+    business: ['营业','不营业'],
+    businessIndex: 0
   },
 
   /**
@@ -16,6 +20,16 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  bindLevelChange(e){
+    console.log(e)
+    this.setData({ levelIndex: e.detail.value * 1});
+  },
+
+  bindBusinessChange(e){
+    console.log(e)
+    this.setData({ businessIndex: e.detail.value * 1});
   },
 
   uploadImage:function(){
@@ -79,24 +93,24 @@ Page({
   formSubmit(e){
     const userId = app.globalData.userId;
     const value = e.detail.value;
-    console.log(value);
-    console.log(this.data.imageList);
     const that = this;
+    const data = {
+      name: value.input0,
+      detail: value.input1,
+      level: that.data.levelIndex + 1,
+      imgUrl: that.data.imageList,
+      isBusiness: that.data.businessIndex,
+      businessHours:value.input4,
+      serviceField:value.input5,
+      creatorId: userId,
+      type: value.input6,
+      place: value.input7
+    };
+    console.log(data);
     wx.request({
       url: domain + '/service/storeAdd',
       method: 'POST',
-      data:{
-        name: value.input0,
-        detail: value.input1,
-        level: value.input2,
-        imgUrl: that.data.imageList,
-        isBusiness:value.input3,
-        businessHours:value.input4,
-        serviceField:value.input5,
-        creatorId: userId,
-        type: value.input6,
-        place: value.input7
-      },
+      data: data,
       success(res){
         console.log(res);
         wx.showModal({

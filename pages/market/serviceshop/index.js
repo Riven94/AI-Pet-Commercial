@@ -23,7 +23,6 @@ Page({
     freights: [],
     id: '',
     isOwner: false,
-    market: false,
     storeId:''
   },
 

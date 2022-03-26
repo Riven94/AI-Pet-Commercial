@@ -1,58 +1,70 @@
 {
-    "setting": {},
-    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "pages/market/cart/index",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "",
+          "pathName": "pages/market/myservice/index",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "",
+          "pathName": "pages/market/serviceshop/index",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "",
-                    "pathName": "pages/market/cart/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/myservice/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/serviceshop/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/knowledge/addarticle/index",
-                    "query": "id=9&articleId=48",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/knowledge/article/index",
-                    "query": "id=53",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/uploadFreight/index",
-                    "query": "storeId=10",
-                    "scene": null,
-                    "launchMode": "default"
-                }
-            ]
+        {
+          "name": "",
+          "pathName": "pages/knowledge/addarticle/index",
+          "query": "id=9&articleId=48",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/knowledge/article/index",
+          "query": "id=53",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/market/uploadFreight/index",
+          "query": "storeId=10",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addPet/index",
+          "query": "info=%7B%22id%22%3A8%2C%22name%22%3A%22%E6%97%BA%E6%97%BA%22%2C%22varieties%22%3A%22%E5%AE%A0%E7%89%A9%E7%8B%97%22%2C%22color%22%3A%22%E6%A3%95%22%2C%22type%22%3A%22%E7%8B%97%22%2C%22imgUrl%22%3A%22http%3A%2F%2F101.42.227.112%3A8000%2Fmedia%2Ficon%2F7f2ae5c62964ab38926884a2d8e622f6.jpeg%22%2C%22detail%22%3A%22%E8%90%A8%E6%91%A9%E8%80%B6%22%2C%22creatorId%22%3A9%2C%22finderId%22%3A-1%2C%22finderName%22%3A%22%22%2C%22spot%22%3A%22wuhan%22%2C%22ownerId%22%3A9%2C%22ownerName%22%3A%2212%22%2C%22isLost%22%3A%22%E6%B5%81%E6%B5%AA%E7%8C%AB%E7%8B%97%22%2C%22state%22%3A1%2C%22createdAt%22%3A%222022-03-07%2003%3A53%3A44%22%2C%22updatedAt%22%3A%222022-03-25%2022%3A27%3A55%22%7D",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addShop/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addServiceShop/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
+      ]
     }
+  }
 }

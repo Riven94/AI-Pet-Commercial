@@ -46,7 +46,6 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "selectedColor": "#000000",
     "borderStyle": "black",

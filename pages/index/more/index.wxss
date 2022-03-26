@@ -31,9 +31,19 @@
   color: black;
   float: left;
 }
-.message{
-  width: 100%;
-  display: block;
+.edit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  color: #e6e6e6;
+  border-radius: 20rpx;
+  background-color: rgb(240, 169, 56);
+  font-weight: 100;
 }
 .left{
   background-color: white;
