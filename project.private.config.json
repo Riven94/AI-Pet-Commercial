@@ -63,6 +63,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/myshop/index",
+          "query": "id=9",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/setting/index",
+          "query": "id=9",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addServiceShop/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -7,7 +7,7 @@
        <view style="margin: 15rpx 0" >
            <view class="line"></view>
            <view></view>
-         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="1000" bindinput="content" value="Content"></textarea>
+         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="1000" bindinput="content" value="{{Content}}"></textarea>
          <view class="line"></view>
    </view>
 

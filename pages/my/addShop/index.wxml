@@ -4,11 +4,11 @@
     <view wx:for="{{info}}">
     <view class="section" wx:if="{{index != 2}}">
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" name='{{"input"+index}}' value="{{default[index]}}" />
     </view>
-    <view class="section" wx:else>
+    <view class="pickersection" wx:else>
       <view class="left">星级</view>
-      <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}" style="margin-left: 15rpx;">
+      <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}">
         <text class="text" space='true' decode="true">{{levels[levelIndex]}}</text>
       </picker>
     </view>

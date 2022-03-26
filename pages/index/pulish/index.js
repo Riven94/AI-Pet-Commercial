@@ -126,6 +126,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     if(options.info != undefined){
       const detail = JSON.parse(options.info);
       console.log(detail);
@@ -139,14 +140,12 @@ Page({
         }
       })
     }
-    this.setData(
-      {id: options.id * 1});
   },
   
   content:function(e){
     this.setData({
         Content:e.detail.value
-      })   
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -159,26 +158,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const that = this;
-    wx.request({
-      url: domain + '/comment/getDetail',
-      method: 'GET',
-      data:{
-        id: that.data.id
-      },
-      success(res){
-        const detail = res.data.data;
-        that.setData({  edit: true,
-                        Content: detail.comment,
-                        imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
-                        inter: that.data.modify});
-        that.data.pulishType.forEach((item, index) =>{
-          if(item == detail.type){
-            that.setData({ typeIndexs: index})
-          }
-        })
+    if(this.data.edit){
+      const that = this;
+      wx.request({
+        url: domain + '/comment/getDetail',
+        method: 'GET',
+        data:{
+          id: that.data.id
+        },
+        success(res){
+          const detail = res.data.data;
+          that.setData({  edit: true,
+                          Content: detail.comment,
+                          imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
+                          inter: that.data.modify});
+          that.data.pulishType.forEach((item, index) =>{
+            if(item == detail.type){
+              that.setData({ typeIndexs: index})
+            }
+          })
+      }
+    })
     }
-  })
 },
 
   /**

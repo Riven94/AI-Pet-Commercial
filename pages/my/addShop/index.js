@@ -8,16 +8,28 @@ Page({
    */
   data: {
     info: ['店铺名称','店铺描述','星级','店铺类型','地址'],
+    default: ['','','','',''],
     imageList:[],
     levels: ['一星级','二星级','三星级','四星级','五星级'],
-    levelIndex: 0
+    levelIndex: 0,
+    modify: false,
+    shopId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(options.detail != null){
+      const detail = JSON.parse(options.detail);
+      this.setData({
+        default: [detail.name, detail.detail, '',detail.type, detail.place],
+        levelIndex: detail.level - 1,
+        imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
+        shopId: detail.id,
+        modify: true
+      })
+    }
   },
 
   bindLevelChange(e){
@@ -89,23 +101,31 @@ Page({
     console.log(value);
     console.log(this.data.imageList);
     const that = this;
+    var inter = '/product/storeAdd';
+    var content = '创建成功!';
+    var data = {
+      name: value.input0,
+      detail: value.input1,
+      level: that.data.levelIndex * 1 + 1,
+      imgUrl: that.data.imageList,
+      creatorId: userId,
+      type: value.input3,
+      place: value.input4
+    }
+    if(that.data.modify){
+      inter = '/product/storeUpdate';
+      data.id = this.data.shopId;
+      content = '修改成功!';
+    }
     wx.request({
-      url: domain + '/product/storeAdd',
+      url: domain + inter,
       method: 'POST',
-      data:{
-        name: value.input0,
-        detail: value.input1,
-        level: that.data.levelIndex * 1 + 1,
-        imgUrl: that.data.imageList,
-        creatorId: userId,
-        type: value.input3,
-        place: value.input4
-      },
+      data: data,
       success(res){
         console.log(res);
         wx.showModal({
           cancelColor: 'cancelColor',
-          content:'创建成功！',
+          content: content,
           showCancel: false,
           success(res){
             wx.navigateBack({

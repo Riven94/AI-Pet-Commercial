@@ -142,6 +142,14 @@ Page({
     console.log(e);
   },
 
+  toEdit(e){
+    const detail = e.currentTarget.dataset.detail;
+    console.log(e);
+    wx.navigateTo({
+      url: '../addShop/index?detail=' + JSON.stringify(detail),
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

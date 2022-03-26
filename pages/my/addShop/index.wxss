@@ -35,3 +35,8 @@
   border-right: 5px solid transparent;
   border-top: 8px solid gray;
 }
+.pickersection{
+  display: flex;
+  width: 90%;
+  margin: 30rpx auto;
+}
