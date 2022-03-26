@@ -2,9 +2,17 @@
 <import src="../../../template/top/index.wxml" ></import>
 <template is='top'></template>
 <form catchsubmit="formSubmit">
-  <view class="section" wx:for="{{info}}">
-    <view class="left">{{item}}</view>
-    <input class="input" name='{{"input"+index}}' />
+  <view wx:for="{{info}}">
+    <view wx:if="{{index != 2}}" class="section" >
+      <view class="left">{{item}}</view>
+      <input class="input" name='{{"input"+index}}' />
+    </view>
+    <view wx:else class="section">
+      <view class="left">{{item}}</view>
+      <picker class="picker" bindchange="bindStateChange" value="{{stateIndex}}" range="{{states}}">
+        <text class="text" space='true' decode="true">{{states[stateIndex]}}</text>
+      </picker>
+    </view>
   </view>
   <view style="margin:20rpx 34rpx">请上传1~2张照片吧
   <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadImage"></image>
@@ -25,7 +33,7 @@
     </view>
   </view> -->
   <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{freightType}}" style="margin-left: 32rpx;">
-        <view >类型:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{freightType[typeIndex]}}</text></view>
+        <view >类型:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{freightType[typeIndex]}}</text></view>
     </picker>
   <view class="tip">注：商品状态为默认为0：未售完；1：已售完或暂停售</view>
   <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;" type="primary" formType="submit">保存</button>

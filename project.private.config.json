@@ -84,6 +84,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/market/uploadFreight/index",
+          "query": "storeId=18",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
