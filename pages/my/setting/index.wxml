@@ -13,13 +13,13 @@
       <view wx:if="{{index != 2}}" class="left">{{item}}</view>
       <input type="{{index != 4 ? index != 5 ? 'text' : 'password' : 'password'}}" class="input" value="{{default[index]}}" wx:if="{{index != 2}}" name='{{"input"+index}}' />
       <picker wx:else bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="picker">性别:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{array[arrayIndex]}}</text></view>
+        <view class="picker">性别:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{array[arrayIndex]}}</text></view>
       </picker>
     </view>
       <view wx:for="{{imageList}}">
         <image class="normal" name="img" src="{{item}}"></image>
       </view>
-    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
-    <button class="logout" style="background-color:rgba(214, 88, 71, 0.918); position: relative; left: 1rpx; top: 58rpx;color: black;margin-top: 20rpx;" type="warn" bindtap="logout">退出</button>
+    <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;" type="primary" formType="submit">保存</button>
+    <button class="logout" style="background-color: rgb(240,169,56); position: relative; left: 1rpx; top: 58rpx;color: black;margin-top: 20rpx;border-radius: 20rpx;" type="warn" bindtap="logout">退出</button>
   </form>
 </view>

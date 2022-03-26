@@ -1,9 +1,17 @@
 <import src="../../../template/top/index.wxml"></import>
 <template is="top"></template>
 <form catchsubmit="formSubmit">
-    <view class="section" wx:for="{{info}}">
+    <view wx:for="{{info}}">
+    <view class="section" wx:if="{{index != 2}}">
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" name='{{"input"+index}}' value="{{default[index]}}" />
+    </view>
+    <view class="pickersection" wx:else>
+      <view class="left">星级</view>
+      <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}">
+        <text class="text" space='true' decode="true">{{levels[levelIndex]}}</text>
+      </picker>
+    </view>
     </view>
     <view class="image">
       <view bindtap="uploadImage">
@@ -13,5 +21,5 @@
       <view class="imgs">
         <image wx:for="{{imageList}}" class="img" name="img" src="{{item}}" mode="aspectFill"></image>
       </view>
-    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+    <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;color: aliceblue;" formType="submit">保存</button>
   </form>

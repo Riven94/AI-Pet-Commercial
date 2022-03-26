@@ -12,8 +12,12 @@ Page({
     typeIndexs: 0,
     imageList: [],
     Content: '',
-    id: ''
+    id: '',
+    inter: '/comment/upload',
+    modify: '/comment/update',
+    edit: false
   },
+
   bindTypeChange(e){
     console.log(e.detail.value)
     this.setData({
@@ -56,7 +60,7 @@ Page({
       wx.uploadFile({
         filePath: item,
         //上传图片协议接口
-        url: domain+'/images/uploadFile/article ',
+        url: domain+'/images/uploadFile/article',
         name:'img',
         formData: {
           creatorId: userId
@@ -90,9 +94,11 @@ Page({
       comment: that.data.Content,
       type: that.data.pulishType[that.data.typeIndexs]
     };
-    console.log(temp);
+    if(this.data.edit){
+      temp.id = this.data.id;
+    }
     wx.request({
-      url: domain + '/comment/upload',
+      url: domain + that.data.inter,
       method: 'POST',
       data: temp,
       success(res){
@@ -120,13 +126,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData(
-      {id: options.id * 1});
+    console.log(options);
+    if(options.info != undefined){
+      const detail = JSON.parse(options.info);
+      console.log(detail);
+      this.setData({  edit: true,
+                      Content: detail.comment,
+                      imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
+                      inter: this.data.modify});
+      this.data.pulishType.forEach((item, index) =>{
+        if(item == detail.type){
+          this.setData({ typeIndexs: index})
+        }
+      })
+    }
   },
+  
   content:function(e){
     this.setData({
         Content:e.detail.value
-      })   
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -139,8 +158,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
+    if(this.data.edit){
+      const that = this;
+      wx.request({
+        url: domain + '/comment/getDetail',
+        method: 'GET',
+        data:{
+          id: that.data.id
+        },
+        success(res){
+          const detail = res.data.data;
+          that.setData({  edit: true,
+                          Content: detail.comment,
+                          imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
+                          inter: that.data.modify});
+          that.data.pulishType.forEach((item, index) =>{
+            if(item == detail.type){
+              that.setData({ typeIndexs: index})
+            }
+          })
+      }
+    })
+    }
+},
 
   /**
    * 生命周期函数--监听页面隐藏

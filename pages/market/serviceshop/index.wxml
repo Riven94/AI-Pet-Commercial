@@ -28,7 +28,7 @@
       </view>
       <view class="services" style="display:flex;justify-content: space-between;">
         <view class="service" wx:for="{{services}}">{{item}}</view> 
-         <text class="addservice" bindtap="addService" data-id="{{item.id}}" wx:if="{{isOwner && !market}}">添加服务</text>
+         <text class="addservice" bindtap="addService" data-id="{{item.id}}" wx:if="{{isOwner}}">添加服务</text>
       </view>
     
     </view>

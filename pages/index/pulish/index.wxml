@@ -7,7 +7,7 @@
        <view style="margin: 15rpx 0" >
            <view class="line"></view>
            <view></view>
-         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="1000" bindinput="content"></textarea>
+         <textarea class="weui-input" placeholder="请输入内容......"  maxlength="1000" bindinput="content" value="{{Content}}"></textarea>
          <view class="line"></view>
    </view>
 
@@ -32,6 +32,6 @@
       </view>
   </view> -->
   <picker class="picker" bindchange="bindTypeChange" value="{{typeIndexs}}" range="{{pulishType}}" style="margin-left: 15rpx;">
-        <view >类型:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{pulishType[typeIndexs]}}</text></view>
+        <view >类型:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{pulishType[typeIndexs]}}</text></view>
     </picker>
 </view>

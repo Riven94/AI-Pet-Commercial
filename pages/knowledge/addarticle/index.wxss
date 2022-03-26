@@ -13,8 +13,9 @@
   top: 20rpx;
   width: 100rpx;
   height: 60rpx;
-  background-color: rgb(240, 145, 90);
+  background-color: rgb(240, 169, 56);
   font-weight: 100;
+  border-radius: 20rpx;
 }
 .submit{
   display: flex;
@@ -115,4 +116,14 @@
 .normal{
   width: 250rpx;
   height: 250rpx;
+}
+.text::after{
+  position: absolute;
+  content: '';
+  margin: 16rpx 0 0 20rpx;
+  width: 0rpx;
+  height: 0rpx;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid gray;
 }

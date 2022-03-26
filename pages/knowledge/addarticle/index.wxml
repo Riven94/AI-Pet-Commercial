@@ -38,5 +38,5 @@
     </view>
 </view> -->
 <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{artType}}" style="margin-left: 15rpx;">
-        <view >类型:<text space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{artType[typeIndex]}}</text></view>
+        <view>类型:<text space='true' decode="true" class="text">&nbsp;&nbsp;&nbsp;&nbsp;{{artType[typeIndex]}}</text></view>
     </picker>

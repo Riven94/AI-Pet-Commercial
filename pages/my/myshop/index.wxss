@@ -88,3 +88,14 @@ checkbox .wx-checkbox-input{
 .shops{
   display: flex;
 }
+.edit{
+  margin-left: 200rpx;
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}

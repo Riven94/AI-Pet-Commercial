@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info:['商品名字', '商品描述', '商品状态(填写0/1)','价格','运费','保障','服务'],
+    info:['商品名字', '商品描述', '商品状态','价格','运费','保障','服务'],
     imageList:[],
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
 /*     selectDatas: ['主食', '零食', '家居','出行','热卖'], //下拉列表的数据
@@ -16,14 +16,23 @@ Page({
     Type:'主食', */
     freightType: ['主食', '零食', '家居','出行','热卖'],
     typeIndex:0,
-    storeId: ''
+    storeId: '',
+    states: ['未售完', '已售完'],
+    stateIndex: 0
   },
+
   bindTypeChange(e){
     console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({typeIndex: index});
-
   },
+
+  bindStateChange(e){
+    console.log(e.detail.value);
+    const index = e.detail.value;
+    this.setData({stateIndex: index});
+  },
+
     // 点击下拉显示框
  /*  selectTaps() {
     this.setData({
@@ -90,13 +99,13 @@ Page({
   formSubmit(e) {
     var that=this
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    const Name=e.detail.value.input0
-    const Detail=e.detail.value.input1
-    const State=e.detail.value.input2
-    const Price=e.detail.value.input3
-    const Freight=e.detail.value.input4
-    const Security=e.detail.value.input5
-    const Service=e.detail.value.input6
+    const Name=e.detail.value.input0;
+    const Detail=e.detail.value.input1;
+    const State= this.data.stateIndex;
+    const Price=e.detail.value.input3;
+    const Freight=e.detail.value.input4;
+    const Security=e.detail.value.input5;
+    const Service=e.detail.value.input6;
     wx.request({
       url: domain+'/product/add', 
       method: 'POST',
