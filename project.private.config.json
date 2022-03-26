@@ -49,6 +49,20 @@
                     "name": "",
                     "pathName": "pages/market/uploadFreight/index",
                     "query": "storeId=10",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/my/addServiceShop/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/market/addservice/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
