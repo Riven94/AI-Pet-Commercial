@@ -13,5 +13,5 @@
       </view>
     </view>
   </view>
-  <view class="else">暂时没有找到您要的商品~</view>
+  <view wx:else class="else">暂时没有找到您要的商品~</view>
 </view>

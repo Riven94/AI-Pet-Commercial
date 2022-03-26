@@ -2,10 +2,18 @@
 <import src="../../../template/top/index.wxml"></import>
 <template is="top"></template>
 <form catchsubmit="formSubmit">
-<view class="type" wx:for="{{info}}">
-    <view style="width: 150rpx;">{{item}}</view>
-    <input class="input" name='{{"input"+index}}' />
-</view>
+  <view wx:for="{{info}}">
+    <view wx:if="{{index != 2}}" class="type">
+        <view style="width: 150rpx;">{{item}}</view>
+        <input class="input" name='{{"input"+index}}' />
+    </view>
+    <view wx:else class="type">
+      <view style="width: 150rpx;">{{item}}</view>
+      <picker class="picker" bindchange="bindStateChange" value="{{stateIndex}}" range="{{state}}">
+          <text class="text" space='true' decode="true">{{state[stateIndex]}}</text>
+        </picker>
+    </view>
+  </view>
 <view class="style">请上传服务详情的照片
     <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadservice"></image>
   </view>
@@ -36,6 +44,5 @@
     </view>
     </view>
   </view>
-  <view class="tip">注意：服务状态填写为默认为0：可以服务；1：暂停服务</view>
-  <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;" type="primary" formType="submit">保存</button>
+  <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
 </form>

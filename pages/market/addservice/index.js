@@ -4,7 +4,7 @@ const domain = app.globalData.domainName;
 const userId = app.globalData.userId;
 Page({
     data: {
-        info:["服务名称","服务描述","服务状态(填写0/1)","价格","保障"],
+        info:["服务名称","服务描述","服务状态","价格","保障"],
         imgList1:[],
         imgList2:[],
         imgList3:[],
@@ -12,8 +12,15 @@ Page({
         selectDatas: ['洗澡', '美容', '寄卖','撸宠'], //下拉列表的数据
         indexs: 0, //选择的下拉列 表下标,
         Type:'洗澡',
-        storeId:''
+        storeId:'',
+        stateIndex: 0,
+        state: ['未售完', '已售完']
     },
+
+    bindStateChange(e){
+      this.setData({ stateIndex: e.detail.value * 1});
+    },
+    
      // 点击下拉显示框
      selectTaps() {
         this.setData({
@@ -34,11 +41,11 @@ Page({
       },
 
     formSubmit(e) {
-        var that=this
-        console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      var that=this
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
        const Name=e.detail.value.input0
        const Detail=e.detail.value.input1
-       const State=e.detail.value.input2
+       const State= this.data.stateIndex
        const Price=e.detail.value.input3
        const Security=e.detail.value.input4
         wx.request({

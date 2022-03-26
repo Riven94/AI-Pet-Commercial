@@ -47,7 +47,7 @@ Page({
       arrayIndex: e.detail.value,
     })
     var gender = this.data.array[this.data.arrayIndex];
-    let sel = gender == '女' ? 0 : 1;
+    let sel = gender == '男' ? 0 : 1;
     this.setData({selected: sel});
   },
 

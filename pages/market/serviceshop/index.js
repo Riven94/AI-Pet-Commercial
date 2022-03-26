@@ -31,9 +31,6 @@ Page({
    */
   onLoad: function (options) {
     const Id = options.id;
-    if(options.from === undefined){
-      this.setData({ market: true})
-    }
     this.setData({id: options.id})
     this.getDetail(Id);
     this.getServices(Id);
@@ -182,7 +179,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getServices(this.data.storeId);
   },
 
   /**
