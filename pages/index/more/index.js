@@ -15,7 +15,8 @@ Page({
       img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"],
       ownerId: 1,
       time: '',
-      isOwner: false
+      isOwner: false,
+      commentId: ""
     },
     owneritem:{
       nickname: "王先生",
@@ -31,6 +32,7 @@ Page({
    */
   onLoad: function (options) {
     //this.getAnimal(options.id);
+    this.setData({commentId: options.id});
     this.getDetail(options.id);
   },
 
@@ -104,6 +106,49 @@ Page({
       },
       fail(error){
         console.log(error);
+      }
+    })
+  },
+
+  delete(){
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: "确认删除此动态？",
+      success(res){
+        if(res.confirm){
+          that.onRealDelete();
+        }
+      }
+    })
+  },
+  
+  onRealDelete(){
+    const that = this;
+    wx.request({
+      url: domain + '/comment/delete',
+      method: "POST",
+      data:{
+        id: that.data.commentId,
+        creatorId: app.globalData.userId
+      },
+      success(res){
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: "删除成功！",
+          showCancel: false,
+          success(res){
+            wx.navigateBack({
+            })
+          }
+        })
+      },
+      fail(error){
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: "删除失败！",
+          showCancel: false
+        })
       }
     })
   },

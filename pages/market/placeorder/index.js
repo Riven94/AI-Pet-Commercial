@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+      locationIcon: domain + "/media/icon/location.png",
       address: {
-        icon: "../../../icons/location.png",
+        icon: domain + "/media/icon/location.png",
         useraddress: "湖北省武汉市洪山区珞南街道武汉理工大学南湖校区",
         username: "李华",
         userphone: "8208208820"

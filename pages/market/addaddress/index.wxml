@@ -12,7 +12,7 @@
   <view wx:for="{{addres}}" wx:for-item="address" >
     <view class="addresswrap">
       <view class="iconwrap">
-      <image class="location" src="../../../icons/location.png"></image>
+      <image class="location" src="{{locationIcon}}"></image>
       </view>
       <view class="middle" bindtap="clickMiddle" data-addressId="{{address.id}}">
         <view class="useraddress">

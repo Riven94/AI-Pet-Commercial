@@ -4,6 +4,8 @@ const app = getApp();
 const domain = getApp().globalData.domainName;
 Page({
   data: {
+    addIcon: domain + "/media/icon/add.png",
+    arrowRight: domain + "/media/icon/arrow-right.png",
     publishItem:[
       {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
       {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},

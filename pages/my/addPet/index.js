@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addPhotoIcon: domain + "/media/icon/addphoto.png",
     info: ['宠物名字','宠物品种','颜色','你的名字',],
     default: ['','','',''],
     imageList:[],

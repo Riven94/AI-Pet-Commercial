@@ -3,7 +3,7 @@
 <view class="container">
   <view class="top">
     <view class="search">
-  <image class="searchicon" src="../../../icons/search.png"></image>
+  <image class="searchicon" src="{{searchIcon}}"></image>
 搜索更多身边事
   </view>
 

@@ -6,7 +6,7 @@
                 <icon type="search" class="searchIcon" size="18"></icon>
                 <input type="text" class="input" placeholder="猫玩具" bindconfirm="searchProduct"/>
             </view>
-            <image class="cart" src="../../icons/cart.png" bindtap="toCart"></image>
+            <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
         </view>
         <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
                 <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">

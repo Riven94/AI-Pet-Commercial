@@ -3,7 +3,8 @@ const domain = app.globalData.domainName;
 Page({
   data: {
     tempFilePaths:'',
-    sourceType: ['camera', 'album']
+    sourceType: ['camera', 'album'],
+    recognizeImg: domain + "/media/icon/recognize.png"
   },
   
   onLoad: function () {

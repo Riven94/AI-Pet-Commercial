@@ -1,6 +1,6 @@
 <!--pages/camera/index.wxml-->
 <view class='image_'>
-	<image src="../../icons/QQ图片20220308232458.png" class='img'  bindtap="buttonclick"></image>
+	<image src="{{recognizeImg}}" class='img'  bindtap="buttonclick"></image>
  	<view style="font-weight: 800;font-size: x-large;">图像识别</view>
 	<view>入库登记/寻找宠物</view>
 	<view class="tab">提示：将动物的头框出来更好识别哦</view>

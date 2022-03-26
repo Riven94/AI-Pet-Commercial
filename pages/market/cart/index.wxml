@@ -1,6 +1,5 @@
 <view class="container">
   <view class="top">
-  <!-- <image class="back" src="../../../icons/arrow.png" bindtap="back"></image> -->
   <view class="title">购物车</view>
   </view>
   <checkbox-group class="comodities" bindchange="checkboxChange">

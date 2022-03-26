@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addPhotoIcon: domain + "/media/icon/addphoto.png",
     info: ['店铺名称','店铺描述','星级','店铺类型','地址'],
     default: ['','','','',''],
     imageList:[],

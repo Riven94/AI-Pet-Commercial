@@ -9,7 +9,7 @@
       <view class="introduction">{{introduction}}</view>
     </view> 
   </view> 
-    <image class="setting" src="../../icons/setting.png" bindtap="toSetting"></image>
+    <image class="setting" src="{{settingIcon}}" bindtap="toSetting"></image>
   </view>
   <view class="functions">
     <view class="function" wx:for="{{functions}}" bindtap="handleFunction" data-path="{{item.path}}">
@@ -29,7 +29,7 @@
     <view class="publishtop">
       <view class="label">|</view>
       <view class="text">我的发布</view>
-      <image class="more" src="../../icons/arrow.png"></image>
+      <image class="more" src="{{arrowIcon}}"></image>
     </view>
     <view wx:if="{{myPublish.length > 0}}">
       <view wx:for="{{myPublish}}" bindtap="toMyPublish" data-id="{{item.id}}">
@@ -42,7 +42,7 @@
     <view class="publishtop">
       <view class="orderlabel">|</view>
       <view class="text">我的订单</view>
-      <image class="more" src="../../icons/arrow.png"></image>
+      <image class="more" src="{{arrowIcon}}"></image>
     </view>
     <view class="orders">
       <view wx:if="{{orders.length > 0}}">
@@ -70,7 +70,7 @@
     <view class="publishtop">
       <view class="orderlabel">|</view>
       <view class="text">我的文章</view>
-      <image class="more" src="../../icons/arrow.png"></image>
+      <image class="more" src="{{arrowIcon}}"></image>
     </view>
     <view >
       <view class="article" wx:for="{{articles}}" data-id="{{item.id}}" bindtap="toArticle">

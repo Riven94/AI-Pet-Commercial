@@ -5,7 +5,7 @@
       <icon type="search" class="searchIcon" size="18"></icon>
       <input type="text" class="input" placeholder="搜索宠物相关知识" bindconfirm="Search"/>
     </view>
-    <image src="../../icons/add.png" style="width: 35rpx;height: 35rpx;margin: 40rpx auto;margin-left: 20rpx;" class="add" bindtap="addArticle"></image>
+    <image src="{{addIcon}}" style="width: 35rpx;height: 35rpx;margin: 40rpx auto;margin-left: 20rpx;" class="add" bindtap="addArticle"></image>
   </view>
 </view>
 <view class="middle">

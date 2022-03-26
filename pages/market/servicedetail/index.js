@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    starIcon: domain + "/media/icon/star.png",
     serviceDetal: {},
     servicename: "喵星人精致洗护",
     returnselections: ["随时退","过期退"],

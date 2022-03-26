@@ -21,64 +21,15 @@
           "pathName": "pages/market/serviceshop/index",
           "query": "",
           "scene": null
-        }],
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "",
-                    "pathName": "pages/market/cart/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/myservice/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/serviceshop/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/knowledge/addarticle/index",
-                    "query": "id=9&articleId=48",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/knowledge/article/index",
-                    "query": "id=53",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/uploadFreight/index",
-                    "query": "storeId=10",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/my/addServiceShop/index",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/addservice/index",
-                    "query": "",
-                    "scene": null,
-                    "launchMode": "default"
-                }
-            ]
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/more/index",
+          "query": "id=8",
+          "launchMode": "default",
+          "scene": null
         }
+      ]
     }
   }
 }

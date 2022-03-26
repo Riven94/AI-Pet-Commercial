@@ -55,7 +55,7 @@
     <view class=" horizon firstrow">
         <view style="margin-left: 15rpx;">照片：</view>
         <view bindtap="uploadImage">
-        <image class="picture" src="/icons/添加图片.png"></image>
+        <image class="picture" src="{{addPhotoIcon}}"></image>
         </view>
     </view>
     <view wx:for="{{imageList}}">

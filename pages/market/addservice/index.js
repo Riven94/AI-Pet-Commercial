@@ -4,6 +4,7 @@ const domain = app.globalData.domainName;
 const userId = app.globalData.userId;
 Page({
     data: {
+        addPhotoIcon: domain + "/media/icon/addphoto.png",
         info:["服务名称","服务描述","服务状态","价格","保障"],
         imgList1:[],
         imgList2:[],

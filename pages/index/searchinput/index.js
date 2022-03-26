@@ -1,10 +1,12 @@
 // pages/index/searchinput/index.js
+const domain = getApp().globalData.domainName;
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        searchIcon: domain + "/media/icon/search.png",
         currentData: 0, 
         selectPerson: true,
         myPublish:[

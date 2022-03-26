@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addPhotoIcon: domain + "/media/icon/addphoto.png",
     info:['商品名字', '商品描述', '商品状态','价格','运费','保障','服务'],
     imageList:[],
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
