@@ -1,58 +1,50 @@
 {
-    "setting": {},
-    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "pages/market/cart/index",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "",
+          "pathName": "pages/market/myservice/index",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "",
+          "pathName": "pages/market/serviceshop/index",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "",
-                    "pathName": "pages/market/cart/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/myservice/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/market/serviceshop/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/index/more/index",
-                    "query": "id=8",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/my/setting/index",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/camera/message/index",
-                    "query": "",
-                    "scene": null,
-                    "launchMode": "default"
-                }
-            ]
+        {
+          "name": "",
+          "pathName": "pages/index/more/index",
+          "query": "id=8",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/setting/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/camera/message/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
+      ]
     }
+  },
+  "libVersion": "2.23.2"
 }

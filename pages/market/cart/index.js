@@ -160,6 +160,8 @@ Page({
   },
 
   changeCount(targetId,count){
+    const that = this;
+    this.setData({totalPrice: 0});
     console.log(count)
     wx.request({
       url: domain + '/product/shoppingCartChangeCount',
@@ -170,12 +172,12 @@ Page({
       },
       success(res){
         console.log(res);
+        that.getOrders();
       },
       fail(error){
         console.log(error);
       }
     })
-    this.getOrders();
   },
 
   pay(){
