@@ -67,36 +67,48 @@ Page({
             imageList:res.tempFilePaths
         })
         console.log("aaaaaaaaa",that.data.imageList)
-        that.upload({
-          path: tempFilePaths
-      })
+        that.upload(tempFilePaths)
       }
     })
   },
 
   upload(data) { // 上传图片
-    var that = this;
-    wx.request({
+    const userId = app.globalData.userId;
+      var that = this;
+      var imgUrls = [];
+      wx.showToast({
+          icon: "loading",
+          title: "正在上传"
+      }),
+      console.log(data);
+      data.forEach((item)=>{wx.uploadFile({
+        filePath: item,
         //上传图片协议接口
         url: domain+'/images/uploadFile/product',
-        method: 'POST',
-        data: {
-          "img": that.data.imageList,
+        name:'img',
+        formData: {
           "creatorId": userId
         },
-       // header:{ 'content-type': 'multipart/form-data'},
         success(res) {
-          console.log("上传图片成功")
+          let imgUrl = JSON.parse(res.data).imgUrl;
+          imgUrl.forEach((item)=>{
+            imgUrls.push(item);
+          })
+          //console.log(imgUrls);
+          that.setData({imageList: imgUrls});
         },
         fail(e) {
+          console.log(e);
           wx.showModal({
               title: '提示',
               content: '上传失败',
               showCancel: false
           })
-        },
+        }
+      })
     })
   },
+  
   formSubmit(e) {
     var that=this
     console.log('form发生了submit事件，携带数据为：', e.detail.value)

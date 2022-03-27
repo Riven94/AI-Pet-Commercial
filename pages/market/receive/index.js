@@ -28,25 +28,33 @@ Page({
       phone: value.input1,
       area: that.data.region.join(','),
       addressDetail : value.input3,
-      type: that.data.isDefault
+      type: that.data.isDefault ? 1 : 0
     };
     console.log(data);
-    if(that.data.new){
-      wx.request({
-        url:domain+'/address/add',
-        method: 'POST',
-        data: data,
-        header: { 'content-type': 'application/json'},
-        success(res){
-          console.log(res);
-          wx.navigateBack({
-          })
-        },
-        fail(error){
-          console.log(error);
-        }
+    if(!(/^1[3456789]\d{9}$/.test(data.phone))){ 
+      wx.showModal({
+        title: '手机号格式不正确！',
+        content: '上传失败',
+        showCancel: false
       })
     }
+    else{
+      if(that.data.new){
+        wx.request({
+          url:domain+'/address/add',
+          method: 'POST',
+          data: data,
+          header: { 'content-type': 'application/json'},
+          success(res){
+            console.log(res);
+            wx.navigateBack({
+            })
+          },
+          fail(error){
+            console.log(error);
+          }
+        })
+      }
     else{
       const data2 = {
         id: that.data.addressId,
@@ -55,7 +63,7 @@ Page({
         phone: value.input1,
         area: that.data.region.join(','),
         addressDetail : value.input3,
-        type: that.data.isDefault
+        type: that.data.isDefault ? 1 : 0
       };
       console.log(data2);
       wx.request({
@@ -77,7 +85,8 @@ Page({
         }
       })
     }
-  },
+  }    
+},
   /**
    * 生命周期函数--监听页面加载
    */

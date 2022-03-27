@@ -36,8 +36,40 @@ Page({
         that.setData({
             icon:res.tempFilePaths
         })
-        console.log("aaaaaaaaa",that.data.icon)
+        console.log("aaaaaaaaa",that.data.icon);
+        that.upload(tempFilePaths);
       }
+    })
+  },
+
+  upload(data) { // 上传图片
+    const userId = app.globalData.userId;
+    var that = this;
+    wx.showToast({
+        icon: "loading",
+        title: "正在上传"
+    }),
+    wx.uploadFile({
+      filePath: data[0],
+      //上传图片协议接口
+      url: domain+'/images/uploadFile/store',
+      name:'img',
+      formData: {
+        "creatorId": userId
+      },
+      success(res) {
+        let imgUrl = JSON.parse(res.data).imgUrl;
+        //console.log(imgUrls);
+        that.setData({icon: imgUrl[0]});
+      },
+      fail(e) {
+        console.log(e);
+        wx.showModal({
+            title: '提示',
+            content: '上传失败',
+            showCancel: false
+        })
+      },
     })
   },
 
@@ -59,7 +91,7 @@ Page({
       userId: that.data.userId,
       name: form.input0,
       nickName: form.input1,
-      imgUrl: [that.data.icon[0]],
+      imgUrl: [that.data.icon],
       gender: that.data.selected,// * 1 转化为int类型
       phone: form.input3,
       password: form.input4,

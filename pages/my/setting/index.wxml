@@ -12,8 +12,8 @@
     <view class="section" wx:for="{{info}}">
       <view wx:if="{{index != 2}}" class="left">{{item}}</view>
       <input type="{{index != 4 ? index != 5 ? 'text' : 'password' : 'password'}}" class="input" value="{{default[index]}}" wx:if="{{index != 2}}" name='{{"input"+index}}' />
-      <picker wx:else bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="picker">性别:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{array[arrayIndex]}}</text></view>
+      <picker class="picker" wx:else bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view >性别:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{array[arrayIndex]}}</text></view>
       </picker>
     </view>
       <view wx:for="{{imageList}}">

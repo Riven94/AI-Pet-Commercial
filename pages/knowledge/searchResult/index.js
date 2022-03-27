@@ -32,13 +32,14 @@ Page({
           let temp = {
             title: element.articleTitle,
             general: element.article,
-            img: element.img,
+            img: element.imgUrl,
             desc: '你想知道的都在这里！',
             id: element.id
           };
           articleData.push(temp);
         });
-        that.setData({articles: articleData})
+        that.setData({articles: articleData});
+        console.log(resData);
       },
       fail(error){
         console.log(error);

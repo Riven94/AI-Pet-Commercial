@@ -38,7 +38,7 @@ Page({
 
   chooseImage(tapIndex) {
     const checkeddata = true
-    const that = this
+    const that = this;
     wx.chooseImage({
     //count表示一次可以选择多少照片
       count: 1,
@@ -50,7 +50,10 @@ Page({
          //tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         //将选择到的图片缓存到本地storage中
-        wx.setStorageSync('tempFilePaths', tempFilePaths)
+        wx.setStorageSync('tempFilePaths', tempFilePaths);
+        wx.showLoading({
+          title: "加载中..."
+        })
         wx.uploadFile({
           url: domain + '/images/uploadFile/petIdentify', 
           filePath: tempFilePaths[0],
@@ -72,6 +75,8 @@ Page({
               success(res){
                 res.eventChannel.emit('sendData', {data: data});
               }
+            })
+            wx.hideLoading({
             })
           }
           })

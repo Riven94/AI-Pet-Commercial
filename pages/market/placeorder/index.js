@@ -50,11 +50,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success (res) {
-        const resData = res.data.data
+        const resData = res.data.data;
+        console.log(res);
         that.setData({
           address:resData[0]
         });
-        app.globalData.address = resData[0];
         console.log(app.globalData.address)
       },
       fail(error){
@@ -100,7 +100,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this.data)
+    
   },
 
   /**

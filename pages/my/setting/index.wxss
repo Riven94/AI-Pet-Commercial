@@ -42,3 +42,7 @@
   border-right: 5px solid transparent;
   border-top: 8px solid gray;
 }
+.picker{
+  width: 500rpx;
+  border-radius: 10rpx;
+}

@@ -28,6 +28,13 @@
           "query": "id=8",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/setting/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

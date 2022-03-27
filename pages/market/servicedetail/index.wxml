@@ -25,7 +25,7 @@
   <view class="comment">
     <view style="margin-right: 20rpx;">评价</view>
     <view class="stars">
-      <image class="star" wx:for="{{serviceDetail.level - 1}}" wx:if="{{serviceDetail.level}}" src="{{starIcon}}"></image>
+      <image class="star" wx:for="{{serviceDetail.level - 0}}" wx:if="{{serviceDetail.level}}" src="{{starIcon}}"></image>
     </view>
     <view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
   </view>
@@ -45,7 +45,8 @@
       </view>
     </view>
     <image class="descImg" wx:if="{{currentIndex==0}}" src="{{serviceDetail.bulkUrl}}" mode="aspectFill"></image>
-    <image class="descImg" wx:else src="{{serviceDetail.purInforUrl}}" mode="aspectFill"></image>
+    <image class="descImg" wx:if="{{currentIndex==1}}" src="{{serviceDetail.purInforUrl}}" mode="aspectFill"></image>
+    <view class="descImg" wx:if="{{currentIndex==2}}" >暂无网友评价</view>
     <!-- <view class="temp">{{items[currentIndex]}}</view>
     <template is="project" wx:for="{{projects}}" wx:for-item="project" data="{{project}}"></template> -->
   </view>

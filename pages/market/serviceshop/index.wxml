@@ -7,7 +7,7 @@
   </view>
   <view class="general">
     <view class="shop">
-      <image class="shopicon" src="{{icon}}" bindtap="toShop"></image>
+      <image class="shopicon" src="{{icon}}"></image>
       <view class="shopgeneral">
         <view class="shopname">{{shopname}}</view>
         <view class="stars">
@@ -23,7 +23,7 @@
       <view class="detailwrap">
         <view class="line"></view>
         <view class="status">{{status == 1? "营业中" : "停止营业"}}</view>
-        <view class="time">{{time}}</view>
+        <view class="time">营业时间：{{time}}</view>
       </view>
       <view class="services" style="display:flex;justify-content: space-between;">
         <view class="service" wx:for="{{services}}">{{item}}</view> 
@@ -46,7 +46,7 @@
   <view class="serviceDetail">
     <view class="detailwrap" wx:for="{{freights}}" bindtap="toServiceDetail" 
     data-id="{{item.id}}">
-        <image class="detailImg" src="{{item.imgUrl}}"></image>
+        <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
         <view class="name">{{item.name}}</view>
     </view>
   </view>

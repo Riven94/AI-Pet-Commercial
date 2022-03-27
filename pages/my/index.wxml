@@ -72,12 +72,13 @@
       <view class="text">我的文章</view>
       <image class="more" src="{{arrowIcon}}"></image>
     </view>
-    <view >
+    <view wx:if="{{articles.length > 0}}">
       <view class="article" wx:for="{{articles}}" data-id="{{item.id}}" bindtap="toArticle">
         <image class="articleImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
         <view class="title">{{item.articleTitle}}</view>
       </view>
     </view>
+    <view wx:else class="else">快去发布你的第一篇文章吧！</view>
   </view>
   <view style="display:flex;justify-content: space-around;margin:20rpx 0">
   <button class="button" bindtap="toShop">我的商铺</button>
