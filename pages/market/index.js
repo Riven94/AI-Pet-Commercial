@@ -40,6 +40,7 @@ Page({
         console.log(error);
       }
     })
+
   },
 
   change: function(e){
@@ -123,6 +124,7 @@ Page({
       url: './searchProduct/index?data=' + key,
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
