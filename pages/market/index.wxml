@@ -15,7 +15,7 @@
         </swiper>
     </view>
     <view class="bottom">
-      <view class="items" >
+      <view class="items">
         <view class="wrap" wx:for="{{services}}" wx:for-index="index">
           <view class="item" data-index="{{index}}" bindtap="change">{{item}}</view>
           <view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
