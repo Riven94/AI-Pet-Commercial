@@ -2,7 +2,7 @@
 const app = getApp();
 const domain = app.globalData.domainName;
 const appid = "wxf8f65f19051961fd";
-const secret = "4dfa211aee19f4e1da5ebbb621c77eee";
+const secret = "a8d757f07ae6785accae4916dd5e7d82";
 var openid = wx.getStorageSync('openid');
 Page({
 
@@ -93,12 +93,12 @@ Page({
       openid: openId,
       name: that.data.name,
       nickName: that.data.name,
-      password: 'default',
+      password: '',
       imgUrl: that.data.userIcon,
       gender: that.data.gender,
-      phone: 'default',
-      email: 'default',
-      address: 'default',
+      phone: '',
+      email: '',
+      address: '',
       privilege: 0,
       type: 0,
       detail: '用一句话来介绍自己吧~',

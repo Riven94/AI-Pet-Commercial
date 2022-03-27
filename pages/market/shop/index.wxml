@@ -10,7 +10,7 @@
   </view>
   <view class="shop-detail">
     <view class="shop-general">
-      <image class="shop-icon" src='{{shop.imgUrl}}'></image>
+      <image class="shop-icon" src='{{shop.imgUrl}}' mode="aspectFill"></image>
       <view class="shop-name-stars">
         <view class="shop-name">{{shop.name}}</view>
         <view class="stars">
@@ -36,7 +36,7 @@
   <view class="serviceDetail" >
     <view class="detailwrap" wx:for="{{comodities}}" bindtap="toProduct" 
     data-id="{{item.id}}">
-      <image class="detailImg" src="{{item.img}}"></image>
+      <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
       <view class="name">{{item.name}}</view>
       <view class="footwrap">
         <view class="price">￥{{item.price}}</view>

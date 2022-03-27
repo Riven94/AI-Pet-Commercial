@@ -70,7 +70,8 @@ Page({
         }
         that.setData({
           shop:resData
-        })
+        });
+        console.log(that.data.shop);
       }
     })
   },

@@ -101,6 +101,7 @@ Page({
   },
 
   onRealDelete(){
+    const that = this;
     var temp = this.data.comodities;
     var idStack = [];
     var afterDelete = temp.filter(item=> {
@@ -120,6 +121,7 @@ Page({
         success(res){
           console.log(res);
           console.log('删除成功！');
+          that.setData({totalPrice: 0});
         },
         fail(error){
           console.log('删除失败');

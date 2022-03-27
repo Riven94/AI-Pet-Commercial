@@ -67,10 +67,7 @@ page{
   flex-direction: row;
   margin: 0 auto;
 }
-.servicesItems{
-  display: flex;
-  margin-top: 20rpx;
-}
+
 .itemFoot{
   margin-top: 8rpx;
   width: 40rpx;

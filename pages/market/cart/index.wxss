@@ -84,7 +84,6 @@ checkbox .wx-checkbox-input{
 }
 .name{
   display: flex;
-  overflow: hidden;
   height: 35rpx;
 }
 .price{
