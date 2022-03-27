@@ -52,7 +52,7 @@ Page({
     wx.uploadFile({
       filePath: data[0],
       //上传图片协议接口
-      url: domain+'/images/uploadFile/store',
+      url: domain+'/images/uploadFile/user',
       name:'img',
       formData: {
         "creatorId": userId
