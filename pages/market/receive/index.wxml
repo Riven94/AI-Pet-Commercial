@@ -14,8 +14,8 @@
     </picker>
     </view>
     <check-group name="isDefault" bindchange="changeDefault">
-      <checkbox checked="{{isDefault}}">是否为默认地址</checkbox>
+      <checkbox checked="{{isDefault}}" style="margin: 20rpx 40rpx;">是否为默认地址</checkbox>
     </check-group>
-    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+    <button class="save" style="background-color: rgb(240,169,56); position: relative; left: 1rpx; top: 58rpx;border-radius: 20rpx;" type="primary" formType="submit">保存</button>
   </form>
 </view>

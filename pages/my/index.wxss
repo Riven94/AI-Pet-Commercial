@@ -151,11 +151,13 @@
 .button{
   height: 60rpx;
   width: 100rpx;
-  background-color: #FF9959;
+  background-color: rgb(240,169,56);
   border-radius: 20rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 25rpx;
+  color: white;
 }
 .line{
   width: 100%;

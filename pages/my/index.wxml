@@ -81,6 +81,6 @@
     <view wx:else class="else">快去发布你的第一篇文章吧！</view>
   </view>
   <view style="display:flex;justify-content: space-around;margin:20rpx 0">
-  <button class="button" bindtap="toShop">我的商铺</button>
-  <button class="button" bindtap="toServiceShop">我的服务店铺</button></view>
+  <button class="button" bindtap="toShop" style=" width: 250rpx;">我的商铺</button>
+  <button class="button" bindtap="toServiceShop" style=" width: 250rpx;">我的服务店铺</button></view>
 </view>
