@@ -2,11 +2,6 @@
 <view class="container">
   <view class="top">
     <view class="wrap">
-      <!-- <view class="backwrap" bindtap="back">
-        <image class="back" src="../../../icons/arrow.png" ></image>
-        <view class="text">详情</view>
-      </view>
-      <image class="cart" src="../../../icons/cart.png" bindtap="toCart"></image> -->
     </view>
   </view>
   <view class="middle">
@@ -30,7 +25,7 @@
   <view class="comment">
     <view style="margin-right: 20rpx;">评价</view>
     <view class="stars">
-      <image class="star" wx:for="{{serviceDetail.level - 1}}" wx:if="{{serviceDetail.level}}" src="../../../icons/star.png"></image>
+      <image class="star" wx:for="{{serviceDetail.level - 1}}" wx:if="{{serviceDetail.level}}" src="{{starIcon}}"></image>
     </view>
     <view class="more" bindtap="toComment">共{{total}}个消费评价 ></view>
   </view>

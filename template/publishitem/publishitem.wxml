@@ -6,7 +6,7 @@
 <view class="type">品种<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.type}}</view>
 <view class="colordetail">
 <view class="color">发布时间<text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>{{item.createdAt}}</view>
-<image class="morelabel" src="../../icons/arrow-right.png"></image>
+<image class="morelabel" src="../../icons/"></image>
 </view>
 </view>
 </view>

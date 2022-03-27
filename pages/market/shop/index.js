@@ -3,17 +3,19 @@ const app = getApp();
 const domain = app.globalData.domainName;
 Page({
   data: {
+    cartIcon: domain + "/media/icon/cart.png",
+    starIcon: domain + "/media/icon/star.png",
     shop: {
       shopName: '爱宠一家人猫咪专营',
-      shopIcon: '../../../icons/cat.jpg',
+      shopIcon: '',
       stars: 5,
       desc: '本店专营各种猫咪零食',
     },
     services:['综合', '销量', '新品'],
     currentIndex: 1,
     comodities: [
-      {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862},
-      {'img':'../../../icons/cat.jpg','name': '猫粮', 'price': 12.8,'quantity': 862}
+      {'img':'','name': '猫粮', 'price': 12.8,'quantity': 862},
+      {'img':'','name': '猫粮', 'price': 12.8,'quantity': 862}
     ],
     isOwner: false,
     storeId: ''

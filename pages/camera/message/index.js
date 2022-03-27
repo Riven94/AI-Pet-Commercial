@@ -1,4 +1,6 @@
 // pages/camera/message/index.js
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
     onShareAppMessage() {
       return {
@@ -10,6 +12,7 @@ Page({
     },
   
     data: {
+      addPhotoIcon: domain + "/media/icon/addphoto.png",
       items:[
           {value:'0',name:"宠物（未丢失）"},
           {value:'1',name:"宠物（丢失）"},

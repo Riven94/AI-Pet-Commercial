@@ -6,7 +6,7 @@
       <!-- <icon type="search" class="searchIcon" size="18"></icon>
       <input type="text" class="input" placeholder="搜索宠物相关知识" bindconfirm="Search"/> -->
     </view>
-  <image class="add" src="../../icons/add.png" bindtap="toPublish"></image>
+  <image class="add" src="{{addIcon}}" bindtap="toPublish"></image>
   </view>
   <view class="tabs">
     <view class="tab {{currentIndex==index ? 'clicked': ''}}" wx:for="{{tabs}}" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
@@ -17,7 +17,7 @@
         <image src="{{item.imgUrl}}" class="img {{(index / 2) % 2 == 0? 'bigImg': 'smallImg'}}" mode="aspectFill"></image>
         <text class="title">{{item.comment}}</text>
         <view class="">
-          <image class="more" src="../../icons/arrow-right.png"></image>
+          <image class="more" src="{{arrowRight}}"></image>
         </view>
       </view>
     </view>
@@ -26,7 +26,7 @@
         <image src="{{item.imgUrl}}" class="img {{((index - 1) / 2) % 2 == 1? 'bigImg': 'smallImg'}}" mode="aspectFill"></image>
         <view class="title">{{item.comment}}</view>
         <view class="">
-          <view class="more">></view>
+          <image class="more" src="{{arrowRight}}"></image>
         </view>
       </view>
     </view>

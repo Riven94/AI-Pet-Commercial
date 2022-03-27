@@ -1,7 +1,7 @@
 // app.js
 const domainName = "https://gtlcoder.cn";
 const appid = wx.getAccountInfoSync().miniProgram.appId;
-const secret = "4dfa211aee19f4e1da5ebbb621c77eee";
+const secret = "a8d757f07ae6785accae4916dd5e7d82";
 let openid;
 var login = false;
 let name = '';

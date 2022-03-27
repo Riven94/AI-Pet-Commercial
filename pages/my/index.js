@@ -10,12 +10,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+      arrowIcon: domain + "/media/icon/arrow.png",
+      settingIcon : domain + "/media/icon/setting.png",
+      userIcon: domain + "/media/icon/boy.png",
       name:"喵了个咪",
       introduction:"用一句话介绍自己吧~",
       functions:[
-        {icon:"../../icons/selfmessage.png", path:"./personal/index", text:"个人信息"},
-        {icon:"../../icons/mypet.png", path:"./pet/index", text:"我的宠物"},
-        {icon:"../../icons/mymessage.png", path:"./message/index", text:"我的消息"},
+        {icon: domain + "/media/icon/selfmessage.png", path:"./personal/index", text:"个人信息"},
+        {icon: domain + "/media/icon/mypet.png", path:"./pet/index", text:"我的宠物"},
+        {icon: domain + "/media/icon/mymessage.png", path:"./message/index", text:"我的消息"},
       ],
       marketfunctions:[
         {icon:"../../icons/待发货.png",text:"待收货"},
@@ -29,7 +32,6 @@ Page({
       openid: "",
       login: false,
       register: false,
-      userIcon: "../../icons/boy.png",
       gender: '',
       articles: []
   },

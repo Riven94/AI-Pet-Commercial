@@ -4,6 +4,7 @@ const domain = getApp().globalData.domainName;
 Page({
 
   data: {
+    addPhotoIcon: domain + "/media/icon/addphoto.png",
     info: ['店铺名称','店铺描述','星级','是否营业','营业时间','服务标签','店铺类型','地址'],
     default: ['','','','','','','',''],
     imageList:[],

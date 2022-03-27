@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cartIcon: domain + "/media/icon/cart.png",
+    arrowRight: domain + "/media/icon/arrow-right.png",
     info: {}
   },
 

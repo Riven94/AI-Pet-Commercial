@@ -75,10 +75,9 @@ page{
   width: 150rpx;
   margin-right: 30rpx;
   margin-top: 10rpx;
-  flex-wrap: wrap-reverse;
 }
 .star{
-  float: right;
+  float: left;
   width: 30rpx;
   height: 30rpx;
 }

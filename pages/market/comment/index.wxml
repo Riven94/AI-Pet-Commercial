@@ -16,7 +16,7 @@
         <view class="time">{{item.createdAt}}</view>
       </view>
       <view class="stars">
-        <image class="star" wx:for="{{item.level - 0}}" src="../../../icons/star.png"></image>
+        <image class="star" wx:for="{{item.level - 0}}" src="{{starIcon}}"></image>
       </view>
     </view>
   </view>

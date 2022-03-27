@@ -13,7 +13,7 @@
 
   <view class="image">
   <view bindtap="uploadImage">
-    <image src="../../../icons/round-add_photo_alte.png" style="width: 90rpx;height: 90rpx;"></image>
+    <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
   </view> 
   </view> 
   <view class="imageList" >

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cartIcon: domain + "/media/icon/cart.png",
+    starIcon: domain + "/media/icon/star.png",
     icon: "../../../icons/cat.png",
     shopname: "爱宠一家人萌宠生活馆",
     stars: 5,

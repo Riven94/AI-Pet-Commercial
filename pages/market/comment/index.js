@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      starIcon: domain + "/media/icon/star.png",
       currentIndex: 0,
       nums: 3,
       commenttypes: [

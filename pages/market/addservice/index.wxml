@@ -15,19 +15,19 @@
     </view>
   </view>
 <view class="style">请上传服务详情的照片
-    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadservice"></image>
+    <image src="{{addPhotoIcon}}" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadservice"></image>
   </view>
   <view  style="margin-left: 34rpx;" wx:for="{{imageList1}}">
       <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
   </view>
 <view class="style">请上传团购详情的图片
-    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadbulk"></image>
+    <image src="{{addPhotoIcon}}" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadbulk"></image>
     </view>
     <view  style="margin-left: 34rpx;" wx:for="{{imageList2}}">
       <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
   </view>
 <view class="style">请上传购买通知的图片
-    <image src="/icons/添加图片.png" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadpurInfor"></image>
+    <image src="{{addPhotoIcon}}" style="height: 80rpx;width: 80rpx;margin-left: 20rpx;" bindtap="uploadpurInfor"></image>
     </view>
     <view  style="margin-left: 34rpx;" wx:for="{{imageList3}}">
       <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>

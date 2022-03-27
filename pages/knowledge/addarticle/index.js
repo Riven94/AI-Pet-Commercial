@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
   data: {
+      addPhotoIcon: domain + "/media/icon/addphoto.png",
       shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
       /* selectDatas: ['养宠知识', '户外运动', '新手攻略'], //下拉列表的数据 */
       artType: ['养宠知识', '户外运动', '新手攻略'],

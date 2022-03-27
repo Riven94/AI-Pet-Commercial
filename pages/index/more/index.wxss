@@ -12,9 +12,9 @@
   width: 100%;
   display: flex;
   background: white;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .triangle{
   margin-top: 9rpx;
@@ -35,7 +35,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   right: 30rpx;
   top: 20rpx;
   width: 100rpx;
@@ -44,6 +43,21 @@
   border-radius: 20rpx;
   background-color: rgb(240, 169, 56);
   font-weight: 100;
+  margin-right: 30rpx;
+}
+.delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 30rpx;
+  top: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  color: #e6e6e6;
+  border-radius: 20rpx;
+  background-color: rgb(240, 169, 56);
+  font-weight: 100;
+  margin-left: 30rpx;
 }
 .left{
   background-color: white;

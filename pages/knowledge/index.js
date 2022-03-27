@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addIcon: domain + "/media/icon/add.png",
     tabs: ["推荐阅读", "新手须知", "常见疾病"],
     currentIndex: 0,
     articles:[
@@ -16,11 +17,11 @@ Page({
       }
     ],
     activityNums: 3,
-    activityImg: ["../../icons/dog.jpeg","../../icons/dog.jpeg","../../icons/dog.jpeg"],
+    activityImg: [domain + "/media/icon/dog.jpeg",domain + "/media/icon/dog.jpeg",domain + "/media/icon/dog.jpeg"],
     classes: [
-      {icon: "../../icons/book.png", text: "养宠知识",tag:'book'},
-      {icon: "../../icons/notice.png", text: "户外运动", tag:'notice'},
-      {icon: "../../icons/new.png", text: "新手攻略", tag:'new'},
+      {icon: domain + "/media/icon/book.png", text: "养宠知识",tag:'book'},
+      {icon: domain + "/media/icon/notice.png", text: "户外运动", tag:'notice'},
+      {icon: domain + "/media/icon/new.png", text: "新手攻略", tag:'new'},
     ],
   },
 

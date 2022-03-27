@@ -6,14 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cartIcon: domain + "/media/icon/cart.png",
     activityNums: 3,
     services:["热卖","主食","零食","洗护","家居","出行"],
-    activityImg: ["../../icons/banner.jpeg","../../icons/banner.jpeg","../../icons/banner.jpeg"],
+    activityImg: [domain + "/media/icon/banner.jpeg",domain + "/media/icon/banner.jpeg",domain + "/media/icon/banner.jpeg"],
     currentIndex: 0,
     freights: [
-      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"../../icons/cat.png", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"}
+      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
+      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"}
     ],
   },
 
