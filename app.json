@@ -36,7 +36,8 @@
     "pages/market/addaddress/index",
     "pages/market/addservice/index",
     "pages/my/myServiceShop/index",
-    "pages/my/addServiceShop/index"
+    "pages/my/addServiceShop/index",
+    "pages/index/searchinput/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
