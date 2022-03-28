@@ -15,9 +15,9 @@
           <view class="price">￥{{item.price}}</view>
         </view>
         <view class="count">
-          <button class="button" style="height: 50rpx;" bindtap="minus" disabled="{{item.count < 1}}" data-id="{{item.id}}">-</button>
+          <button class="button" style="height: 50rpx;" catchtap="minus" disabled="{{item.count <= 1}}" data-id="{{item.id}}">-</button>
           <view class="quantity">×{{item.count}}</view>
-          <button class="button" style="height: 50rpx;" bindtap="add" data-id="{{item.id}}">+</button>
+          <button class="button" style="height: 50rpx;" catchtap="add" data-id="{{item.id}}">+</button>
         </view>
       </view>
     </label>

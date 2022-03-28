@@ -41,7 +41,7 @@ page{
   border-radius: 20rpx;
   padding-left: 10rpx;
   width: 600rpx;
-  height: 40rpx;
+  height: 45rpx;
 }
 .middle{
   width: 90%;

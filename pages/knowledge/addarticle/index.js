@@ -227,8 +227,12 @@ Page({
         that.setData({
           Content: resData.article,
           articletitle: resData.articleTitle,
-          type: resData.type,
           imageList: Array.isArray(resData.imgUrl) ? resData.imgUrl : [resData.imgUrl]
+        });
+        that.data.artType.forEach((item,index)=>{
+          if(item == resData.type){
+            that.setData({typeIndex: index});
+          }
         })
       },
       fail: (res) => {

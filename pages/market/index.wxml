@@ -17,7 +17,7 @@
     <view class="bottom">
       <view class="items">
         <view class="wrap" wx:for="{{services}}" wx:for-index="index">
-          <view class="item" data-index="{{index}}" bindtap="change" style="    margin-left: 10rpx;">{{item}}</view>
+          <view class="item" data-index="{{index}}" bindtap="change">{{item}}</view>
           <view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
         </view>
       </view>
@@ -28,7 +28,7 @@
                 <view class="name">{{item.name}}</view>
                 <view class="footwrap">
                     <!-- <view class="distance">距您{{item.distance}}</view> -->
-                    <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.count}}人付款了</text>
+                    <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.quantity}}人付款了</text>
                 </view>
             </view>
         </view>

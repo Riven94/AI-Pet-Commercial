@@ -52,15 +52,15 @@ Page({
     wx.uploadFile({
       filePath: data[0],
       //上传图片协议接口
-      url: domain+'/images/uploadFile/store',
+      url: domain+'/images/uploadFile/user',
       name:'img',
       formData: {
         "creatorId": userId
       },
       success(res) {
         let imgUrl = JSON.parse(res.data).imgUrl;
-        //console.log(imgUrls);
-        that.setData({icon: imgUrl[0]});
+        console.log(imgUrl);
+        that.setData({icon: imgUrl});
       },
       fail(e) {
         console.log(e);
@@ -91,7 +91,7 @@ Page({
       userId: that.data.userId,
       name: form.input0,
       nickName: form.input1,
-      imgUrl: [that.data.icon],
+      imgUrl: that.data.icon,
       gender: that.data.selected,// * 1 转化为int类型
       phone: form.input3,
       password: form.input4,

@@ -37,10 +37,10 @@ Page({
     const that = this;
     const userId = app.globalData.userId;
     wx.request({
-      url: domain + '/knowledge/getAll',
+      url: domain + '/knowledge/specificArticle',
       method: "GET",
       data: {
-        creatorId: userId
+        type: '新手攻略'
       },
       success: (res) => {
         const resData = res.data.data;
@@ -115,9 +115,6 @@ Page({
   onShow: function () {
     if(wx.getStorageSync('login')){
       this.getArticles();
-    }
-    else{
-      this.setData({articles: []});
     }
   },
 
