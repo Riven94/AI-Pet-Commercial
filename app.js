@@ -98,7 +98,7 @@ App({
                             name: temp.name,
                             nickName: temp.name,
                             password: '',
-                            imgUrl: [temp.userIcon],
+                            imgUrl: temp.userIcon,
                             gender: temp.gender,
                             phone: '',
                             email: '',

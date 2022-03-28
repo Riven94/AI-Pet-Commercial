@@ -91,7 +91,7 @@ Page({
       userId: that.data.userId,
       name: form.input0,
       nickName: form.input1,
-      imgUrl: [that.data.icon],
+      imgUrl: that.data.icon,
       gender: that.data.selected,// * 1 转化为int类型
       phone: form.input3,
       password: form.input4,
