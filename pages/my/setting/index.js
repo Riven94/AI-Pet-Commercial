@@ -59,8 +59,8 @@ Page({
       },
       success(res) {
         let imgUrl = JSON.parse(res.data).imgUrl;
-        //console.log(imgUrls);
-        that.setData({icon: imgUrl[0]});
+        console.log(imgUrl);
+        that.setData({icon: imgUrl});
       },
       fail(e) {
         console.log(e);

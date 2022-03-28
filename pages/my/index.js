@@ -94,7 +94,7 @@ Page({
       name: that.data.name,
       nickName: that.data.name,
       password: '',
-      imgUrl: that.data.userIcon,
+      imgUrl: [that.data.userIcon],
       gender: that.data.gender,
       phone: '',
       email: '',
