@@ -10,7 +10,7 @@
     <label class="label" wx:for="{{serviceshopData}}">
         <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
         <view class="shops" catchtap="toServiceShop" data-id="{{item.id}}">
-          <image class="shopIcon" src="{{item.imgUrl}}"></image>
+          <image class="shopIcon" src="{{item.imgUrl}}" mode="aspectFill"></image>
           <view class="shopName">{{item.name}}</view>
         </view>
         <view class="edit" catchtap="toEdit" data-detail="{{item}}">修改</view>

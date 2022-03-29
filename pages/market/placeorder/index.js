@@ -8,14 +8,10 @@ Page({
    */
   data: {
       locationIcon: domain + "/media/icon/location.png",
-      address: {
-        icon: domain + "/media/icon/location.png",
-        useraddress: "湖北省武汉市洪山区珞南街道武汉理工大学南湖校区",
-        username: "李华",
-        userphone: "8208208820"
-      },
+      address: {},
       orders: [],
-      items: [{value:"微信支付"}]
+      items: [{value:"微信支付"}],
+      empty: true
   },
 
   /**
@@ -31,12 +27,12 @@ Page({
     console.log(options);
     const productId = options.id;
     //const Id=options,id
-    this.getaddress();
+    this.getaddress(true);
     //this.getItem();
     //this.getshop(Id)
   },
 
-  getaddress:function(){
+  getaddress:function(setAddress){
     const userId = app.globalData.userId;
     const that = this;
     console.log(userId);
@@ -52,10 +48,15 @@ Page({
       success (res) {
         const resData = res.data.data;
         console.log(res);
-        that.setData({
-          address:resData[0]
-        });
-        console.log(app.globalData.address)
+        if(resData.length > 0 && setAddress){
+          that.setData({
+            address:resData[0],
+            empty: false
+          });
+        }
+        else if(resData.length == 0){
+          that.setData({empty: true});
+        }
       },
       fail(error){
         console.log(error);
@@ -100,7 +101,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.getaddress(false);
   },
 
   /**

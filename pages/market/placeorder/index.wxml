@@ -4,9 +4,10 @@
     <view class="top">
         <view class="confirm">确认订单</view>
     </view>
-    <view class="address" bindtap="toAddress">
+    <view class="address" bindtap="toAddress" wx:if="{{!empty}}">
         <template is="address" data="{{address}}"></template>
     </view>
+    <view class="else" wx:else bindtap="toAddress">添加地址信息</view>
     <view class="orders" wx:for="{{orders}}" wx:for-item="order">
         <template is="orderdetail" data="{{order}}"></template>
     </view>

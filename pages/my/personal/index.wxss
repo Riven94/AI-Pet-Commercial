@@ -1,6 +1,9 @@
 /* pages/index/more/index.wxss */
 @import "../../../template/animalcard/animalcard.wxss";
 @import "../../../template/ownercard/ownercard.wxss";
+page{
+  background-color: #EFEEEE;
+}
 .container{
   height: 100%;
   width: 100%;

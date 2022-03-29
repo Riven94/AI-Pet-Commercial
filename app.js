@@ -46,7 +46,6 @@ App({
           that.globalData.login = true;
           that.globalData.userId = res.data.userId;
           wx.setStorageSync('login',true);
-          console.log(true);
         },
         fail(error){
           console.log(error);
@@ -134,6 +133,9 @@ App({
                 })
               },
             })
+          }
+          else{
+            wx.setStorageSync('login', false);
           }
         }
       })

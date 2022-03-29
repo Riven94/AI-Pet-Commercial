@@ -1,7 +1,7 @@
 // pages/my/index.js
 const app = getApp();
 const domain = app.globalData.domainName;
-const appid = "wxf8f65f19051961fd";
+const appid = wx.getAccountInfoSync().miniProgram.appId;
 const secret = "a8d757f07ae6785accae4916dd5e7d82";
 var openid = wx.getStorageSync('openid');
 Page({
@@ -20,17 +20,10 @@ Page({
         {icon: domain + "/media/icon/mypet.png", path:"./pet/index", text:"我的宠物"},
         {icon: domain + "/media/icon/mymessage.png", path:"./message/index", text:"我的消息"},
       ],
-      marketfunctions:[
-        {icon:"../../icons/待发货.png",text:"待收货"},
-        {icon:"../../icons/待收货.png",text:"待发货"},
-        {icon:"../../icons/待评价.png",text:"待评价"},
-        {icon:"../../icons/退款管理.png",text:"退款/售后"}
-      ],
       myPublish:[],
       orders:[],
       userInfo: {},
       openid: "",
-      login: false,
       register: false,
       gender: '',
       articles: []
@@ -38,14 +31,14 @@ Page({
 
   getUser(e){
     const that = this;
-    if(!this.data.login){
+    const isLogin = wx.getStorageSync('login')
+    if(!isLogin){
       wx.getUserProfile({
         desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (res) => {
           console.log(res);
           this.setData({
             userInfo: res.userInfo,
-            login:true,
             userIcon: res.userInfo.avatarUrl,
             name: res.userInfo.nickName,
             gender: res.userInfo.gender
@@ -64,6 +57,7 @@ Page({
                   appSecret: secret,
                   code: res.code
                 };
+                console.log(temp2);
                 wx.request({
                   url: domain+'/user/getUserId',
                   method:'POST',
@@ -115,6 +109,7 @@ Page({
         app.globalData.userId = res.data.userId;
         console.log(app.globalData);
         that.getUserDetail(res.data.userId);
+        that.getArticles();
       },
       fail(error){
         console.log(error);
@@ -161,7 +156,8 @@ Page({
   },
   toServiceShop:function(e){
     const id = app.globalData.userId;
-    if(id == undefined){
+    const isLogin = wx.getStorageSync('login');
+    if(!isLogin){
       wx.showModal({
         content:'请先登录！',
         showCancel: false
@@ -176,7 +172,7 @@ Page({
   
   getUserDetail(id){
     const that = this;
-    this.setData({login: true});
+    wx.setStorageSync('login', true)
     wx.request({
       url: domain + '/user/getUserDetail',
       data:{
@@ -224,9 +220,8 @@ Page({
   onLoad: function (options) {
     console.log(1);
     console.log(app.globalData)
-    if(app.globalData.login){
+    if(wx.getStorageSync('login')){
       this.getUserDetail(app.globalData.userId);
-      console.log(1);
     }
   },
 
@@ -309,7 +304,8 @@ Page({
         openid: "",
         login: false,
         register: false,
-        userIcon: "../../icons/boy.png",
+        userIcon: domain + "/media/icon/boy.png",
+        name: "喵了个咪",
         gender: '',
         articles: []})
     }
