@@ -40,13 +40,6 @@ page{
   align-items: center;
   margin-top: 15rpx;
 }
-.pay{
-  background-color: #EA5352;
-  color: white;
-  border-radius: 50rpx;
-  position: absolute;
-  right: 20rpx;
-}
 .label{
   margin-top: 30rpx;
   background-color: white;
@@ -74,9 +67,8 @@ checkbox .wx-checkbox-input{
   border-radius: 50%;
 }
 .quantity{
-  width: 40rpx;
-  height: 40rpx;
   border: 2rpx solid black;
+  padding: 3rpx;
   border-radius: 10rpx;
 }
 .middle{
@@ -95,11 +87,28 @@ checkbox .wx-checkbox-input{
 }
 .delete{
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 200rpx;
   margin-left: 40rpx;
   background-color: #EA5352;
-  padding: 5rpx 10rpx;
-  border-radius: 10rpx;
+  border-radius: 40rpx;
+  height: 60rpx;
+  width: 100rpx;
+  font-size: 31rpx;
+}
+.pay{
+  background-color: #EA5352;
+  color: white;
+  border-radius: 50rpx;
+  position: absolute;
+  right: 20rpx;
+  width: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
 }
 .count{
   margin-top: 80rpx;

@@ -5,5 +5,5 @@
   <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
   <view class="change" bindtap="changearticle"  wx:if="{{isOwner}}">修改</view>
   <view class="title">文章内容</view>
-  <rich-text>{{article}}</rich-text>
+  <rich-text class="articleDetail">{{article}}</rich-text>
 </view>

@@ -8,12 +8,16 @@
 }
 .top{
   width: 100%;
-  display: flex;
-  background: white;
-  /* background-color: rgb(235, 108, 127); */
-  flex-direction: row;
-  align-items: center;
-  margin-top: 15rpx;
+  background: #F3BE67;
+  height: 60rpx;
+}
+.add{
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  right: 20rpx;
+  top: 10rpx;
 }
 .search{
   display: flex;
@@ -35,10 +39,6 @@
   padding-left: 10rpx;
   width: 670rpx;
   height: 30rpx;
-}
-.add{
-  width: 40rpx;
-  height: 40rpx;
 }
 .tabs{
   margin: 15rpx  auto;

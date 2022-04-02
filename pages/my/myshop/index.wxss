@@ -19,7 +19,7 @@
 }
 .addShop{
   position: absolute;
-  top: 15rpx;
+  top: 20rpx;
   right: 20rpx;
   color: white;
   height: 60rpx;
@@ -32,7 +32,7 @@
 }
 .delete{
   position: absolute;
-  top: 15rpx;
+  top: 20rpx;
   left: 20rpx;
   color: black;
   height: 60rpx;

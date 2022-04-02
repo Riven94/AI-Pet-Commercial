@@ -47,8 +47,8 @@
 }
 .setting{
   margin-top: 30rpx;
-  width: 45rpx;
-  height: 45rpx;
+  width: 55rpx;
+  height: 55rpx;
   align-items: flex-end;
 }
 .functions{
@@ -74,7 +74,9 @@
   font-weight: 20rpx;
   margin-right: 15rpx;
 }
-
+.text{
+  font-size: 32rpx;
+}
 .publishtop{
   width: 100%;
   margin-left: 10rpx;

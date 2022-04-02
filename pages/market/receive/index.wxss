@@ -44,6 +44,22 @@
   top: 38rpx;
   right: 20rpx;
   color: white;
-  background-color: orange;
-  padding: 7rpx;
+  background-color: rgb(240,169,56);
+  padding: 7rpx 10rpx;
+  border-radius: 13rpx;
+}
+.picker::after{
+  position: absolute;
+  content: '';
+  margin: 16rpx 0 0 20rpx;
+  width: 0rpx;
+  height: 0rpx;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid gray;
+}
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
 }

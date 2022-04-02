@@ -25,6 +25,12 @@ page{
   width: 95%;
   display: block;
   padding: 5px;
+  border-radius: 50%;
+}
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
 }
 .else{
   display: flex;

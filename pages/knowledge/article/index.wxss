@@ -21,3 +21,8 @@
   padding: 7rpx;
   border-radius: 20rpx;
 }
+.articleDetail{
+  word-break: break-all;
+  line-height: 50rpx;
+  text-indent: 60rpx;
+}

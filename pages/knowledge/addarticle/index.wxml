@@ -2,14 +2,13 @@
     <view class="delete" bindtap="delete" wx:if="{{articleId}}">删除</view>
     <view class="submit" bindtap="bindSumbit" >提交</view>
 </view>
-    <view style="margin-left: 10rpx;font-size: large;">文章标题：</view>
+    <view class="title-text">文章标题：</view>
       <view style="margin: 15rpx 0" >
           <view class="line"></view>
-        <input placeholder="取个好听的标题把！！！" bindinput="title" value="{{articletitle}}"/>
+        <input placeholder="取个好听的标题把！！！" class="title" bindinput="title" value="{{articletitle}}"/>
         <view class="line"></view>
   </view>
-
- <view style="margin-left: 10rpx;">文章内容：</view>  
+ <view class="title-text">文章内容：</view>  
        <view style="margin: 15rpx 0" >
            <view class="line"></view>
            <view></view>
@@ -17,12 +16,12 @@
          <view class="line"></view>
    </view>
 
-<view class="image">
-  <view bindtap="uploadImage">
-    <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
+  <view class="image">
+    <view bindtap="uploadImage">
+      <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
+    </view> 
   </view> 
-</view> 
-  <view wx:for="{{imageList}}">
+  <view class="images" wx:for="{{imageList}}">
     <image class="normal" mode="aspectFill" src="{{item}}"></image>
 </view>
 
