@@ -86,6 +86,7 @@ checkbox .wx-checkbox-input{
   display: flex;
   height: 35rpx;
   margin-left: 20rpx;
+  width: 150rpx;
 }
 .shops{
   display: flex;

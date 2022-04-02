@@ -6,9 +6,9 @@ Page({
     data: {
       addPhotoIcon: domain + "/media/icon/addphoto.png",
       info:["服务名称","服务描述","服务状态","价格","保障"],
-      imgList1:[],
-      imgList2:[],
-      imgList3:[],
+      imageList1:[],
+      imageList2:[],
+      imageList3:[],
       shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
       types: ['洗澡', '美容', '寄卖','撸宠'], //下拉列表的数据
       typeIndex: 0, //选择的下拉列 表下标,
@@ -37,7 +37,7 @@ Page({
       console.log('form发生了submit事件，携带数据为：', e.detail.value)
        const Name=e.detail.value.input0
        const Detail=e.detail.value.input1
-       const State= this.data.stateIndex
+       const State= that.data.stateIndex
        const Price=e.detail.value.input3
        const Security=e.detail.value.input4
         wx.request({
@@ -47,7 +47,7 @@ Page({
             "name":Name,
             "imgUrl": that.data.imageList1,
             "detail":Detail,
-            "type": that.data.type[that.data.typeIndex],
+            "type": that.data.types[that.data.typeIndex],
             "state":State,
             "creatorId":userId,
             "storeId":that.data.storeId,

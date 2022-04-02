@@ -35,7 +35,7 @@
   <view class="pickersection">
       <view class="left">类型</view>
       <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{types}}">
-        <text class="text" space='true' decode="true">{{levels[levelIndex]}}</text>
+        <text class="text" space='true' decode="true">{{types[typeIndex]}}</text>
       </picker>
   </view>
   <view class="pickersection">

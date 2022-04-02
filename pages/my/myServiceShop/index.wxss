@@ -12,7 +12,7 @@
   display: flex;
 }
 .shopIcon{
-  width: 250rpx;
+  width: 300rpx;
   height: 250rpx;
 }
 .addShop{
@@ -82,7 +82,7 @@ checkbox .wx-checkbox-input{
 }
 .shopName{
   display: flex;
-  overflow: hidden;
+/*   overflow: hidden; */
   height: 35rpx;
   margin-left: 20rpx;
 }

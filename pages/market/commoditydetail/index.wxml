@@ -21,14 +21,14 @@
     </view>
   </view>
   <view class="freight">
-    <view class="left">运费：<text>{{info.service}}</text></view>
+    <view class="left">运费：<text>{{info.freight}}</text></view>
     <view class="right">
       <view class="freight-middle">{{}}</view>
       <view class="freight-right">已下单{{info.count}}</view>
     </view>
   </view>
   <view class="service">
-    <view class="left">服务</view>
+    <view class="left">服务：<text>{{info.service}}</text></view>
     <view class="right">{{}}</view>
   </view>
   <view class="comment" bindtap="toComment">
