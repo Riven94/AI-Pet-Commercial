@@ -28,13 +28,8 @@
     </view>
   </view>
   <view class="service">
-<<<<<<< HEAD
     <view class="left">服务：<text>{{info.service}}</text></view>
     <view class="right">{{}}</view>
-=======
-    <view class="serviceleft">服务：</view>
-    <view class="">{{info.service}}</view>
->>>>>>> 5df23a048e76a45708ef45413bb7b93a6fe2f88e
   </view>
   <view class="comment" bindtap="toComment">
     <text class="comment-text">商品评价</text>
