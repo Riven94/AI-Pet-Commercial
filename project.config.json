@@ -1,60 +1,20 @@
 {
-    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "packOptions": {
-        "ignore": [],
-        "include": []
-    },
-<<<<<<< HEAD
-    "setting": {
-        "urlCheck": true,
-        "es6": true,
-        "enhance": false,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": false,
-        "coverView": true,
-        "nodeModules": false,
-        "autoAudits": false,
-        "showShadowRootInWxmlPanel": true,
-        "scopeDataCheck": false,
-        "uglifyFileName": false,
-        "checkInvalidKey": true,
-        "checkSiteMap": true,
-        "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
-        "lazyloadPlaceholderEnable": false,
-        "useMultiFrameRuntime": true,
-        "useApiHook": true,
-        "useApiHostProcess": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "useIsolateContext": true,
-        "userConfirmedBundleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
-        "minifyWXSS": true,
-        "disableUseStrict": false,
-        "showES6CompileOption": false,
-        "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "minifyWXML": true
-=======
-    "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
-    "minifyWXML": true,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [],
+    "include": []
   },
+  "useIsolateContext": true,
+  "userConfirmedBundleSwitch": false,
+  "packNpmManually": false,
+  "packNpmRelationList": [],
+  "minifyWXSS": true,
+  "disableUseStrict": false,
+  "minifyWXML": true,
+  "showES6CompileOption": false,
+  "useCompilerPlugins": false,
+  "ignoreUploadUnusedFiles": true,
+  "useStaticServer": true,
   "compileType": "miniprogram",
   "libVersion": "2.20.1",
   "appid": "wx9a194385e72104da",
@@ -63,10 +23,35 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "condition": {
-    "search": {
-      "list": []
->>>>>>> 5df23a048e76a45708ef45413bb7b93a6fe2f88e
+  "condition": {},
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
     },
-    "condition": {}
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "useStaticServer": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "lazyloadPlaceholderEnable": false,
+    "ignoreUploadUnusedFiles": true
+  }
 }
