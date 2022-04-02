@@ -14,6 +14,7 @@ Page({
     animalType: ['猫','狗'],
     animalIndex: 0,
     lostType: ['宠物','流浪猫狗'],
+    showLostType: ['否', '是'],
     lostIndex: 0,
     state: ['未丢失','丢失','流浪猫狗'],
     stateIndex: 0,
@@ -98,12 +99,13 @@ Page({
       wx.uploadFile({
         filePath: item,
         //上传图片协议接口
-        url: domain+'/images/uploadFile/store',
+        url: domain+'/images/uploadFile/animal',
         name:'img',
         formData: {
           creatorId: userId
         },
         success(res) {
+          console.log(res);
           let imgUrl = JSON.parse(res.data).imgUrl;
           imgUrl.forEach((item)=>{
             imgUrls.push(item);
@@ -112,6 +114,7 @@ Page({
           that.setData({imageList: imgUrls});
         },
         fail(e) {
+          console.log(e);
           wx.showModal({
               title: '提示',
               content: '上传失败',

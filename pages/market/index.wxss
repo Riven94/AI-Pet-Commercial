@@ -118,7 +118,14 @@ page{
   margin: 18rpx 0rpx 20rpx 10rpx;
 }
 .name{
-  margin: 10rpx 0rpx 0rpx 10rpx;
+    width: 120rpx;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-bottom: 10rpx;
 }
 .detailWrapFoot{
   width: 100%;

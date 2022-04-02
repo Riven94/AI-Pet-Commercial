@@ -9,8 +9,8 @@
         <view >宠物类型:<text class="text" space='true' decode="true">{{animalType[animalIndex]}}</text></view>
     </picker>
    
-    <picker class="picker" bindchange="bindLostChange" value="{{lostIndex}}" range="{{lostType}}">
-        <view >是否流浪:<text class="text" space='true' decode="true">{{lostType[lostIndex]}}</text></view>
+    <picker class="picker" bindchange="bindLostChange" value="{{lostIndex}}" range="{{showLostType}}">
+        <view >是否流浪:<text class="text" space='true' decode="true">{{showLostType[lostIndex]}}</text></view>
     </picker>
    
     <picker class="picker" bindchange="bindStateChange" value="{{state[stateIndex]}}" range="{{state}}">

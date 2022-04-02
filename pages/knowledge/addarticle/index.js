@@ -117,7 +117,7 @@ Page({
       wx.uploadFile({
         filePath: item,
         //上传图片协议接口
-        url: domain+'/images/uploadFile/store',
+        url: domain+'/images/uploadFile/article',
         name:'img',
         formData: {
           creatorId: userId

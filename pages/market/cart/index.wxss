@@ -79,11 +79,19 @@ checkbox .wx-checkbox-input{
   justify-content: space-around;
 }
 .name{
-  display: flex;
   height: 35rpx;
+  width: 160rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  margin-bottom: 10rpx;
 }
 .price{
   color: #EA5352;
+  height: 35rpx;
 }
 .delete{
   color: white;
@@ -95,7 +103,7 @@ checkbox .wx-checkbox-input{
   background-color: #EA5352;
   border-radius: 40rpx;
   height: 60rpx;
-  width: 100rpx;
+  width: 130rpx;
   font-size: 31rpx;
 }
 .pay{
