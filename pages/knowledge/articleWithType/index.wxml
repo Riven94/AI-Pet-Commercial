@@ -7,7 +7,7 @@
       <view class="article-title">{{item.articleTitle}}</view>
       <view class="wrap">
         <view class="article-content">{{item.article}}</view>
-        <image class="article-img" src="{{item.imgUrl}}"></image>
+        <image class="article-img" src="{{item.imgUrl}}" mode="aspectFill"></image>
       </view>
     </view>
   </view>

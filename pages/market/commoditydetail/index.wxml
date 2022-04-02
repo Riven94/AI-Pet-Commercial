@@ -4,7 +4,7 @@
       <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
   </view>
   <view class="images">
-    <image class="img" src="{{info.imgUrl}}"></image>
+    <image class="img" src="{{info.imgUrl}}" mode="aspectFill"></image>
   </view>
   <view class="price-general">
     <view class="price">￥{{info.price}}</view>
@@ -24,12 +24,17 @@
     <view class="left">运费：<text>{{info.freight}}</text></view>
     <view class="right">
       <view class="freight-middle">{{}}</view>
-      <view class="freight-right">已下单{{info.count}}</view>
+      <view class="freight-right">已下单{{info.quantity}}</view>
     </view>
   </view>
   <view class="service">
+<<<<<<< HEAD
     <view class="left">服务：<text>{{info.service}}</text></view>
     <view class="right">{{}}</view>
+=======
+    <view class="serviceleft">服务：</view>
+    <view class="">{{info.service}}</view>
+>>>>>>> 5df23a048e76a45708ef45413bb7b93a6fe2f88e
   </view>
   <view class="comment" bindtap="toComment">
     <text class="comment-text">商品评价</text>

@@ -45,7 +45,8 @@ Page({
           var pages = getCurrentPages();
           var prev = pages[pages.length - 2];
           prev.setData({
-            address: resData
+            address: resData,
+            empty: false
           });
           console.log(prev.data);
           wx.navigateBack({

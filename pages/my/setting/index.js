@@ -108,14 +108,14 @@ Page({
         showCancel: false
       })
     }
-    else if(!emailReg.test(data.email)){
+    else if(!emailReg.test(data.email) && data.email != ''){
       wx.showModal({
         title: '邮箱格式不正确！',
         content: '上传失败',
         showCancel: false
       })
     }
-    else if(!(/^1[3456789]\d{9}$/.test(data.phone))){ 
+    else if(!(/^1[3456789]\d{9}$/.test(data.phone))  && data.phone != ''){ 
       wx.showModal({
         title: '手机号格式不正确！',
         content: '上传失败',
@@ -197,6 +197,7 @@ Page({
     app.globalData.login = false;
     console.log(app.globalData.login);
     wx.setStorageSync('login', false);
+    wx.setStorageSync('openid', '');
     wx.showModal({
       cancelColor: 'cancelColor',
       content:'退出成功！',

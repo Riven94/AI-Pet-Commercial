@@ -71,19 +71,6 @@ Page({
     })
   },
 
-  /* optionTaps(e) {
-    console.log(e);
-    const that = this;
-    let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    console.log(Indexs)
-    this.setData({
-      indexs: Indexs,
-      shows: !this.data.shows,
-      Type: that.data.selectDatas[Indexs]
-    });
-    console.log(that.data.Type)
-  }, */
-
   title:function(e){
     this.setData({
         articletitle:e.detail.value

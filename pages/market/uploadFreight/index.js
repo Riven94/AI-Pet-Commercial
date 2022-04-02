@@ -87,7 +87,7 @@ Page({
         url: domain+'/images/uploadFile/product',
         name:'img',
         formData: {
-          "creatorId": userId
+          "creatorId": app.globalData.userId
         },
         success(res) {
           let imgUrl = JSON.parse(res.data).imgUrl;
@@ -128,7 +128,7 @@ Page({
         "detail":Detail,
         "type":that.data.freightType[that.data.typeIndex],
         "state":State,
-        "creatorId":userId,
+        "creatorId":app.globalData.userId,
         "storeId": that.data.storeId,
         "price":Price,
         "freight":Freight,

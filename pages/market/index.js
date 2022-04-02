@@ -82,7 +82,8 @@ Page({
           const resData = res.data.data;
           that.setData({
             freights: resData
-          })
+          });
+          console.log(that.data.freights)
         },
         fail(error){
           console.log(error);

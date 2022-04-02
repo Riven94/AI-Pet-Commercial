@@ -35,7 +35,7 @@
   <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{freightType}}" style="margin-left: 32rpx;">
         <view >类型:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{freightType[typeIndex]}}</text></view>
     </picker>
-  <view class="tip">注：商品状态为默认为0：未售完；1：已售完或暂停售</view>
+  <!-- <view class="tip">注：商品状态为默认为0：未售完；1：已售完或暂停售</view> -->
   <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;" type="primary" formType="submit">保存</button>
 </form>
 

@@ -21,7 +21,7 @@
           <view class="itemFoot {{currentIndex == index ? '' : 'off'}}" ></view>
         </view>
       </view>
-    <view class="serviceDetail">
+    <view class="serviceDetail" wx:if="{{freights.length > 0}}">
         <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
             <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
             <view class="detailWrapFoot">
@@ -34,5 +34,6 @@
         </view>
         <view class="detailWrap" wx:if="{{freights.length % 2 == 1}}"></view>
     </view>
+    <view wx:else class="else">这里暂时没有商品~</view>
     </view>
 </view>

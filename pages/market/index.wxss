@@ -125,3 +125,7 @@ page{
   display: flex;
   justify-content: space-around;
 }
+.else{
+  width: 250rpx;
+  margin: 200rpx auto;
+}
