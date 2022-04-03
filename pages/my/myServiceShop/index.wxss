@@ -20,6 +20,7 @@
   top: 20rpx;
   right: 20rpx;
   color: white;
+  padding: 0 7rpx;
   height: 60rpx;
   width: 140rpx;
   display: flex;
@@ -32,7 +33,8 @@
   position: absolute;
   top: 20rpx;
   left: 20rpx;
-  color: black;
+  padding: 0 7rpx;
+  color: white;
   height: 60rpx;
   width: 140rpx;
   display: flex;

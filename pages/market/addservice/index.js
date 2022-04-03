@@ -11,7 +11,7 @@ Page({
       imageList3:[],
       shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
       types: ['洗澡', '美容', '寄卖','撸宠'], //下拉列表的数据
-      typeIndex: 0, //选择的下拉列 表下标,
+      typeIndex: 0, //选择的下拉列表下标,
       Type:'洗澡',
       storeId:'',
       stateIndex: 0,
@@ -34,6 +34,7 @@ Page({
     
     formSubmit(e) {
       var that=this;
+      const userId = app.globalData.userId;
       console.log('form发生了submit事件，携带数据为：', e.detail.value);
        const Name=e.detail.value.input0;
        const Detail=e.detail.value.input1;
@@ -50,7 +51,7 @@ Page({
         "storeId":that.data.storeId,
         "price": Price,
         "security":Security,
-        "level": that.data.levels[that.data.levelIndex],
+        "level": that.data.levelIndex + 1,
         "bulkUrl":that.data.imageList2,
         "purInforUrl":that.data.imageList3
       };

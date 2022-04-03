@@ -21,6 +21,7 @@
   position: absolute;
   top: 20rpx;
   right: 20rpx;
+  padding: 0 7rpx;
   color: white;
   height: 60rpx;
   width: 140rpx;
@@ -34,7 +35,8 @@
   position: absolute;
   top: 20rpx;
   left: 20rpx;
-  color: black;
+  padding: 0 7rpx;
+  color: white;
   height: 60rpx;
   width: 140rpx;
   display: flex;

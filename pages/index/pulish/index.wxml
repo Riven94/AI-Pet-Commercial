@@ -3,7 +3,7 @@
   <template is="top"></template>
   <view class="title">发布动态</view>
   <view class="submit" bindtap="submit">提交</view>
-  <view style="margin: 10rpx 15rpx;">动态详情：</view>  
+  <view class="text-title">动态详情：</view>  
        <view style="margin: 15rpx 0" >
            <view class="line"></view>
            <view></view>
