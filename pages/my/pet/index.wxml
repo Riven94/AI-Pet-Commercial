@@ -12,7 +12,7 @@
   <view class="info">
     <view class="information" wx:for="{{information}}" data-detail="{{item}}" bindtap="toEdit">
       <view class="delete" data-id="{{item.id}}" catchtap="delete">删除</view>
-      <view class="text">属性： {{item.varieties}}</view>
+      <view class="text">品种： {{item.varieties}}</view>
       <view class="text">姓名： {{item.name}}</view>
       <!-- <view class="text">品种： {{item.detail}}</view> -->
       <view class="text">颜色： {{item.color}}</view>

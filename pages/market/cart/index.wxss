@@ -98,7 +98,7 @@ checkbox .wx-checkbox-input{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 200rpx;
+  margin-right: 170rpx;
   margin-left: 40rpx;
   background-color: #EA5352;
   border-radius: 40rpx;

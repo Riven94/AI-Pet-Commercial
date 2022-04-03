@@ -129,16 +129,14 @@ page{
 .add{
   background-color: #E4793D;
   margin-left: auto;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
+  padding: 10rpx 30rpx;
   border-radius: 40rpx 0 0 40rpx;
   border-right: 4rpx solid white;
 }
 .buy{
   border-left: 30rpx;
-  background-color: #E4793D;
-  padding-right: 30rpx;
-  padding-left: 30rpx;
+  background-color: #E4793D; 
+  padding: 10rpx 30rpx;
   border-radius: 0 40rpx 40rpx 0;
 }
 .wrap{

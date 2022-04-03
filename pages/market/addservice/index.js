@@ -33,30 +33,32 @@ Page({
     },
     
     formSubmit(e) {
-      var that=this
-      console.log('form发生了submit事件，携带数据为：', e.detail.value)
-       const Name=e.detail.value.input0
-       const Detail=e.detail.value.input1
-       const State= that.data.stateIndex
-       const Price=e.detail.value.input3
-       const Security=e.detail.value.input4
+      var that=this;
+      console.log('form发生了submit事件，携带数据为：', e.detail.value);
+       const Name=e.detail.value.input0;
+       const Detail=e.detail.value.input1;
+       const State= that.data.stateIndex;
+       const Price=e.detail.value.input3;
+       const Security=e.detail.value.input4;
+       var temp = {
+        "name":Name,
+        "imgUrl": that.data.imageList1,
+        "detail":Detail,
+        "type": that.data.types[that.data.typeIndex],
+        "state":State,
+        "creatorId":userId,
+        "storeId":that.data.storeId,
+        "price": Price,
+        "security":Security,
+        "level": that.data.levels[that.data.levelIndex],
+        "bulkUrl":that.data.imageList2,
+        "purInforUrl":that.data.imageList3
+      };
+      console.log(temp);
         wx.request({
           url: domain+'/service/add', 
           method: 'POST',
-          data: {
-            "name":Name,
-            "imgUrl": that.data.imageList1,
-            "detail":Detail,
-            "type": that.data.types[that.data.typeIndex],
-            "state":State,
-            "creatorId":userId,
-            "storeId":that.data.storeId,
-            "price": Price,
-            "security":Security,
-            "level": that.data.levels[that.data.levelIndex],
-            "bulkUrl":that.data.imageList2,
-            "purInforUrl":that.data.imageList3
-          },
+          data: temp,
           header: {
             'content-type': 'application/json' // 默认值
           },
@@ -197,11 +199,11 @@ Page({
         sourceType: ['album', 'camera'],
         success (res) {
           // tempFilePath可以作为img标签的src属性显示图片
-          const tempFilePaths = res.tempFilePaths 
+          const tempFilePaths = res.tempFilePaths;
           console.log(res)
           that.setData({
               imageList3:res.tempFilePaths
-          })
+          });
           console.log("aaaaaaaaa",that.data.imageList3)
           that.upload3(tempFilePaths)
         }
