@@ -79,7 +79,6 @@ checkbox .wx-checkbox-input{
   justify-content: space-around;
 }
 .name{
-  height: 35rpx;
   width: 160rpx;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -91,7 +90,6 @@ checkbox .wx-checkbox-input{
 }
 .price{
   color: #EA5352;
-  height: 35rpx;
 }
 .delete{
   color: white;

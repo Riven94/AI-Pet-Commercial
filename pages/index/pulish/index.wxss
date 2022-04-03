@@ -1,7 +1,11 @@
 @import '../../../template/top/index.wxss';
 .title{
-  color: black;
-  top: 33rpx;
+  color: white;
+  top: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 43%;
   position: absolute;
 }
@@ -26,7 +30,7 @@
   position: absolute;
   color: white;
   background-color: rgb(255, 166, 0);
-  right: 10rpx;
+  right: 20rpx;
   top: 20rpx;
 }
 .imageList{

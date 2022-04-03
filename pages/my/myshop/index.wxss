@@ -3,7 +3,11 @@
   color: white;
   position: absolute;
   left: 40%;
-  top: 35rpx;
+  top: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .shop{
   width: 90%;

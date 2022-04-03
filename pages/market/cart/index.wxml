@@ -10,9 +10,9 @@
       <view class="comodityWrap">
         <image class="img" src="{{item.imgUrl}}"></image>
         <view class="middle">
-          <view class="name">{{item.name}}</view>
-          <view class="name">{{item.service}}</view>
-          <view class="price">￥{{item.price}}</view>
+          <text class="name">{{item.name}}</text>
+          <text class="name">{{item.service}}</text>
+          <text class="price">￥{{item.price}}</text>
         </view>
         <view class="count">
           <button class="button" style="height: 50rpx;" catchtap="minus" disabled="{{item.count <= 1}}" data-id="{{item.id}}">-</button>
