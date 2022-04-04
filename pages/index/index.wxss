@@ -9,7 +9,7 @@
 .top{
   width: 100%;
   background: #F3BE67;
-  height: 60rpx;
+  height: 80rpx;
 }
 .add{
   position: relative;
@@ -17,7 +17,7 @@
   height: 40rpx;
   float: right;
   right: 20rpx;
-  top: 10rpx;
+  top: 20rpx;
 }
 .search{
   display: flex;
@@ -76,11 +76,17 @@
   border-radius: 15rpx;
 }
 .title{
-  width: 95%;
+  width: 90%;
   margin: 10rpx auto;
   font-size: 27rpx;
   line-height: 35rpx;
-  letter-spacing: 3rpx;
+  letter-spacing: 2rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }
 .bigImg{
   height: 300rpx;

@@ -5,5 +5,9 @@
   <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
   <view class="change" bindtap="changearticle"  wx:if="{{isOwner}}">修改</view>
   <view class="title">文章内容</view>
-  <rich-text class="articleDetail">{{article}}</rich-text>
+  <text class="article-title">{{content.articleTitle}}</text>
+  <rich-text class="articleDetail">{{content.article}}</rich-text>
+  <view class="imgWrap">
+    <image class="img" src="{{content.imgUrl}}" mode="aspectFill"></image>
+  </view>
 </view>

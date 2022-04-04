@@ -24,10 +24,11 @@
     <view class="serviceDetail" wx:if="{{freights.length > 0}}">
         <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
             <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
+            <text class="name">{{item.name}}</text>
             <view class="detailWrapFoot">
-                <text class="name">{{item.name}}</text>
                 <view class="footwrap">
                     <!-- <view class="distance">距您{{item.distance}}</view> -->
+                    <view class="price">￥{{item.price}}</view>
                     <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.quantity}}人付款了</text>
                 </view>
             </view>

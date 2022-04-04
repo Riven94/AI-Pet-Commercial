@@ -24,7 +24,7 @@
     <view class="right">
       <view wx:for="{{publishItem}}" wx:if="{{index % 2 == 1}}" class="animalWrap {{(index / 2) % 2 == 0? 'big': 'small'}}" data-id="{{item.id}}" bindtap="toMore">
         <image src="{{item.imgUrl}}" class="img {{((index - 1) / 2) % 2 == 1? 'bigImg': 'smallImg'}}" mode="aspectFill"></image>
-        <view class="title">{{item.comment}}</view>
+        <text class="title">{{item.comment}}</text>
         <view class="">
           <image class="more" src="{{arrowRight}}"></image>
         </view>

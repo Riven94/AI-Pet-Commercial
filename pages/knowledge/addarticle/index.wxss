@@ -64,15 +64,14 @@
     align-items: center;
 }
 .images{
-  margin: 0 auto;
+  margin: 20rpx 0 0 20rpx;
   display: flex;
-  width: 95%;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .normal{
-  width: 250rpx;
-  height: 250rpx;
+  width: 230rpx;
+  height: 230rpx;
 }
 .text::after{
   position: absolute;
@@ -83,4 +82,10 @@
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 8px solid gray;
+}
+.imagesWrap{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 30rpx;
 }

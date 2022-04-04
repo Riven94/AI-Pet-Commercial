@@ -13,7 +13,8 @@ Page({
     addressId:'',
     customItem: '全部',
     region: ['广东省', '广州市', '海珠区'],
-    isDefault: false
+    isDefault: false,
+    from: false
   },
 
   formSubmit(e){
@@ -46,8 +47,24 @@ Page({
           data: data,
           header: { 'content-type': 'application/json'},
           success(res){
+            const resData = res.data.data;
             console.log(res);
-            wx.navigateBack({
+            wx.showModal({
+              cancelColor: 'cancelColor',
+              content: '添加成功！',
+              showCancel: false,
+              success(res){
+                if(that.data.from){
+                  var pages = getCurrentPages();
+                  var prev = pages[pages.length - 2];
+                  prev.setData({
+                    address: resData,
+                    empty: false
+                  });
+                }
+                wx.navigateBack({
+                })
+              }
             })
           },
           fail(error){
@@ -95,6 +112,9 @@ Page({
       this.setData({new: false});
       this.setData({addressId: options.id * 1});
       this.getAddressDetail(options.id * 1);
+    }
+    if(options.from != undefined){
+      this.setData({ from: true })
     }
   },
 
@@ -227,31 +247,4 @@ Page({
     wx.navigateBack({
     })
   },
-
-  // formSubmit(e) {
-  //   const data = e.detail.value;
-  //   console.log(data)
-  //   //console.log('form发生了submit事件，携带数据为：', data['input0']);
-  //   const temp = {
-  //     creatorId: 9,
-  //     consignee:data['input0'],
-  //     phone: data['input1'],
-  //     area: data['input2'],
-  //     addressDetail: data['input3'],
-  //     type: 0
-  //   }
-  //   console.log(temp);
-  //   wx.request({
-  //     url: domain + '/address/add',
-  //     data:temp,
-  //     method: "POST",
-  //     header: {'content-type': 'application/json'},
-  //     success(res){
-  //       console.log(res);
-  //     },
-  //     fail(error){
-  //       console.log(error);
-  //     }
-  //   })
-  // },
 })

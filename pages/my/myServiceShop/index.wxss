@@ -24,13 +24,13 @@
   top: 20rpx;
   right: 20rpx;
   color: white;
-  padding: 0 7rpx;
+  padding: 0 10rpx;
   height: 60rpx;
   width: 140rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(240, 169, 56);
+  background-color: rgb(255, 166, 0);
   border-radius: 20rpx;
 }
 .delete{
@@ -40,11 +40,11 @@
   padding: 0 7rpx;
   color: white;
   height: 60rpx;
-  width: 140rpx;
+  width: 110rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(240, 169, 56);
+  background-color: rgb(255, 166, 0);
   border-radius: 20rpx;
 }
 .label{
@@ -96,13 +96,13 @@ checkbox .wx-checkbox-input{
   display: flex;
 }
 .edit{
-  margin-left: 200rpx;
+  margin-left: 180rpx;
   color: white;
   height: 60rpx;
-  width: 140rpx;
+  width: 110rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(240, 169, 56);
+  background-color: rgb(255, 166, 0);
   border-radius: 20rpx;
 }

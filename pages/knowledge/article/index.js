@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: "",
+    content: "",
     delete: false,
     articleId: '',
     isOwner: false,
@@ -23,7 +23,7 @@ Page({
     if(options.from){
       this.setData({delete: true});
     }
-    this.judgeOwner(userId);
+    //this.judgeOwner(userId);
   },
   judgeOwner(id){
     const that = this;
@@ -48,8 +48,8 @@ Page({
       },
       success(res){
         const resData = res.data.data;
-        that.setData({article: resData.article})
-        console.log(that.data.article)
+        that.setData({content: resData});
+        console.log(resData);
         if(resData.creatorId == userId){
           that.setData({isOwner: true})
         }

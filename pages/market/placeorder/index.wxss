@@ -41,5 +41,5 @@ checkbox .wx-checkbox-input {
   margin: 30rpx auto;
   background-color: rgb(240,169,56);
   border-radius: 20rpx;
-  padding: 0 10rpx;
+  padding: 8rpx 15rpx;
 }

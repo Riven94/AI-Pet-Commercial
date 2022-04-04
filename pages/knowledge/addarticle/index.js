@@ -118,7 +118,7 @@ Page({
         filePath: item,
         //上传图片协议接口
         url: domain+'/images/uploadFile/article',
-        name:'images',
+        name:'img',
         formData: {
           creatorId: userId
         },

@@ -20,10 +20,12 @@
     <view bindtap="uploadImage">
       <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
     </view> 
-  </view> 
-  <view class="images" wx:for="{{imageList}}">
-    <image class="normal" mode="aspectFill" src="{{item}}"></image>
-</view>
+  </view>   
+  <view class="imagesWrap">
+    <view class="images" wx:for="{{imageList}}">
+      <image class="normal" mode="aspectFill" src="{{item}}"></image>
+    </view>
+  </view>
 
 <!-- <view class='fenlei'>
   <text>类型:</text>

@@ -89,6 +89,39 @@ Page({
       })
     })
   },
+
+  
+  back: function(){
+    wx.navigateBack({
+    })
+  },
+
+  toMyService: function(e){
+    wx.navigateTo({
+      url: '../myservice/index',
+    })
+  },
+
+  radioChange(e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+
+    const items = this.data.items
+    for (let i = 0, len = items.length; i < len; ++i) {
+      items[i].checked = items[i].value === e.detail.value
+    }
+  },
+
+  toAddress(){
+    wx.navigateTo({
+      url: '../addaddress/index',
+    })
+  },
+
+  toAddAddress(){
+    wx.navigateTo({
+      url: '../receive/index?from=placeorder',
+    })
+  },
   
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -139,29 +172,4 @@ Page({
 
   },
 
-  back: function(){
-    wx.navigateBack({
-    })
-  },
-
-  toMyService: function(e){
-    wx.navigateTo({
-      url: '../myservice/index',
-    })
-  },
-
-  radioChange(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-
-    const items = this.data.items
-    for (let i = 0, len = items.length; i < len; ++i) {
-      items[i].checked = items[i].value === e.detail.value
-    }
-  },
-
-  toAddress(){
-    wx.navigateTo({
-      url: '../addaddress/index',
-    })
-  }
 })
