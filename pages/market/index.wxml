@@ -28,7 +28,7 @@
             <view class="detailWrapFoot">
                 <view class="footwrap">
                     <!-- <view class="distance">距您{{item.distance}}</view> -->
-                    <view class="price">￥{{item.price}}</view>
+                    <view class="price" wx:if="{{!(currentIndex == 3)}}">￥{{item.price}}</view>
                     <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.quantity}}人付款了</text>
                 </view>
             </view>

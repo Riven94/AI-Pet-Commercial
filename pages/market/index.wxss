@@ -45,14 +45,14 @@ page{
   height: 50rpx;
 }
 .activities{
-  width: 660rpx;
+  width: 680rpx;
   height: 230rpx;
   margin-left: auto;
   margin-right: auto;
   margin-top: 80rpx;
 }
 .activityImg{
-  width: 660rpx;
+  width: 680rpx;
   height: 230rpx;
 }
 .bottom{

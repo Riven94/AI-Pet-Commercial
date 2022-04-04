@@ -27,6 +27,9 @@
 .left{
   width: 150rpx;
 }
+.gender{
+  width: 150rpx;
+}
 .input{
   background-color: rgb(232,232,232);
   width: 500rpx;
@@ -45,4 +48,8 @@
 .picker{
   width: 500rpx;
   border-radius: 10rpx;
+}
+.genderWrap{
+  display: flex;
+  flex-direction: row;
 }

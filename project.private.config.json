@@ -57,6 +57,13 @@
           "query": "id=6",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/setting/index",
+          "query": "id=6",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
