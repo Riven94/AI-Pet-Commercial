@@ -88,6 +88,12 @@ Page({
     this.getMain();
   },
 
+  swiperTransition(e){
+    console.log(e);
+    this.setData({currentIndex: e.detail.current});
+    this.getMain();
+  },
+
   search(e){
     console.log(e);
   }

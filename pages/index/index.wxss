@@ -99,3 +99,6 @@
   width: 40rpx;
   height: 40rpx;
 }
+.swiper{
+  height: 1000rpx;
+}
