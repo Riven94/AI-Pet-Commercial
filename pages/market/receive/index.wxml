@@ -7,11 +7,12 @@
     <view  class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>
       <input wx:if="{{index != 2}}" class="input" value="{{default[index]}}" name='{{"input"+index}}' />   
-    <picker wx:else mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <view class="picker">
-        {{region[0]}}，{{region[1]}}，{{region[2]}}
-      </view> 
-    </picker>
+      <picker wx:else mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view wx:if="{{!tempNew}}" class="picker">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+        <input class="input" placeholder="请选择地址" wx:else ></input>
+      </picker>
     </view>
     <check-group name="isDefault" bindchange="changeDefault">
       <checkbox checked="{{isDefault}}" style="margin: 20rpx 40rpx;">是否为默认地址</checkbox>

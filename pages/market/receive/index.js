@@ -14,7 +14,8 @@ Page({
     customItem: '全部',
     region: ['广东省', '广州市', '海珠区'],
     isDefault: false,
-    from: false
+    from: false,
+    tempNew: false
   },
 
   formSubmit(e){
@@ -104,17 +105,20 @@ Page({
     }
   }    
 },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     if(options.id != undefined){
-      this.setData({new: false});
-      this.setData({addressId: options.id * 1});
+      this.setData({new: false,
+                    tempNew: false,
+                    addressId: options.id * 1});
       this.getAddressDetail(options.id * 1);
     }
     if(options.from != undefined){
-      this.setData({ from: true })
+      this.setData({ from: true,
+                     tempNew: true })
     }
   },
 
@@ -188,9 +192,11 @@ Page({
   },
 
   bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+    const tempNew = this.data.new ? false : true;
     this.setData({
-      region: e.detail.value
+      region: e.detail.value,
+      tempNew: tempNew
     })
   },
 

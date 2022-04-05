@@ -16,7 +16,7 @@
         <view class="genderWrap">
           <view class="left">性别:</view>
           <view class="text" space='true' decode="true">{{array[arrayIndex]}}</view>
-       </view>
+        </view>
       </picker>
     </view>
       <view wx:for="{{imageList}}">

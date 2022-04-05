@@ -1,13 +1,22 @@
 /* pages/market/addaddress/index.wxss */
 @import "../../../template/address/index.wxss";
 .addArrdess{
-    color: white;
-    height: 60rpx;
-    width: 140rpx;
-    margin: 5rpx auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(240, 169, 56);
-    border-radius: 20rpx;
-  }
+  color: white;
+  height: 60rpx;
+  width: 140rpx;
+  margin: 5rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 169, 56);
+  border-radius: 20rpx;
+}
+.else{
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center{
+  margin: 100rpx auto;
+} 
