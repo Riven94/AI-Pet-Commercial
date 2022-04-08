@@ -1,17 +1,17 @@
 <!--pages/market/inde.wxml-->
 <view class="container">
     <view class="top">
-        <view class="topitem">
-            <view class="search">
-                <icon type="search" class="searchIcon" size="18"></icon>
-                <input type="text" class="input" placeholder="猫玩具" bindconfirm="searchProduct"/>
-            </view>
-            <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
+      <view class="topitem">
+        <view class="search">
+          <icon type="search" class="searchIcon" size="18"></icon>
+          <input type="text" class="input" placeholder="猫玩具" bindconfirm="searchProduct"/>
         </view>
+        <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
+      </view>
         <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
-                <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
-                <image class="activityImg" mode="aspectFill" src="{{activityImg[index]}}"></image>
-                </swiper-item>
+          <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
+            <image class="activityImg" mode="aspectFit" src="{{activityImg[index]}}"></image>
+          </swiper-item>
         </swiper>
     </view>
     <view class="bottom">
@@ -22,18 +22,18 @@
         </view>
       </view>
     <view class="serviceDetail" wx:if="{{freights.length > 0}}">
-        <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
-            <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
-            <text class="name">{{item.name}}</text>
-            <view class="detailWrapFoot">
-                <view class="footwrap">
-                    <!-- <view class="distance">距您{{item.distance}}</view> -->
-                    <view class="price" wx:if="{{!(currentIndex == 3)}}">￥{{item.price}}</view>
-                    <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.quantity}}人付款了</text>
-                </view>
-            </view>
+      <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
+        <image class="detailImg" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        <text class="name">{{item.name}}</text>
+        <view class="detailWrapFoot">
+          <view class="footwrap">
+            <!-- <view class="distance">距您{{item.distance}}</view> -->
+            <view class="price" wx:if="{{!(currentIndex == 3)}}">￥{{item.price}}</view>
+            <text class="quantity" wx:if="{{!(currentIndex == 3)}}">{{item.quantity}}人付款了</text>
+          </view>
         </view>
-        <view class="detailWrap" wx:if="{{freights.length % 2 == 1}}"></view>
+      </view>
+      <view class="detailWrap" wx:if="{{freights.length % 2 == 1}}"></view>
     </view>
     <view wx:else class="else">这里暂时没有商品~</view>
     </view>

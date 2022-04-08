@@ -111,6 +111,7 @@ Page({
    */
   onLoad: function (options) {
     if(options.id != undefined){
+      console.log(1);
       this.setData({new: false,
                     tempNew: false,
                     addressId: options.id * 1});
@@ -196,7 +197,7 @@ Page({
     const tempNew = this.data.new ? false : true;
     this.setData({
       region: e.detail.value,
-      tempNew: tempNew
+      tempNew: false
     })
   },
 

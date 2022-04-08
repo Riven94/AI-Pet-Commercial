@@ -80,7 +80,7 @@ Page({
     
     toAddaddress(){
       wx.navigateTo({
-        url: '../receive/index',
+        url: '../receive/index?from=receive',
       })
     },
 

@@ -52,6 +52,7 @@
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
     "lazyloadPlaceholderEnable": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "minifyWXML": true
   }
 }
