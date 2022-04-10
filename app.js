@@ -58,6 +58,9 @@ App({
         content: "是否使用微信登录小程序",
         success(res){
           if(res.confirm){
+            wx.showLoading({
+              title: "登录中..."
+            })
             wx.getUserProfile({
               desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
               success: (res) => {
@@ -119,6 +122,8 @@ App({
                               that.globalData.userId = res.data.userId;
                               that.globalData.login = true;
                               wx.setStorageSync('login', true);
+                              wx.hideLoading({
+                              })
                             },
                             fail(error){
                               console.log(error);
@@ -127,7 +132,7 @@ App({
                         }
                       })
                     } else {
-                      console.log('登录失败！' + res.errMsg)
+                      console.log('登录失败！' + res.errMsg);
                     }
                   }
                 })

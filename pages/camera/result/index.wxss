@@ -20,6 +20,7 @@ page{
 .tab {
   float: left;
   text-align: center;
+  align-items: center;
   padding: 15rpx 0;
   display: block;
   border:3px solid white;

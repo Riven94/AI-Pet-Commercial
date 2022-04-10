@@ -52,7 +52,7 @@ Page({
         //将选择到的图片缓存到本地storage中
         wx.setStorageSync('tempFilePaths', tempFilePaths);
         wx.showLoading({
-          title: "加载中..."
+          title: "识别中..."
         })
         wx.uploadFile({
           url: domain + '/images/uploadFile/petIdentify', 

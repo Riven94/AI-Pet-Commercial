@@ -41,13 +41,6 @@ Page({
       success(res){
         const resData = res.data.data;
         console.log(resData);
-        const temp = {
-          attribute: resData.varieties,
-          name: resData.name,
-          type: resData.detail,
-          color: resData.color,
-          img: resData.imgUrl
-        }
         that.setData({
           information: resData
         });

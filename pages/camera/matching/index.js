@@ -53,5 +53,4 @@ Page({
       url: '../result/index?id=' + animalId + "&ownerId=" + ownerId,
     })
   },
-    
 })

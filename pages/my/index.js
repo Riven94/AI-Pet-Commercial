@@ -43,6 +43,9 @@ Page({
             name: res.userInfo.nickName,
             gender: res.userInfo.gender
           });
+          wx.showLoading({
+            title: "登录中..."
+          })
           wx.login({
             success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -69,6 +72,8 @@ Page({
                     wx.setStorageSync('login', true);
                     console.log(res);
                     that.login(res.data.openid);
+                    wx.hideLoading({
+                    })
                   }
                 })
               } else {
@@ -154,6 +159,7 @@ Page({
       })
     }
   },
+  
   toServiceShop:function(e){
     const id = app.globalData.userId;
     const isLogin = wx.getStorageSync('login');
