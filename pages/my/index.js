@@ -2,7 +2,7 @@
 const app = getApp();
 const domain = app.globalData.domainName;
 const appid = wx.getAccountInfoSync().miniProgram.appId;
-const secret = "a8d757f07ae6785accae4916dd5e7d82";
+var secret = "a8d757f07ae6785accae4916dd5e7d82";
 var openid = wx.getStorageSync('openid');
 Page({
 
@@ -128,6 +128,20 @@ Page({
     })
   },
 
+  getSecret: function(){
+    wx.request({
+      url: domainName + '/admin/getSecret',
+      method: 'GET',
+      data:{
+        appid: appid
+      },
+      success(res){
+        console.log(res);
+        secret = res.data.data;
+      }
+    })
+  },
+
   toSetting: function(e){
     const id = app.globalData.userId;
     const isLogin = wx.getStorageSync('login');
@@ -226,7 +240,8 @@ Page({
    */
   onLoad: function (options) {
     console.log(1);
-    console.log(app.globalData)
+    console.log(app.globalData);
+    this.getSecret();
     if(wx.getStorageSync('login')){
       this.getUserDetail(app.globalData.userId);
     }
