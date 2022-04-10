@@ -2,7 +2,7 @@
 const app = getApp();
 const domain = app.globalData.domainName;
 const appid = wx.getAccountInfoSync().miniProgram.appId;
-var secret = "a8d757f07ae6785accae4916dd5e7d82";
+var secret = "";
 var openid = wx.getStorageSync('openid');
 Page({
 
@@ -31,7 +31,8 @@ Page({
 
   getUser(e){
     const that = this;
-    const isLogin = wx.getStorageSync('login')
+    const isLogin = wx.getStorageSync('login');
+    this.getSecret();
     if(!isLogin){
       wx.getUserProfile({
         desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
@@ -130,7 +131,7 @@ Page({
 
   getSecret: function(){
     wx.request({
-      url: domainName + '/admin/getSecret',
+      url: domain + '/admin/getSecret',
       method: 'GET',
       data:{
         appid: appid
