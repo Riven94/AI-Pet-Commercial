@@ -147,7 +147,8 @@ Page({
 
   toShop: function(e){
     const id = app.globalData.userId;
-    if(id == undefined){
+    const isLogin = wx.getStorageSync('login');
+    if(!isLogin){
       wx.showModal({
         content:'请先登录！',
         showCancel: false
