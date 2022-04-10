@@ -40,7 +40,7 @@ Page({
       },
       success(res){
         const resData = res.data.data;
-        console.log(res);
+        console.log(resData);
         const temp = {
           attribute: resData.varieties,
           name: resData.name,

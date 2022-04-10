@@ -95,9 +95,9 @@ Page({
         icon: "loading",
         title: "正在上传"
     }),
-    console.log(data[0]);
-    wx.uploadFile({
-      filePath: data[0],
+    data.forEach((item)=>{
+      wx.uploadFile({
+      filePath: item,
       name: 'photo',
       url: domain + '/images/uploadFile/animal',
       header: {'content-type': 'multipart/form-data'},
@@ -106,42 +106,15 @@ Page({
       },
       success(res){
         console.log(res);
+        const tempUrls = JSON.parse(res.data).imgUrl;
+        imgUrls.push(tempUrls[0]);
+        that.setData({imageList: imgUrls});
       },
       fail(error){
         console.log(error)
       }
     })
-    // data.forEach((item)=>{
-    //   console.log(item);
-    //   wx.uploadFile({
-    //     filePath: item,
-    //     //上传图片协议接口
-    //     url: domain+'/images/uploadFile/animal',
-    //     name:'img',
-    //     header: {'content-type': 'multipart/form-data'},
-    //     formData: {
-    //       photo: '',
-    //       creatorId: userId
-    //     },
-    //     success(res) {
-    //       console.log(res);
-    //       let imgUrl = JSON.parse(res.data).imgUrl;
-    //       imgUrl.forEach((item)=>{
-    //         imgUrls.push(item);
-    //       })
-    //       //console.log(imgUrls);
-    //       that.setData({imageList: imgUrls});
-    //     },
-    //     fail(e) {
-    //       console.log(e);
-    //       wx.showModal({
-    //           title: '提示',
-    //           content: '上传失败',
-    //           showCancel: false
-    //       })
-    //     },
-    //   })
-    // })
+  })
   },
 
   formSubmit(e){

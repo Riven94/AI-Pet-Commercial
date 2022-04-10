@@ -80,6 +80,9 @@ page{
   background-color: #D2E5ED;
   border-radius: 10rpx;
   padding: 0 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .address{
   border-top: 5rpx solid #DCDCDC;
