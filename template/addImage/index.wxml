@@ -1,0 +1,15 @@
+<template name="addImage">
+  <view class="image">
+    <view bindtap="uploadImage">
+      <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
+    </view> 
+  </view>   
+  <view class="imageList" >
+    <view class="imageWrap" wx:for="{{images}}">
+      <image class="normal" src="{{item}}" mode="aspectFill" data-url="{{item}}" bindtap="preview"></image>
+      <view class="showItem-icon-box" data-index="{{index}}" bindtap="deleteImages">
+        <icon class="showItem-icon" type="clear" size="20" color="gray"></icon>
+      </view>
+    </view>
+  </view>
+</template>

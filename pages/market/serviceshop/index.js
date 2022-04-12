@@ -9,7 +9,7 @@ Page({
   data: {
     cartIcon: domain + "/media/icon/cart.png",
     starIcon: domain + "/media/icon/star.png",
-    icon: "../../../icons/cat.png",
+    icon: "",
     shopname: "爱宠一家人萌宠生活馆",
     stars: 5,
     type: "宠物店",
@@ -38,8 +38,8 @@ Page({
     this.getServices(Id);
     this.judgeOwner(app.globalData.userId);
     this.setData({storeId:Id})
-    
   },
+
   judgeOwner(id){
     const that = this;
     wx.request({
@@ -79,6 +79,7 @@ Page({
 
   getDetail:function(Id){
     const that = this;
+    console.log(Id);
     wx.request({
       url:domain + '/service/storeGetDetail', 
       data: {

@@ -1,4 +1,4 @@
-@import '../../../template//top/index.wxss';
+@import '../../../template/top/index.wxss';
 .title{
   color: white;
   position: absolute;

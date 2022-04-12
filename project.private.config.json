@@ -71,6 +71,13 @@
           "query": "id=15",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/pulish/index",
+          "query": "id=6",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -8,14 +8,11 @@ Page({
      */
   data: {
       addPhotoIcon: domain + "/media/icon/addphoto.png",
-      shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-      /* selectDatas: ['养宠知识', '户外运动', '新手攻略'], //下拉列表的数据 */
+      shows: false,
       artType: ['养宠知识', '户外运动', '新手攻略'],
       typeIndex:0,
-     /*  indexs: 0, //选择的下拉列 表下标, */
       Content:"",
       articletitle:"",
-/*    Type: '养宠知识', */
       imageList:[],
       userId: '',
       articleId: '',
@@ -26,12 +23,6 @@ Page({
     this.setData({typeIndex: index});
 
   },
-    /* // 点击下拉显示框
-  selectTaps() {
-    this.setData({
-      shows: !this.data.shows,
-    });
-  }, */
 
   delete(){
     const that = this;
@@ -93,22 +84,22 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
+    })
+  },
+
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
     })
   },
 
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
         title: "正在上传"
@@ -139,6 +130,26 @@ Page({
         },
       })
     })
+  },
+
+  deleteImages: function(e){
+    const index = e.currentTarget.dataset.index;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '确认删除该图片？',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(index);
+        }
+      }
+    })
+  },
+
+  onRealDelete(index){
+    var newImageList = this.data.imageList;
+    newImageList.splice(index, 1);
+    this.setData({ imageList: newImageList});
   },
 
   bindSumbit:function(params){

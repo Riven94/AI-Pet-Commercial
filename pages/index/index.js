@@ -7,7 +7,7 @@ Page({
     addIcon: domain + "/media/icon/add.png",
     arrowRight: domain + "/media/icon/arrow-right.png",
     publishItem:[],
-    tabs: ['流浪猫狗','寻找宠物','爱宠配对','萌宠动态'],
+    tabs: ['流浪猫狗','寻找宠物','宠物领养','萌宠动态'],
     currentIndex: 0
   },
   // 事件处理函数

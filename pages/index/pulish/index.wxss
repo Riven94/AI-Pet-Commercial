@@ -1,4 +1,5 @@
 @import '../../../template/top/index.wxss';
+@import '../../../template/addImage/index.wxss';
 .title{
   color: white;
   top: 20rpx;
@@ -13,13 +14,6 @@
   margin: 0 auto;
   width: 95%;
 }
-.image{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100rpx;
-  align-items: center;
-}
 .submit{
   width: 80rpx;
   padding: 10rpx 13rpx;
@@ -33,14 +27,7 @@
   right: 20rpx;
   top: 20rpx;
 }
-.imageList{
-  display: flex;
-  flex-wrap: wrap;
-}
-.normal{
-  width: 130rpx;
-  height: 130rpx;
-}
+
 .text::after{
   position: absolute;
   content: '';

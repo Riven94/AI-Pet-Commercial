@@ -1,5 +1,5 @@
-/* pages/knowledge/addarticle/index.wxss */
 @import '../../../template/top/index.wxss';
+@import '../../../template/addImage/index.wxss';
 .top{
     width: 100%;
     background: #F3BE67;
@@ -55,24 +55,6 @@
   word-break: break-all;
   word-wrap: break-word;
 }
-.image{
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-    margin: 0 auto;
-    height: 100rpx;
-    align-items: center;
-}
-.images{
-  margin: 20rpx 0 0 20rpx;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.normal{
-  width: 230rpx;
-  height: 230rpx;
-}
 .text::after{
   position: absolute;
   content: '';
@@ -82,10 +64,4 @@
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 8px solid gray;
-}
-.imagesWrap{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 30rpx;
 }

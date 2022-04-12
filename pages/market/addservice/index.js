@@ -32,6 +32,13 @@ Page({
       this.setData({ levelIndex: e.detail.value * 1});
     },
     
+    preview(e){
+      const url = e.currentTarget.dataset.url;
+      wx.previewImage({
+        urls: [url],
+      })
+    },
+
     formSubmit(e) {
       var that=this;
       const userId = app.globalData.userId;

@@ -38,6 +38,13 @@ Page({
     this.setData({ levelIndex: e.detail.value * 1});
   },
 
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
+    })
+  },
+
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
@@ -48,13 +55,6 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
     })
@@ -63,7 +63,7 @@ Page({
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
         title: "正在上传"

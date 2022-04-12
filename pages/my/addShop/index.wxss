@@ -1,7 +1,8 @@
-@import '../../../template//top/index.wxss';
+@import '../../../template/top/index.wxss';
+@import '../../../template/addImage/index.wxss';
 .section{
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: 30rpx auto 10rpx;
 }
 .left{
@@ -11,19 +12,6 @@
   background-color: rgb(232,232,232);
   width: 500rpx;
   border-radius: 10rpx;
-}
-.imgs{
-  display: flex;
-  flex-wrap: wrap;
-}
-.img{
-  width: 120rpx;
-  height: 120rpx;
-  margin-left: 30rpx;
-}
-.image{
-  width: 93%;
-  margin: 0 auto;
 }
 .text::after{
   position: absolute;

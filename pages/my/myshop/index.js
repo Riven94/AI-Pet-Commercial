@@ -116,6 +116,9 @@ Page({
       },
       fail(error){
         console.log(error);
+        that.setData({
+          shopData: []
+        })
       }
     })
   },
