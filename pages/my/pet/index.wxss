@@ -51,6 +51,11 @@ page{
 .info{
   background-color: #EFEEEE;
 }
+.images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .img{
   width: 100rpx;
   height: 100rpx;

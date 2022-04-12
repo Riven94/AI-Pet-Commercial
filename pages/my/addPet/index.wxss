@@ -1,7 +1,8 @@
-@import '../../../template//top/index.wxss';
+@import '../../../template/top/index.wxss';
+@import '../../../template/addImage/index.wxss';
 .section{
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: 30rpx auto 10rpx;
 }
 .left{
@@ -12,15 +13,6 @@
   width: 500rpx;
   border-radius: 10rpx;
 }
-.imgs{
-  display: flex;
-  flex-wrap: wrap;
-}
-.img{
-  width: 120rpx;
-  height: 120rpx;
-  margin-left: 30rpx;
-}
 .weui-input{
   height: 350rpx;
   width: 100%;
@@ -29,12 +21,8 @@
   word-wrap: break-word;
 }
 .picker{
-  width: 90%;
+  width: 95%;
   margin: 20rpx auto 0rpx;
-}
-.image{
-  width: 90%;
-  margin: 0 auto;
 }
 .text{
   margin-left: 20rpx;

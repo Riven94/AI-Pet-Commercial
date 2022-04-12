@@ -1,6 +1,14 @@
 <!--pages/index/more/index.wxml-->
 <import src="../../../template/animalcard/animalcard.wxml"></import>
 <import src="../../../template/ownercard/ownercard.wxml"></import>
+<wxs module="m1">
+  var split = function(str){
+    str = str == undefined ? '' : str;
+    console.log(str.cplit(','));
+    return str.split(',');
+  }
+  module.exports.split = split;
+</wxs>
 <view class="container">
   <view class="bluetop">
     <!-- <view class="message">
@@ -17,7 +25,9 @@
       <!-- <view class="text">品种： {{item.detail}}</view> -->
       <view class="text">颜色： {{item.color}}</view>
       <view class="text">照片： </view>
-      <image class="img" src="{{item.imgUrl}}"></image>
+      <view class="imagesWrap">
+        <image class="img" src="{{item}}" wx:for="{{item.imgUrl}}"></image>
+      </view>
     </view>
   </view>
   <view class="left"></view>

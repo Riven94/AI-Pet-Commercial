@@ -1,4 +1,5 @@
 <import src="../../../template/top/index.wxml"></import>
+<import src="../../../template/addImage/index.wxml"></import>
 <template is="top"></template>
 <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
@@ -17,13 +18,6 @@
         <view >是否丢失:<text class="text" space='true' decode="true">{{state[stateIndex]}}</text></view>
     </picker>
 
-    <view class="image">
-      <view bindtap="uploadImage">
-        <image src="{{addPhotoIcon}}" style="width: 90rpx;height: 90rpx;"></image>
-      </view>
-    </view> 
-      <view class="imgs">
-        <image wx:for="{{imageList}}" class="img" name="img" src="{{item}}" mode="aspectFill"></image>
-      </view>
+    <template is="addImage" data="{{images: imageList, addPhotoIcon}}"></template>
     <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
   </form>
