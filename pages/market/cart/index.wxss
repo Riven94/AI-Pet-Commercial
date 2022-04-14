@@ -98,14 +98,14 @@ checkbox .wx-checkbox-input{
   align-items: center;
   margin-right: 170rpx;
   margin-left: 40rpx;
-  background-color: #EA5352;
+  background-color: #F3BE67;
   border-radius: 40rpx;
   height: 60rpx;
   width: 130rpx;
   font-size: 31rpx;
 }
 .pay{
-  background-color: #EA5352;
+  background-color: #F3BE67;
   color: white;
   border-radius: 50rpx;
   position: absolute;
