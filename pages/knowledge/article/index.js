@@ -44,12 +44,12 @@ Page({
     wx.request({
       url: domain + '/knowledge/getDetail',
       data:{
-        id: id
+        id: id * 1
       },
       success(res){
         const resData = res.data.data;
         that.setData({content: resData});
-        console.log(resData);
+        console.log(res);
         if(resData.creatorId == userId){
           that.setData({isOwner: true})
         }

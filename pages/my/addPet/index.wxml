@@ -19,5 +19,5 @@
     </picker>
 
     <template is="addImage" data="{{images: imageList, addPhotoIcon}}"></template>
-    <button class="save" style="background-color: rgb(1,146,255); position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
+    <button class="save" style="background-color: #F3BE67; position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
   </form>
