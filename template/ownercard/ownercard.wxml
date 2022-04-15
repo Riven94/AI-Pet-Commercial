@@ -4,7 +4,7 @@
 <view class="ownertop"></view>
 <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;主人信息</text></view>
 <view class="information">
-<view class="text">昵称： {{owneritem.nickname}}</view>
+<view class="text">昵称： {{owneritem.nickName}}</view>
 <view class="text">邮箱： {{owneritem.email}}</view>
 <view class="text">电话号码： {{owneritem.phone}}</view>
 <!-- <view class="text">发布时间： {{owneritem.time}}</view> -->

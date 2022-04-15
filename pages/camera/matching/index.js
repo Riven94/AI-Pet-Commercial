@@ -19,7 +19,7 @@ Page({
     eventChannel.on('sendData', function(data){
       let resData = data.data.data;
       console.log(data);
-      let img = data.data.data.imgUrl.split(',');
+      let img = JSON.parse(data.data.data.imgUrl);
       resData.imgUrl = img;
       that.setData({animals: [resData]});
     })
