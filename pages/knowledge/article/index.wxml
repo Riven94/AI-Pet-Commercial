@@ -8,6 +8,6 @@
   <text class="article-title">{{content.articleTitle}}</text>
   <rich-text class="articleDetail">{{content.article}}</rich-text>
   <view class="imgWrap">
-    <image class="img" src="{{content.imgUrl}}" mode="aspectFill"></image>
+    <image class="img" wx:for="{{content.imgUrl}}" mode="aspectFill"  src="{{item}}"></image>
   </view>
 </view>
