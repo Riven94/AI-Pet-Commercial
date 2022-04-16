@@ -7,7 +7,7 @@
   <view class="tabs">
     <view class="tab {{currentIndex==index ? 'clicked': ''}}" wx:for="{{tabs}}" data-index="{{index}}" bindtap="changeTab">{{item}}</view>
   </view>
-  <swiper class="swiper" bindchange="swiperTransition" current="{{currentIndex}}">
+  <swiper class="swiper" bindchange="swiperTransition" current="{{currentIndex}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
     <swiper-item class="content" wx:for="{{[0,1,2,3]}}">
       <view class="left">
         <view wx:for="{{publishItem}}" wx:if="{{index % 2 == 0}}" class="animalWrap {{(index / 2) % 2 == 0? 'big': 'small'}}" data-id="{{item.id}}" bindtap="toMore">

@@ -8,7 +8,8 @@ Page({
     arrowRight: domain + "/media/icon/arrow-right.png",
     publishItem:[],
     tabs: ['流浪猫狗','寻找宠物','宠物领养','萌宠动态'],
-    currentIndex: 0
+    currentIndex: 0,
+    clientHeight: 0
   },
   // 事件处理函数
   bindViewTap() {
@@ -20,6 +21,14 @@ Page({
   onLoad(options) {
     //this.test();  
     this.getMain();
+    const that = this;
+    wx.getSystemInfo({ 
+      success: function (res) { 
+          that.setData({ 
+              clientHeight: res.windowHeight 
+          }); 
+      } 
+    }) 
   },
 
   onShow(){

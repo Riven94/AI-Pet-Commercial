@@ -100,5 +100,4 @@
   height: 40rpx;
 }
 .swiper{
-  height: 1000rpx;
 }
