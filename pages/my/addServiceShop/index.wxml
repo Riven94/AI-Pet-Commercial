@@ -9,13 +9,13 @@
       </view>
       <view class="section" wx:if="{{index == 2}}">
         <view class="left">{{item}}</view>
-        <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}" style="margin-left: 15rpx;">
+        <picker class="picker" bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levels}}">
           <text class="text" space='true' decode="true">{{levels[levelIndex]}}</text>
         </picker>
       </view>
       <view class="section" wx:if="{{index == 3}}">
         <view class="left">{{item}}</view>
-        <picker class="picker" bindchange="bindBusinessChange" value="{{businessIndex}}" range="{{business}}" style="margin-left: 15rpx;">
+        <picker class="picker" bindchange="bindBusinessChange" value="{{businessIndex}}" range="{{business}}">
           <text class="text" space='true' decode="true">{{business[businessIndex]}}</text>
         </picker>
       </view>

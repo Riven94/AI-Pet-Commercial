@@ -161,6 +161,10 @@ Page({
       imgUrl: that.data.imageList,
       type: that.data.artType[that.data.typeIndex],
     };
+    var valid = false;
+    if(temp.articleTitle == '' || temp.article == '' || temp.imgUrl.length == 0){
+      valid = false;
+    }
     var path = "";
     if(this.data.articleId == ''){
       path = "/knowledge/upload";
@@ -169,8 +173,15 @@ Page({
       path = "/knowledge/update";
       temp.id = this.data.articleId * 1;
     }
-    console.log(temp);
-    wx.request({
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.request({
         url: domain + path, 
         method: "POST",
         data: temp,
@@ -195,6 +206,7 @@ Page({
           })
         }
       })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -211,7 +223,6 @@ Page({
   },
 
   getArticle: function(id){
-    console.log(1);
     const that = this;
     wx.request({
       url: domain + '/knowledge/getDetail',

@@ -25,6 +25,6 @@
 }
 .pickersection{
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: 30rpx auto;
 }

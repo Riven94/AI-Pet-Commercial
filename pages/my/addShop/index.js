@@ -113,32 +113,46 @@ Page({
       type: value.input3,
       place: value.input4
     }
-    if(that.data.modify){
-      inter = '/product/storeUpdate';
-      data.id = this.data.shopId;
-      content = '修改成功!';
-    }
-    wx.request({
-      url: domain + inter,
-      method: 'POST',
-      data: data,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          content: content,
-          showCancel: false,
-          success(res){
-            wx.navigateBack({
-            })
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
+    var valid = true;
+    for(let index in data){
+      if(data[index] == '' || data[index].length == 0){
+        valid = false;
       }
-    })
-    
+    }
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      if(that.data.modify){
+        inter = '/product/storeUpdate';
+        data.id = this.data.shopId;
+        content = '修改成功!';
+      }
+      wx.request({
+        url: domain + inter,
+        method: 'POST',
+        data: data,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: content,
+            showCancel: false,
+            success(res){
+              wx.navigateBack({
+              })
+            }
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   /**

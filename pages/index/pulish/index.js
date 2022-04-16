@@ -88,32 +88,45 @@ Page({
       comment: that.data.Content,
       type: that.data.pulishType[that.data.typeIndexs]
     };
+    var valid = true;
+    if(temp.comment == '' || temp.imgUrl.length == 0){
+      valid = false;
+    }
     if(this.data.edit){
       temp.id = this.data.id;
     }
-    wx.request({
-      url: domain + that.data.inter,
-      method: 'POST',
-      data: temp,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          content:'上传成功！',
-          showCancel: false,
-          success(){
-            wx.navigateBack({
-            })
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
-        wx.showModal({
-          content:'上传失败！',
-          showCancel: false,
-        })
-      }
-    })
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.request({
+        url: domain + that.data.inter,
+        method: 'POST',
+        data: temp,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            content:'上传成功！',
+            showCancel: false,
+            success(){
+              wx.navigateBack({
+              })
+            }
+          })
+        },
+        fail(error){
+          console.log(error);
+          wx.showModal({
+            content:'上传失败！',
+            showCancel: false,
+          })
+        }
+      })
+    }
   },
 
   /**

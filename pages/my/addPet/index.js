@@ -154,35 +154,43 @@ Page({
       spot: that.data.spot[that.data.spotIndex],
       size: that.data.len[that.data.lenIndex]
     };
-    console.log(data);
-    wx.showLoading({
-      title: '上传中',
-    })
-    wx.request({
-      url: domain + that.data.interface,
-      method: 'POST',
-      header:{ 'content-type': 'application/json'},
-      data: data,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          content: '上传成功！',
-          showCancel: false,
-          success(res){
-            wx.hideLoading({
-            })
-            if(res.confirm){
-              wx.navigateBack({
+    if(data.animalName == "" || data.varieties == "" || data.ownerName == "" || data.imgUrl.length == 0){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.showLoading({
+        title: '上传中',
+      })
+      wx.request({
+        url: domain + that.data.interface,
+        method: 'POST',
+        header:{ 'content-type': 'application/json'},
+        data: data,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: '上传成功！',
+            showCancel: false,
+            success(res){
+              wx.hideLoading({
               })
+              if(res.confirm){
+                wx.navigateBack({
+                })
+              }
             }
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   /**
