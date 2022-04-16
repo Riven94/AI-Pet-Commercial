@@ -21,11 +21,13 @@
   word-wrap: break-word;
 }
 .picker{
+  display: flex;
+  flex-direction: row;
   width: 95%;
   margin: 20rpx auto 0rpx;
 }
-.text{
-  margin-left: 20rpx;
+.wrap{
+  display: flex;
 }
 .text::after{
   position: absolute;

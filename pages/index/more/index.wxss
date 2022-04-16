@@ -15,6 +15,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: #F3BE67;
+  margin-bottom: 30rpx;
 }
 .triangle{
   margin-top: 9rpx;

@@ -9,17 +9,16 @@ Page({
    */
   data: {
     addPhotoIcon: domain + "/media/icon/addphoto.png",
-    info:['商品名字', '商品描述', '商品状态','价格','运费','保障','服务'],
-    imageList:[],
-    shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-/*     selectDatas: ['主食', '零食', '家居','出行','热卖'], //下拉列表的数据
-    indexs: 0, //选择的下拉列 表下标,
-    Type:'主食', */
+    info: ['商品名字', '商品描述', '商品状态','价格','运费','保障','服务'],
+    imageList: [],
     freightType: ['主食', '零食', '家居','出行','热卖'],
-    typeIndex:0,
+    typeIndex: 0,
     storeId: '',
     states: ['未售完', '已售完'],
-    stateIndex: 0
+    stateIndex: 0,
+    default: [],
+    interfaces: ['/product/add','/product/update'],
+    id: -1
   },
 
   bindTypeChange(e){
@@ -34,25 +33,6 @@ Page({
     this.setData({stateIndex: index});
   },
 
-    // 点击下拉显示框
- /*  selectTaps() {
-    this.setData({
-      shows: !this.data.shows,
-    });
-  },
-  optionTaps(e) {
-    console.log(e);
-    const that = this;
-    let Indexs = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-    console.log(Indexs)
-    this.setData({
-      indexs: Indexs,
-      shows: !this.data.shows,
-      Type: that.data.selectDatas[Indexs]
-    });
-    console.log(that.data.Type)
-  },
- */  
   uploadImage:function(){
     var that=this;
     wx.chooseImage({
@@ -62,10 +42,7 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        console.log(res)
-        that.setData({
-            imageList:res.tempFilePaths
-        })
+        console.log(res);
         console.log("aaaaaaaaa",that.data.imageList)
         that.upload(tempFilePaths)
       }
@@ -110,36 +87,41 @@ Page({
   },
   
   formSubmit(e) {
-    var that=this
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    const Name=e.detail.value.input0;
-    const Detail=e.detail.value.input1;
-    const State= this.data.stateIndex;
-    const Price=e.detail.value.input3;
-    const Freight=e.detail.value.input4;
-    const Security=e.detail.value.input5;
-    const Service=e.detail.value.input6;
+    var that = this;
+    const Name = e.detail.value.input0;
+    const Detail = e.detail.value.input1;
+    const State = this.data.stateIndex;
+    const Price = e.detail.value.input3;
+    const Freight = e.detail.value.input4;
+    const Security = e.detail.value.input5;
+    const Service = e.detail.value.input6;
+    var curInterface = this.data.interfaces[0];
+    var postData = {
+      "name":Name,
+      "imgUrl":that.data.imageList,
+      "detail":Detail,
+      "type":that.data.freightType[that.data.typeIndex],
+      "state": State,
+      "creatorId": app.globalData.userId,
+      "storeId": that.data.storeId,
+      "price": Price * 1,
+      "freight": Freight * 1,
+      "security": Security,
+      "service": Service
+    }
+    if(this.data.id != -1){
+      postData.id = this.data.id;
+      curInterface = this.data.interfaces[1];
+    }
+    console.log(postData);
     wx.request({
-      url: domain+'/product/add', 
+      url: domain + curInterface, 
       method: 'POST',
-      data: {
-        "name":Name,
-        "imgUrl":that.data.imageList,
-        "detail":Detail,
-        "type":that.data.freightType[that.data.typeIndex],
-        "state":State,
-        "creatorId":app.globalData.userId,
-        "storeId": that.data.storeId,
-        "price":Price,
-        "freight":Freight,
-        "security":Security,
-        "service":Service
-      },
+      data: postData,
       header: {
         'content-type': 'application/json' // 默认值
       },
       success (res) {
-        console.log(res.data);
         wx.showModal({
           cancelColor: 'cancelColor',
           content: '上传成功！',
@@ -154,10 +136,43 @@ Page({
       }
     })
   },
+
+  getDefault(id){
+    const freightId = id;
+    const that = this;
+    wx.request({
+      url: domain + '/product/getDetail',
+      method: 'GET',
+      data:{
+        id: id
+      },
+      success(res){
+        const resData = res.data.data;
+        var temp = {
+          default: [resData.name, resData.detail, "", resData.price, resData.freight, resData.security, resData.service],
+          imageList: resData.imgUrl,
+          stateIndex: resData.state,
+          id: freightId
+        }
+        for(let i = 0;i < that.data.freightType.length;i++){
+          if(that.data.freightType[i] === resData.type){
+            temp.typeIndex = i;
+            break;
+          }
+        }
+        that.setData(temp);
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.id != undefined){
+      this.getDefault(options.id * 1);
+    }
+    console.log(options);
     this.setData({storeId: options.storeId * 1});
   },
 

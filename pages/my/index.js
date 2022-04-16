@@ -6,9 +6,6 @@ var secret = "";
 var openid = wx.getStorageSync('openid');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
       arrowIcon: domain + "/media/icon/arrow.png",
       settingIcon : domain + "/media/icon/setting.png",
@@ -240,8 +237,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(1);
-    console.log(app.globalData);
     this.getSecret();
     if(wx.getStorageSync('login')){
       this.getUserDetail(app.globalData.userId);

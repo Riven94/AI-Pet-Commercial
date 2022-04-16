@@ -78,6 +78,20 @@
           "query": "id=6",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addPet/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/addPet/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

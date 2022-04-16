@@ -81,7 +81,7 @@ App({
                 console.log(res);
                 var temp = {
                   userInfo: res.userInfo,
-                  login:true,
+                  login: true,
                   userIcon: res.userInfo.avatarUrl,
                   name: res.userInfo.nickName,
                   gender: res.userInfo.gender

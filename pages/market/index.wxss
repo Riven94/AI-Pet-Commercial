@@ -98,6 +98,7 @@ page{
   border-radius: 10rpx;
   background-color: white;
   box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(229,229,229,1);
+  position: relative;
 }
 .detailImg{
   width: 320rpx;
@@ -142,4 +143,24 @@ page{
 .else{
   width: 250rpx;
   margin: 200rpx auto;
+}
+.buttons{
+  position: absolute;
+  color: white;
+  top: 10rpx;
+  right: 10rpx;
+}
+.function{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rpx 20rpx;
+  border-radius: 20rpx;
+}
+.modify{
+  background-color: #F3BE67;
+  margin-bottom: 10rpx;
+}
+.delete{
+  background-color: red;
 }

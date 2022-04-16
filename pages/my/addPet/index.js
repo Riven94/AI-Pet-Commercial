@@ -20,6 +20,10 @@ Page({
     stateIndex: 0,
     upload: '/animals/ownerUpload',
     modify: '/animals/update',
+    spot: ['湖北省武汉市武汉理工大学南湖新校区', '湖北省武汉市武汉理工大学余家头校区','湖北省武汉市武汉理工大学鉴湖校区','湖北省武汉市武汉理工大学马房山校区东院', '湖北省武汉市武汉理工大学马房山校区西院'],
+    spotIndex: 0,
+    len: ['<40cm', '40cm-60cm', '60cm-70cm','>70cm'],
+    lenIndex: 0,
     interface: '',
     animalId: ''
   },
@@ -31,13 +35,18 @@ Page({
     if(options.info != null){
       const info = JSON.parse(options.info);
       console.log(info);
+      var spotInx = this.data.spot.indexOf(info.spot);
+      var lenInx = this.data.len.indexOf(info.size);
+      console.log(spotInx, lenInx);
       this.setData({  interface: this.data.modify,
                       animalId: info.id,
                       default: [info.name, info.varieties, info.color, info.ownerName],
                       animalIndex: info.type == '猫' ? 0 : 1,
                       lostIndex: info.isLost == '宠物' ? 0 : 1,
                       stateIndex: info.state,
-                      imageList: Array.isArray(info.imgUrl) ? info.imgUrl : [info.imgUrl]
+                      imageList: Array.isArray(info.imgUrl) ? info.imgUrl : [info.imgUrl],
+                      spotIndex: spotInx,
+                      lenIndex: lenInx
                     });
       console.log(this.data);
     }
@@ -55,19 +64,26 @@ Page({
   },
 
   bindAnimalChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({animalIndex: index});
   },
 
+  bindLenChange(e){
+    const index = e.detail.value;
+    this.setData({lenIndex: index});
+  },
+
+  bindSpotChange(e){
+    const index = e.detail.value;
+    this.setData({spotIndex: index});
+  },
+
   bindLostChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({lostIndex: index});
   },
 
   bindStateChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({stateIndex: index});
   },
@@ -134,9 +150,14 @@ Page({
       state: that.data.stateIndex,
       imgUrl: that.data.imageList,
       finderId: -1,
-      finderName: ''
+      finderName: '',
+      spot: that.data.spot[that.data.spotIndex],
+      size: that.data.len[that.data.lenIndex]
     };
     console.log(data);
+    wx.showLoading({
+      title: '上传中',
+    })
     wx.request({
       url: domain + that.data.interface,
       method: 'POST',
@@ -149,6 +170,8 @@ Page({
           content: '上传成功！',
           showCancel: false,
           success(res){
+            wx.hideLoading({
+            })
             if(res.confirm){
               wx.navigateBack({
               })

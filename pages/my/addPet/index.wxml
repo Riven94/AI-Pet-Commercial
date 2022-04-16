@@ -7,17 +7,37 @@
       <input class="input" name='{{"input"+index}}' value="{{default[index]}}"/>
     </view>
     <picker class="picker" bindchange="bindAnimalChange" value="{{animalIndex}}" range="{{animalType}}">
-        <view >宠物类型:<text class="text" space='true' decode="true">{{animalType[animalIndex]}}</text></view>
+      <view class="wrap">
+        <view class="left">宠物类型</view>
+        <text class="text" space='true' decode="true">{{animalType[animalIndex]}}</text>
+      </view>
     </picker>
    
     <picker class="picker" bindchange="bindLostChange" value="{{lostIndex}}" range="{{showLostType}}">
-        <view >是否流浪:<text class="text" space='true' decode="true">{{showLostType[lostIndex]}}</text></view>
+      <view class="wrap">
+        <view class="left">是否流浪</view>
+        <text class="text" space='true' decode="true">{{showLostType[lostIndex]}}</text>
+      </view>
     </picker>
    
     <picker class="picker" bindchange="bindStateChange" value="{{state[stateIndex]}}" range="{{state}}">
-        <view >是否丢失:<text class="text" space='true' decode="true">{{state[stateIndex]}}</text></view>
+      <view class="wrap">
+        <view class="left">是否丢失</view>
+        <text class="text" space='true' decode="true">{{state[stateIndex]}}</text>
+      </view>
     </picker>
-
+    <picker class="picker" bindchange="bindSpotChange" value="{{spot[spotIndex]}}" range="{{spot}}">
+      <view class="wrap">
+        <view class="left">位置</view>
+        <text class="text" space='true' decode="true">{{spot[spotIndex]}}</text>
+      </view>
+    </picker>
+    <picker class="picker" bindchange="bindLenChange" value="{{len[lenIndex]}}" range="{{len}}">
+      <view class="wrap">
+        <view class="left">体长</view>
+        <text class="text" space='true' decode="true">{{len[lenIndex]}}</text>
+      </view>
+    </picker>
     <template is="addImage" data="{{images: imageList, addPhotoIcon}}"></template>
     <button class="save" style="background-color: #F3BE67; position: relative; left: 1rpx; top: 58rpx" type="primary" formType="submit">保存</button>
   </form>

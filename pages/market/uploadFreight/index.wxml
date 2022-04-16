@@ -5,7 +5,7 @@
   <view wx:for="{{info}}">
     <view wx:if="{{index != 2}}" class="section" >
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" name='{{"input"+index}}' value="{{default[index]}}"/>
     </view>
     <view wx:else class="section">
       <view class="left">{{item}}</view>
