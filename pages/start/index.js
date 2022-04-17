@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    icon: domain + '/media/icon/爪印.png'
+    icon: domain + '/media/icon/爪印.png',
+    mainicon: domain + '/media/icon/爪印2.png',
+    text: ['AI识别智能识宠', '流浪宠物信息收集', '爱宠星人互动社区']
   },
 
   /**
@@ -16,16 +18,16 @@ Page({
    */
   onLoad(options) {
     timer = setTimeout(()=>{
-      wx.navigateTo({
-        url: '/pages/login/index',
+      wx.switchTab({
+        url: '/pages/index/index',
       });
     },3000)
   },
 
   join(e){
     clearTimeout(timer);
-    wx.navigateTo({
-      url: '/pages/login/index',
+    wx.switchTab({
+      url: '/pages/index/index',
     });
   },
 

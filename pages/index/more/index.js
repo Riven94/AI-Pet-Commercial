@@ -163,7 +163,7 @@ Page({
   preview(e){
     const url = e.currentTarget.dataset.url;
     wx.previewImage({
-      urls: [url],
+      urls: [url[0]],
     })
   },
 

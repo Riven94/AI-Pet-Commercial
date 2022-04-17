@@ -17,10 +17,8 @@ page{
   height: 1150rpx;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   border-radius: 0 0 50rpx 50rpx;
-  z-index: 2;
   background-color: white;
 }
 .text{
@@ -51,4 +49,23 @@ page{
   background-color: white;
   padding: 5rpx 15rpx;
   border-radius: 30rpx;
+}
+.main{
+  position: relative;
+
+}
+.main-icon{
+  width: 500rpx;
+  height: 500rpx;
+}
+.texts{
+  font-size: 35rpx;
+  position: absolute;
+  top: 240rpx;
+  right: 200rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+.main-text{
+  margin-top: 8rpx;
 }

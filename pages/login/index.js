@@ -1,13 +1,11 @@
 // pages/login/index.js
-const app = getApp();
-const domain = app.globalData.domainName;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    icon: domain + '/media/icon/爪印.png'
+
   },
 
   /**
