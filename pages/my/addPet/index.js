@@ -103,6 +103,26 @@ Page({
     })
   },
 
+  deleteImages: function(e){
+    const index = e.currentTarget.dataset.index;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '确认删除该图片？',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(index);
+        }
+      }
+    })
+  },
+
+  onRealDelete(index){
+    var newImageList = this.data.imageList;
+    newImageList.splice(index, 1);
+    this.setData({ imageList: newImageList});
+  },
+
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;

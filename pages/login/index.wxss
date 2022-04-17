@@ -1,0 +1,19 @@
+/* pages/login/index.wxss */
+.iconWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+  width: 320rpx;
+  height: 320rpx;
+}
+.wrap{
+  width: 60%;
+  margin: 0 auto 30rpx;
+  display: flex;
+}
+.left{
+  width: 100rpx;
+}
+

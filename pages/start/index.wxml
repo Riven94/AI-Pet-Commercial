@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="top">
+    <view class="wrap">
+      <view class="icon">
+        <image class="iconImg" src="{{icon}}"></image>
+        <view class="text">找猫找狗</view>
+      </view>
+      <view class="desc">一站式服务</view>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="join" bindtap="join">立即加入</view>
+  </view>
+</view>

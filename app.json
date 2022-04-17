@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/start/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/camera/index",
@@ -37,7 +38,8 @@
     "pages/market/addservice/index",
     "pages/my/myServiceShop/index",
     "pages/my/addServiceShop/index",
-    "pages/index/searchinput/index"
+    "pages/index/searchinput/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

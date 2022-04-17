@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="iconWrap">
+    <image class="icon" src="{{icon}}"></image>
+  </view>
+  <button style="background-color: #F3BE67;color: white;">微信登录</button>
+</view>
