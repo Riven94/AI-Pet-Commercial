@@ -73,6 +73,13 @@ Page({
               },
               success(res){
                 res.eventChannel.emit('sendData', {data: data});
+              },
+              fail(error){
+                wx.showModal({
+                  cancelColor: 'cancelColor',
+                  content: '图片上传失败！请重新选择图片！',
+                  showCancel: false
+                })
               }
             })
             wx.hideLoading({
