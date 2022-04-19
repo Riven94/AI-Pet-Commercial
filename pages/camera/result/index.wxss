@@ -30,7 +30,6 @@ page{
   margin-right: 30rpx;
   border-radius: 50rpx;
 }
-
 .topTabSwiper {
   zoom: 1;
   display: flex;
@@ -41,16 +40,13 @@ page{
   clear: both;
   display: block;
 }
-
 .tabBorer {
   border-bottom: 2px solid rgb(243, 237, 237);
   color: orange;
 }
-
 .swiper {
   width: 100%;
 }
-
 .swiper_con {
   text-align: center;
   width: 100%;

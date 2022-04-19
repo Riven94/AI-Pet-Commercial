@@ -5,12 +5,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .top{
   width: 100%;
   display: flex;
   /* background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%); */
   background: #F3BE67;
+  position: fixed;
+}
+.tab{
+  position: fixed;
 }
 .functions{
   display: flex;
