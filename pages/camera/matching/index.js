@@ -18,13 +18,38 @@ Page({
     const that = this;
     eventChannel.on('sendData', function(data){
       let resData = data.data.data;
-      console.log(data);
-      let img = JSON.parse(data.data.data.imgUrl);
-      resData.imgUrl = img;
-      that.setData({animals: [resData]});
+      console.log(resData);
+      that.getOwner(resData);
+      that.setData({animals: resData}, ()=>{
+        console.log(that.data.animals);
+      });
     })
-    console.log(this.data.animals);
   },
+
+  getOwner(data){
+    var owners = [];
+    data.forEach( (item) =>{
+      wx.request({
+        url: domain + '/user/getUserDetail',
+        data:{
+          userId: item.ownerId
+        },
+        method: 'GET',
+        success(res){
+          owners.push(res.data.data);
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    });
+    setTimeout(()=>{
+      this.setData({owners: owners}, ()=>{
+        console.log(this.data.owners);
+      });
+    }, 0);
+  },
+
 
   //获取当前滑块的index
   bindchange: function(e) {
@@ -47,10 +72,20 @@ Page({
 
   toDetail(e){
     console.log(e);
-    const animalId = e.currentTarget.dataset.id;
-    const ownerId = e.currentTarget.dataset.owner;
+    const that = this;
+    const dataset = e.currentTarget.dataset
+    const animalId = dataset.id;
+    const ownerId = dataset.owner;
+    const index = dataset.index;
     wx.navigateTo({
-      url: '../result/index?id=' + animalId + "&ownerId=" + ownerId,
+      url: '../result/index?index=' + index,
+      events:{
+        sendData: function(data){
+        }
+      },
+      success(res){
+        res.eventChannel.emit('sendData', {animal: that.data.animals, owner: that.data.owners});
+      }
     })
   },
 })

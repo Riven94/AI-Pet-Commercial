@@ -5,37 +5,39 @@ page{
   background-color: rgb(243, 237, 237);
 }
 .container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .topone{
   width: 100%;
   display: flex;
   background-color: rgb(245, 191, 122);
+  height: 100rpx;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .tab {
   float: left;
+  flex: 1 1 0.2;
   text-align: center;
   align-items: center;
-  padding: 15rpx 0;
-  display: block;
+  padding: 5rpx 10rpx;
   border:3px solid white;
-  border-radius: 400rpx;
   background: white;
-  height: 30rpx;
-  margin: 20rpx 40rpx;
+  margin-right: 30rpx;
+  border-radius: 50rpx;
 }
 
 .topTabSwiper {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   zoom: 1;
+  display: flex;
+  flex-direction: row;
 }
-
 .topTabSwiper:after {
   content: "";
   clear: both;

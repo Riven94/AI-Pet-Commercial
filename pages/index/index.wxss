@@ -40,15 +40,21 @@
   width: 670rpx;
   height: 30rpx;
 }
+.swiper-wrap{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
 .tabs{
-  margin: 15rpx  auto;
+  margin: 15rpx auto;
   width: 90%;
   display: flex;
   justify-content: space-between;
 }
 .clicked{
   color: rgb(219, 122, 25);
-
 }
 .content{
   width: 95%;
@@ -66,10 +72,10 @@
   margin-bottom: 20rpx;
 }
 .left{
-  width: 45%;
+  width: 48%;
 }
 .right{
-  width: 45%;
+  width: 48%;
 }
 .img{
   width: 100%;

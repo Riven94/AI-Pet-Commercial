@@ -62,10 +62,9 @@ Page({
             creatorId: app.globalData.userId
           },
           success (res){
+            console.log(res);
             const data = JSON.parse(res.data);
             console.log(JSON.parse(res.data));
-            console.log(res);
-            console.log('上传成功');
             wx.navigateTo({
               url: './matching/index',
               events:{
