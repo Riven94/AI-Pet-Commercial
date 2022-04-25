@@ -3,9 +3,14 @@
       <view class="title">商品详情</view>
       <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
   </view>
-  <view class="images">
+  <!-- <view class="images">
     <image class="img" src="{{info.imgUrl}}" mode="aspectFill"></image>
-  </view>
+  </view> -->
+  <swiper class="images">
+    <swiper-item class="img" wx:for="{{info.imgUrl}}" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
+      <image class="img" src="{{item}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
   <view class="price-general">
     <view class="price">￥{{info.price}}</view>
     <view class="bottom-wrap">

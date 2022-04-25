@@ -50,8 +50,10 @@ Page({
     console.log(data);
     wx.showToast({
         icon: "loading",
-        title: "正在上传"
+        title: "正在上传",
+        duration: 10000
     }),
+    console.log(new Date().toLocaleString());
     data.forEach((item)=>{
       wx.uploadFile({
         filePath: item,
@@ -67,6 +69,8 @@ Page({
           imgUrls.push(imgUrl[0]);
           console.log(imgUrls);
           that.setData({imageList: imgUrls});
+          console.log(new Date().toLocaleString());
+          wx.hideToast();
         },
         fail(e) {
           wx.showModal({
@@ -79,7 +83,7 @@ Page({
     })
   },
 
-  submit(){
+  async submit(){
     const userId = app.globalData.userId;
     const that= this;
     const temp = {
@@ -90,7 +94,7 @@ Page({
     };
     var valid = true;
     if(temp.comment == '' || temp.imgUrl.length == 0){
-      valid = false;
+      //valid = false;
     }
     if(this.data.edit){
       temp.id = this.data.id;
@@ -103,30 +107,40 @@ Page({
       })
     }
     else{
-      wx.request({
-        url: domain + that.data.inter,
-        method: 'POST',
-        data: temp,
-        success(res){
-          console.log(res);
-          wx.showModal({
-            content:'上传成功！',
-            showCancel: false,
-            success(){
-              wx.navigateBack({
-              })
-            }
-          })
-        },
-        fail(error){
-          console.log(error);
-          wx.showModal({
-            content:'上传失败！',
-            showCancel: false,
-          })
-        }
-      })
+      app.checkContent(4,temp.comment, "")
+      .then( res => that.submitData(temp))
+      .catch( error => wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请检查内容是否正确！'
+      }));
     }
+  },
+
+  async submitData(data){
+    console.log(data);
+    wx.request({
+      url: domain + this.data.inter,
+      method: 'POST',
+      data: data,
+      success(res){
+        console.log(res);
+        wx.showModal({
+          content:'上传成功！',
+          showCancel: false,
+          success(){
+            wx.navigateBack({
+            })
+          }
+        })
+      },
+      fail(error){
+        console.log(error);
+        wx.showModal({
+          content:'上传失败！',
+          showCancel: false,
+        })
+      }
+    })
   },
 
   /**
@@ -140,6 +154,7 @@ Page({
       this.setData({  edit: true,
                       Content: detail.comment,
                       imageList: Array.isArray(detail.imgUrl) ? detail.imgUrl : [detail.imgUrl],
+                      id: detail.id,
                       inter: this.data.modify});
       this.data.pulishType.forEach((item, index) =>{
         if(item == detail.type){

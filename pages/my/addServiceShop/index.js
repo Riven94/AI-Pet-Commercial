@@ -47,7 +47,7 @@ Page({
     var that=this;
     var imageList = that.data.imageList;
     wx.chooseImage({
-      count: 5,
+      count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success (res) {
@@ -136,6 +136,13 @@ Page({
       wx.showModal({
         cancelColor: 'cancelColor',
         content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else if(data.imgUrl.length > 1){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '图片只能上传一张！',
         showCancel: false
       })
     }
