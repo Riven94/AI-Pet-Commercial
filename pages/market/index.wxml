@@ -8,7 +8,7 @@
         </view>
         <image class="cart" src="{{cartIcon}}" bindtap="toCart"></image>
       </view>
-        <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(35, 126, 245)">
+        <swiper class="activities" autoplay circular indicator-dots indicator-active-color="rgb(240, 169, 56)">
           <swiper-item class="swiper-item" wx:for="{{activityNums}}" wx:for-index="index">
             <image class="activityImg" mode="aspectFit" src="{{activityImg[index]}}"></image>
           </swiper-item>

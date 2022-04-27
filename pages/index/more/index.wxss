@@ -66,6 +66,13 @@
   height: 400rpx;
 }
 .animalImg{
+  width: 500rpx;
+  height: 500rpx;
+  margin: 0 auto;
+}
+.animalWrap{
+  width: 500rpx;
+  height: 500rpx;
   margin: 0 auto;
 }
 .detail{

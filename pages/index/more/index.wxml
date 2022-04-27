@@ -6,7 +6,11 @@
     <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
     <view class="edit" bindtap="toEdit" wx:if="{{isOwner}}">修改</view>
   </view>
-  <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill" data-url="{{detail.imgUrl}}" bindtap="preview"></image>
+  <swiper class="animalWrap" autoplay circular indicator-dots indicator-active-color="rgb(240, 169, 56)">
+    <swiper-item class="animalImg" wx:for="{{detail.imgUrl}}">
+      <image src="{{item}}"  mode="aspectFill" data-url="{{item}}" bindtap="preview"></image>
+    </swiper-item>
+  </swiper>
   <view class="content">{{detail.comment}}</view>
   <!-- <template is="animalcard" data="{{animalitem}}"></template>
   <template is="ownercard" data="{{owneritem}}"></template> -->
