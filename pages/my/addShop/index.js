@@ -48,16 +48,25 @@ Page({
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success (res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths 
-        that.upload(tempFilePaths)
-      }
-    })
+    if(imageList.length == 1){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '仅可上传一张图片！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success (res) {
+          // tempFilePath可以作为img标签的src属性显示图片
+          const tempFilePaths = res.tempFilePaths 
+          that.upload(tempFilePaths)
+        }
+      })
+    }
   },
 
   upload(data) { // 上传图片

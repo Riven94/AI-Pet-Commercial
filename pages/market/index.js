@@ -64,7 +64,8 @@ Page({
         },
         success(res){
           console.log(res);
-          const resData = res.data.error;
+          var resData = res.data.error;
+          resData = resData.reverse();
           that.setData({
             freights: resData
           })

@@ -208,13 +208,13 @@ Page({
         data: data,
         success(res){
           console.log(res);
+          wx.hideLoading({
+          })
           wx.showModal({
             cancelColor: 'cancelColor',
             content: '上传成功！',
             showCancel: false,
             success(res){
-              wx.hideLoading({
-              })
               if(res.confirm){
                 wx.navigateBack({
                 })

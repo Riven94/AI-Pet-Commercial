@@ -5,7 +5,7 @@
         匹配结果
     </view>
     <view class="result">
-        <view class="container1" wx:for="{{animals}}" wx:for-item="animalitem" data-id="{{animalitem.id}}" data-owner="{{animalitem.ownerId}}" data-index="{{index}}" bindtap="toDetail">
+        <view class="container1" wx:for="{{animals}}" wx:for-item="animalitem" data-id="{{animalitem.id}}" data-owner="{{animalitem.ownerId}}" data-index="{{index}}" bindtap="toDetail" wx:if="{{index < 2 }}">
             <template is="matchcard" data="{{animalitem}}"></template>
         </view>
     </view>

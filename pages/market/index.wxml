@@ -23,7 +23,7 @@
       </view>
     <view class="serviceDetail" wx:if="{{freights.length > 0}}">
       <view class="detailwrap" wx:for="{{freights}}" bindtap="toShop" data-id="{{item.id}}">
-      <view class="buttons" wx:if="{{item.creatorId == userId}}">
+      <view class="buttons" wx:if="{{item.creatorId == userId && currentIndex != 3}}">
         <view class="modify function" data-id="{{item.id}}" data-storeid="{{item.storeId}}" catchtap="modifyFreight">管理</view>
         <view class="delete function" data-id="{{item.id}}" data-storeid="{{item.storeId}}" catchtap="delete">删除</view>
       </view>
