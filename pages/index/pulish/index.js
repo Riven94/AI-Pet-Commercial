@@ -9,7 +9,7 @@ Page({
   data: {
     addPhotoIcon: domain + "/media/icon/addphoto.png",
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    pulishType: ['流浪猫狗','寻找宠物', '爱宠配对','萌宠动态'],
+    pulishType: ['流浪猫狗','寻找宠物', '宠物领养','萌宠动态'],
     typeIndexs: 0,
     imageList: [],
     Content: '',
