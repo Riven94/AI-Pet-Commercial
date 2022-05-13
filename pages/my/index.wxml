@@ -30,7 +30,7 @@
     </view>
     <view class="else" wx:else>快去发布你的第一个动态吧！</view>
   </view>
-  <view class="myorder">
+  <!-- <view class="myorder">
     <view class="publishtop">
       <view class="orderlabel">|</view>
       <view class="text">我的订单</view>
@@ -57,7 +57,7 @@
         <view>快去商城购买小零食吧！</view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class="myArticle">
     <view class="publishtop">
       <view class="orderlabel">|</view>
@@ -72,7 +72,8 @@
     </view>
     <view wx:else class="else">快去发布你的第一篇文章吧！</view>
   </view>
-  <view style="display:flex;justify-content: space-around;margin:20rpx 0">
-  <button class="button" bindtap="toShop" style=" width: 250rpx;">我的商铺</button>
-  <button class="button" bindtap="toServiceShop" style=" width: 250rpx;">我的服务店铺</button></view>
+  <!-- <view style="display:flex;justify-content: space-around;margin:20rpx 0">
+    <button class="button" bindtap="toShop" style=" width: 250rpx;">我的商铺</button>
+    <button class="button" bindtap="toServiceShop" style=" width: 250rpx;">我的服务店铺</button>
+  </view> -->
 </view>

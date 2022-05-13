@@ -59,12 +59,6 @@
         "text": "社区"
       },
       {
-        "iconPath": "icons/market.png",
-        "selectedIconPath": "icons/market-selected.png",
-        "pagePath": "pages/market/index",
-        "text": "商城"
-      },
-      {
         "iconPath": "icons/camera.png",
         "selectedIconPath": "icons/camera-selected.png",
         "pagePath": "pages/camera/index",

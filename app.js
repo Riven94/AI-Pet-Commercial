@@ -205,3 +205,12 @@ App({
     })
   }
 })
+/*
+
+      {
+        "iconPath": "icons/market.png",
+        "selectedIconPath": "icons/market-selected.png",
+        "pagePath": "pages/market/index",
+        "text": "商城"
+      },
+*/
