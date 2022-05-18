@@ -7,6 +7,13 @@
   display: flex;
   flex-direction: column;
 }
+.title{
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-80%,-100%);
+}
 .bluetop{
   height: 100rpx;
   width: 100%;
@@ -17,6 +24,7 @@
   justify-content: space-between;
   background-color: #F3BE67;
   margin-bottom: 30rpx;
+  position: relative;
 }
 .triangle{
   margin-top: 9rpx;
@@ -66,13 +74,13 @@
   height: 400rpx;
 }
 .animalImg{
-  width: 500rpx;
-  height: 460rpx;
+  width: 600rpx;
+  height: 500rpx;
   margin: 0 auto;
 }
 .animalWrap{
-  width: 500rpx;
-  height: 460rpx;
+  width: 600rpx;
+  height: 500rpx;
   margin: 0 auto;
 }
 .detail{
@@ -83,5 +91,8 @@
   margin: 30rpx auto;
 }
 .content{
+  width: 90%;
+  font-size: 30rpx;
+  text-align: center;
   margin: 10rpx auto;
 }
