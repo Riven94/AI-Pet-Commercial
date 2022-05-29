@@ -58,7 +58,7 @@ Page({
       wx.uploadFile({
         filePath: item,
         //上传图片协议接口
-        url: domain+'/images/uploadFile/article',
+        url: domain+'/images/uploadFile/comment',
         name:'img',
         formData: {
           creatorId: userId
