@@ -8,7 +8,7 @@
   module.exports.split = split;
 </wxs>
 <!-- 调用 wxs 里面的 getMax 函数，参数为 page.js 里面的 array -->
-<view bindtap="defaultaddress" data-address="{{address}}" >
+<view bindtap="defaultaddress" wx:if="{{addres.length > 0}}" data-address="{{address}}" >
   <view wx:for="{{addres}}" wx:for-item="address" >
     <view class="addresswrap">
       <view class="iconwrap">
@@ -28,4 +28,5 @@
     </view>
   </view>
 </view>
-<view class="addArrdess" bindtap="toAddaddress">添加地址</view>
+<view wx:else class="else">暂时没有地址，请添加~</view>
+<view class="addArrdess {{addres.length <= 0 ? 'center' : ''}}" bindtap="toAddaddress">添加地址</view>

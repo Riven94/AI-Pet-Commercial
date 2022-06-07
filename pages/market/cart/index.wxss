@@ -40,13 +40,6 @@ page{
   align-items: center;
   margin-top: 15rpx;
 }
-.pay{
-  background-color: #EA5352;
-  color: white;
-  border-radius: 50rpx;
-  position: absolute;
-  right: 20rpx;
-}
 .label{
   margin-top: 30rpx;
   background-color: white;
@@ -74,9 +67,8 @@ checkbox .wx-checkbox-input{
   border-radius: 50%;
 }
 .quantity{
-  width: 40rpx;
-  height: 40rpx;
   border: 2rpx solid black;
+  padding: 3rpx;
   border-radius: 10rpx;
 }
 .middle{
@@ -87,19 +79,42 @@ checkbox .wx-checkbox-input{
   justify-content: space-around;
 }
 .name{
-  display: flex;
-  height: 35rpx;
+  width: 160rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  margin-bottom: 10rpx;
 }
 .price{
   color: #EA5352;
 }
 .delete{
   color: white;
-  margin-right: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 170rpx;
   margin-left: 40rpx;
-  background-color: #EA5352;
-  padding: 5rpx 10rpx;
-  border-radius: 10rpx;
+  background-color: #F3BE67;
+  border-radius: 40rpx;
+  height: 60rpx;
+  width: 130rpx;
+  font-size: 31rpx;
+}
+.pay{
+  background-color: #F3BE67;
+  color: white;
+  border-radius: 50rpx;
+  position: absolute;
+  right: 20rpx;
+  width: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
 }
 .count{
   margin-top: 80rpx;

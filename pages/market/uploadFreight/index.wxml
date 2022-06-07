@@ -5,7 +5,7 @@
   <view wx:for="{{info}}">
     <view wx:if="{{index != 2}}" class="section" >
       <view class="left">{{item}}</view>
-      <input class="input" name='{{"input"+index}}' />
+      <input class="input" name='{{"input"+index}}' value="{{default[index]}}"/>
     </view>
     <view wx:else class="section">
       <view class="left">{{item}}</view>
@@ -20,21 +20,9 @@
   <view  style="margin-left: 34rpx;" wx:for="{{imageList}}">
       <image mode="widthFix" style="width:350rpx" src="{{item}}"></image>
   </view>
-  <!-- <view class='fenlei'>
-
-  <text >类型:</text>
-  <view class='select_box'>
-    <view class='select' catchtap='selectTaps'>
-      <text class='select_text'>{{selectDatas[indexs]}}</text>
-    </view>
-    <view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.length*60):0}}rpx;'>
-      <text class='option' style='{{indexs==selectDatas.length-1&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
-    </view>
-    </view>
-  </view> -->
   <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{freightType}}" style="margin-left: 32rpx;">
-        <view >类型:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{freightType[typeIndex]}}</text></view>
-    </picker>
+    <view >类型:<text class="text" space='true' decode="true">&nbsp;&nbsp;&nbsp;&nbsp;{{freightType[typeIndex]}}</text></view>
+  </picker>
   <!-- <view class="tip">注：商品状态为默认为0：未售完；1：已售完或暂停售</view> -->
   <button class="save" style="background-color: rgb(240,169,56);position: relative;left: 0.5px;top: 32px;border-radius: 20rpx;" type="primary" formType="submit">保存</button>
 </form>

@@ -38,6 +38,13 @@ Page({
     this.setData({ levelIndex: e.detail.value * 1});
   },
 
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
+    })
+  },
+
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
@@ -48,13 +55,6 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
     })
@@ -63,7 +63,7 @@ Page({
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
         title: "正在上传"
@@ -113,32 +113,46 @@ Page({
       type: value.input3,
       place: value.input4
     }
-    if(that.data.modify){
-      inter = '/product/storeUpdate';
-      data.id = this.data.shopId;
-      content = '修改成功!';
-    }
-    wx.request({
-      url: domain + inter,
-      method: 'POST',
-      data: data,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          content: content,
-          showCancel: false,
-          success(res){
-            wx.navigateBack({
-            })
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
+    var valid = true;
+    for(let index in data){
+      if(data[index] == '' || data[index].length == 0){
+        valid = false;
       }
-    })
-    
+    }
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      if(that.data.modify){
+        inter = '/product/storeUpdate';
+        data.id = this.data.shopId;
+        content = '修改成功!';
+      }
+      wx.request({
+        url: domain + inter,
+        method: 'POST',
+        data: data,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: content,
+            showCancel: false,
+            success(res){
+              wx.navigateBack({
+              })
+            }
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   /**

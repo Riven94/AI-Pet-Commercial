@@ -25,14 +25,21 @@ page{
   width: 95%;
   display: block;
   padding: 5px;
+  border-radius: 50%;
+}
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
 }
 .else{
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   width: 200rpx;
   margin: 30rpx auto;
   background-color: rgb(240,169,56);
   border-radius: 20rpx;
-  padding: 0 10rpx;
+  padding: 8rpx 15rpx;
 }

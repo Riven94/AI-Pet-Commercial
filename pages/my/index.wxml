@@ -17,14 +17,6 @@
       <view class="functionName">{{item.text}}</view>
     </view>
   </view>
-
-<!--   <view class="line"></view> -->
-  <!-- <view class="functions"> <view class="function" wx:for="{{marketfunctions}}">
-      <image class="functionIcon" src="{{item.icon}}"></image>
-      <view class="functionName">{{item.text}}</view>
-    </view>
-    </view> -->
- <!-- <view class="line"></view> -->
   <view class="publish">
     <view class="publishtop">
       <view class="label">|</view>

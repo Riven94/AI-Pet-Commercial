@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="top">
+    <view class="wrap">
+      <view class="icon">
+        <image class="iconImg" src="{{icon}}"></image>
+        <view class="text">识宠友易</view>
+      </view>
+      <view class="desc">一站式服务</view>
+    </view>
+    <view class="main">
+      <image class="main-icon" src="{{mainicon}}"></image>
+      <view class="texts">
+        <view class="main-text" wx:for="{{text}}" wx:key="item">{{item}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <!-- <view class="join" bindtap="join">立即加入</view> -->
+  </view>
+</view>

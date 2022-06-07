@@ -2,13 +2,10 @@
 const app = getApp();
 const domain = app.globalData.domainName;
 const appid = wx.getAccountInfoSync().miniProgram.appId;
-const secret = "a8d757f07ae6785accae4916dd5e7d82";
+var secret = "";
 var openid = wx.getStorageSync('openid');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
       arrowIcon: domain + "/media/icon/arrow.png",
       settingIcon : domain + "/media/icon/setting.png",
@@ -31,7 +28,8 @@ Page({
 
   getUser(e){
     const that = this;
-    const isLogin = wx.getStorageSync('login')
+    const isLogin = wx.getStorageSync('login');
+    this.getSecret();
     if(!isLogin){
       wx.getUserProfile({
         desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
@@ -43,6 +41,9 @@ Page({
             name: res.userInfo.nickName,
             gender: res.userInfo.gender
           });
+          wx.showLoading({
+            title: "登录中..."
+          })
           wx.login({
             success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -69,6 +70,8 @@ Page({
                     wx.setStorageSync('login', true);
                     console.log(res);
                     that.login(res.data.openid);
+                    wx.hideLoading({
+                    })
                   }
                 })
               } else {
@@ -123,6 +126,20 @@ Page({
     })
   },
 
+  getSecret: function(){
+    wx.request({
+      url: domain + '/admin/getSecret',
+      method: 'GET',
+      data:{
+        appid: appid
+      },
+      success(res){
+        console.log(res);
+        secret = res.data.data;
+      }
+    })
+  },
+
   toSetting: function(e){
     const id = app.globalData.userId;
     const isLogin = wx.getStorageSync('login');
@@ -142,7 +159,8 @@ Page({
 
   toShop: function(e){
     const id = app.globalData.userId;
-    if(id == undefined){
+    const isLogin = wx.getStorageSync('login');
+    if(!isLogin){
       wx.showModal({
         content:'请先登录！',
         showCancel: false
@@ -154,6 +172,7 @@ Page({
       })
     }
   },
+  
   toServiceShop:function(e){
     const id = app.globalData.userId;
     const isLogin = wx.getStorageSync('login');
@@ -218,8 +237,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(1);
-    console.log(app.globalData)
+    this.getSecret();
     if(wx.getStorageSync('login')){
       this.getUserDetail(app.globalData.userId);
     }

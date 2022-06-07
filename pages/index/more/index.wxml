@@ -6,7 +6,7 @@
     <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
     <view class="edit" bindtap="toEdit" wx:if="{{isOwner}}">修改</view>
   </view>
-  <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill"></image>
+  <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill" data-url="{{detail.imgUrl}}" bindtap="preview"></image>
   <view class="content">{{detail.comment}}</view>
   <!-- <template is="animalcard" data="{{animalitem}}"></template>
   <template is="ownercard" data="{{owneritem}}"></template> -->

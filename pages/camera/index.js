@@ -52,7 +52,7 @@ Page({
         //将选择到的图片缓存到本地storage中
         wx.setStorageSync('tempFilePaths', tempFilePaths);
         wx.showLoading({
-          title: "加载中..."
+          title: "识别中..."
         })
         wx.uploadFile({
           url: domain + '/images/uploadFile/petIdentify', 
@@ -62,10 +62,9 @@ Page({
             creatorId: app.globalData.userId
           },
           success (res){
+            console.log(res);
             const data = JSON.parse(res.data);
             console.log(JSON.parse(res.data));
-            console.log(res);
-            console.log('上传成功');
             wx.navigateTo({
               url: './matching/index',
               events:{
@@ -74,6 +73,13 @@ Page({
               },
               success(res){
                 res.eventChannel.emit('sendData', {data: data});
+              },
+              fail(error){
+                wx.showModal({
+                  cancelColor: 'cancelColor',
+                  content: '图片上传失败！请重新选择图片！',
+                  showCancel: false
+                })
               }
             })
             wx.hideLoading({

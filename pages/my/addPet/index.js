@@ -14,11 +14,16 @@ Page({
     animalType: ['猫','狗'],
     animalIndex: 0,
     lostType: ['宠物','流浪猫狗'],
+    showLostType: ['否', '是'],
     lostIndex: 0,
     state: ['未丢失','丢失','流浪猫狗'],
     stateIndex: 0,
     upload: '/animals/ownerUpload',
     modify: '/animals/update',
+    spot: ['湖北省武汉市武汉理工大学南湖新校区', '湖北省武汉市武汉理工大学余家头校区','湖北省武汉市武汉理工大学鉴湖校区','湖北省武汉市武汉理工大学马房山校区东院', '湖北省武汉市武汉理工大学马房山校区西院'],
+    spotIndex: 0,
+    len: ['<40cm', '40cm-60cm', '60cm-70cm','>70cm'],
+    lenIndex: 0,
     interface: '',
     animalId: ''
   },
@@ -30,13 +35,18 @@ Page({
     if(options.info != null){
       const info = JSON.parse(options.info);
       console.log(info);
+      var spotInx = this.data.spot.indexOf(info.spot);
+      var lenInx = this.data.len.indexOf(info.size);
+      console.log(spotInx, lenInx);
       this.setData({  interface: this.data.modify,
                       animalId: info.id,
                       default: [info.name, info.varieties, info.color, info.ownerName],
                       animalIndex: info.type == '猫' ? 0 : 1,
                       lostIndex: info.isLost == '宠物' ? 0 : 1,
                       stateIndex: info.state,
-                      imageList: Array.isArray(info.imgUrl) ? info.imgUrl : [info.imgUrl]
+                      imageList: Array.isArray(info.imgUrl) ? info.imgUrl : [info.imgUrl],
+                      spotIndex: spotInx,
+                      lenIndex: lenInx
                     });
       console.log(this.data);
     }
@@ -46,20 +56,34 @@ Page({
     console.log(domain + this.data.interface)
   },
 
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
+    })
+  },
+
   bindAnimalChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({animalIndex: index});
   },
 
+  bindLenChange(e){
+    const index = e.detail.value;
+    this.setData({lenIndex: index});
+  },
+
+  bindSpotChange(e){
+    const index = e.detail.value;
+    this.setData({spotIndex: index});
+  },
+
   bindLostChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({lostIndex: index});
   },
 
   bindStateChange(e){
-    console.log(e.detail.value);
     const index = e.detail.value;
     this.setData({stateIndex: index});
   },
@@ -74,52 +98,59 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
     })
   },
 
+  deleteImages: function(e){
+    const index = e.currentTarget.dataset.index;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '确认删除该图片？',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(index);
+        }
+      }
+    })
+  },
+
+  onRealDelete(index){
+    var newImageList = this.data.imageList;
+    newImageList.splice(index, 1);
+    this.setData({ imageList: newImageList});
+  },
+
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
         title: "正在上传"
     }),
     data.forEach((item)=>{
       wx.uploadFile({
-        filePath: item,
-        //上传图片协议接口
-        url: domain+'/images/uploadFile/store',
-        name:'img',
-        formData: {
-          creatorId: userId
-        },
-        success(res) {
-          let imgUrl = JSON.parse(res.data).imgUrl;
-          imgUrl.forEach((item)=>{
-            imgUrls.push(item);
-          })
-          //console.log(imgUrls);
-          that.setData({imageList: imgUrls});
-        },
-        fail(e) {
-          wx.showModal({
-              title: '提示',
-              content: '上传失败',
-              showCancel: false
-          })
-        },
-      })
+      filePath: item,
+      name: 'photo',
+      url: domain + '/images/uploadFile/animal',
+      header: {'content-type': 'multipart/form-data'},
+      formData: {
+        creatorId: userId
+      },
+      success(res){
+        console.log(res);
+        const tempUrls = JSON.parse(res.data).imgUrl;
+        imgUrls.push(tempUrls[0]);
+        that.setData({imageList: imgUrls});
+      },
+      fail(error){
+        console.log(error)
+      }
     })
+  })
   },
 
   formSubmit(e){
@@ -139,32 +170,47 @@ Page({
       state: that.data.stateIndex,
       imgUrl: that.data.imageList,
       finderId: -1,
-      finderName: ''
+      finderName: '',
+      spot: that.data.spot[that.data.spotIndex],
+      size: that.data.len[that.data.lenIndex]
     };
-    console.log(data);
-    wx.request({
-      url: domain + that.data.interface,
-      method: 'POST',
-      header:{ 'content-type': 'application/json'},
-      data: data,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          content: '上传成功！',
-          showCancel: false,
-          success(res){
-            if(res.confirm){
-              wx.navigateBack({
+    if(data.animalName == "" || data.varieties == "" || data.ownerName == "" || data.imgUrl.length == 0){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.showLoading({
+        title: '上传中',
+      })
+      wx.request({
+        url: domain + that.data.interface,
+        method: 'POST',
+        header:{ 'content-type': 'application/json'},
+        data: data,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: '上传成功！',
+            showCancel: false,
+            success(res){
+              wx.hideLoading({
               })
+              if(res.confirm){
+                wx.navigateBack({
+                })
+              }
             }
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   /**

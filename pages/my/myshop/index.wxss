@@ -1,9 +1,13 @@
-@import '../../../template//top/index.wxss';
+@import '../../../template/top/index.wxss';
 .title{
   color: white;
   position: absolute;
   left: 40%;
-  top: 35rpx;
+  top: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .shop{
   width: 90%;
@@ -19,22 +23,24 @@
 }
 .addShop{
   position: absolute;
-  top: 15rpx;
+  top: 20rpx;
   right: 20rpx;
+  padding: 0 7rpx;
   color: white;
   height: 60rpx;
   width: 140rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(240, 169, 56);
+  background-color: rgb(255, 166, 0);
   border-radius: 20rpx;
 }
 .delete{
   position: absolute;
-  top: 15rpx;
+  top: 20rpx;
   left: 20rpx;
-  color: black;
+  padding: 0 7rpx;
+  color: white;
   height: 60rpx;
   width: 140rpx;
   display: flex;
@@ -99,6 +105,6 @@ checkbox .wx-checkbox-input{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(240, 169, 56);
+  background-color: rgb(255, 166, 0);
   border-radius: 20rpx;
 }

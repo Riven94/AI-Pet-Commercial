@@ -4,6 +4,25 @@
         "ignore": [],
         "include": []
     },
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true,
+    "compileType": "miniprogram",
+    "libVersion": "2.20.1",
+    "appid": "wx9a194385e72104da",
+    "projectname": "wechat-pet-commercial",
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 2
+    },
     "setting": {
         "urlCheck": true,
         "es6": true,
@@ -37,10 +56,10 @@
         "packNpmRelationList": [],
         "minifyWXSS": true,
         "disableUseStrict": false,
+        "minifyWXML": true,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "minifyWXML": true
+        "ignoreUploadUnusedFiles": true
     },
     "condition": {}
 }

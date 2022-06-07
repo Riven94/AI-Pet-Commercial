@@ -1,5 +1,6 @@
 // pages/market/inde.js
-const domain = getApp().globalData.domainName;
+const app = getApp();
+const domain = app.globalData.domainName;
 Page({
 
   /**
@@ -11,19 +12,18 @@ Page({
     services:["热卖","主食","零食","洗护","家居","出行"],
     activityImg: [domain + "/media/icon/banner.jpeg",domain + "/media/icon/banner.jpeg",domain + "/media/icon/banner.jpeg"],
     currentIndex: 0,
-    freights: [
-      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"},
-      {imgUrl:"", name:"爱宠一家人洗护馆", distance:"7.2km", quantity:"862"}
-    ],
+    freights: [],
+    userId: -1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(1);
     const that = this;
+    this.setData({
+      userId: app.globalData.userId
+    })
     wx.request({
       // 获取商城中指定类别的所有商品列表
       url: domain + '/product/specificProduct',
@@ -50,7 +50,11 @@ Page({
     that.setData({
         currentIndex: index
     });
-    console.log(index);
+    this.getFreights(index);
+  },
+
+  getFreights(index){
+    const that = this;
     if(index == 3){
       wx.request({
         // 服务商城的所有店铺
@@ -127,6 +131,48 @@ Page({
     })
   },
 
+  modifyFreight(e){
+    console.log(e.currentTarget.dataset)
+    const freightId = e.currentTarget.dataset.id;
+    const storeId = e.currentTarget.dataset.storeid;
+    wx.navigateTo({
+      url: './uploadFreight/index?id=' + freightId + "&storeId=" + storeId,
+    })
+  },
+
+  delete(e){
+    const freightId = e.currentTarget.dataset.id;
+    const storeId = e.currentTarget.dataset.storeid;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '确认删除该商品？',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(freightId, storeId);
+        }
+      }
+    })
+  },
+
+  onRealDelete(id, storeId){
+    wx.request({
+      url: domain + '/product/delete',
+      method: 'POST',
+      data:{
+        id: id,
+        storeId: storeId
+      },
+      success(res){
+        wx.showModal({
+          cancelColor: 'cancelColor',
+          content: '删除成功！',
+          showCancel: false
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -138,7 +184,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getFreights(this.data.currentIndex);
   },
 
   /**

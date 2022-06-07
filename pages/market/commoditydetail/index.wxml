@@ -13,27 +13,29 @@
       <view class="nums">仅剩{{info.quantity}}件</view>
     </view>
   </view>
-  <view class="describe">
-    <view class="describe-wrap">
-      <view class="commodityname">{{info.name}}</view>
-      <text class="return">{{info.security}}</text>
-      <view class="methods">{{info.detail}}</view>
+  <view class="bottomWrap">
+    <view class="describe">
+      <view class="describe-wrap">
+        <view class="commodityname">{{info.name}}</view>
+        <text class="return">{{info.security}}</text>
+        <view class="methods">{{info.detail}}</view>
+      </view>
     </view>
-  </view>
-  <view class="freight">
-    <view class="left">运费：<text>{{info.freight}}</text></view>
-    <view class="right">
-      <view class="freight-middle">{{}}</view>
-      <view class="freight-right">已下单{{info.quantity}}</view>
+    <view class="freight">
+      <view class="left">运费<text style="margin-left: 50rpx;">{{info.freight}}</text></view>
+      <view class="right">
+        <view class="freight-middle">{{}}</view>
+        <view class="freight-right">已下单 {{info.quantity}}</view>
+      </view>
     </view>
-  </view>
-  <view class="service">
-    <view class="left">服务：<text>{{info.service}}</text></view>
-    <view class="right">{{}}</view>
-  </view>
-  <view class="comment" bindtap="toComment">
-    <text class="comment-text">商品评价</text>
-    <image class="more" src="{{arrowRight}}"></image>
+    <view class="service">
+      <view class="left">服务  <text style="margin-left: 50rpx;">{{info.service}}</text></view>
+      <view class="right">{{}}</view>
+    </view>
+    <view class="comment" bindtap="toComment">
+      <text class="comment-text">商品评价</text>
+      <image class="more" src="{{arrowRight}}"></image>
+    </view>
   </view>
   <view class="bottom">
     <view class="wrap">

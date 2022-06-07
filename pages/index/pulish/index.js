@@ -37,12 +37,6 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
         //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
     })
@@ -51,7 +45,8 @@ Page({
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
+    console.log(imgUrls);
     console.log(data);
     wx.showToast({
         icon: "loading",
@@ -69,10 +64,8 @@ Page({
         success(res) {
           console.log(res);
           let imgUrl = JSON.parse(res.data).imgUrl;
-          imgUrl.forEach((item)=>{
-            imgUrls.push(item);
-          })
-          //console.log(imgUrls);
+          imgUrls.push(imgUrl[0]);
+          console.log(imgUrls);
           that.setData({imageList: imgUrls});
         },
         fail(e) {
@@ -95,32 +88,45 @@ Page({
       comment: that.data.Content,
       type: that.data.pulishType[that.data.typeIndexs]
     };
+    var valid = true;
+    if(temp.comment == '' || temp.imgUrl.length == 0){
+      valid = false;
+    }
     if(this.data.edit){
       temp.id = this.data.id;
     }
-    wx.request({
-      url: domain + that.data.inter,
-      method: 'POST',
-      data: temp,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          content:'上传成功！',
-          showCancel: false,
-          success(){
-            wx.navigateBack({
-            })
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
-        wx.showModal({
-          content:'上传失败！',
-          showCancel: false,
-        })
-      }
-    })
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.request({
+        url: domain + that.data.inter,
+        method: 'POST',
+        data: temp,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            content:'上传成功！',
+            showCancel: false,
+            success(){
+              wx.navigateBack({
+              })
+            }
+          })
+        },
+        fail(error){
+          console.log(error);
+          wx.showModal({
+            content:'上传失败！',
+            showCancel: false,
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -143,6 +149,33 @@ Page({
     }
   },
   
+  deleteImages: function(e){
+    const index = e.currentTarget.dataset.index;
+    const that = this;
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '确认删除该图片？',
+      success(res){
+        if(res.confirm){
+          that.onRealDelete(index);
+        }
+      }
+    })
+  },
+
+  onRealDelete(index){
+    var newImageList = this.data.imageList;
+    newImageList.splice(index, 1);
+    this.setData({ imageList: newImageList});
+  },
+
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
+    })
+  },
+
   content:function(e){
     this.setData({
         Content:e.detail.value

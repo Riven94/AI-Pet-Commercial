@@ -5,12 +5,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .top{
   width: 100%;
   display: flex;
   /* background: linear-gradient(0deg, rgba(2,187,255,1) 0%,rgba(1,134,255,1) 100%); */
   background: #F3BE67;
+  position: fixed;
+}
+.tab{
+  position: fixed;
 }
 .functions{
   display: flex;
@@ -47,8 +52,8 @@
 }
 .setting{
   margin-top: 30rpx;
-  width: 45rpx;
-  height: 45rpx;
+  width: 55rpx;
+  height: 55rpx;
   align-items: flex-end;
 }
 .functions{
@@ -74,7 +79,9 @@
   font-weight: 20rpx;
   margin-right: 15rpx;
 }
-
+.text{
+  font-size: 32rpx;
+}
 .publishtop{
   width: 100%;
   margin-left: 10rpx;

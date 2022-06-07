@@ -51,6 +51,11 @@ page{
 .info{
   background-color: #EFEEEE;
 }
+.images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .img{
   width: 100rpx;
   height: 100rpx;
@@ -62,10 +67,12 @@ page{
 .delete{
   position: absolute;
   right: 40rpx;
-  background-color: rgba(240, 169, 56);
+  color: white;
+  background-color: red;
   margin-top: 15rpx;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 10rpx;
   width: 80rpx;
 }

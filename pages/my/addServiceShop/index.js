@@ -53,22 +53,22 @@ Page({
       success (res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths 
-        //console.log(res)
-        imageList.push(tempFilePaths[0])
-        that.setData({
-            imageList,
-            // imageList:res.tempFilePaths
-        })
-        //console.log("aaaaaaaaa",tempFilePaths)
         that.upload(tempFilePaths)
       }
+    })
+  },
+
+  preview(e){
+    const url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [url],
     })
   },
 
   upload(data) { // 上传图片
     const userId = app.globalData.userId;
     var that = this;
-    var imgUrls = [];
+    var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
         title: "正在上传"
@@ -119,6 +119,12 @@ Page({
       type: value.input6,
       place: value.input7
     };
+    var valid = true;
+    for(let index in data){
+      if(data[index] == '' || data[index].length == 0){
+        valid = false;
+      }
+    }
     var inter = "/service/storeAdd";
     var content = "创建成功！";
     if(this.data.edit){
@@ -126,28 +132,35 @@ Page({
       data.id = this.data.storeId;
       content = "修改成功！";
     }
-    console.log(data);
-    wx.request({
-      url: domain + inter,
-      method: 'POST',
-      data: data,
-      success(res){
-        console.log(res);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          content: content,
-          showCancel: false,
-          success(res){
-            wx.navigateBack({
-            })
-          }
-        })
-      },
-      fail(error){
-        console.log(error);
-      }
-    })
-    
+    if(!valid){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '数据不能为空！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.request({
+        url: domain + inter,
+        method: 'POST',
+        data: data,
+        success(res){
+          console.log(res);
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: content,
+            showCancel: false,
+            success(res){
+              wx.navigateBack({
+              })
+            }
+          })
+        },
+        fail(error){
+          console.log(error);
+        }
+      })
+    }
   },
 
   /**

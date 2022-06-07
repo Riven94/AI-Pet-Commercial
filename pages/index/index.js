@@ -6,16 +6,10 @@ Page({
   data: {
     addIcon: domain + "/media/icon/add.png",
     arrowRight: domain + "/media/icon/arrow-right.png",
-    publishItem:[
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"},
-      {img:"../../icons/cat.jpg", title:"流浪狗发现于武汉理工大学南湖校区智园", type:"博美",color:"白色"}
-    ],
-    tabs: ['流浪猫狗','寻找宠物','爱宠配对','萌宠动态'],
-    currentIndex: 0
+    publishItem:[],
+    tabs: ['流浪猫狗','寻找宠物','宠物领养','萌宠动态'],
+    currentIndex: 0,
+    clientHeight: 0
   },
   // 事件处理函数
   bindViewTap() {
@@ -27,6 +21,14 @@ Page({
   onLoad(options) {
     //this.test();  
     this.getMain();
+    const that = this;
+    wx.getSystemInfo({ 
+      success: function (res) { 
+          that.setData({ 
+              clientHeight: res.windowHeight 
+          }); 
+      } 
+    }) 
   },
 
   onShow(){
@@ -85,6 +87,12 @@ Page({
     console.log(e.currentTarget.dataset.index);
     const index = e.currentTarget.dataset.index;
     this.setData({currentIndex: index});
+    this.getMain();
+  },
+
+  swiperTransition(e){
+    console.log(e);
+    this.setData({currentIndex: e.detail.current});
     this.getMain();
   },
 

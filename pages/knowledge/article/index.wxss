@@ -1,4 +1,10 @@
 @import '../../../template/top/index.wxss';
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .title{
   position: absolute;
   left: 43%;
@@ -20,4 +26,23 @@
   background-color: rgb(240, 169, 56);
   padding: 7rpx;
   border-radius: 20rpx;
+}
+.article-title{
+  margin: 20rpx auto;
+  font-size: 36rpx;
+}
+.articleDetail{
+  word-break: break-all;
+  line-height: 50rpx;
+  text-indent: 60rpx;
+  width: 90%;
+  margin: 0 auto;
+}
+.imgWrap{
+  width: 90%;
+}
+.img{
+  margin: 30rpx 0;
+  width: 100%;
+  height: 600rpx;
 }

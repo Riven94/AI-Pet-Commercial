@@ -1,105 +1,44 @@
 @import '../../../template/top/index.wxss';
+@import '../../../template/addImage/index.wxss';
 .title{
-  color: black;
-  top: 33rpx;
+  color: white;
+  top: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 43%;
   position: absolute;
 }
-.fenlei{
-  margin: 0 25rpx;
-  height: 90rpx;
-  line-height: 90rpx;
-  border-bottom: 1rpx solid #e6e6e6;
-  display: flex;
-  align-items: center;
-}
-.fenlei text{
-  font-size: 30rpx;
-}
-/* 下拉框 */
-.select_box {
-  background: #fff;
-  width: 620rpx;
-  /* margin: 0 auto; */
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: left;
-  position: relative;
-}
-
-.select {
-  box-sizing: border-box;
-  width: 100%;
-  height: 86rpx;
-  /* border: 1px solid #efefef; */
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  padding: 0 20rpx;
-}
-
-.select_text {
-  font-size: 28rpx;
-  flex: 1;
-  line-height: 86rpx;
-  height: 86rpx;
-}
-.option_box {
-  position: absolute;
-  top: 86rpx;
-  width: 100%;
-  /* border: 1px solid #efefef; */
-  box-sizing: border-box;
-  height: 0;
-  overflow-y: auto;
-  border-top: 0;
-  background: #fff;
-  transition: height 0.3s;
-  z-index: 100;
-}
-
-.option {
-  display: block;
-  line-height: 40rpx;
-  font-size: 28rpx;
-  border-bottom: 1px solid #efefef;
-  padding: 10rpx;
-  color: rgb(102, 102, 102);
-}
-.image{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100rpx;
-  align-items: center;
+.text-title{
+  margin: 0 auto;
+  width: 95%;
 }
 .submit{
   width: 80rpx;
+  padding: 10rpx 13rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20rpx;
   position: absolute;
-  color: black;
+  color: white;
   background-color: rgb(255, 166, 0);
-  right: 5%;
-  top: 33rpx;
+  right: 20rpx;
+  top: 20rpx;
 }
-.imageList{
-  display: flex;
-  flex-wrap: wrap;
-}
-.normal{
-  width: 130rpx;
-  height: 130rpx;
-}
+
 .text::after{
   position: absolute;
   content: '';
-  margin: 16rpx 0 0 20rpx;
+  margin: 13rpx 0 0 20rpx;
   width: 0rpx;
   height: 0rpx;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 8px solid gray;
+}
+.weui-input{
+  width: 95%;
+  margin: 0 auto;
 }

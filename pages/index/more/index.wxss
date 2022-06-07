@@ -15,6 +15,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: #F3BE67;
+  margin-bottom: 30rpx;
 }
 .triangle{
   margin-top: 9rpx;
@@ -39,7 +41,7 @@
   top: 20rpx;
   width: 100rpx;
   height: 60rpx;
-  color: #e6e6e6;
+  color: white;
   border-radius: 20rpx;
   background-color: rgb(240, 169, 56);
   font-weight: 100;
@@ -53,7 +55,7 @@
   top: 20rpx;
   width: 100rpx;
   height: 60rpx;
-  color: #e6e6e6;
+  color: white;
   border-radius: 20rpx;
   background-color: rgb(240, 169, 56);
   font-weight: 100;

@@ -7,84 +7,43 @@ Page({
      * 页面的初始数据
      */
     data: {
-      animalitem:{
-        attribute: "宠物狗",
-        name: "旺旺",
-        type: "萨摩耶",
-        color: "白色",
-        img: ["../../../icons/market-selected.png", "../../../icons/market-selected.png"]
-      },
-      owneritem:{
-        nickname: "王先生",
-        email: "2281122323@163.com",
-        phone:"18720336579",
-        time: "2022/1/25"
-      },
+      animals: [],
+      owners: [],
+      animalitem: [],
+      owneritem: [],
       currentData: 0, 
-      selectPerson: true,
+      tabBars: ['结果一', '结果二','结果三','结果四','结果五']
     },
 
     bindchange: function(e) {
-        const that = this;
-        that.setData({
-          currentData: e.detail.current
-        })
-      },
-
-      //点击切换，滑块index赋值
-    checkCurrent: function(e) {
+      console.log(this.data.animals, this.data.owners);
       const that = this;
-      if (that.data.currentData === e.currentTarget.dataset.current) {
-        return false;
-      } else {
-        that.setData({
-          currentData: e.currentTarget.dataset.current
-        })
-      }
-      },
+      const current = e.detail.current;
+      that.setData({
+        currentData: current, animalitem: that.data.animals[current], owneritem: that.data.owners[current]
+      }, ()=>{
+        console.log(that.data.animalitem, that.data.owneritem);
+      });
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
       console.log(options);
-      const animalId = options.id;
-      const ownerId = options.ownerId;
-      this.getAnimal(animalId);
-      this.getOwner(ownerId);
+      const index = options.index * 1;
+      const that = this;
+      const eventChannel = this.getOpenerEventChannel();
+      eventChannel.on('sendData', function(data){
+        that.setData({currentData: index, animals: data.animal, owners: data.owner, animalitem: data.animal[index], owneritem: data.owner[index]});
+      });
     },
 
-    getAnimal(id){
+    changeTab(e){
       const that = this;
-      wx.request({
-        url: domain + '/animals/getDetail',
-        data:{
-          animalId: id
-        },
-        method: 'GET',
-        success(res){
-          const resData = res.data.data;
-          console.log(res);
-          that.setData({animalitem: res.data.data});
-        }
-      })
-    },
-
-    getOwner(id){
-      const that = this;
-      wx.request({
-        url: domain + '/user/getUserDetail',
-        data:{
-          userId: id
-        },
-        method: 'GET',
-        success(res){
-          console.log(res);
-          that.setData({owneritem: res.data.data});
-        },
-        fail(error){
-          console.log(error);
-        }
-      })
+      const index = e.currentTarget.dataset.index;
+      console.log(this.data.animals, this.data.owners);
+      this.setData({ currentData: index, animalitem: that.data.animals[index], owneritem: that.data.owners[index] });
     },
 
     /**

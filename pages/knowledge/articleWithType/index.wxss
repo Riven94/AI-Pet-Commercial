@@ -32,7 +32,7 @@ page{
   height: 190rpx;
   font-size: 25rpx;
   overflow: hidden;
-  line-height: 48rpx;
+  line-height: 47rpx;
 }
 .article-img{
   width: 190rpx;
