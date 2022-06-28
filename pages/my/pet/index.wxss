@@ -17,6 +17,16 @@ page{
   flex-direction: column;
   justify-content: center;
 }
+.title{
+  color: white;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 200rpx;
+  margin-left: -100rpx;
+  display: flex;
+  justify-content: center;
+}
 .addButton{
   margin: 30rpx;
   background-color: rgba(240, 169, 56);

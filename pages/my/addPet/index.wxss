@@ -13,6 +13,12 @@
   width: 500rpx;
   border-radius: 10rpx;
 }
+.title{
+  position: absolute;
+  left: 43%;
+  top: 30rpx;
+  color: white;
+}
 .weui-input{
   height: 350rpx;
   width: 100%;

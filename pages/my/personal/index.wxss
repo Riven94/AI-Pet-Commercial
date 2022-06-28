@@ -19,6 +19,11 @@ page{
   align-items: center;
   justify-content: center;
 }
+.title{
+  color: white;
+  position: absolute;
+  top: 13rpx;
+}
 .triangle{
   margin-top: 9rpx;
   margin-left: 20rpx;

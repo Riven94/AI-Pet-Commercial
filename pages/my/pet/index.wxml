@@ -11,11 +11,8 @@
 </wxs>
 <view class="container">
   <view class="bluetop">
-    <!-- <view class="message">
-      <view class="triangle" bindtap="back"></view>
-      <text class="moremessage">我的宠物消息</text>
-    </view> -->
-    <view class="addButton" bindtap="addPet" style="width: 140rpx;padding: 0;float: right;">添加宠物</view>
+    <view class="title">我的宠物</view>
+    <view class="addButton" bindtap="addPet" style="width: 140rpx;padding: 7rpx 4rpx;float: right;">添加宠物</view>
   </view>
   <view class="info">
     <view class="information" wx:for="{{information}}" data-detail="{{item}}" bindtap="toEdit">

@@ -1,6 +1,7 @@
 <import src="../../../template/top/index.wxml"></import>
 <import src="../../../template/addImage/index.wxml"></import>
 <template is="top"></template>
+<view class="title">文章内容</view>
 <form catchsubmit="formSubmit">
     <view class="section" wx:for="{{info}}">
       <view class="left">{{item}}</view>

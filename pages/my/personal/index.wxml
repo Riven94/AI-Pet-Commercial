@@ -3,6 +3,7 @@
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
   <view class="bluetop">
+    <view class="title">个人信息</view>
   </view>
 <view class="info">
   <view class="information">
