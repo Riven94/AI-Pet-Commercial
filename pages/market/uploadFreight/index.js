@@ -122,6 +122,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success (res) {
+        console.log(res);
         wx.showModal({
           cancelColor: 'cancelColor',
           content: '上传成功！',

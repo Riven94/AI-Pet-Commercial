@@ -64,7 +64,8 @@ Page({
         },
         success(res){
           console.log(res);
-          const resData = res.data.error;
+          var resData = res.data.error;
+          resData = resData.reverse();
           that.setData({
             freights: resData
           })
@@ -156,6 +157,7 @@ Page({
   },
 
   onRealDelete(id, storeId){
+    const that = this;
     wx.request({
       url: domain + '/product/delete',
       method: 'POST',
@@ -168,7 +170,8 @@ Page({
           cancelColor: 'cancelColor',
           content: '删除成功！',
           showCancel: false
-        })
+        });
+        that.getFreights(that.data.currentIndex);
       }
     })
   },

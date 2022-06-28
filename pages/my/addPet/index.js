@@ -91,16 +91,32 @@ Page({
   uploadImage:function(){
     var that=this;
     var imageList = that.data.imageList;
-    wx.chooseImage({
-      count: 5,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success (res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths 
-        that.upload(tempFilePaths)
-      }
-    })
+    if(imageList.length == 1){
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '只能上传一张宠物图片！',
+        showCancel: false
+      })
+    }
+    else{
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请上传宠物面部图片！',
+        showCancel: false,
+        success(res){
+          wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success (res) {
+              // tempFilePath可以作为img标签的src属性显示图片
+              const tempFilePaths = res.tempFilePaths 
+              that.upload(tempFilePaths)
+            }
+          })
+        }
+      })
+    }
   },
 
   deleteImages: function(e){
@@ -192,13 +208,13 @@ Page({
         data: data,
         success(res){
           console.log(res);
+          wx.hideLoading({
+          })
           wx.showModal({
             cancelColor: 'cancelColor',
             content: '上传成功！',
             showCancel: false,
             success(res){
-              wx.hideLoading({
-              })
               if(res.confirm){
                 wx.navigateBack({
                 })

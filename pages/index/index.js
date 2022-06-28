@@ -9,7 +9,8 @@ Page({
     publishItem:[],
     tabs: ['流浪猫狗','寻找宠物','宠物领养','萌宠动态'],
     currentIndex: 0,
-    clientHeight: 0
+    clientHeight: 0,
+    nozanIcon:domain + "/media/icon/no赞.png"
   },
   // 事件处理函数
   bindViewTap() {

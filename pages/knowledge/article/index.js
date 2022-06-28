@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    zanIcon:domain + "/media/icon/赞.png",
+    nozanIcon:domain + "/media/icon/no赞.png",
     content: "",
     delete: false,
     articleId: '',

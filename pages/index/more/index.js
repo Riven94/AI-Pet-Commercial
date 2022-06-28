@@ -16,7 +16,6 @@ Page({
       ownerId: 1,
       time: '',
       isOwner: false,
-      commentId: ""
     },
     owneritem:{
       nickname: "王先生",
@@ -24,7 +23,12 @@ Page({
       phone: "15311111111",
       time: "2022/1/25"
     },
-    detail: {}
+    detail: {},
+    zanIcon:domain + "/media/icon/赞.png",
+    nozanIcon:domain + "/media/icon/no赞.png",
+    newsList:[],
+      iszan:[],
+      commentId: ""
   },
 
   /**
@@ -34,7 +38,11 @@ Page({
     //this.getAnimal(options.id);
     this.setData({commentId: options.id});
     this.getDetail(options.id);
+  
+
   },
+
+
 
   getDetail(id){
     const that = this;
@@ -166,6 +174,64 @@ Page({
       urls: [url[0]],
     })
   },
+
+favorclick: function(e){
+  var likeFlag = false;
+  if(likeFlag === true){
+    return false;
+  }
+console.log(e);
+  var that =this;
+  var comment_id = e.currentTarget.dataset.id;
+  var index = e.currentTarget.dataset.dex;
+  var islike = e.currentTarget.dataset.islike;
+  var message = this.data.talks;
+  var timestamp = Date.parse(new Date());
+  timestamp=timestamp/1000;
+  var zanInfo={
+    //token:app.globalData.portConfig.token,
+    timestamp:timestamp,
+    comment_id:comment_id,
+    cancel:islike,
+  }
+  var zanData = zanInfo;
+  //var postzanData = that.makePostData(zanData, that.data.key);
+  wx.request({
+    url: domain+'/attention/add',
+    data:{
+        commentId: that.data.commentId,
+        creatorId: app.globalData.userId
+    },
+    method:'POST',
+    header:{
+      'content-type':'application/x-www-form-urlencoded'
+    },
+    success: function(res) {
+    
+       for (let i in message) {
+         if (i == index) {
+          if (message[i].is_like == 0) {
+          that.data.talks[index].is_like = 1
+       message[i].like_num = parseInt(message[i].like_num) + 1
+         } else {
+    that.data.talks[index].is_like = 0
+     message[i].like_num = parseInt(message[i].like_num) - 1
+     }
+  }
+   }
+     that.setData({
+      talks: message
+              })
+          console.log("点赞成功", res);
+     
+           },
+           complete: function(res) {
+          likeFlag = false;
+    }
+  })
+},
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

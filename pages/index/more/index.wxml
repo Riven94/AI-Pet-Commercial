@@ -2,13 +2,44 @@
 <import src="../../../template/animalcard/animalcard.wxml"></import>
 <import src="../../../template/ownercard/ownercard.wxml"></import>
 <view class="container">
+ 
   <view class="bluetop">
     <view class="delete" bindtap="delete" wx:if="{{isOwner}}">删除</view>
-    <view class="edit" bindtap="toEdit" wx:if="{{isOwner}}">修改</view>
+    <view class="title">动态详情</view>
+
+    <view class="edit" bindtap="toEdit" wx:if="{{isOwner}}">修改</view> 
+
   </view>
-  <image src="{{detail.imgUrl}}" class="animalImg" mode="aspectFill" data-url="{{detail.imgUrl}}" bindtap="preview"></image>
+  <swiper class="animalWrap" autoplay circular indicator-dots indicator-active-color="rgb(240, 169, 56)">
+    <swiper-item wx:for="{{detail.imgUrl}}">
+      <image src="{{item}}" class="animalImg" mode="aspectFill" data-url="{{item}}" bindtap="preview"></image>
+    </swiper-item>
+  </swiper>
   <view class="content">{{detail.comment}}</view>
   <!-- <template is="animalcard" data="{{animalitem}}"></template>
   <template is="ownercard" data="{{owneritem}}"></template> -->
+  <view class='talk-item-zan'>
+
+  <view bindtap="favorclick" data-id='{{item.id}}' data-islike="{{item.is_like}}"  data-dex="{{index}}" data-userid="{{item.user_id}}" class="like_box">
+  <image src="{{zanIcon}}" class="zan" wx:if="{{item.is_like == 1}}"></image>
+ <image src ="{{nozanIcon}}" class="zan"  wx:else></image>
+  <view class='zan_num'>{{item.like_num}}</view>
+  </view>
+</view>
   <view class="left"></view>
+  
+
+
+
+
+<!-- <block wx:for='{{newsList}}'>
+    <view class='zan' bindtap='thumbsup' data-id='{{item.id}}'>
+        <image src="{{nozanIcon}}" mode='widthFix' style="background-color: black;" hidden="{{item.state=='true'}}"></image>    //未点赞
+        <image src="{{zanIcon}}" mode='widthFix' hidden="{{item.state=='false'}}"></image>    //点赞
+    </view>
+  </block> -->
+
+  
+  
+  
 </view>

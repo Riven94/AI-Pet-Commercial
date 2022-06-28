@@ -31,13 +31,13 @@ Page({
       content: "确认删除此文章？",
       success(res){
         if(res.confirm){
-          that.onRealDelete();
+          that.onRealDeleteArticle();
         }
       }
     })
   },
 
-  onRealDelete(){
+  onRealDeleteArticle(){
     const that = this;
     wx.request({
       url: domain + '/knowledge/delete',
@@ -102,7 +102,8 @@ Page({
     var imgUrls = this.data.imageList;
     wx.showToast({
         icon: "loading",
-        title: "正在上传"
+        title: "正在上传",
+        duration: 10000
     }),
     data.forEach((item)=>{
       wx.uploadFile({
@@ -120,6 +121,7 @@ Page({
           })
           //console.log(imgUrls);
           that.setData({imageList: imgUrls});
+          wx.hideToast();
         },
         fail(e) {
           wx.showModal({
@@ -161,7 +163,7 @@ Page({
       imgUrl: that.data.imageList,
       type: that.data.artType[that.data.typeIndex],
     };
-    var valid = false;
+    var valid = true;
     if(temp.articleTitle == '' || temp.article == '' || temp.imgUrl.length == 0){
       valid = false;
     }
@@ -181,33 +183,43 @@ Page({
       })
     }
     else{
-      wx.request({
-        url: domain + path, 
-        method: "POST",
-        data: temp,
-        header:{'content-type':'application/json'},
-        success (res) {
-          console.log(res.data);
-          wx.showModal({
-            title: '上传成功！',
-            showCancel: false,
-            success(){
-              wx.navigateBack({
-              })
-            }
-          })
-        },
-        fail(error){
-          console.log(error);
-          wx.showModal({
-            title: '上传失败！',
-            content:'请检查内容是否填写完整',
-            showCancel: false
-          })
-        }
-      })
+      app.checkContent(4,temp.article, temp.articleTitle)
+      .then( res => that.submitData(temp, path))
+      .catch( error => wx.showModal({
+        cancelColor: 'cancelColor',
+        content: '请检查内容是否正确！'
+      }));
     }
   },
+
+  async submitData(data, path){
+    wx.request({
+      url: domain + path, 
+      method: "POST",
+      data: data,
+      header:{'content-type':'application/json'},
+      success (res) {
+        console.log(res.data);
+        wx.showModal({
+          title: '上传成功！',
+          showCancel: false,
+          success(){
+            wx.navigateBack({
+            })
+          }
+        })
+      },
+      fail(error){
+        console.log(error);
+        wx.showModal({
+          title: '上传失败！',
+          content:'请检查内容是否填写完整',
+          showCancel: false
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

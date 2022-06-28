@@ -46,3 +46,12 @@
   width: 100%;
   height: 600rpx;
 }
+.zan{
+
+  position: fixed;
+  width: 40rpx;
+  height: 40rpx;
+  right: 20rpx;
+  bottom: inherit;
+  
+}

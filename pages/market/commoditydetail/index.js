@@ -38,7 +38,7 @@ Page({
         resData.count = 1;
         that.setData({
           info: resData
-        })
+        }, ()=> console.log(that.data.info))
       }
     })
  },
